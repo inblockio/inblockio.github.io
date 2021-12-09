@@ -18,8 +18,8 @@ self-directed, sustainable, and trusted value creation.
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
-
     {{ post.excerpt }}
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
   </div>
   {% endfor %}
 </div>
