@@ -30,7 +30,7 @@ twitter_username: inblockio
 github_username:  inblockio
 
 # Build settings
-theme: minima
+remote_theme: poole/hyde
 plugins:
   - jekyll-feed
 
