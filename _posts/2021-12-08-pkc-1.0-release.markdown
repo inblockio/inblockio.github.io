@@ -1,0 +1,211 @@
+---
+layout: post
+title:  "PKC Version 1.0 Release"
+date:   2021-12-08 06:14:34 -0500
+categories: release
+---
+
+What happens when you combine Wikipedia + Git SCM + Containers + OpenTimestamps + Web3.0?
+
+You get a Personal Knowledge Container (PKC) a.k.a. Data Vault (DV) to govern your data and enable you to begin your journey towards digital sovereignty. With the '''first alpha release''' of PKC we invite you to explore the possibilities of digital sovereignty and data democratization by creating your own personal DV, cryptographically secured and capable of running both online and off.
+
+We at [Inblock.io assets GmbH](https://www.inblock.io/) have worked hard from April 2021 to early December 2021 to bring you this first, free and open source, alpha-quality preview release so that you may begin exploring the potential of what it means to truly own your own data.
+
+With the first alpha release we introduce two complimentary tools:
+
+* micro-PKC (A simple command line tool to start, stop and backup your PKC)
+* Data Accounting (Companion library for intelligent data verification and signing)
+
+Using these two tools in combination will allow you to create your very own DV so that you may begin experimenting with the concept of Data Vaults in combination with the ability to leverage existing distributed-ledger technology to undeniably prove the data you possess not only belongs to you, but also when it came into existence and who was there to witness the event.
+
+During the alpha period we will collect valuable information from end-users like yourself so that we may introduce the concept of sovereign data to the Open Source software community and to garner the support needed to continue to meet our future development goals as we work towards what we believe will become the most novel technology the Web has seen since its advent over 30 years ago.
+
+Harnessing the power of distributed-ledger technology (DLT) we envision a Web free of information gatekeepers where data sovereignty is not only possible – it is the norm. Using micro-PKC and Data Accounting allows us to not only leverage DLTs but also to publish information to any other Witness Network or public Agora such as Twitter, Facebook or even offline to publications such as scientific journals or even the New York Times.
+
+Sovereign Data is data which is fully governed by the producer of that data and what we believe is the foundation of digital sovereignty and decentralization of control over information. With our 1.0.0-alpha release we are proud to introduce the concept of vaulted data to those who desire self-governance of their information. We've combined our technology with the established cryptographic identification wallet MetaMask to provide authentication to, and private interaction with, each DV.
+
+We call each of these Data Vaults a '''Personal Knowledge Container'''.
+
+Learn more about sovereign data and its potential impact on society by watching videos about [PKC and PKC usage](https://www.youtube.com/channel/UCfX_LtTaam0m7w5Df_yIMAA) on YouTube.com (for now) and by reviewing the source code created over the last several months by Inblock.io to make this initial release possible:
+
+## Micro PKC
+
+Micro PKC is an easy way to deploy a Personal Knowledge Container to your local machine (Linux, Mac, Windows) or on a web-server to be hosted there. Inside the bundled services of micro-PKC, we feature MediaWiki 1.37.0, which is the software used to manage the biggest open online encyclopedia, 'Wikipedia'. We are featuring advanced Web3.0 concepts for time-stamping and signing to keep your identity safe within MetaMask and/or hardware wallets when used in combination. Micro PKC features a single command-line interface usable with a range of commands (run "./pkc help" to see full range of options).
+
+### Features
+
+* Login with Ethereum Wallet MetaMask or Hardware-Wallet (Ledger/Trezor) via Eauth Service
+* Local deployments which keep your data offline and under your control
+* Upgraded MediaWiki Skins (Tweeki) for better user experience
+* Backup and Restore
+  - All verification data is included in the backup and restore procedure
+  - User accounts are preserved in the backup
+  - By default cron-enabled 30 minutes backups
+  - A command-line-tool for manual backup and restore
+* Web-Deployment
+  - When specifying a domain during setup it will automatically set up all configs to be web-accessible. This includes security elements such as automatic Let's encrypt certificates generation.
+
+### Limitations
+* 2FA with Hardware-Wallets (Trezor, Ledger) is supported. 2FA One-Time-Passwords with Mobile-Phone is not yet available. See [Issue #37](https://github.com/inblockio/micro-PKC/issues/37). 
+* Deployments on Digital Ocean show a let's encrypt certificate error. After restarting the container pkc start / stop and waiting a moment it seems to go a way. See [Issue #98](https://github.com/inblockio/micro-PKC/issues/98).
+
+### Snapshots
+
+The following snapshots identify the code as released. View the free and open source code used to create what we believe is the world's first practical implementation of digital sovereignty.
+
+**Source:** [inblockio/micro-PKC:v1.0.0-alpha](https://github.com/inblockio/micro-PKC/releases/tag/v1.0.0-alpha)
+
+## Data Accounting
+
+Data Accounting is a MediaWiki (1.37+) extension offering a notary and data accounting services within Micro PKC.
+
+Content and metadata is immutably secured by hash-chains. The content can be witnessed and entangled with a cryptographic signature to account for it. 
+
+### Features
+
+* Immutable revision history by entangling revisions in a hash chain stored locally in your micro-PKC. This is automatically done in the background.
+* Entangling cryptographic signatures from your Ethereum Wallet with your revision via the 'Sign' action
+* Entangling cryptographic time-stamps in the style of 'open-timestamps' using the Domain-Generator / Publisher to the Ethereum Main-Chain in Seconds;
+* Export/Import to move verified pages out of your PKC into another PKC
+* Exposure of verification data via API to allow usage of remote verification tools (data-accounting-external-verifier and VerifyPage Chrome Extension)
+
+### Limitations
+
+* Media miles are not included in export / import operations. You need to re-upload them after moving a page over to a different PKC's via the export / import functionality.
+* Sub pages and media-files are not included in the current version of the Data Accounting Protocol therefore they are not subject of being verified. It is possible to change a picture in the page without the verification tool complaining. Media-files will be included with version v1.1 of the Data Accounting Protocol
+* If pages have too many revisions, the verification will eventually take a very long time and potentially become impractically. We recommend moving content of a page into a new page to continue editing it from there. You can ensure that you're including the revision_verification_hash to make of the last revision of the old page and create a link to that specific revision. Then you can protect the old  page to avoid any additional edits.
+* We are depending on the availability of etherscan.io for verification of Ethereum transactions. This will be solved in the future by being able to connect to your own custom RPC node for verification. You can already connect your MetaMask wallet through their own functionality to your custom RPC node for publishing.
+
+### Snapshots
+
+The following snapshots identify the code as released.
+
+**Source:** [inblockio/DataAccounting:v1.0.0-alpha](https://github.com/inblockio/DataAccounting/releases/tag/v1.0.0-alpha).
+
+## Data Accounting External Verifier
+
+The Data Accounting External Verifier offers a command-line tool to verify pages in Micro PKC which have been accounted for by the Data Accounting extension for MediaWiki.
+
+### Features
+* command line tool to verify page
+* offers verbose and regular output for troubleshooting
+* can use a session token as input to verify against restricted pages
+* can verify against remote domains by defining the remote server
+
+### Limitations
+* by default the -m flag is not set, therefore the merkle-proof is not recomputed and tested as it is quire compute intense. This needs to be compensated in the future by intelligent caching and pre-caching of witness-contract data via the RPC Ethereum node
+* [See other issues](https://github.com/inblockio/data-accounting-external-verifier/issues)
+
+### Usage
+
+```
+verifier.js [OPTIONS] <page title>
+
+Options
+  -v       Verbose
+  --server <The url of the server, e.g. https://pkc.inblock.io>
+  -m       Verify the witness merkle proof of each revision
+  --token  (Optional) OAuth2 access token to access the API
+```
+
+### Snapshots
+
+The following snapshots identify the code as released.
+
+**Source:** [inblockio/data-accounting-external-verifier:v1.0.0-alpha](https://github.com/inblockio/data-accounting-external-verifier/releases/tag/v1.0.0-alpha).
+
+## VerifyPage
+Verify Page is a Chrome-Extension which can be used to verify pages of a Micro PKC instance which has the Data Accounting MediaWiki extension running.
+
+### Features
+* Can be installed via the Chrome App Store
+* Using the manual 'Verify Page' button in the pop up to trigger a new verification
+* Automatically detects if a page can be verified or not
+* Automatically runs to verify data on supported pages and provides instant feedback once done
+
+### Known Limitations
+* User waits very long time on page with long revision history to get a visual feedback
+
+### Snapshots
+
+The following snapshots identify the code/extension runtime as released.
+
+**Source:** [inblockio/VerifyPage:v1.0.0-alpha](https://github.com/inblockio/VerifyPage/releases/tag/v1.0.0-alpha).<br>
+**Extension:** [VerifyPage extension on the Chrome Web Store](https://chrome.google.com/webstore/detail/verifypage/gadnjidhhadchnegnpadkibmjlgihiaj?hl=en-GB&authuser=0)
+
+## MariaDB
+Proven and industry standard database backend for MediaWiki.
+
+### Features
+* Builds directly on top of the official MariaDB build image
+* Provides a battle-hardened database capable of enterprise scale
+
+### Limitations
+* None
+
+### Snapshots
+
+The following snapshots identify the code/container runtime as released.
+
+**Source:** [MariaDB/mariadb-docker:v10.6.5](https://github.com/MariaDB/mariadb-docker/commit/d711333929498046f354e14430cbe65e4767fc63)<br>
+**Container:** [library/mariadb:10.6.5](https://hub.docker.com/layers/mariadb/library/mariadb/10.6.5/images/sha256-e392158bb1f133d1672b87383a04e386c1f7c0439a75cbae6a0b7ca1775fa3da?context=explore)
+
+## Docker Aqua MediaWiki
+Customized version of MediaWiki for use with Micro PKC.
+
+### Features
+* Enables the addition and removal of MediaWiki extensions
+* Allows further customization of MediaWiki with skins
+* Integrates directly with Micro PKC
+
+### Limitations
+* None
+
+### Snapshots
+
+The following snapshots identify the code/container runtime as released.
+
+**Source:** [inblockio/docker-aqua-mediawiki:v1.0.0-alpha](https://github.com/inblockio/docker-aqua-mediawiki/releases/tag/v1.0.0-alpha)<br>
+**Container:** [inblockio/micro-pkc-mediawiki:1.0.0-alpha](https://hub.docker.com/layers/181253860/inblockio/micro-pkc-mediawiki/1.0.0-alpha/images/sha256-75458c2e275e074c506165c8664aad98efe287490f30c0c5cba451ab93c7ee2c?context=repo)
+
+## MediaWiki Docker
+Dockerfiles to build MediaWiki Docker images.
+
+### Features
+
+* Takes ownership over source code
+* Collaborates with upstream on PHP version
+* Enables for rapid testing on new versions of PHP
+* Provides a stable base for WikiMedia installations
+* Integrates with PKC
+
+### Limitations
+* None
+
+### Snapshots
+
+The following snapshots identify the code/container runtime as released.
+
+**Source:** [inblockio/mw-docker:v1.0.0-alpha](https://github.com/inblockio/mw-docker/releases/tag/v1.0.0-alpha)<br>
+**Container:** [inblockio/mediawiki:1.0.0-alpha](https://hub.docker.com/layers/181251896/inblockio/mediawiki/1.0.0-alpha/images/sha256-383bb5f438fb1ddfcd71938ded2e371ee8f5c76be14a918bada28ae246033a59?context=repo)
+
+## Node Eauth Server
+OAuth-compatiable service based on Ethereum credentials to authenticate users on a website.
+
+### Features
+
+* Takes ownership of the source code used
+* Integrates with MetaMask wallet
+* Provides authentication to a PKC
+* Optimizes server for high performance
+
+### Limitations
+
+* Runs using an older version of NodeJS which needs to be updated to current LTS
+
+### Snapshots
+
+The following snapshots identify the code/container runtime as released.
+
+**Source:** [inblockio/node-eauth-server:v1.0.0-alpha](https://github.com/inblockio/VerifyPage/releases/tag/v1.0.0-alpha)<br>
+**Container:** [inblockio/micro-pkc-eauth:1.0.0-alpha](https://hub.docker.com/layers/181234351/inblockio/micro-pkc-eauth/1.0.0-alpha/images/sha256-3100c16c56534ff1ac8a32384418e05f6068050d38badfc29d66ccf165d1b520?context=repo)
