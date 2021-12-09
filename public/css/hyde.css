@@ -177,6 +177,15 @@ a.sidebar-nav-item:focus {
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
+/* inblockio color */
+.theme-inblockio .sidebar {
+  background-color: #ef5401;
+}
+.theme-inblockio .content a,
+.theme-inblockio .related-posts li a:hover {
+  color: #ef5401;
+}
+
 /* Red */
 .theme-base-08 .sidebar {
   background-color: #ac4142;
