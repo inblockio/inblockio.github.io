@@ -111,6 +111,16 @@ footer {
     color: white;
 }
 
+footer a {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
 /* Posts Section */
 #posts {
     padding: 40px 20px;
