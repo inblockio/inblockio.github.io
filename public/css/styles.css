@@ -2,7 +2,7 @@
     --primary: #ef5401; /* inblock.io orange */
     --secondary: #3f2305; /* warm dark brown */
     --text: #3f2305; /* warm dark brown */
-    --accent: #007bff; /* blue accent */
+
     --border: #e0d5cc;
     --tile-bg: #f3eeea; /* warm beige tiles */
     --background: #ffffff;
@@ -19,27 +19,12 @@ body {
 
 /* Header */
 header {
-    position: relative;
-    overflow: hidden;
     padding: 4rem 2rem;
     background: linear-gradient(to bottom, #1a1a1a, #2a2a40);
 }
 
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('./public/images/digital-constellation.svg') center/cover;
-    opacity: 0.3;
-    animation: pulse 10s infinite ease-in-out;
-}
 
 .header-content {
-    position: relative;
-    z-index: 2;
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
@@ -66,10 +51,6 @@ header p {
     font-size: 1.15rem;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.5; }
-}
 
 /* Sections - Full width, edge to edge */
 section {
@@ -83,8 +64,8 @@ section .section-inner {
     margin: 0 auto;
 }
 
-/* Article page */
-#article {
+/* Article and sub-pages */
+#article, #impressum, #all-posts {
     background-color: #f3eeea;
 }
 
