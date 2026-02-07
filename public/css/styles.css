@@ -1,10 +1,11 @@
 :root {
     --primary: #ef5401; /* inblock.io orange */
-    --secondary: #1a1a1a; /* dark background */
-    --text: #333; /* dark text */
+    --secondary: #3f2305; /* warm dark brown */
+    --text: #3f2305; /* warm dark brown */
     --accent: #007bff; /* blue accent */
-    --border: #ddd;
-    --background: #f8f9fa;
+    --border: #e0d5cc;
+    --tile-bg: #f3eeea; /* warm beige tiles */
+    --background: #ffffff;
 }
 
 body {
@@ -16,10 +17,11 @@ body {
     padding: 0;
 }
 
+/* Header */
 header {
     position: relative;
     overflow: hidden;
-    padding: 30px 20px;
+    padding: 4rem 2rem;
     background: linear-gradient(to bottom, #1a1a1a, #2a2a40);
 }
 
@@ -38,7 +40,7 @@ header::before {
 .header-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
@@ -51,11 +53,17 @@ header img {
 header h1 {
     color: #fff;
     margin: 0;
+    font-size: 2rem;
+    line-height: 1.3;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header p {
     color: #ccc;
     margin: 10px 0 0;
+    font-size: 1.15rem;
 }
 
 @keyframes pulse {
@@ -63,24 +71,157 @@ header p {
     50% { opacity: 0.5; }
 }
 
+/* Sections - Full width, edge to edge */
 section {
-    padding: 4rem 1rem;
-    max-width: 1200px;
+    padding: 4rem 2rem;
+    margin: 0;
+    color: var(--text);
+}
+
+section .section-inner {
+    max-width: 1100px;
     margin: 0 auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 2rem;
+}
+
+/* Article page */
+#article {
+    background-color: #f3eeea;
+}
+
+#article hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+
+/* Alternating section colors for scroll distinction */
+#services {
+    background-color: #f3eeea;
+}
+
+#projects {
+    background-color: #ede6e0;
+}
+
+#team {
+    background-color: #f3eeea;
+}
+
+#contact {
+    background-color: #e8dfd7;
+}
+
+#posts {
+    background-color: #f3eeea;
 }
 
 h2 {
-    color: #333;
+    color: var(--text);
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
+section p, section li {
+    color: var(--text);
+}
+
+section a {
+    color: var(--primary);
+}
+
+section a:hover {
+    color: #c44400;
 }
 
 .project, .team-member {
     margin-bottom: 20px;
 }
 
+/* Projects Grid - Two-column split layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.project-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.project-card h3 a:hover {
+    color: var(--primary);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.product-item {
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+}
+
+.product-item h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+}
+
+.product-item h4 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.product-item h4 a:hover {
+    color: var(--primary);
+}
+
+.product-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* Forms */
 form {
     display: flex;
     flex-direction: column;
@@ -94,25 +235,27 @@ input, textarea {
 
 button {
     padding: 10px;
-    background: #007bff;
+    background: var(--primary);
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #c44400;
 }
 
+/* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 2.5rem 2rem;
     background: #333;
     color: white;
 }
 
 footer a {
-    color: white;
+    color: #ffffff;
     text-decoration: underline;
     transition: opacity 0.3s ease;
 }
@@ -122,24 +265,18 @@ footer a:hover {
 }
 
 /* Posts Section */
-#posts {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background: #f8f9fa;
-}
-
 .posts-list {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
 .post-item {
-    background: white;
+    background: var(--background);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
+    color: var(--text);
 }
 
 .post-item h3 {
@@ -148,7 +285,8 @@ footer a:hover {
 }
 
 .post-date {
-    color: #666;
+    color: var(--text);
+    opacity: 0.6;
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
@@ -156,7 +294,7 @@ footer a:hover {
 .view-all {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: #007bff;
+    background: var(--primary);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -164,5 +302,18 @@ footer a:hover {
 }
 
 .view-all:hover {
-    background: #0056b3;
+    background: #c44400;
+}
+
+/* Responsive inner padding */
+@media (min-width: 769px) {
+    section {
+        padding: 4rem 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    section {
+        padding: 4rem 8rem;
+    }
 }
