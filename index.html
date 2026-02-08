@@ -12,6 +12,7 @@
 <body>
     <!-- Header -->
     <header>
+        <canvas id="header-canvas"></canvas>
         <div class="header-content">
             <img src="./public/logo/inblockio_birdstyle_writing_on_dark.png" alt="inblock.io logo">
             <h1>Building Secure Trust Systems for Sovereign Data Ownership</h1>
@@ -66,17 +67,16 @@
             <h2>Who We Are</h2>
             <div class="team-member">
                 <h3>Tim Bansemer</h3>
-                <p><strong>CEO & Aqua Project Lead</strong> - A network engineer since 2010, Tim honed his skills in security (2014-2016) and distributed ledger tech (2017-2020) before pioneering Aqua since 2021. His vision: democratized digital trust for privacy and collaboration.</p>
-                <p>Known for building teams from his trusted network, Tim blends tech expertise with a passion for authentic human connection.</p>
+                <p><strong>CEO & Aqua Project Lead</strong></p>
+                <p>Tim Bansemer is an accomplished ICT Systems Engineer with over a decade of expertise in IT infrastructure, security, and distributed networks. Beginning his career as a network engineer in 2010, he specialized in IT security from 2014 to 2016 and delved into distributed ledger technologies from 2017 to 2020. Since 2021, Tim has pioneered the Aqua Protocol as CEO of inblock.io assets GmbH, driving innovations in digital sovereignty, data provenance, and cryptographic proofs for verifiable data accounting.</p>
+                <p>His vision centers on democratizing digital trust to enhance privacy and collaboration in complex systems. Tim is renowned for assembling high-performing teams from his trusted professional network, seamlessly integrating technical prowess with a commitment to authentic human connections. He actively contributes thought leadership through his <a href="https://digitalfreedom.substack.com" target="_blank">Substack on digital sovereignty and governance</a> (launched 2024), as well as earlier writings on Medium (2018&ndash;2020) exploring human-centric distributed computation and global consciousness.</p>
+                <p>Tim's interests encompass governance, open source software, network institutions, and post-quantum cryptography. He leads projects like the AquaFire App, which integrates file storage, e-signatures, and identity verification, and dgov.earth for distributed governance.</p>
+                <p>Connect with Tim: <a href="https://linktr.ee/timbansemer" target="_blank">Linktree</a> | <a href="https://github.com/FantasticoFox" target="_blank">GitHub (FantasticoFox)</a> | <a href="https://x.com/tim_bansemer" target="_blank">X (@tim_bansemer)</a></p>
             </div>
             <div class="team-member">
-                <h2>Independent Core Contributors:</h2>
-                <h3>Publius Dirac (github: rht)
-                </h3>
-                <p>Publius Dirac is a core contributor to the Aqua Protocol and has been a valuable contributor to the project since 2021 with passion for free and open source software and decentralization.
-                  He also works in quantum computing startup supporting perspectives for post-quantum cryptography and security.
-                  His contributions are mainly focused on the research and prototyping side allowing for elegant solution design.
-                </p>
+                <h3>Independent Core Contributors</h3>
+                <h4>Publius Dirac (GitHub: <a href="https://github.com/rht" target="_blank">rht</a>)</h4>
+                <p>Publius Dirac serves as a core contributor to the Aqua Protocol, joining the project in 2021 with a deep passion for free and open-source software and decentralization. Concurrently, he advances quantum computing at a startup, bringing insights into post-quantum cryptography and security. His work emphasizes research and prototyping, enabling elegant and robust solution designs.</p>
             </div>
         </div>
     </section>
@@ -105,14 +105,14 @@
                     <p>CEO Tim Bansemer explores why data needs the same rigorous accounting standards as finance, and introduces a three-dimensional framework for cryptographic data verification implemented in the Aqua Protocol.</p>
                 </div>
                 <div class="post-item">
+                    <h3><a href="./posts/2024-07-20-aqua-guardian.html">Launching Aqua Guardian</a></h3>
+                    <p class="post-date">Jul 20, 2024</p>
+                    <p>Introducing Aqua Guardian, an open-source component for secure, permissioned access to Aqua Chains. Developed with TU Ilmenau and nominated for a university prize, it brings decentralized data governance to production.</p>
+                </div>
+                <div class="post-item">
                     <h3><a href="./posts/2022-01-14-aqua-verify.html">Aqua Offline Verifier</a></h3>
                     <p class="post-date">Jan 14, 2022</p>
                     <p>A web service for verifying aqua.json files offline—privacy-first trust, no extensions needed.</p>
-                </div>
-                <div class="post-item">
-                    <h3><a href="./posts/2021-12-08-pkc-1.0-release.html">PKC Version 1.0 Release</a></h3>
-                    <p class="post-date">Dec 8, 2021</p>
-                    <p>A milestone in personal data governance, combining open-source tech for digital sovereignty.</p>
                 </div>
             </div>
             <a href="./posts/index.html" class="view-all">View All Updates →</a>
@@ -125,5 +125,339 @@
         <p>Building trust and sovereignty, one solution at a time.</p>
     </footer>
 
+    <!-- Aqua-chain stream: genesis left, extensions right, flowing right-to-left -->
+    <script>
+    (function() {
+        var canvas = document.getElementById('header-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var header = canvas.parentElement;
+
+        canvas.width = header.offsetWidth;
+        canvas.height = header.offsetHeight;
+        window.addEventListener('resize', function() {
+            canvas.width = header.offsetWidth;
+            canvas.height = header.offsetHeight;
+        });
+
+        // Node type colors
+        var COLORS = {
+            genesis:   [220, 40, 40],
+            revision:  [239, 84, 1],
+            signature: [40, 180, 80],
+            witness:   [50, 130, 220]
+        };
+
+        var DRIFT = 0.35;
+        var SPAWN_INTERVAL = 100;
+        var MAX_CHAINS = 12;
+        var NODE_R = 4;
+        var LANE_HEIGHT = 0;       // computed on init
+        var BRANCH_TYPES = ['revision', 'signature', 'witness'];
+
+        var chains = [];
+        var crossLinks = [];
+        var frameCount = 0;
+        var lanes = [];            // vertical lanes to prevent overlap
+
+        // Opacity: 0 at center, full at edges
+        function posAlpha(x) {
+            var cx = canvas.width / 2;
+            var half = canvas.width / 2;
+            var dist = Math.abs(x - cx);
+            var fade = dist / (half * 0.6) - 0.25;
+            if (fade < 0) fade = 0;
+            if (fade > 1) fade = 1;
+            return fade * 0.75;
+        }
+
+        function rand(a, b) { return a + Math.random() * (b - a); }
+        function randInt(a, b) { return Math.floor(rand(a, b + 1)); }
+        function pick(arr) { return arr[randInt(0, arr.length - 1)]; }
+
+        // Set up vertical lanes so chains don't overlap
+        function initLanes() {
+            var count = Math.floor(canvas.height / 45);
+            if (count < 3) count = 3;
+            LANE_HEIGHT = canvas.height / count;
+            lanes = [];
+            for (var i = 0; i < count; i++) {
+                lanes.push({ y: LANE_HEIGHT * (i + 0.5), used: false });
+            }
+        }
+        initLanes();
+
+        function getFreeLane() {
+            // Collect free lanes
+            var free = [];
+            for (var i = 0; i < lanes.length; i++) {
+                if (!lanes[i].used) free.push(lanes[i]);
+            }
+            if (free.length === 0) return null;
+            return pick(free);
+        }
+
+        // Build a chain: genesis on left, nodes extend rightward on strict horizontal lines.
+        // Forks create a new line shifted up or down; each branch continues on its own line.
+        function spawnChain() {
+            var lane = getFreeLane();
+            if (!lane) return;
+            lane.used = true;
+
+            var startX = canvas.width + 40;
+            var centerY = lane.y;
+            var yBand = LANE_HEIGHT * 0.38;
+            var forkStep = yBand / 3;    // vertical offset for each fork
+            var nodeStep = rand(24, 36); // horizontal spacing between nodes
+            var chain = { nodes: [], edges: [], lane: lane, branches: [] };
+
+            // Genesis node on the main line
+            var genesis = { x: startX, y: centerY, type: 'genesis', lineY: centerY };
+            chain.nodes.push(genesis);
+
+            // A branch tracks: current tip node, its fixed Y line
+            var mainBranch = { tip: genesis, lineY: centerY };
+            chain.branches.push(mainBranch);
+
+            // Build initial tree: extend branches and occasionally fork
+            var steps = randInt(3, 6);
+            for (var i = 0; i < steps; i++) {
+                // Extend every active branch by one node
+                var branchCount = chain.branches.length;
+                for (var b = 0; b < branchCount; b++) {
+                    var br = chain.branches[b];
+                    var type = pick(BRANCH_TYPES);
+                    var child = {
+                        x: br.tip.x + nodeStep,
+                        y: br.lineY,
+                        type: type,
+                        lineY: br.lineY
+                    };
+                    chain.nodes.push(child);
+                    chain.edges.push({ from: br.tip, to: child });
+                    br.tip = child;
+                }
+
+                // Occasionally fork from a random branch (max 4 branches)
+                if (Math.random() < 0.3 && chain.branches.length < 4) {
+                    var srcBranch = pick(chain.branches);
+                    var dir = (Math.random() < 0.5) ? -1 : 1;
+                    var newLineY = srcBranch.lineY + dir * forkStep;
+                    // Clamp to lane
+                    if (newLineY < centerY - yBand) newLineY = centerY - yBand;
+                    if (newLineY > centerY + yBand) newLineY = centerY + yBand;
+                    // Avoid duplicate Y lines
+                    var taken = false;
+                    for (var b2 = 0; b2 < chain.branches.length; b2++) {
+                        if (Math.abs(chain.branches[b2].lineY - newLineY) < forkStep * 0.5) { taken = true; break; }
+                    }
+                    if (!taken) {
+                        var forkType = pick(BRANCH_TYPES);
+                        var forkNode = {
+                            x: srcBranch.tip.x + nodeStep,
+                            y: newLineY,
+                            type: forkType,
+                            lineY: newLineY
+                        };
+                        chain.nodes.push(forkNode);
+                        chain.edges.push({ from: srcBranch.tip, to: forkNode });
+                        chain.branches.push({ tip: forkNode, lineY: newLineY });
+                    }
+                }
+            }
+
+            chains.push(chain);
+            addCrossLinks(chain);
+        }
+
+        // Pick a target node in another chain: prefer nearby chains + genesis nodes
+        function pickTargetNode(sourceNode, otherChain) {
+            // Weight each node: genesis gets 5x, closer Y distance gets higher weight
+            var weights = [];
+            var totalWeight = 0;
+            for (var i = 0; i < otherChain.nodes.length; i++) {
+                var n = otherChain.nodes[i];
+                var yDist = Math.abs(n.y - sourceNode.y);
+                var proximity = 1 / (1 + yDist / 40); // closer = higher
+                var w = proximity * (n.type === 'genesis' ? 5 : 1);
+                weights.push(w);
+                totalWeight += w;
+            }
+            var r = Math.random() * totalWeight;
+            var acc = 0;
+            for (var i = 0; i < weights.length; i++) {
+                acc += weights[i];
+                if (r <= acc) return otherChain.nodes[i];
+            }
+            return otherChain.nodes[otherChain.nodes.length - 1];
+        }
+
+        // Create cross-links: prefer nearby chains (close lanes)
+        function addCrossLinks(chain) {
+            // Sort other chains by lane distance (nearest first)
+            var others = [];
+            for (var i = 0; i < chains.length - 1; i++) {
+                var dist = Math.abs(chains[i].lane.y - chain.lane.y);
+                others.push({ chain: chains[i], dist: dist });
+            }
+            others.sort(function(a, b) { return a.dist - b.dist; });
+
+            for (var i = 0; i < others.length; i++) {
+                var other = others[i].chain;
+                if (other.nodes.length === 0) continue;
+                // Higher chance for nearby chains: 70% for nearest, drops with distance
+                var chance = 0.7 / (1 + i * 0.8);
+                if (Math.random() < chance) {
+                    var fromNode = pick(chain.nodes);
+                    var toNode = pickTargetNode(fromNode, other);
+                    crossLinks.push({ from: fromNode, to: toNode });
+                }
+            }
+        }
+
+        // Grow an existing chain: extend a random branch tip on its fixed line
+        function growChain(chain) {
+            if (chain.nodes.length > 18 || !chain.branches || chain.branches.length === 0) return;
+            var br = pick(chain.branches);
+            var type = pick(BRANCH_TYPES);
+            var child = {
+                x: br.tip.x + rand(24, 36),
+                y: br.lineY,
+                type: type,
+                lineY: br.lineY
+            };
+            chain.nodes.push(child);
+            chain.edges.push({ from: br.tip, to: child });
+            br.tip = child;
+
+            // Sometimes add a cross-link when growing: prefer nearby chains + genesis
+            if (Math.random() < 0.35 && chains.length > 1) {
+                // Find nearest other chain by lane distance
+                var bestChain = null, bestDist = Infinity;
+                for (var k = 0; k < chains.length; k++) {
+                    if (chains[k] === chain) continue;
+                    if (chains[k].nodes.length === 0) continue;
+                    var d = Math.abs(chains[k].lane.y - chain.lane.y);
+                    if (d < bestDist) { bestDist = d; bestChain = chains[k]; }
+                }
+                if (bestChain) {
+                    crossLinks.push({ from: child, to: pickTargetNode(child, bestChain) });
+                }
+            }
+        }
+
+        function drawNode(n) {
+            var a = posAlpha(n.x);
+            if (a < 0.01) return;
+            var c = COLORS[n.type];
+            ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')';
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, NODE_R, 0, Math.PI * 2);
+            ctx.fill();
+            if (n.type === 'genesis' && a > 0.15) {
+                ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (a * 0.15) + ')';
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, NODE_R * 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function drawEdge(from, to) {
+            var a = Math.min(posAlpha(from.x), posAlpha(to.x));
+            if (a < 0.01) return;
+            ctx.strokeStyle = 'rgba(100,160,180,' + (a * 0.6) + ')';
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(from.x, from.y);
+            ctx.lineTo(to.x, to.y);
+            ctx.stroke();
+        }
+
+        function drawCrossLink(link) {
+            var a = Math.min(posAlpha(link.from.x), posAlpha(link.to.x));
+            if (a < 0.01) return;
+            ctx.strokeStyle = 'rgba(150,150,200,' + (a * 0.35) + ')';
+            ctx.lineWidth = 0.7;
+            ctx.setLineDash([4, 5]);
+            ctx.beginPath();
+            ctx.moveTo(link.from.x, link.from.y);
+            ctx.lineTo(link.to.x, link.to.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            frameCount++;
+
+            // Spawn new chains
+            if (frameCount % SPAWN_INTERVAL === 0 && chains.length < MAX_CHAINS) {
+                spawnChain();
+            }
+
+            // Grow existing chains
+            if (frameCount % 70 === 35 && chains.length > 0) {
+                growChain(pick(chains));
+            }
+
+            // Drift all nodes left
+            for (var i = 0; i < chains.length; i++) {
+                for (var j = 0; j < chains[i].nodes.length; j++) {
+                    chains[i].nodes[j].x -= DRIFT;
+                }
+            }
+
+            // Remove chains that exited left; free their lane
+            chains = chains.filter(function(chain) {
+                var maxX = -Infinity;
+                for (var j = 0; j < chain.nodes.length; j++) {
+                    if (chain.nodes[j].x > maxX) maxX = chain.nodes[j].x;
+                }
+                if (maxX < -80) {
+                    chain.lane.used = false;
+                    return false;
+                }
+                return true;
+            });
+
+            // Clean up stale cross-links
+            crossLinks = crossLinks.filter(function(link) {
+                return link.from.x > -80 && link.to.x > -80;
+            });
+
+            // Draw cross-links (behind)
+            for (var i = 0; i < crossLinks.length; i++) {
+                drawCrossLink(crossLinks[i]);
+            }
+
+            // Draw chain edges then nodes
+            for (var i = 0; i < chains.length; i++) {
+                var chain = chains[i];
+                for (var j = 0; j < chain.edges.length; j++) {
+                    drawEdge(chain.edges[j].from, chain.edges[j].to);
+                }
+                for (var j = 0; j < chain.nodes.length; j++) {
+                    drawNode(chain.nodes[j]);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Seed initial chains spread across the screen
+        initLanes();
+        var seedCount = Math.min(6, lanes.length);
+        for (var i = 0; i < seedCount; i++) {
+            spawnChain();
+            var chain = chains[chains.length - 1];
+            var shiftX = (seedCount - i) * (canvas.width / (seedCount + 1));
+            for (var j = 0; j < chain.nodes.length; j++) {
+                chain.nodes[j].x -= shiftX;
+            }
+        }
+
+        animate();
+    })();
+    </script>
 </body>
 </html>
