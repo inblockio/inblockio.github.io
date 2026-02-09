@@ -22,7 +22,7 @@ header {
     position: relative;
     overflow: hidden;
     padding: 4rem 2rem;
-    background: linear-gradient(to bottom, #1a1a1a, #2a2a40);
+    background: linear-gradient(to top, #3a1800, #1e1008 40%, #1a1a1a 75%, #1a1a1a);
 }
 
 #header-canvas {

@@ -148,7 +148,8 @@
             witness:   [50, 130, 220]
         };
 
-        var DRIFT = 0.35;          // horizontal speed (px/frame) chains move left
+        var DRIFT_MIN = 0.5;       // slowest lane drift speed (px/frame)
+        var DRIFT_MAX = 1.0;       // fastest lane drift speed (px/frame)
         var SPAWN_INTERVAL = 50;   // frames between spawning new chains
         var MAX_CHAINS = 20;       // max simultaneous chains on screen
         var MAX_NODES = 10;        // max nodes per chain before it stops growing
@@ -176,7 +177,7 @@
         function randInt(a, b) { return Math.floor(rand(a, b + 1)); }
         function pick(arr) { return arr[randInt(0, arr.length - 1)]; }
 
-        var MAX_PER_LANE = 2;      // max chains sharing one lane
+        var MAX_PER_LANE = 3;      // max chains sharing one lane
         var MIN_LANE_GAP = 250;    // min horizontal px between chains in same lane
 
         // Set up vertical lanes so chains don't overlap
@@ -185,7 +186,8 @@
             LANE_HEIGHT = canvas.height / count;
             lanes = [];
             for (var i = 0; i < count; i++) {
-                lanes.push({ y: LANE_HEIGHT * (i + 0.5), occupants: [] });
+                var speed = DRIFT_MIN + (i / (count - 1)) * (DRIFT_MAX - DRIFT_MIN);
+                lanes.push({ y: LANE_HEIGHT * (i + 0.5), occupants: [], drift: speed });
             }
         }
         initLanes();
@@ -331,7 +333,7 @@
             return sum / c.nodes.length;
         }
 
-        var MAX_LINKS_PER_PAIR = 2;  // max cross-links between any two chains
+        var MAX_LINKS_PER_PAIR = 4;  // max cross-links between any two chains
         var FLASH_DURATION = 30;     // frames a new cross-link stays highlighted
 
         // Count existing cross-links between two chains
@@ -365,7 +367,7 @@
                 // Allow up to MAX_LINKS_PER_PAIR between any two chains
                 if (countLinksBetween(chain, other) >= MAX_LINKS_PER_PAIR) continue;
                 // Higher chance for nearby chains: 90% for nearest, drops with distance
-                var chance = 0.9 / (1 + i * 0.5);
+                var chance = 1.0 / (1 + i * 0.3);
                 // Strongly favor linking to chains on the right (left-to-right flow)
                 var otherX = chainAvgX(other);
                 if (otherX > chainX) {
@@ -400,7 +402,7 @@
             br.tip = child;
 
             // Often add a cross-link when growing: prefer nearby chains to the right
-            if (Math.random() < 0.55 && chains.length > 1) {
+            if (Math.random() < 0.85 && chains.length > 1) {
                 var myX = chainAvgX(chain);
                 // Find best other chain, preferring rightward and nearby
                 var bestChain = null, bestScore = -Infinity;
@@ -491,10 +493,11 @@
                 growChain(pick(chains));
             }
 
-            // Drift all nodes left
+            // Drift all nodes left at each chain's lane speed
             for (var i = 0; i < chains.length; i++) {
+                var speed = chains[i].lane.drift;
                 for (var j = 0; j < chains[i].nodes.length; j++) {
-                    chains[i].nodes[j].x -= DRIFT;
+                    chains[i].nodes[j].x -= speed;
                 }
             }
 
