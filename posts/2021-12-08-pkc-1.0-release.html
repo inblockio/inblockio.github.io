@@ -64,8 +64,13 @@
 
     <!-- Footer -->
     <footer>
+        <canvas id="footer-canvas"></canvas>
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Inblock. <a href="https://github.com/inblockio" target="_blank">GitHub</a> | <a href="../impressum.html">Impressum</a></p>
         <p>Building trust and sovereignty, one solution at a time.</p>
     </footer>
+    <script src="../public/js/aqua-animation.js"></script>
+    <script>
+        aquaAnimation('footer-canvas', { laneCount: 3, invertSpeed: true });
+    </script>
 </body>
 </html>
