@@ -194,12 +194,5 @@
     "protocolV4": "https://aqua-protocol.org/v4",
     "github": "https://github.com/inblockio",
     "aquafier": "https://aquafier.inblock.io"
-  },
-  "_signature": {
-    "contentHash": "6d23f8df2d9be18f785de6af85a2274fa9327fc869267c556d7315f39d8dac97",
-    "algorithm": "SHA-256",
-    "timestamp": "2026-02-19T23:59:00Z",
-    "signedBy": "inblock.io",
-    "note": "Hash computed over the JSON content excluding this _signature block. For advanced signing with blockchain verification, see https://rootz.global/ai-discovery"
   }
 }

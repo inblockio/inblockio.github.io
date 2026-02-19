@@ -94,12 +94,5 @@
         "tags": ["verification", "aqua-protocol", "privacy", "web-service", "open-source"]
       }
     ]
-  },
-  "_signature": {
-    "contentHash": "f7c507f7f6a430bb539fc10ca732b8e358d2f9ccd88e4199f1d4376e51eb6c8d",
-    "algorithm": "SHA-256",
-    "timestamp": "2026-02-19T23:59:00Z",
-    "signedBy": "inblock.io",
-    "note": "Hash computed over the JSON content excluding this _signature block. For advanced signing with blockchain verification, see https://rootz.global/ai-discovery"
   }
 }
