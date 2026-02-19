@@ -1,0 +1,98 @@
+{
+  "specVersion": "1.1",
+  "organization": {
+    "name": "inblock.io assets GmbH",
+    "domain": "inblock.io"
+  },
+  "feed": {
+    "title": "inblock.io Updates",
+    "description": "Latest news on digital sovereignty, the Aqua Protocol, and trust infrastructure from inblock.io.",
+    "url": "https://inblock.io/posts/index.html",
+    "entries": [
+      {
+        "id": "2026-02-17-ai-first-trust-infrastructure",
+        "title": "inblock.io Pivots to AI-First Trust Infrastructure",
+        "date": "2026-02-17",
+        "url": "https://inblock.io/posts/2026-02-17-ai-first-trust-infrastructure.html",
+        "summary": "inblock.io announces a strategic pivot to serve the AI space first with its trust infrastructure. Aqua Protocol V4 addresses the AI security gap with verifiable agent identity, granular access control, and tamper-proof provenance for autonomous systems operating at scale.",
+        "keyFacts": [
+          "inblock.io is reorienting its trust infrastructure to prioritize AI agent identity, access control, and provenance.",
+          "Aqua Protocol V4 delivers four AI-first capabilities: portable hash-chains, modular signatures, immutable timestamps, and flexible trust models.",
+          "The pivot aligns with EU AI Act (penalties up to 7% global turnover) and US NTIA provenance technology recommendations.",
+          "All products — AquaFire, Aqua JS SDK, and consulting — will prioritize AI integration use cases.",
+          "Trust is built on mathematics, not authority: verifiable identity, provable provenance, and auditable access, all open-source."
+        ],
+        "tags": ["ai-first", "pivot", "aqua-protocol-v4", "trust-infrastructure", "agent-identity", "provenance", "ai-security"]
+      },
+      {
+        "id": "2026-02-19-ai-discovery-standard",
+        "title": "inblock.io Adopts the AI Discovery Standard",
+        "date": "2026-02-19",
+        "url": "https://inblock.io/posts/2026-02-19-ai-discovery-standard.html",
+        "summary": "inblock.io implements all three tiers of the AI Discovery Standard proposed by Rootz, serving verified organizational data at /.well-known/ai for AI agents. The standard aligns with the Aqua Protocol's mission of building verifiable trust infrastructure.",
+        "keyFacts": [
+          "inblock.io now serves a /.well-known/ai endpoint with structured, machine-readable organizational data for AI agents.",
+          "All three tiers implemented: Discovery (/.well-known/ai), Knowledge (/ai/knowledge.json), and Feed (/ai/feed.json).",
+          "The AI Discovery Standard complements Aqua Protocol by providing a standardized identity layer that cryptographic verification can extend.",
+          "The standard is open (CC-BY-4.0), free, and vendor-neutral with an IANA registration in preparation."
+        ],
+        "tags": ["ai-discovery", "standardization", "well-known-ai", "trust-infrastructure", "aqua-protocol"]
+      },
+      {
+        "id": "2026-02-07-china-data-balance-sheet",
+        "title": "China Recognizes Data as a Balance Sheet Asset",
+        "date": "2026-02-07",
+        "url": "https://inblock.io/posts/2026-02-07-china-data-balance-sheet.html",
+        "summary": "China now allows companies to formally record high-quality data on their balance sheets as intangible assets or inventory. This regulatory shift validates the strategic importance of data governance and aligns with what the Aqua Protocol enables.",
+        "keyFacts": [
+          "Chinese regulators allow enterprises to account for data resources as intangible assets or inventory on balance sheets.",
+          "Only about 2% of firms reported data assets in 2024, indicating early-stage adoption with significant growth potential.",
+          "Aqua Protocol supports this transition by providing decentralized, verifiable data chains for auditable data assets.",
+          "Verifiable data provenance and integrity become competitive advantages as accounting standards evolve globally."
+        ],
+        "tags": ["data-governance", "regulation", "china", "data-assets", "aqua-protocol", "balance-sheet"]
+      },
+      {
+        "id": "2025-04-16-defining-data-accounting",
+        "title": "Defining Data Accounting",
+        "date": "2025-04-16",
+        "url": "https://inblock.io/posts/2025-04-16-defining-data-accounting.html",
+        "summary": "CEO Tim Bansemer introduces data accounting as a discipline: systematically ensuring data integrity and history by linking it to secure digital identities using cryptographic hashing, signing, and timestamping. A three-dimensional framework of Data, Account, and Time forms the foundation, implemented in the Aqua Protocol.",
+        "keyFacts": [
+          "Data accounting is the systematic process of ensuring data integrity via cryptographic hashing, public key signing, and timestamping.",
+          "The framework defines three namespaces: Data (content hashes), Account (public keys for identity), and Time (cryptographic timestamps).",
+          "Blockchains demonstrate fully accounted systems but remain impractical for general data accounting due to scalability and privacy constraints.",
+          "The Aqua Protocol implements this framework, deployed on Ethereum since April 2021, supporting identity, access control, and document authentication."
+        ],
+        "tags": ["data-accounting", "aqua-protocol", "cryptography", "digital-sovereignty", "thought-leadership"]
+      },
+      {
+        "id": "2024-07-20-aqua-guardian",
+        "title": "Launching Aqua Guardian",
+        "date": "2024-07-20",
+        "url": "https://inblock.io/posts/2024-07-20-aqua-guardian.html",
+        "summary": "Aqua Guardian is an open-source component providing secure, permissioned access to Aqua Chains. Developed in collaboration with TU Ilmenau and nominated for a university software prize, it uses Sign-In with Ethereum (SIWE) authentication, Data Access Agreements, and challenge-proof mechanisms for fine-grained, cryptographically secured access control.",
+        "keyFacts": [
+          "Aqua Guardian provides permissioned access to Aqua Chains with signature-based controls embedded in the protocol.",
+          "Developed with TU Ilmenau as part of Softwareprojekt 12, nominated for second prize in the university competition.",
+          "Uses SIWE authentication, Data Access Agreements, and challenge-proof mechanisms for decentralized access control.",
+          "Supports dynamic updates, file streaming, and service discovery aligned with GAIA-X and International Data Spaces standards."
+        ],
+        "tags": ["aqua-guardian", "open-source", "access-control", "data-governance", "tu-ilmenau", "aqua-protocol"]
+      },
+      {
+        "id": "2022-01-14-aqua-verify",
+        "title": "Aqua Offline Verifier",
+        "date": "2022-01-14",
+        "url": "https://inblock.io/posts/2022-01-14-aqua-verify.html",
+        "summary": "A web service for verifying aqua.json files offline, providing the same output as the Chrome Extension without requiring installation. Privacy-first trust verification accessible from any browser.",
+        "keyFacts": [
+          "Web-based verification service for aqua.json files without requiring browser extension installation.",
+          "Provides identical verification output to the Aqua Chrome Extension.",
+          "Enables privacy-first, offline-capable trust verification from any browser."
+        ],
+        "tags": ["verification", "aqua-protocol", "privacy", "web-service", "open-source"]
+      }
+    ]
+  }
+}

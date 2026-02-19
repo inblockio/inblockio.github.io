@@ -1,0 +1,198 @@
+{
+  "specVersion": "1.1",
+  "organization": {
+    "name": "inblock.io assets GmbH",
+    "domain": "inblock.io",
+    "description": "Building trust infrastructure for sovereign data ownership through the Aqua Protocol, enabling decentralized notarization, verifiable data chains, and cryptographic data accounting.",
+    "sector": "Technology",
+    "contact": "info@inblock.io"
+  },
+  "protocol": {
+    "name": "Aqua Protocol",
+    "url": "https://aqua-protocol.org",
+    "summary": "An open-source, decentralized framework for secure verification of data assets through cryptographic proofs. Establishes data accountability and governance without requiring blockchain infrastructure. Only hashes are stored, preserving data confidentiality.",
+    "corePrinciples": [
+      "Privacy-Preserving: Open-source protocol that doesn't require blockchain. Only cryptographic hashes are stored, maintaining data confidentiality.",
+      "Verifiable Data: Cryptographic hashes ensure tamper-proof records with portable verification that immediately detects any modifications.",
+      "Digital Sovereignty: Full control over your data. Independent data sharing and governance without third-party intermediaries."
+    ],
+    "capabilities": [
+      "Upload and verify files with cloud-storage style notarization",
+      "Electronic signatures with portable verification trails",
+      "Self-sovereign identity with peer-to-peer attestation and challenge-based verification"
+    ],
+    "versions": {
+      "current": {
+        "version": "4.0",
+        "url": "https://aqua-protocol.org/v4",
+        "summary": "Cryptographic trust infrastructure addressing the AI security gap. Provides verifiable identity, granular access control, and tamper-proof provenance for AI systems operating at scale.",
+        "corePillars": [
+          {
+            "name": "Identity Crisis",
+            "problem": "AI agents act without verifiable identification. Spoofed identities and unauthorized delegation occur without accountability.",
+            "solution": "Self-sovereign identity with cryptographic attestation and peer-to-peer challenge-based verification."
+          },
+          {
+            "name": "Access Chaos",
+            "problem": "No granular control over data consumption. Systems cannot audit what data was accessed, when, or by whom.",
+            "solution": "Revision-level permissions with auditable access trails and zero-trust architecture."
+          },
+          {
+            "name": "Provenance Gap",
+            "problem": "Data origin remains unknown and tampering is undetectable.",
+            "solution": "Cryptographic hash chains for data integrity with portable verification independent of central authorities."
+          }
+        ],
+        "technicalArchitecture": [
+          {
+            "name": "Portable Hash-Chains",
+            "description": "AquaTrees are portable data structures recording revision history with cryptographic precision. Each change links via hash to its predecessor, preserving all versions."
+          },
+          {
+            "name": "Modular Signatures",
+            "description": "Supports multiple signature schemes: Ethereum wallets, DIDs (Decentralized Identifiers), X.509 certificates, and others. Organizations plug in the cryptographic paradigm that fits their security requirements without changing the protocol."
+          },
+          {
+            "name": "Immutable Timestamps",
+            "description": "Data anchors to tamper-proof timelines via Ethereum blockchain, qualified TSA services (eIDAS-compliant), or both. Blockchain is optional."
+          },
+          {
+            "name": "Flexible Trust Models",
+            "description": "Bridges institutional and decentralized worlds. Supports enterprise registries for compliance and community-driven decentralized registries for open verification."
+          }
+        ],
+        "regulatoryAlignment": [
+          {
+            "regulation": "US NTIA RFC 2023-07776",
+            "relevance": "AI accountability framework recommending investment in provenance technologies, standard disclosures for architecture/data/performance, and independent evaluations of high-risk systems."
+          },
+          {
+            "regulation": "EU AI Act (2024/1689)",
+            "relevance": "Mandates data governance with provenance documentation, automatic logging for traceability, and transparency obligations. Non-compliance penalties up to 7% of global turnover."
+          }
+        ]
+      },
+      "stable": {
+        "version": "3.2",
+        "summary": "Production-ready protocol version powering the AquaFire Application and Aqua JS SDK."
+      }
+    }
+  },
+  "products": [
+    {
+      "name": "AquaFire Application",
+      "description": "Official reference implementation of the Aqua Protocol. A Document Management System with integrated identity verification, document e-signing, and portable verification trails.",
+      "url": "https://aquafier.inblock.io",
+      "protocolVersion": "3.2"
+    },
+    {
+      "name": "Aqua JS SDK",
+      "description": "Developer tools for building applications with the Aqua Protocol. TypeScript implementation enabling integration of verifiable data chains into existing systems.",
+      "url": "https://github.com/inblockio/aqua-js-sdk",
+      "protocolVersion": "3.2",
+      "license": "GPL-3.0"
+    }
+  ],
+  "repositories": {
+    "organization": "https://github.com/inblockio",
+    "pinned": [
+      {
+        "name": "aquafier-js",
+        "url": "https://github.com/inblockio/aquafier-js",
+        "description": "Reference implementation of the AquaFire Application, the Aqua Protocol-powered Document Management System with identity verification and e-signing.",
+        "language": "TypeScript",
+        "stars": 59,
+        "forks": 18,
+        "license": "MIT"
+      },
+      {
+        "name": "aqua-js-sdk",
+        "url": "https://github.com/inblockio/aqua-js-sdk",
+        "description": "Implementation of Aqua Protocol v3.2. Developer SDK for building Aqua-enabled applications.",
+        "language": "TypeScript",
+        "stars": 2,
+        "forks": 2,
+        "license": "GPL-3.0"
+      },
+      {
+        "name": "aqua-docs",
+        "url": "https://github.com/inblockio/aqua-docs",
+        "description": "Aqua Documentation including the protocol specification.",
+        "language": "TypeScript",
+        "stars": 1,
+        "forks": 4
+      },
+      {
+        "name": "aqua-js-cli",
+        "url": "https://github.com/inblockio/aqua-js-cli",
+        "description": "JavaScript CLI client for the Aqua external verifier.",
+        "language": "JavaScript",
+        "stars": 3,
+        "forks": 4,
+        "license": "GPL-3.0"
+      },
+      {
+        "name": "DataSymmetry",
+        "url": "https://github.com/inblockio/DataSymmetry",
+        "description": "Data symmetry tooling for balanced data governance.",
+        "language": "JavaScript",
+        "stars": 2,
+        "forks": 2
+      }
+    ]
+  },
+  "team": [
+    {
+      "name": "Tim Bansemer",
+      "role": "CEO & Aqua Project Lead",
+      "summary": "ICT Systems Engineer with over a decade of expertise in IT infrastructure, security, and distributed networks. Pioneered the Aqua Protocol since 2021, driving innovations in digital sovereignty, data provenance, and cryptographic proofs for verifiable data accounting.",
+      "links": {
+        "github": "https://github.com/FantasticoFox",
+        "x": "https://x.com/tim_bansemer",
+        "linktree": "https://linktr.ee/timbansemer",
+        "substack": "https://digitalfreedom.substack.com"
+      }
+    },
+    {
+      "name": "Publius Dirac",
+      "role": "Core Contributor",
+      "summary": "Core contributor to the Aqua Protocol since 2021 with expertise in free and open-source software, decentralization, and quantum computing. Focuses on research, prototyping, and post-quantum cryptography.",
+      "links": {
+        "github": "https://github.com/rht"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "AquaTree",
+      "definition": "A portable data structure recording revision history with cryptographic precision, where each change links via hash to its predecessor."
+    },
+    {
+      "term": "Data Accounting",
+      "definition": "Applying rigorous accounting standards to data through cryptographic verification, ensuring provenance, integrity, and authenticity."
+    },
+    {
+      "term": "Digital Sovereignty",
+      "definition": "Full control over one's own data through self-hosted, open-source trust infrastructure without dependency on external platforms."
+    },
+    {
+      "term": "Portable Hash-Chain",
+      "definition": "A cryptographic chain of hashes forming an immutable revision history that can be independently verified without a central authority."
+    },
+    {
+      "term": "Decentralized Notarization",
+      "definition": "On-premises document notarization providing secure, verifiable proof of document integrity and signing without third-party involvement."
+    },
+    {
+      "term": "Modular Signatures",
+      "definition": "A pluggable signature system supporting Ethereum wallets, DIDs, X.509 certificates, and other cryptographic schemes within the same protocol."
+    }
+  ],
+  "links": {
+    "website": "https://inblock.io",
+    "protocol": "https://aqua-protocol.org",
+    "protocolV4": "https://aqua-protocol.org/v4",
+    "github": "https://github.com/inblockio",
+    "aquafier": "https://aquafier.inblock.io"
+  }
+}

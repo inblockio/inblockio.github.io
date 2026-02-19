@@ -1,0 +1,50 @@
+{
+  "specVersion": "1.1",
+  "organization": {
+    "name": "inblock.io assets GmbH",
+    "domain": "inblock.io",
+    "description": "Building trust infrastructure for sovereign data ownership through the Aqua Protocol, enabling decentralized notarization, verifiable data chains, and cryptographic data accounting.",
+    "sector": "Technology",
+    "contact": "info@inblock.io"
+  },
+  "capabilities": {
+    "discovery": true,
+    "knowledge": "/ai/knowledge.json",
+    "feed": "/ai/feed.json"
+  },
+  "concepts": [
+    {
+      "name": "Aqua Protocol",
+      "description": "An open protocol for cryptographic data accounting that creates immutable, DAG-like ledger structures for every file, enabling portable trust across organizational boundaries while maintaining confidentiality."
+    },
+    {
+      "name": "Data Accounting",
+      "description": "Applying rigorous accounting standards to data through cryptographic verification, ensuring data provenance, integrity, and authenticity using a three-dimensional framework."
+    },
+    {
+      "name": "Digital Sovereignty",
+      "description": "Empowering organizations and individuals with full control over their own data through open-source, self-hosted trust infrastructure without dependency on external platforms."
+    },
+    {
+      "name": "Decentralized Notarization",
+      "description": "On-premises document notarization and e-signing solution providing secure, verifiable proof without third-party involvement."
+    }
+  ],
+  "products": [
+    {
+      "name": "AquaFire Application",
+      "description": "An Aqua Protocol v3.2 enabled Document Management System with integrated identity verification and document e-signing capabilities.",
+      "url": "https://aquafier.inblock.io"
+    },
+    {
+      "name": "Aqua JS SDK",
+      "description": "Developer tools for building applications with the Aqua Protocol Version 3.2.",
+      "url": "https://github.com/inblockio/aqua-js-sdk"
+    }
+  ],
+  "links": {
+    "website": "https://inblock.io",
+    "github": "https://github.com/inblockio",
+    "protocol": "https://aqua-protocol.org"
+  }
+}
