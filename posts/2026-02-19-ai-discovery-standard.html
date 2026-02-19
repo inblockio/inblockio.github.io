@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supporting the AI Discovery Standard - inblock.io</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../public/favicon-16x16.png">
+    <link rel="ai-discovery" type="application/json" href="/.well-known/ai">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="../index.html"><img src="../public/logo/inblockio_birdstyle_writing_on_dark.png" alt="inblock.io logo"></a>
+            <h1>Supporting the AI Discovery Standard</h1>
+        </div>
+    </header>
+
+    <!-- Article -->
+    <section id="article">
+        <div class="section-inner">
+            <p class="post-date">February 19, 2026</p>
+            <h2>inblock.io Adopts the AI Discovery Standard</h2>
+
+            <p>We are pleased to announce that inblock.io now implements the <a href="https://rootz.global/ai-discovery" target="_blank">AI Discovery Standard</a> proposed by Rootz. Our website serves a structured <code>/.well-known/ai</code> endpoint that provides AI agents with verified, first-party information about our organization, technology, and mission.</p>
+
+            <h3>Why This Matters</h3>
+
+            <p>AI systems today increasingly mediate how organizations are discovered and understood. Search engines, chatbots, and autonomous agents process billions of queries daily. Yet most websites remain opaque to these systems: JavaScript-heavy pages, unstructured HTML, and scattered metadata force AI to guess rather than know. The result is hallucination, misrepresentation, and lost context.</p>
+
+            <p>The AI Discovery Standard addresses this with a simple, powerful idea: give organizations a standardized way to present verified information directly to AI agents. A single JSON file at <code>/.well-known/ai</code> serves as a machine-readable identity card, accessible in one request.</p>
+
+            <h3>Our Implementation</h3>
+
+            <p>We have implemented all three tiers of the specification:</p>
+            <ul>
+                <li><strong>Tier 1 &ndash; Discovery</strong> (<code>/.well-known/ai</code>): Our organizational identity, core concepts, products, and capabilities.</li>
+                <li><strong>Tier 2 &ndash; Knowledge</strong> (<code>/ai/knowledge.json</code>): Comprehensive reference including the Aqua Protocol architecture, our GitHub repositories, team, and technical glossary.</li>
+                <li><strong>Tier 3 &ndash; Feed</strong> (<code>/ai/feed.json</code>): A structured, AI-optimized update stream with semantic tags, replacing traditional RSS for AI consumption.</li>
+            </ul>
+
+            <h3>Natural Alignment with Aqua Protocol</h3>
+
+            <p>The AI Discovery Standard aligns naturally with our work on the Aqua Protocol. Both share a fundamental conviction: trust should be built on verifiable, structured data rather than blind faith in platforms.</p>
+
+            <p>Where the AI Discovery Standard gives organizations a voice that AI can trust, Aqua Protocol provides the cryptographic infrastructure to make that trust mathematically provable. Portable hash-chains, modular signatures, and immutable timestamps can extend the standard's signature layer into a full provenance framework, ensuring not just that information is structured, but that it is authentic and untampered.</p>
+
+            <p>As AI agents become more autonomous, the need for verifiable organizational identity will only grow. We see the <code>/.well-known/ai</code> endpoint as a natural extension of the trust infrastructure we are building.</p>
+
+            <h3>Supporting Standardization</h3>
+
+            <p>We support the standardization of the <code>/.well-known/ai</code> endpoint and encourage other organizations to adopt it. The specification is open (CC-BY-4.0), free to implement, and vendor-neutral. An IANA registration is being prepared to formalize the endpoint.</p>
+
+            <p>For organizations working in data governance, digital sovereignty, or AI infrastructure, this is an opportunity to shape how the AI-readable web is built, ensuring it reflects the values of transparency, accuracy, and verified trust.</p>
+
+            <h3>Get Started</h3>
+
+            <p>To learn more about the AI Discovery Standard and implement it for your organization, visit <a href="https://rootz.global/ai-discovery" target="_blank">rootz.global/ai-discovery</a>.</p>
+
+            <p>To explore how Aqua Protocol can add cryptographic verification to your data, visit <a href="https://aqua-protocol.org" target="_blank">aqua-protocol.org</a>.</p>
+
+            <hr>
+
+            <h3>Resources</h3>
+            <ul>
+                <li><strong>AI Discovery Standard:</strong> <a href="https://rootz.global/ai-discovery" target="_blank">rootz.global/ai-discovery</a></li>
+                <li><strong>Our AI Discovery endpoint:</strong> <a href="/.well-known/ai">/.well-known/ai</a></li>
+                <li><strong>Aqua Protocol:</strong> <a href="https://aqua-protocol.org" target="_blank">aqua-protocol.org</a></li>
+            </ul>
+
+            <p><a href="../index.html#posts">&larr; Back to Updates</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <canvas id="footer-canvas"></canvas>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Inblock. <a href="https://github.com/inblockio" target="_blank">GitHub</a> | <a href="../impressum.html">Impressum</a></p>
+        <p>Building trust and sovereignty, one solution at a time.</p>
+    </footer>
+    <script src="../public/js/aqua-animation.js"></script>
+    <script>
+        aquaAnimation('footer-canvas', { laneCount: 3, invertSpeed: true });
+    </script>
+</body>
+</html>
