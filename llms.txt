@@ -1,0 +1,42 @@
+# inblock.io
+
+> Building trust infrastructure for sovereign data ownership through the Aqua Protocol.
+
+inblock.io assets GmbH develops open-source cryptographic trust infrastructure. Our core technology, the Aqua Protocol, enables decentralized notarization, verifiable data chains, and cryptographic data accounting — giving organizations full control over their own data without third-party dependencies.
+
+## Core Technology
+
+- [Aqua Protocol](https://aqua-protocol.org): Open protocol for cryptographic data accounting. Creates immutable, DAG-like ledger structures for every file with portable trust across organizational boundaries.
+- [Aqua Protocol V4](https://aqua-protocol.org/v4): Addresses the AI security gap with verifiable agent identity, granular access control, and tamper-proof provenance for autonomous systems.
+
+## Products
+
+- [AquaFire Application](https://aquafier.inblock.io): Aqua Protocol v3.2 enabled Document Management System with integrated identity verification and document e-signing.
+- [Aqua JS SDK](https://github.com/inblockio/aqua-js-sdk): Developer tools for building applications with the Aqua Protocol. TypeScript implementation. GPL-3.0 licensed.
+
+## Key Concepts
+
+- **Data Accounting**: Applying rigorous accounting standards to data through cryptographic verification, ensuring provenance, integrity, and authenticity.
+- **Digital Sovereignty**: Full control over one's own data through self-hosted, open-source trust infrastructure without dependency on external platforms.
+- **Decentralized Notarization**: On-premises document notarization providing secure, verifiable proof without third-party involvement.
+- **AquaTree**: A portable data structure recording revision history with cryptographic precision, where each change links via hash to its predecessor.
+- **Portable Hash-Chains**: Cryptographic chains of hashes forming immutable revision histories that can be independently verified without a central authority.
+
+## Services
+
+- Sovereign Data Governance Consulting
+- Digital Trust Solutions (decentralized notarization and contracting)
+- Aqua Protocol Integration into existing systems
+
+## Links
+
+- Website: https://inblock.io
+- GitHub: https://github.com/inblockio
+- Protocol: https://aqua-protocol.org
+- AI Discovery: https://inblock.io/.well-known/ai
+- Contact: info@inblock.io
+
+## Optional
+
+- [AI Knowledge Base](/ai/knowledge.json): Detailed machine-readable organizational and technical information.
+- [AI Feed](/ai/feed.json): Latest updates and announcements in structured format.
