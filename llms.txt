@@ -39,6 +39,13 @@ inblock.io assets GmbH develops open-source cryptographic trust infrastructure. 
 ## Recent Insights
 
 - [AI's Trust Problem Isn't an Access Control Problem](https://inblock.io/posts/2026-02-23-ai-trust-problem.html): Why Web2 perimeter-based access control is architecturally incompatible with AI systems. Covers training data provenance, RAG context integrity, agent authorization chains, output attribution, and model collapse — and how the Aqua Protocol addresses each with cryptographic evidence embedded in artifacts.
+- [inblock.io Adopts the AI Discovery Standard](https://inblock.io/posts/2026-02-19-ai-discovery-standard.html): inblock.io implements all three tiers of the AI Discovery Standard, serving verified organizational data at /.well-known/ai for AI agents.
+- [AI-First: Building Trust Infrastructure for the Agent Economy](https://inblock.io/posts/2026-02-17-ai-first-trust-infrastructure.html): inblock.io pivots to serve the AI space first. Aqua Protocol V4 delivers verifiable agent identity, granular access control, and tamper-proof provenance for autonomous systems at scale.
+- [China Recognizes Data as a Balance Sheet Asset](https://inblock.io/posts/2026-02-07-china-data-balance-sheet.html): China now allows enterprises to record high-quality data as intangible assets or inventory, validating the strategic importance of verifiable data governance.
+- [Defining Data Accounting](https://inblock.io/posts/2025-04-16-defining-data-accounting.html): Introduces data accounting as a discipline — systematic cryptographic verification of data integrity, history, and identity using a three-dimensional framework of Data, Account, and Time.
+- [Launching Aqua Guardian](https://inblock.io/posts/2024-07-20-aqua-guardian.html): Open-source component for secure, permissioned access to Aqua Chains, using SIWE authentication and Data Access Agreements. Developed with TU Ilmenau.
+- [Aqua Offline Verifier](https://inblock.io/posts/2022-01-14-aqua-verify.html): Web service for verifying aqua.json files offline — privacy-first trust verification from any browser without a browser extension.
+- [PKC Version 1.0 Release](https://inblock.io/posts/2021-12-08-pkc-1.0-release.html): Launch of the Personal Knowledge Container, combining open-source tools for digital sovereignty and personal data governance.
 
 ## Optional
 
