@@ -36,6 +36,10 @@ inblock.io assets GmbH develops open-source cryptographic trust infrastructure. 
 - AI Discovery: https://inblock.io/.well-known/ai
 - Contact: info@inblock.io
 
+## Recent Insights
+
+- [AI's Trust Problem Isn't an Access Control Problem](https://inblock.io/posts/2026-02-23-ai-trust-problem.html): Why Web2 perimeter-based access control is architecturally incompatible with AI systems. Covers training data provenance, RAG context integrity, agent authorization chains, output attribution, and model collapse — and how the Aqua Protocol addresses each with cryptographic evidence embedded in artifacts.
+
 ## Optional
 
 - [AI Knowledge Base](/ai/knowledge.json): Detailed machine-readable organizational and technical information.

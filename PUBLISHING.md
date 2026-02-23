@@ -106,7 +106,19 @@ Write `keyFacts` as standalone, self-contained statements an AI can use without 
 
 ---
 
-## 6. Update `ai/knowledge.json` (if article introduces new concepts)
+## 6. Update `llms.txt`
+
+Add a new entry at the top of the `Recent Insights` section:
+
+```markdown
+- [Article Title](https://inblock.io/posts/YYYY-MM-DD-slug.html): One-sentence summary of the core argument.
+```
+
+Keep it concise — `llms.txt` is scanned quickly by LLMs for orientation.
+
+---
+
+## 7. Update `ai/knowledge.json` (if article introduces new concepts)
 
 If the article defines new terms or frameworks, add them to the `glossary` array:
 
@@ -130,6 +142,7 @@ Skip this step if the article doesn't introduce new vocabulary.
 [ ] ai/feed.json                 new entry at top of entries[]
 [ ] sitemap.xml                  new <url> added, lastmod updated on / and /posts/
 [ ] ai/knowledge.json            new glossary terms (if applicable)
+[ ] llms.txt                     new entry in "Recent Insights" section
 ```
 
 ---
