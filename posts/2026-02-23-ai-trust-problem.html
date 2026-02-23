@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI's Trust Problem Isn't an Access Control Problem - inblock.io</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../public/favicon-16x16.png">
+    <link rel="ai-discovery" type="application/json" href="/.well-known/ai">
+    <meta name="description" content="AI companies cannot prove training data provenance, RAG context integrity, or agent authorization chains. The problem is not access control — it is the absence of cryptographic trust infrastructure that travels with the data.">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="AI's Trust Problem Isn't an Access Control Problem">
+    <meta property="og:description" content="OAuth tokens prove authentication. They cannot prove who created data, whether it was modified, or what license it was created under. AI systems need a trust model that travels with the artifact.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://inblock.io/posts/2026-02-23-ai-trust-problem.html">
+    <meta property="og:image" content="https://inblock.io/public/logo/inblockio_birdstyle_writing_on_dark.png">
+    <meta property="og:site_name" content="inblock.io">
+    <meta property="article:published_time" content="2026-02-23">
+    <meta property="article:author" content="Tim Bansemer">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI's Trust Problem Isn't an Access Control Problem">
+    <meta name="twitter:description" content="The AI industry inherited Web2 trust infrastructure. Web2 trust is perimeter-based, synchronous, and server-dependent. AI systems are cross-boundary, asynchronous, and persistent. The requirements are not compatible.">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "AI's Trust Problem Isn't an Access Control Problem",
+      "description": "AI companies cannot prove training data provenance, RAG context integrity, or agent authorization chains. The problem is not access control — it is the absence of cryptographic trust infrastructure that travels with the data.",
+      "datePublished": "2026-02-23",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Tim Bansemer"
+        },
+        {
+          "@type": "Person",
+          "name": "Claude Opus 4.6, Anthropic"
+        }
+      ],
+      "url": "https://inblock.io/posts/2026-02-23-ai-trust-problem.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "inblock.io assets GmbH",
+        "url": "https://inblock.io"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="../index.html"><img src="../public/logo/inblockio_birdstyle_writing_on_dark.png" alt="inblock.io logo"></a>
+            <h1>AI&rsquo;s Trust Problem Isn&rsquo;t an Access Control Problem</h1>
+        </div>
+    </header>
+
+    <!-- Article -->
+    <section id="article">
+        <div class="section-inner">
+            <p class="post-date">February 23, 2026</p>
+            <h2>AI&rsquo;s Trust Problem Isn&rsquo;t an Access Control Problem</h2>
+            <p><em>By Tim Bansemer, CEO of inblock.io, and Claude Opus 4.6, Anthropic</em></p>
+
+            <p>The New York Times is suing OpenAI. Authors are suing Meta. Getty Images is suing Stability AI. The common thread is not copyright law. It is the absence of verifiable provenance. AI companies assembled training datasets from content scraped across the web and cannot demonstrate &mdash; to a court, to a regulator, or to themselves &mdash; that any specific document was licensed for use. The audit trail does not exist. It was never built.</p>
+
+            <p>This is the AI industry&rsquo;s first major encounter with a problem that will get more severe over time: AI pipelines have no cryptographic backbone. The data that flows through them carries no tamper-evident history. The agents that act within them have no verifiable authorization chain. The outputs they produce have no unforgeable attribution. And the decisions they make have no audit trail that survives outside the vendor&rsquo;s own database.</p>
+
+            <p>The instinct has been to reach for Web2 access control &mdash; OAuth tokens, API keys, role-based permissions, audit logs. This instinct is wrong. Not because those tools are bad, but because they answer the wrong question.</p>
+
+            <p>Web2 access control answers: <em>is this request authorized right now, by a currently valid token, verified against a currently running server?</em></p>
+
+            <p>AI security requires answering: <em>who created this, when, under what terms, what has been done to it since, and can any of that be verified by someone who was not present and does not trust the server?</em></p>
+
+            <p>These are different questions. The same tools cannot answer both.</p>
+
+            <h3>What a Token Cannot Prove</h3>
+
+            <p>An OAuth token proves you have access to a system in this moment. It proves nothing about the data inside that system &mdash; who created it, whether it has been modified, what license it was created under, or whether the audit log of actions taken against it is accurate.</p>
+
+            <p>When an AI agent presents a token and calls an API, the token proves the agent is authenticated. It does not prove the human who provisioned the agent actually authorized this specific action. It does not prove a sub-agent spawned by the primary agent had any scope restriction applied to it. It does not prove that the document the model was given as retrieved context is the authentic, unmodified version of that document.</p>
+
+            <p>Remove the server and everything collapses. No Slack server, no Slack identity. No OpenAI API, no way to verify the model&rsquo;s output claim. The trust lives in the server, not in the artifact.</p>
+
+            <p>AI outputs, training documents, and model decisions do not stay inside the server. They travel. They persist. They are used as evidence, as training data for future models, as the basis for consequential decisions. The trust model needs to travel with them.</p>
+
+            <h3>The Five Problems Nobody Has Solved</h3>
+
+            <p><strong>Training data provenance.</strong> The AI licensing crisis is not fundamentally about copyright law. It is about the absence of a provenance system. If every training document carried a cryptographic signature from its author at creation time &mdash; with the license declared in the signed payload &mdash; AI companies could demonstrate, artifact by artifact, that content was appropriately licensed. That infrastructure does not currently exist at scale. The result is legal exposure that is existential for some companies and expensive for all of them.</p>
+
+            <p><strong>RAG context integrity.</strong> Retrieval-Augmented Generation pulls documents into the context window that the model then reasons over. A model cannot intrinsically distinguish a legitimate retrieved document from a maliciously injected instruction. Indirect prompt injection &mdash; where an attacker controls a document that ends up in the retrieval set &mdash; is a live attack vector that becomes more dangerous as AI agents take consequential actions. Without verifiable signatures on retrieved content, the context window is an open injection surface.</p>
+
+            <p><strong>Agent authorization chains.</strong> When Agent A spawns Agent B spawns Agent C, and Agent C executes an action, what proves that the original human authorized this chain with this scope? OAuth tokens prove authentication. They do not prove scope. They do not prove that scope was preserved through delegation. In multi-agent systems, there is no cryptographic chain of custody connecting a consequential action back to the human who authorized it.</p>
+
+            <p><strong>Output attribution.</strong> A model produces text. That text passes through a post-processor, a safety filter, a UI layer, a cache. By the time a user sees it &mdash; or a regulator audits it &mdash; there is no way to verify it is what the model actually produced. There is no tamper-evident record. The model cannot be held accountable for modifications made downstream, and downstream systems cannot prove the model is responsible for the original content.</p>
+
+            <p><strong>Regulatory audit trails.</strong> The EU AI Act requires that high-risk AI systems maintain auditable records of decisions. GDPR requires data minimization &mdash; no more personal data processed than necessary. These requirements are in direct tension: retain the data used for a decision (auditable but privacy-risky) or discard it (GDPR-compliant but unauditable). Current architectures have no good answer.</p>
+
+            <h3>A Different Trust Model</h3>
+
+            <p>The <a href="https://aqua-protocol.org/v4" target="_blank">Aqua Protocol</a> takes a different approach to the same problem space. Instead of a perimeter that asserts trust, it builds a chain of cryptographic evidence that proves it.</p>
+
+            <p>Every artifact &mdash; a training document, a retrieved context chunk, an agent authorization, a model output, a decision record &mdash; carries its own verifiable history embedded in a hash-chained structure. Modify any piece of it and the chain breaks. Verify any piece of it and you need no server, no session, no issuing authority. The evidence is self-contained.</p>
+
+            <p>Applied to training data: every document is signed by its author at creation time, with license declared in the signed payload. Provenance is in the artifact, not the curator&rsquo;s spreadsheet.</p>
+
+            <p>Applied to RAG: retrieved chunks carry source signatures. Context assembly produces a tamper-evident record of exactly what was included. Policy enforcement before context injection &mdash; &ldquo;only include chunks signed by trusted sources&rdquo; &mdash; narrows the injection surface to a cryptographically bounded set.</p>
+
+            <p>Applied to agent authorization: delegation is a signed artifact specifying the delegatee, the scope, and the validity window. Sub-agent delegation enforces attenuation &mdash; each hop can only reduce scope, never expand it. The chain from consequential action back to human authorization is cryptographically verifiable.</p>
+
+            <p>Applied to output attribution: a model signs its outputs with its identity key. Modification breaks the chain. The original output is permanently bound to the model that produced it.</p>
+
+            <p>Applied to regulatory compliance: decision records attest to which verified claims were used as inputs &mdash; &ldquo;age verified, employment verified, residency verified&rdquo; &mdash; without embedding the underlying personal data. A regulator can audit the decision without seeing the personal information it was based on. The audit trail is tamper-evident without being a privacy liability.</p>
+
+            <h3>The Model Collapse Problem</h3>
+
+            <p>There is a longer-term risk the industry has not fully confronted.</p>
+
+            <p>The web is filling with AI-generated content. Future models trained on web data will increasingly train on current models&rsquo; outputs. The quality and diversity of training data degrades. AI content detectors are probabilistic and gameable &mdash; not a structural solution.</p>
+
+            <p>Cryptographic content provenance is. If human-created content carries signatures from human-controlled keys &mdash; keys that are attested to verified human identities &mdash; training curators can filter on evidence rather than probability. &ldquo;Include documents signed by a verified human key before this date&rdquo; is a verifiable filter. &ldquo;Exclude content that looks AI-generated&rdquo; is not.</p>
+
+            <p>The infrastructure for this exists. The adoption problem is distribution.</p>
+
+            <h3>What This Means</h3>
+
+            <p>The AI industry does not have a configuration problem with its access control. It has an architectural mismatch between the trust model it inherited from Web2 and the trust requirements of the systems it is building.</p>
+
+            <p>Web2 trust is perimeter-based, synchronous, and server-dependent. AI systems are cross-boundary, asynchronous, and persistent. The requirements are not compatible.</p>
+
+            <p>The answer is not better tokens. It is a trust model that travels with the data &mdash; where the evidence of who created something, who authorized something, and what has happened to something since is embedded in the artifact itself, verifiable by anyone, without asking any server for permission.</p>
+
+            <p>That infrastructure is being built. The AI industry needs it before the next wave of litigation, regulation, and security incidents makes the absence impossible to ignore.</p>
+
+            <hr>
+
+            <p><em>The <a href="https://aqua-protocol.org/v4" target="_blank">Aqua Protocol</a> is an open specification for cryptographic trust infrastructure &mdash; hash-chained revisions, self-sovereign identity, portable attestation, selective disclosure, and verifiable agent delegation. The reference SDK is under active development.</em></p>
+
+            <h3>Resources</h3>
+            <ul>
+                <li><strong>Aqua Protocol V4:</strong> <a href="https://aqua-protocol.org/v4" target="_blank">aqua-protocol.org/v4</a></li>
+                <li><strong>Aqua Protocol:</strong> <a href="https://aqua-protocol.org" target="_blank">aqua-protocol.org</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/inblockio" target="_blank">github.com/inblockio</a></li>
+            </ul>
+
+            <p><a href="../index.html#posts">&larr; Back to Updates</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <canvas id="footer-canvas"></canvas>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Inblock. <a href="https://github.com/inblockio" target="_blank">GitHub</a> | <a href="../impressum.html">Impressum</a></p>
+        <p>Building trust and sovereignty, one solution at a time.</p>
+    </footer>
+    <script src="../public/js/aqua-animation.js"></script>
+    <script>
+        aquaAnimation('footer-canvas', { laneCount: 3, invertSpeed: true });
+    </script>
+</body>
+</html>

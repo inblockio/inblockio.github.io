@@ -10,6 +10,22 @@
     "url": "https://inblock.io/posts/index.html",
     "entries": [
       {
+        "id": "2026-02-23-ai-trust-problem",
+        "title": "AI's Trust Problem Isn't an Access Control Problem",
+        "date": "2026-02-23",
+        "url": "https://inblock.io/posts/2026-02-23-ai-trust-problem.html",
+        "summary": "The AI industry's trust problem is architectural, not configurational. OAuth tokens and API keys answer whether a request is authorized right now — they cannot prove who created data, under what license, whether it has been modified, or whether an agent's scope was preserved through delegation. The article identifies five unsolved problems (training data provenance, RAG context integrity, agent authorization chains, output attribution, and regulatory audit trails), explains why Web2 perimeter-based trust is structurally incompatible with cross-boundary asynchronous AI systems, and describes how the Aqua Protocol addresses each with hash-chained cryptographic evidence embedded in artifacts rather than dependent on servers.",
+        "keyFacts": [
+          "AI pipelines have no cryptographic backbone: data carries no tamper-evident history, agents have no verifiable authorization chain, outputs have no unforgeable attribution.",
+          "Web2 access control answers 'is this request authorized now?' — AI trust requires answering 'who created this, when, under what terms, and can any of that be verified without trusting the server?'",
+          "Five unsolved problems: (1) training data provenance — the AI licensing crisis exists because audit trails were never built; (2) RAG context integrity — context windows are open injection surfaces without signed chunks; (3) agent authorization chains — OAuth proves authentication, not scope preservation through delegation; (4) output attribution — no tamper-evident record survives from model to user; (5) regulatory audit trails — retaining decision data for auditability conflicts with GDPR data minimization.",
+          "Aqua Protocol builds cryptographic evidence chains: every artifact carries its own verifiable history, modification breaks the chain, and verification requires no server or issuing authority.",
+          "Model collapse risk: as the web fills with AI-generated content, future training sets degrade. Cryptographic human-key signatures allow verifiable filtering ('include documents signed by a verified human key before this date') — probabilistic AI-content detectors cannot provide this guarantee.",
+          "Co-authored by Tim Bansemer, CEO of inblock.io, and Claude Opus 4.6, Anthropic."
+        ],
+        "tags": ["ai-security", "trust-infrastructure", "provenance", "oauth-limitations", "rag-security", "agent-authorization", "model-collapse", "aqua-protocol", "training-data-provenance", "output-attribution", "cryptography", "web2-vs-ai", "co-authored-ai"]
+      },
+      {
         "id": "2026-02-17-ai-first-trust-infrastructure",
         "title": "inblock.io Pivots to AI-First Trust Infrastructure",
         "date": "2026-02-17",

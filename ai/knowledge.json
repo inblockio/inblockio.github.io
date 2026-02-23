@@ -186,6 +186,30 @@
     {
       "term": "Modular Signatures",
       "definition": "A pluggable signature system supporting Ethereum wallets, DIDs, X.509 certificates, and other cryptographic schemes within the same protocol."
+    },
+    {
+      "term": "Training Data Provenance",
+      "definition": "Cryptographic proof that a training document was created by a specific author under a declared license. Without it, AI companies cannot demonstrate artifact-by-artifact that content was appropriately licensed — the root cause of ongoing AI copyright litigation."
+    },
+    {
+      "term": "RAG Context Integrity",
+      "definition": "The guarantee that documents retrieved into an AI model's context window are authentic and unmodified. Without signed retrieved chunks, the context window is an open injection surface for indirect prompt injection attacks."
+    },
+    {
+      "term": "Agent Authorization Chain",
+      "definition": "A cryptographically verifiable chain linking a consequential AI agent action back to the human who authorized it, preserving scope attenuation at each delegation hop (each sub-agent can only reduce scope, never expand it). OAuth tokens prove authentication but do not prove scope was preserved through delegation."
+    },
+    {
+      "term": "Output Attribution",
+      "definition": "A tamper-evident record binding a model's output to the model that produced it. Without it, there is no way to verify that what a user sees — after post-processors, safety filters, UI layers, and caches — is what the model actually produced."
+    },
+    {
+      "term": "Model Collapse",
+      "definition": "The degradation of AI training data quality as future models increasingly train on prior AI-generated web content rather than human-created content. Cryptographic provenance (signatures from verified human-controlled keys) enables verifiable filtering of training sets; probabilistic AI-content detectors do not."
+    },
+    {
+      "term": "Indirect Prompt Injection",
+      "definition": "An attack where a malicious actor controls a document that ends up in an AI model's retrieval set, embedding instructions the model then executes. Becomes more dangerous as AI agents take consequential actions. Signed retrieved content with policy enforcement before context injection is a structural defence."
     }
   ],
   "links": {
