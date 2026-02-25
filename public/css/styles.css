@@ -183,6 +183,24 @@ section a:hover {
     font-size: 0.95rem;
 }
 
+/* Team Cards */
+.team-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.team-card h3 {
+    margin-top: 0;
+}
+
+.team-card:last-child {
+    margin-bottom: 0;
+}
+
 /* Projects Grid - Two-column split layout */
 .projects-grid {
     display: grid;
