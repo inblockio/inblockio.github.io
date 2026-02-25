@@ -201,6 +201,27 @@ section a:hover {
     margin-bottom: 0;
 }
 
+/* Contact CTA Card */
+.contact-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-card h2 {
+    margin-top: 0;
+}
+
+.contact-card p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
 /* Projects Grid - Two-column split layout */
 .projects-grid {
     display: grid;
