@@ -156,6 +156,33 @@ section a:hover {
     margin-bottom: 20px;
 }
 
+/* Service Cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.service-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    border-top: 3px solid var(--primary);
+}
+
+.service-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+}
+
+.service-card p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
 /* Projects Grid - Two-column split layout */
 .projects-grid {
     display: grid;
@@ -165,7 +192,8 @@ section a:hover {
 }
 
 @media (max-width: 768px) {
-    .projects-grid {
+    .projects-grid,
+    .services-grid {
         grid-template-columns: 1fr;
     }
 }
