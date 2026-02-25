@@ -222,6 +222,22 @@ section a:hover {
     font-size: 1.1rem;
 }
 
+/* Card hover effects */
+.project-card,
+.post-item,
+.service-card,
+.team-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover,
+.post-item:hover,
+.service-card:hover,
+.team-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(63, 35, 5, 0.08);
+}
+
 /* Projects Grid - Two-column split layout */
 .projects-grid {
     display: grid;
