@@ -238,6 +238,14 @@ section a:hover {
     box-shadow: 0 4px 12px rgba(63, 35, 5, 0.08);
 }
 
+/* Article content card */
+#article .section-inner {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5rem;
+}
+
 /* Projects Grid - Two-column split layout */
 .projects-grid {
     display: grid;
