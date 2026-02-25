@@ -156,31 +156,68 @@ section a:hover {
     margin-bottom: 20px;
 }
 
-/* Service Cards */
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 1.5rem;
+/* Services Headline */
+.services-headline {
+    font-size: 2.4rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.services-headline a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.services-headline a:hover {
+    text-decoration: underline;
+}
+
+.services-subtitle {
+    font-size: 1.15rem;
+    opacity: 0.8;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Service Cards - Full-width stacked */
+.services-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .service-card {
     background: var(--background);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 2rem;
-    border-top: 3px solid var(--primary);
+    padding: 2.5rem 3rem;
+    border-left: 4px solid var(--primary);
 }
 
 .service-card h3 {
     margin-top: 0;
     margin-bottom: 0.75rem;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
+}
+
+.service-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.service-card h3 a:hover {
+    color: var(--primary);
 }
 
 .service-card p {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 /* Team Cards */
@@ -255,9 +292,14 @@ section a:hover {
 }
 
 @media (max-width: 768px) {
-    .projects-grid,
-    .services-grid {
+    .projects-grid {
         grid-template-columns: 1fr;
+    }
+    .services-headline {
+        font-size: 1.8rem;
+    }
+    .service-card {
+        padding: 2rem 1.5rem;
     }
 }
 
