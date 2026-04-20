@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "inblock.io | Vertrauensinfrastruktur für digitale Souveränität",
+    "description": "Aqua bettet kryptografische Verifizierung direkt in Ihre Dateien ein — portabel, dauerhaft und überall unabhängig überprüfbar."
+  },
+  "nav": {
+    "products": "Produkte",
+    "solutions": "Lösungen",
+    "developers": "Entwickler",
+    "resources": "Ressourcen",
+    "contact_cta": "Kontakt",
+    "lang_switch_label": "EN",
+    "lang_switch_aria": "Switch to English"
+  },
+  "hero": {
+    "headline": "Vertrauen, das mit Ihren Daten reist.",
+    "sub": "In einer Welt von Deepfakes und autonomer KI sollte Vertrauen in die Daten selbst eingebaut sein — nicht nur in die Plattformen, die sie speichern. Aqua bettet kryptografische Verifizierung direkt in Ihre Dateien ein: portabel, dauerhaft und überall unabhängig überprüfbar.",
+    "secondary": "Verlassen Sie sich nicht länger auf zentrale Server, um zu beweisen, was geschehen ist. Aqua bettet Verifizierung direkt in Ihre Daten ein, sodass sie überall und unabhängig überprüft werden können. Aqua schafft ein portables Gedächtnis für Ihre Daten.",
+    "cta_primary": "Jetzt starten",
+    "cta_secondary": "Demo buchen"
+  },
+  "products": {
+    "heading": "Was wir bauen",
+    "subheading": "Das Aqua-Ökosystem bietet Werkzeuge für vertrauenswürdige Daten, verifizierte Identität und sichere KI-Operationen.",
+    "aquafire": {
+      "title": "AquaFire",
+      "description": "Ihre All-in-One-Plattform für Datennotarisierung, Dokumentenmanagement und digitale Identität.",
+      "features": ["Digitale Zertifikate", "Dokumentenunterzeichnung", "Digitale Rechnung", "Identitätsmanagement"]
+    },
+    "aqua_node": {
+      "title": "Aqua-Node",
+      "description": "Betreiben Sie Ihren eigenen dezentralen Notarisierungsknoten. Verankern Sie Datenintegrität direkt im Netzwerk — ohne Intermediäre.",
+      "features": ["Datennotarisierung", "Dezentrale Verankerung", "API-Zugang"]
+    },
+    "aqua_agents": {
+      "title": "Aqua-Gesicherte Agenten",
+      "description": "Statten Sie KI-Agenten mit verifizierbarer Identität und manipulationssicheren Operationsprotokollen aus. Jede Aktion ist nachvollziehbar.",
+      "features": ["Agenten-Identitätsverifizierung", "Operations-Audit-Trail", "Sichere Delegation"]
+    }
+  },
+  "solutions": {
+    "heading": "Lösungen",
+    "subheading": "Ob Compliance, Sicherheit oder verifizierter Datenaustausch — Aqua bietet eine Lösung für Ihre Herausforderung.",
+    "tabs": {
+      "use_case": "Nach Anwendungsfall",
+      "industry": "Nach Branche",
+      "ecosystem": "Ökosystem"
+    },
+    "use_cases": {
+      "esignature": { "title": "eSignatur", "description": "Rechtlich bindende elektronische Signaturen mit integrierter kryptografischer Verifizierung und manipulationssicheren Audit-Trails." },
+      "document_signing": { "title": "Dokumentenunterzeichnung", "description": "Unterzeichnen, notarisieren und teilen Sie Dokumente mit portablem Authentizitätsnachweis, der dem Dokument überallhin folgt." },
+      "supply_chain": { "title": "Lieferkettenverfolgung", "description": "Verfolgen Sie Waren, Zertifizierungen und Übergaben in Ihrer Lieferkette mit unabhängig verifizierbaren Aufzeichnungen." },
+      "ai_security": { "title": "KI-Betriebssicherheit", "description": "Stellen Sie sicher, dass jede KI-Entscheidung, jeder Datenzugriff und jede Modellausgabe mit unveränderlichen, verifizierbaren Aufzeichnungen protokolliert wird." },
+      "data_provenance": { "title": "Datenherkunft", "description": "Erfüllen Sie regulatorische Anforderungen (EU AI Act, DSGVO) mit kontinuierlicher, eingebauter Dokumentation von Datenherkunft und Verarbeitungshistorie." },
+      "compliance": { "title": "Compliance", "description": "Automatisieren Sie Compliance mit verifizierbaren Audit-Trails, die Regulierungsbehörden ohne manuelle Dokumentation zufriedenstellen." }
+    }
+  },
+  "company": {
+    "heading": "Unabhängige Vertrauensinfrastruktur",
+    "description_1": "inblock.io assets GmbH ist ein zu 100 % gründergeführtes Unternehmen, das rund 1 Million Euro an Zuschüssen und Investitionen erhalten hat, um eine unabhängige Vertrauensinfrastruktur namens Aqua Protocol aufzubauen.",
+    "description_2": "Unsere Vision ist es, das Vertrauens- und Protokollunternehmen zu sein, das anderen Unternehmen ermöglicht zu gedeihen — sicherer, effektiver und mit voller Souveränität über ihre Daten.",
+    "equity_heading": "Unser Beteiligungsmodell",
+    "equity_description": "Wir verkaufen keine Anteile an der Holdinggesellschaft. Protokoll und geistiges Eigentum müssen unabhängig bleiben, um die Souveränität der Vertrauensinfrastruktur zu gewährleisten. Branchenvertikalen hingegen sind separate Einheiten mit geteiltem Eigenkapital — offen für Investoren und Partner, die ihre Wirkung in bestimmten Sektoren skalieren möchten.",
+    "description_3": "Wir suchen aktiv Partner, um unsere Wirkung branchenübergreifend zu skalieren, und Investoren, die über dedizierte Tochtergesellschaften in Branchenvertikalen einsteigen möchten.",
+    "cta": "Lassen Sie uns sprechen — Termin buchen",
+    "stats": {
+      "founder_held": "100%",
+      "founder_held_label": "Gründergeführt",
+      "investment": "~1 Mio. €",
+      "investment_label": "Zuschüsse & Investitionen",
+      "founded": "2021",
+      "founded_label": "Gegründet",
+      "location": "Weimar",
+      "location_label": "Deutschland"
+    }
+  },
+  "team": {
+    "heading": "Unser Team"
+  },
+  "news": {
+    "heading": "Neuigkeiten"
+  },
+  "footer": {
+    "tagline": "Vertrauensinfrastruktur für digitale Souveränität — eine Lösung nach der anderen."
+  }
+}

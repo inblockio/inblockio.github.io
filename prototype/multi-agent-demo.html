@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent Transaction Animation — Prototype</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Satoshi', -apple-system, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            gap: 3rem;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .canvas-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            background: #fff;
+        }
+
+        .canvas-container--pipeline {
+            aspect-ratio: 16 / 7;
+        }
+
+        .canvas-container--multiagent {
+            aspect-ratio: 4 / 3;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .controls {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .controls button {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .controls button:hover {
+            border-color: #ef5401;
+            color: #ef5401;
+        }
+
+        .info {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: #999;
+            text-align: center;
+        }
+
+        .separator {
+            width: 100%;
+            max-width: 1000px;
+            border: none;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .scenario-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 700px;
+            margin-bottom: 1.5rem;
+        }
+
+        .scenario-box h3 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .scenario-box ol {
+            padding-left: 1.25rem;
+            line-height: 1.8;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .scenario-box ol li strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Multi-Agent Transaction -->
+    <div class="section">
+        <h1>Multi-Agent Business Transaction</h1>
+        <p class="description">
+            Theodora orders a product via her agent Symphonie. Best-Cookies Inc. responds
+            through their agent Brandon. Every step produces a signed, hash-chained artifact
+            that either party can independently verify.
+        </p>
+
+        <div class="scenario-box">
+            <h3>Transaction Flow (from Aqua Protocol whitepaper)</h3>
+            <ol>
+                <li><strong>User Intent</strong> — Theodora signs her purchase intent through Symphonie</li>
+                <li><strong>Offer</strong> — Brandon retrieves offerings from Best-Cookies API, returns signed artifact</li>
+                <li><strong>Order</strong> — Symphonie creates order referencing the offer by hash-link</li>
+                <li><strong>Confirmation</strong> — Brandon processes against API, links back to order</li>
+                <li><strong>Invoice</strong> — Final artifact, hash-chained to confirmation</li>
+            </ol>
+        </div>
+
+        <div class="canvas-container canvas-container--multiagent">
+            <canvas id="multiagent-canvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <button id="ma-restart">Restart</button>
+            <button id="ma-pause">Pause</button>
+        </div>
+
+        <p class="info">
+            Each artifact carries three signature layers: User (P-256), Agent (Ed25519), Workflow (Ed25519).<br>
+            Hash-chain links (golden curves) create a tamper-evident transaction record.
+        </p>
+    </div>
+
+    <hr class="separator">
+
+    <!-- Section 2: Creation & Verification Pipeline (reused from notarization-demo) -->
+    <div class="section">
+        <h2>Data Notarization Pipeline</h2>
+        <p class="description">
+            The underlying mechanism: data enters, gets form templates, eSignatures, and
+            timestamps applied, sealed in a certified box and shipped. On receipt, the box
+            is unboxed, inspected, and verified — or rejected if corrupt.
+        </p>
+
+        <div class="canvas-container canvas-container--pipeline">
+            <canvas id="pipeline-canvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <button id="pl-restart">Restart</button>
+            <button id="pl-pause">Pause</button>
+        </div>
+
+        <p class="info">Every 3rd cycle shows a corrupt/failed verification (red cross).</p>
+    </div>
+
+    <script src="js/animations/animation-manager.js"></script>
+    <script src="js/animations/notarization-pipeline.js"></script>
+    <script src="js/animations/multi-agent-pipeline.js"></script>
+    <script>
+        (function () {
+            // Multi-agent animation
+            var maCanvas = document.getElementById('multiagent-canvas');
+            var maState = null;
+            var maPaused = false;
+
+            function startMA() {
+                if (maState && maState.stop) maState.stop();
+                maState = AnimationManager.start('multiagent-canvas', 'multi-agent-pipeline');
+                maPaused = false;
+                document.getElementById('ma-pause').textContent = 'Pause';
+            }
+            startMA();
+
+            document.getElementById('ma-restart').addEventListener('click', startMA);
+            document.getElementById('ma-pause').addEventListener('click', function () {
+                if (maPaused) { startMA(); }
+                else { if (maState && maState.stop) maState.stop(); this.textContent = 'Resume'; }
+                maPaused = !maPaused;
+            });
+
+            // Pipeline animation
+            var plCanvas = document.getElementById('pipeline-canvas');
+            var plState = null;
+            var plPaused = false;
+
+            function startPL() {
+                if (plState && plState.stop) plState.stop();
+                plState = AnimationManager.start('pipeline-canvas', 'notarization-pipeline');
+                plPaused = false;
+                document.getElementById('pl-pause').textContent = 'Pause';
+            }
+            startPL();
+
+            document.getElementById('pl-restart').addEventListener('click', startPL);
+            document.getElementById('pl-pause').addEventListener('click', function () {
+                if (plPaused) { startPL(); }
+                else { if (plState && plState.stop) plState.stop(); this.textContent = 'Resume'; }
+                plPaused = !plPaused;
+            });
+        })();
+    </script>
+</body>
+</html>

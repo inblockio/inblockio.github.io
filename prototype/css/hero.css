@@ -1,0 +1,87 @@
+/* ── Hero Section ───────────────────────────────────── */
+
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #ffffff;
+    padding-top: calc(var(--nav-height) + var(--space-4xl));
+    padding-bottom: var(--space-4xl);
+}
+
+/* No divider between hero and aqua section — they flow together */
+
+/* ── Hero Content ──────────────────────────────────── */
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+.hero h1 {
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-xl);
+}
+
+/* Primary subtitle */
+.hero-sub {
+    color: var(--text-light);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Secondary subtitle */
+.hero-secondary {
+    color: var(--text-light);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto var(--space-2xl);
+}
+
+/* ── Call-to-Action Buttons ────────────────────────── */
+
+.hero-ctas {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── Colibri Bridge (hero-to-content transition) ──── */
+
+.colibri-bridge {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    margin-top: -48px;
+    margin-bottom: -80px;
+}
+
+.colibri-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 30px rgba(239, 84, 1, 0.2);
+}
+
+.colibri-circle video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

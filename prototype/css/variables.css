@@ -1,0 +1,120 @@
+/* ── Font Faces ─────────────────────────────────────── */
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../assets/fonts/ClashDisplay-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../assets/fonts/ClashDisplay-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../assets/fonts/ClashDisplay-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ── Design Tokens ──────────────────────────────────── */
+
+:root {
+    /* Brand */
+    --primary: #ef5401;
+    --primary-hover: #c44400;
+    --primary-light: rgba(239, 84, 1, 0.08);
+    --secondary: #1a1a1a;
+
+    /* Text */
+    --text: #1a1a1a;
+    --text-light: #6b7280;
+    --text-on-dark: #ffffff;
+    --text-muted-on-dark: #a1a1aa;
+
+    /* Backgrounds */
+    --bg: #ffffff;
+    --bg-elevated: #ffffff;
+    --section-1: #ffffff;
+    --section-2: #fafafa;
+    --section-3: #ffffff;
+    --section-dark: #111111;
+
+    /* Hero gradient stops */
+    --hero-dark: #111111;
+    --hero-mid: #1a1a1a;
+    --hero-warm: #222222;
+
+    /* Borders & Surfaces */
+    --border: #e5e7eb;
+    --border-light: #f3f4f6;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Typography */
+    --font-display: 'Clash Display', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Satoshi', 'Segoe UI', system-ui, sans-serif;
+
+    /* Spacing scale */
+    --space-2xs: 0.125rem;
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    --space-5xl: 8rem;
+
+    /* Layout */
+    --max-width: 1200px;
+    --nav-height: 64px;
+    --section-transition-height: 100px;
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-full: 9999px;
+}

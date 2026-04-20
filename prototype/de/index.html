@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inblock.io | Vertrauensinfrastruktur für digitale Souveränität</title>
+    <meta name="description" content="Aqua bettet kryptografische Verifizierung direkt in Ihre Dateien ein — portabel, dauerhaft und überall unabhängig überprüfbar.">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../../public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../public/favicon-16x16.png">
+
+    <!-- CSS (load order matters) -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/transitions.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+<nav class="site-nav" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+        <a href="../" class="nav-logo">
+            <img src="../../public/logo/inblockio Logo birdstyle full on white.png" alt="inblock.io" height="32">
+        </a>
+
+        <div class="nav-links" role="menubar">
+            <!-- Products -->
+            <div class="nav-item" data-menu="products">
+                <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Produkte</button>
+            </div>
+            <!-- Solutions -->
+            <div class="nav-item" data-menu="solutions">
+                <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Lösungen</button>
+            </div>
+            <!-- Developers -->
+            <div class="nav-item" data-menu="developers">
+                <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Entwickler</button>
+            </div>
+            <!-- Resources -->
+            <div class="nav-item" data-menu="resources">
+                <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Ressourcen</button>
+            </div>
+        </div>
+
+        <div class="nav-actions">
+            <button class="lang-switch" aria-label="Switch to English">EN</button>
+            <a href="https://calendly.com/tim-bansemer/30min" class="btn btn--primary btn--sm" target="_blank" rel="noopener">Kontakt</a>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <!-- Mega Menu: Products -->
+    <div class="mega-menu" id="menu-products" role="menu" aria-hidden="true">
+        <div class="mega-menu__inner">
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading"><a href="https://aquafire.inblock.io" target="_blank" rel="noopener">AquaFire</a></h3>
+                <p class="mega-menu__desc">Plattform für Datenbeglaubigung &amp; Verwaltung</p>
+                <ul class="mega-menu__list">
+                    <li><a href="https://aquafire.inblock.io">Digitale Zertifikate</a></li>
+                    <li><a href="https://aquafire.inblock.io">Dokumentensignierung</a></li>
+                    <li><a href="https://aquafire.inblock.io">Digitale Rechnung</a></li>
+                    <li><a href="https://aquafire.inblock.io">Identitätsmanagement</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Aqua-Node</h3>
+                <p class="mega-menu__desc">Dezentrale Datenbeglaubigung</p>
+                <ul class="mega-menu__list">
+                    <li><a href="#">Einrichtungsanleitung</a></li>
+                    <li><a href="#">API-Referenz</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading"><a href="https://agentic.inblock.io" target="_blank" rel="noopener">Aqua-gesicherte Agenten</a></h3>
+                <p class="mega-menu__desc">Verifizierbare KI-Agenten-Operationen</p>
+                <ul class="mega-menu__list">
+                    <li><a href="https://agentic.inblock.io">Agenten-Framework</a></li>
+                    <li><a href="#">Sicherheits-Whitepaper</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mega Menu: Solutions -->
+    <div class="mega-menu" id="menu-solutions" role="menu" aria-hidden="true">
+        <div class="mega-menu__inner">
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Nach Anwendungsfall</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="#">eSignatur</a></li>
+                    <li><a href="#">Dokumentensignierung</a></li>
+                    <li><a href="#">Lieferkettenverfolgung</a></li>
+                    <li><a href="#">KI-Betriebssicherheit</a></li>
+                    <li><a href="#">Datenherkunft</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Nach Branche</h3>
+                <p class="mega-menu__desc">Branchenspezifische Lösungen in Kürze verfügbar</p>
+                <ul class="mega-menu__list">
+                    <li><a href="#">Finanzdienstleistungen</a></li>
+                    <li><a href="#">Gesundheitswesen</a></li>
+                    <li><a href="#">Öffentlicher Sektor</a></li>
+                    <li><a href="#">Fertigung</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Ökosystem</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="#">Partner</a></li>
+                    <li><a href="#">Integrationen</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mega Menu: Developers -->
+    <div class="mega-menu" id="menu-developers" role="menu" aria-hidden="true">
+        <div class="mega-menu__inner">
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Erste Schritte</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="https://github.com/inblockio/aqua-js-sdk" target="_blank" rel="noopener">Aqua SDK</a></li>
+                    <li><a href="https://aqua-protocol.org" target="_blank" rel="noopener">Protokollspezifikation</a></li>
+                    <li><a href="#">Schnellstartanleitung</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Dokumentation</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="https://aqua-protocol.org/v4" target="_blank" rel="noopener">API-Referenz</a></li>
+                    <li><a href="#">Integrationsanleitung</a></li>
+                    <li><a href="#">Codebeispiele</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Community</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="https://github.com/inblockio" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://aquaprotocol.zulipchat.com/" target="_blank" rel="noopener">Zulip</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mega Menu: Resources -->
+    <div class="mega-menu" id="menu-resources" role="menu" aria-hidden="true">
+        <div class="mega-menu__inner">
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Unternehmen</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="#company">Über inblock.io</a></li>
+                    <li><a href="#">Geschichte des Aqua-Protokolls</a></li>
+                    <li><a href="#team">Unser Team</a></li>
+                    <li><a href="#news">Aktuelles</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Kontakt</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="../../impressum.html">Impressum</a></li>
+                    <li><a href="mailto:contact@inblock.io">contact@inblock.io</a></li>
+                    <li><a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener">Termin buchen</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu__column">
+                <h3 class="mega-menu__heading">Wissen</h3>
+                <ul class="mega-menu__list">
+                    <li><a href="https://digitalfreedom.substack.com" target="_blank" rel="noopener">Blog (Substack)</a></li>
+                    <li><a href="https://aqua-protocol.org" target="_blank" rel="noopener">Aqua-Protokoll</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-overlay"></div>
+</nav>
+
+<main id="main">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vertrauen, das mit<br>Ihren Daten reist.</h1>
+            <p class="hero-sub">In einer Welt voller Deepfakes und autonomer KI sollte Vertrauen direkt in die Daten eingebettet sein, nicht nur in die Plattformen, die sie speichern. Aqua integriert kryptografische Verifizierung unmittelbar in Ihre Dateien und macht sie portabel, dauerhaft und überall unabhängig überprüfbar.</p>
+            <p class="hero-secondary">Verlassen Sie sich nicht länger auf zentrale Server, um nachzuweisen, was geschehen ist. Aqua bettet die Verifizierung direkt in Ihre Daten ein, sodass sie überall und unabhängig geprüft werden können. Aqua schafft ein portables Gedächtnis für Ihre Daten.</p>
+            <div class="hero-ctas">
+                <a href="https://aqua-protocol.org" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Jetzt starten</a>
+                <a href="https://calendly.com/tim-bansemer/30min" class="btn btn--outline-dark btn--lg" target="_blank" rel="noopener">Demo buchen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colibri Bridge -->
+    <div class="colibri-bridge">
+        <div class="colibri-circle">
+            <video autoplay muted loop playsinline>
+                <source src="../../public/logo/Animated logo inblock.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Aqua Protocol Section -->
+    <section id="aqua-protocol" class="section section--aqua">
+        <video class="aqua-water-video" autoplay muted loop playsinline onloadedmetadata="this.playbackRate=0.33">
+            <source src="../assets/water.mp4" type="video/mp4">
+        </video>
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2><a href="https://aqua-protocol.org" target="_blank" rel="noopener">Aqua Protocol</a></h2>
+                <p>Ein offenes Protokoll, das jeder Datei eine kryptografische Historie anheftet. Jede Bearbeitung, jede Signatur, jede Übergabe wird in einer Hash-Kette aufgezeichnet, die mit den Daten selbst reist. Kein zentraler Server speichert den Beweis. Kein Vendor-Lock-in. Die Datei <em>ist</em> der Audit-Trail.</p>
+            </div>
+            <div class="grid grid-3 reveal">
+                <div class="aqua-feature">
+                    <h4>Portabel</h4>
+                    <p>Verifizierungsdaten leben in der Datei. In ein anderes System verschieben, ein anderes Land, ein anderes Jahr. Die Prüfung funktioniert trotzdem.</p>
+                </div>
+                <div class="aqua-feature">
+                    <h4>Offline verifizierbar</h4>
+                    <p>Kein API-Aufruf nötig. Jeder mit der Datei kann deren vollständige Historie nur mit Mathematik verifizieren.</p>
+                </div>
+                <div class="aqua-feature">
+                    <h4>Komponierbar</h4>
+                    <p>Aqua-Ketten verlinken sich gegenseitig. Ein signiertes Dokument kann die Identitätskette des Unterzeichners und die Zeugenkette eines Notars referenzieren. Ein Protokoll, viele Vertrauenstopologien.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-2xl);" class="reveal">
+                <a href="https://aqua-protocol.org" class="btn btn--primary" target="_blank" rel="noopener">Spezifikation lesen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section section--s1">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Was wir entwickeln</h2>
+                <p>Drei Produkte. Ein Prinzip: Der Beweis gehört in die Daten, nicht auf den Server eines Dritten.</p>
+            </div>
+            <div class="grid grid-3">
+                <!-- AquaFire card -->
+                <div class="card product-card reveal reveal-delay-1">
+                    <h3><a href="https://aquafire.inblock.io" target="_blank" rel="noopener">AquaFire</a></h3>
+                    <p>Dateien beglaubigen, Dokumente signieren, Zertifikate ausstellen, Identitäten verwalten. Eine App, kryptografischer Beweis in allem eingebaut.</p>
+                    <ul class="product-card__features">
+                        <li>Digitale Zertifikate</li>
+                        <li>Dokumentensignierung</li>
+                        <li>Digitale Rechnung</li>
+                        <li>Identitätsmanagement</li>
+                    </ul>
+                    <a href="https://aquafire.inblock.io" target="_blank" rel="noopener" class="btn btn--sm">AquaFire besuchen</a>
+                </div>
+                <!-- Aqua-Node card -->
+                <div class="card product-card reveal reveal-delay-2">
+                    <h3>Aqua-Node</h3>
+                    <p>Ihr eigener Beglaubigungsendpunkt. Hashes verankern, Dateien zeitstempeln, Integrität prüfen — kein Mittelsmann nötig.</p>
+                    <ul class="product-card__features">
+                        <li>Datenbeglaubigung</li>
+                        <li>Dezentrale Verankerung</li>
+                        <li>API-Zugang</li>
+                    </ul>
+                </div>
+                <!-- Aqua-Secured Agents card -->
+                <div class="card product-card reveal reveal-delay-3">
+                    <h3><a href="https://agentic.inblock.io" target="_blank" rel="noopener">Aqua-gesicherte Agenten</a></h3>
+                    <p>KI-Agenten, die beweisen können, wer sie sind und was sie getan haben. Jede Entscheidung bekommt eine kryptografische Quittung.</p>
+                    <ul class="product-card__features">
+                        <li>Agenten-Identitätsverifizierung</li>
+                        <li>Betriebs-Auditprotokoll</li>
+                        <li>Sichere Delegation</li>
+                    </ul>
+                    <a href="https://agentic.inblock.io" target="_blank" rel="noopener" class="btn btn--sm">Aqua-gesicherte Agenten besuchen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section section--s2">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Lösungen</h2>
+                <p>Aqua ist nicht ein Produkt für ein Problem. So passt es zu dem, womit Sie sich bereits beschäftigen.</p>
+            </div>
+
+            <div class="solutions-tabs reveal">
+                <button class="solutions-tab is-active" data-tab="use-case">Nach Anwendungsfall</button>
+                <button class="solutions-tab" data-tab="industry">Nach Branche</button>
+                <button class="solutions-tab" data-tab="ecosystem">Ökosystem</button>
+            </div>
+
+            <!-- By Use Case panel -->
+            <div class="solutions-panel is-active" id="panel-use-case">
+                <div class="grid grid-3">
+                    <div class="card reveal">
+                        <h3>eSignatur</h3>
+                        <p>Vertrag unterschreiben und der Beweis reist mit dem PDF. Kein Anbieterportal nötig, um ihn später zu prüfen.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Dokumentensignierung</h3>
+                        <p>Dokument einmal beglaubigen. Zehnmal weiterleiten. Der zehnte Empfänger kann den Unterzeichner verifizieren, ohne Sie anzurufen.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Lieferkettenverfolgung</h3>
+                        <p>Ein Bauteil verlässt eine Fabrik in Shenzhen. Sechs Übergaben später kann der Käufer in München jeden Schritt verifizieren — offline, ohne einer einzelnen Partei vertrauen zu müssen.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>KI-Betriebssicherheit</h3>
+                        <p>Ihr KI-Agent hat um 3 Uhr nachts eine Rechnung freigegeben. War das autorisiert? Welche Daten hat er gesehen? Aqua liefert die Quittungen.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Datenherkunft</h3>
+                        <p>Der EU AI Act verlangt, dass Sie dokumentieren, woher Ihre Trainingsdaten stammen. Aqua zeichnet diese Historie auf, während die Daten fließen — nicht nachträglich in einer Tabelle.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Compliance</h3>
+                        <p>Prüfer fragen „Beweisen Sie es." Aqua-gestempelte Daten beantworten diese Frage, bevor Sie ein Ticket bei Ihrer Compliance-Abteilung öffnen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- By Industry panel -->
+            <div class="solutions-panel" id="panel-industry">
+                <div class="grid grid-3">
+                    <div class="card reveal">
+                        <h3>Finanzdienstleistungen</h3>
+                        <p>KYC-Dokumente, die sich selbst beweisen. Transaktionsdaten, die Ihr Prüfer verifizieren kann, ohne Zugang zu Ihren Systemen zu verlangen.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Gesundheitswesen</h3>
+                        <p>Patientendaten zwischen Kliniken teilen, ohne dass eine Seite der anderen „einfach vertrauen" muss. Forschungsdaten mit Herkunftsnachweis, der Peer Review standhält.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Öffentlicher Sektor</h3>
+                        <p>Öffentliche Aufzeichnungen, die Bürger selbst verifizieren können. Genehmigungen und Zertifikate, bei denen man nicht das Amt anrufen muss, um zu bestätigen, dass sie echt sind.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Fertigung</h3>
+                        <p>Qualitätszertifikate, die mit dem Bauteil reisen. Wenn eine Charge zurückgerufen wird, verfolgen Sie sie in Minuten zurück, nicht in Wochen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosystem panel -->
+            <div class="solutions-panel" id="panel-ecosystem">
+                <div class="grid grid-2">
+                    <div class="card reveal">
+                        <h3>Partner</h3>
+                        <p>Wir suchen Unternehmen, die verifizierbares Vertrauen in ihre eigenen Produkte einbauen wollen. Aqua ist die Infrastruktur — Sie bauen die Vertikale.</p>
+                        <a href="https://calendly.com/tim-bansemer/30min" class="btn btn--outline-dark" style="margin-top: var(--space-lg);" target="_blank" rel="noopener">Partner werden</a>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Integrationen</h3>
+                        <p>Ein JavaScript-SDK und eine REST-API. Aqua-Verifizierung in Ihre bestehende App einbauen, ohne etwas umzubauen.</p>
+                        <a href="https://github.com/inblockio/aqua-js-sdk" class="btn btn--outline-dark" style="margin-top: var(--space-lg);" target="_blank" rel="noopener">SDK entdecken</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Section -->
+    <section id="company" class="section section--s3">
+        <div class="section-inner">
+            <div class="company-content reveal">
+                <div class="company-narrative">
+                    <h2>Unabhängige Vertrauensinfrastruktur</h2>
+                    <p>Die inblock.io assets GmbH ist ein <strong>zu 100 % gründergeführtes Unternehmen</strong>, das rund <strong>1 Million Euro an Förderungen und Investitionen</strong> erhalten hat, um eine unabhängige Vertrauensinfrastruktur namens Aqua-Protokoll aufzubauen.</p>
+                    <p>Wir bauen das Protokoll. Andere bauen Geschäfte darauf auf. Das Ziel: Verifizierbares Vertrauen so selbstverständlich machen wie HTTPS — etwas, das jede Anwendung einfach nutzen kann.</p>
+
+                    <div class="company-highlight">
+                        <h4>Unser Beteiligungsmodell</h4>
+                        <p>Die Holdinggesellschaft, die das Protokoll besitzt, steht nicht zum Verkauf. Vertrauensinfrastruktur kann nicht unabhängig sein, wenn ihr Eigentümer externen Aktionären Rechenschaft schuldet. Branchenvertikalen sind anders — das sind eigenständige Gesellschaften, in denen Investoren und Partner Anteile und Aufwärtspotenzial teilen.</p>
+                    </div>
+
+                    <p>Wir suchen <strong>Partner</strong>, die Aqua in ihre Branche bringen wollen, und <strong>Investoren</strong>, die gemeinsam mit uns vertikale Unternehmen auf dem Protokoll aufbauen möchten.</p>
+                </div>
+                <div class="company-aside">
+                    <div class="company-stats">
+                        <div class="stat">
+                            <div class="stat-value">100 %</div>
+                            <div class="stat-label">Gründergeführt</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">~1 Mio. &euro;</div>
+                            <div class="stat-label">Förderungen &amp; Investitionen</div>
+                        </div>
+                    </div>
+                    <div class="company-stats">
+                        <div class="stat">
+                            <div class="stat-value">2021</div>
+                            <div class="stat-label">Gegründet</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Weimar</div>
+                            <div class="stat-label">Deutschland</div>
+                        </div>
+                    </div>
+                    <a href="https://calendly.com/tim-bansemer/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener" style="margin-top: var(--space-xl); width: 100%;">Sprechen wir — Termin buchen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section section--s1">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Unser Team</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="card team-card reveal reveal-delay-1">
+                    <div class="team-card__avatar">TB</div>
+                    <h3>Tim Bansemer</h3>
+                    <div class="team-card__role">CEO &amp; Aqua-Projektleiter</div>
+                    <p class="team-card__bio">Netzwerkingenieur, dann Protokolldesigner. Startete in IT-Security, arbeitete jahrelang mit Distributed-Ledger-Technologie und baute 2021 das Aqua-Protokoll von Grund auf — weil bestehende Vertrauensmodelle nicht für eine Welt entworfen wurden, in der KI die Hälfte der Inhalte erzeugt.</p>
+                    <div style="margin-top: var(--space-md); font-size: 0.85rem;">
+                        <a href="https://linktr.ee/tim.bansemer" class="link" target="_blank" rel="noopener">Linktree</a> ·
+                        <a href="https://github.com/FantasticoFox" class="link" target="_blank" rel="noopener">GitHub</a> ·
+                        <a href="https://x.com/tim_bansemer" class="link" target="_blank" rel="noopener">X</a>
+                    </div>
+                </div>
+                <div class="card team-card reveal reveal-delay-2">
+                    <div class="team-card__avatar">CD</div>
+                    <h3>Carlotta Dietrich</h3>
+                    <div class="team-card__role">Marketing</div>
+                    <p class="team-card__bio">Leitet das Marketing bei inblock.io. Macht aus einem hochkomplexen Protokoll etwas, worauf Leute tatsächlich klicken wollen.</p>
+                </div>
+                <div class="card team-card reveal reveal-delay-3">
+                    <div class="team-card__avatar">MM</div>
+                    <h3>Max Müller</h3>
+                    <div class="team-card__role">Berater</div>
+                    <p class="team-card__bio">Berät zu Go-to-Market-Strategie und Branchenpartnerschaften. Hilft herauszufinden, an welche Türen als nächstes geklopft werden sollte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" class="section section--s2">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Aktuelles</h2>
+            </div>
+            <div class="news-grid">
+                <a href="../../posts/2026-02-23-ai-trust-problem.html" class="card news-card reveal">
+                    <div class="post-date">23. Feb. 2026</div>
+                    <h3>AI's Trust Problem Isn't an Access Control Problem</h3>
+                    <p class="news-card__excerpt">OAuth-Tokens beweisen Authentifizierung. Sie können keine Herkunft, Berechtigungsdelegation oder Ausgabeintegrität nachweisen. Die KI-Branche hat ein architektonisches Missverhältnis.</p>
+                </a>
+                <a href="../../posts/2026-02-19-ai-discovery-standard.html" class="card news-card reveal">
+                    <div class="post-date">19. Feb. 2026</div>
+                    <h3>inblock.io Adopts the AI Discovery Standard</h3>
+                    <p class="news-card__excerpt">Wir stellen nun verifizierte Organisationsdaten unter /.well-known/ai für KI-Agenten bereit und implementieren alle drei Stufen des AI Discovery Standards.</p>
+                </a>
+                <a href="../../posts/2026-02-17-ai-first-trust-infrastructure.html" class="card news-card reveal">
+                    <div class="post-date">17. Feb. 2026</div>
+                    <h3>AI-First: Building Trust Infrastructure for the Agent Economy</h3>
+                    <p class="news-card__excerpt">Aqua-Protokoll V4 adressiert die KI-Sicherheitslücke mit verifizierbarer Agentenidentität, granularer Zugriffskontrolle und manipulationssicherer Herkunftsnachverfolgung.</p>
+                </a>
+                <a href="../../posts/2026-02-07-china-data-balance-sheet.html" class="card news-card reveal">
+                    <div class="post-date">7. Feb. 2026</div>
+                    <h3>China Recognizes Data as a Balance Sheet Asset</h3>
+                    <p class="news-card__excerpt">China erlaubt es Unternehmen nun offiziell, hochwertige Daten in ihren Bilanzen auszuweisen. Dies bestätigt die Bedeutung von Data Governance.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section section--cta">
+        <div class="section-inner reveal">
+            <h2>Bereit, Vertrauen in Ihre Daten einzubetten?</h2>
+            <p>Werden Sie Teil der Unternehmen, die auf dem Aqua-Protokoll aufbauen. Starten Sie noch heute mit portabler, offline-fähiger kryptografischer Verifizierung.</p>
+            <a href="https://calendly.com/tim-bansemer/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Demo buchen</a>
+        </div>
+    </section>
+
+</main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <canvas id="footer-canvas"></canvas>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="../../public/logo/inblockio_birdstyle_writing_on_dark.png" alt="inblock.io" height="28" style="margin-bottom: var(--space-md);">
+                    <p style="font-size: 0.85rem; color: var(--text-muted-on-dark); line-height: 1.6;">Beweis, der mit den Daten reist. Made in Weimar, Deutschland.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Produkte</h4>
+                    <a href="https://aquafire.inblock.io" target="_blank" rel="noopener">AquaFire</a>
+                    <a href="#">Aqua-Node</a>
+                    <a href="https://agentic.inblock.io" target="_blank" rel="noopener">Aqua-gesicherte Agenten</a>
+                    <a href="https://github.com/inblockio/aqua-js-sdk" target="_blank" rel="noopener">Aqua SDK</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Unternehmen</h4>
+                    <a href="#company">Über uns</a>
+                    <a href="#team">Team</a>
+                    <a href="../../impressum.html">Impressum</a>
+                    <a href="mailto:contact@inblock.io">contact@inblock.io</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> inblock.io assets GmbH. <a href="https://github.com/inblockio" target="_blank" rel="noopener">GitHub</a> · <a href="../../impressum.html">Impressum</a> · <a href="https://aqua-protocol.org" target="_blank" rel="noopener">Aqua-Protokoll</a></p>
+            </div>
+        </div>
+    </footer>
+
+<!-- Scripts (load order matters) -->
+<script src="../js/nav.js"></script>
+<script src="../js/scroll-transitions.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

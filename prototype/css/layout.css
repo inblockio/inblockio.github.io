@@ -1,0 +1,210 @@
+
+/* ── Horizontal Section Dividers ─────────────────────── */
+
+/* Line at the top of each .section (separates from previous section) */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: #3a3a3a;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Dark sections: same separator color */
+.section--aqua::before,
+.section--cta::before {
+    background: #3a3a3a;
+}
+
+
+/* ── Decorative Diagonal Pattern ─────────────────────── */
+/* Subtle repeating diagonal lines at section boundaries */
+.section--s1::after,
+.section--s2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80%, 600px);
+    height: 24px;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 6px,
+        rgba(0, 0, 0, 0.03) 6px,
+        rgba(0, 0, 0, 0.03) 7px
+    );
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* ── Dead Links (href="#") — highlight as red ────────── */
+
+a[href="#"] {
+    color: #c0392b !important;
+}
+
+/* ── Base Typography ─────────────────────────────────── */
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); font-weight: 700; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 600; }
+h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 600; }
+h4 { font-size: 1.1rem; font-weight: 500; }
+
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+/* ── Section Layout ─────────────────────────────────── */
+
+.section {
+    position: relative;
+    padding: var(--space-4xl) var(--space-xl);
+    overflow: hidden;
+}
+
+.section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section heading pattern */
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-3xl);
+}
+
+.section-header p {
+    margin-top: var(--space-sm);
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* ── Grid Utilities ─────────────────────────────────── */
+
+.grid {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Button System ──────────────────────────────────── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    transition: all var(--duration-normal) var(--ease-out);
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: var(--text-on-dark);
+}
+
+.btn--primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--text-on-dark);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn--outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn--outline-dark {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn--outline-dark:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn--lg {
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+}
+
+/* ── Link Styles ────────────────────────────────────── */
+
+.link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--duration-fast);
+}
+
+.link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* ── Responsive Section Padding ─────────────────────── */
+
+@media (min-width: 769px) {
+    .section {
+        padding: var(--space-4xl) var(--space-3xl);
+    }
+}
+
+@media (min-width: 1200px) {
+    .section {
+        padding: var(--space-5xl) var(--space-4xl);
+    }
+}

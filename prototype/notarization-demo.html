@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notarization Pipeline Animation — Prototype</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Satoshi', -apple-system, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .canvas-container {
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16 / 7;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            background: #fff;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .controls {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .controls button {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .controls button:hover {
+            border-color: #ef5401;
+            color: #ef5401;
+        }
+
+        .info {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+    <link rel="stylesheet" href="css/variables.css">
+</head>
+<body>
+    <h1>Notarization Pipeline</h1>
+    <p class="description">
+        Top: Data enters, gets form templates, eSignatures, and timestamps applied,
+        then sealed in a certified box and shipped.<br>
+        Bottom: Box arrives, is unboxed, inspected and verified (green) or rejected (red).
+    </p>
+
+    <div class="canvas-container">
+        <canvas id="pipeline-canvas"></canvas>
+    </div>
+
+    <div class="controls">
+        <button id="btn-restart">Restart</button>
+        <button id="btn-pause">Pause</button>
+    </div>
+
+    <p class="info">Every 3rd cycle shows a corrupt/failed verification (red cross).</p>
+
+    <script src="js/animations/animation-manager.js"></script>
+    <script src="js/animations/notarization-pipeline.js"></script>
+    <script>
+        (function () {
+            var canvas = document.getElementById('pipeline-canvas');
+            var state = null;
+
+            function start() {
+                if (state && state.stop) state.stop();
+                state = AnimationManager.start('pipeline-canvas', 'notarization-pipeline');
+            }
+
+            start();
+
+            document.getElementById('btn-restart').addEventListener('click', function () {
+                start();
+            });
+
+            var paused = false;
+            document.getElementById('btn-pause').addEventListener('click', function () {
+                if (!state) return;
+                if (paused) {
+                    start();
+                    this.textContent = 'Pause';
+                } else {
+                    if (state.stop) state.stop();
+                    this.textContent = 'Resume';
+                }
+                paused = !paused;
+            });
+        })();
+    </script>
+</body>
+</html>

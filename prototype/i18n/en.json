@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "inblock.io | Trust Infrastructure for Digital Sovereignty",
+    "description": "Aqua embeds cryptographic verification directly into your files, making them portable, permanent, and independently verifiable anywhere."
+  },
+  "nav": {
+    "products": "Products",
+    "solutions": "Solutions",
+    "developers": "Developers",
+    "resources": "Resources",
+    "contact_cta": "Contact Us",
+    "lang_switch_label": "DE",
+    "lang_switch_aria": "Switch to German"
+  },
+  "hero": {
+    "headline": "Trust that travels with your data.",
+    "sub": "In a world of deepfakes and autonomous AI, trust should be built into the data itself — not just the platforms that hold it. Aqua embeds cryptographic verification directly into your files, making them portable, permanent, and independently verifiable anywhere.",
+    "secondary": "Stop relying on central servers to prove what happened. Aqua embeds verification directly into your data so it can be checked anywhere, independently. Aqua creates a portable memory for your data.",
+    "cta_primary": "Get Started",
+    "cta_secondary": "Book a Demo"
+  },
+  "products": {
+    "heading": "What We Build",
+    "subheading": "The Aqua ecosystem provides tools for trusted data, verified identity, and secure AI operations.",
+    "aquafire": {
+      "title": "AquaFire",
+      "description": "Your all-in-one platform for data notarization, document management, and digital identity.",
+      "features": ["Digital Certificates", "Document Signing", "Digital Invoice", "Identity Management"]
+    },
+    "aqua_node": {
+      "title": "Aqua-Node",
+      "description": "Run your own decentralized notarization node. Anchor data integrity directly into the network without intermediaries.",
+      "features": ["Data Notarization", "Decentralized Anchoring", "API Access"]
+    },
+    "aqua_agents": {
+      "title": "Aqua-Secured Agents",
+      "description": "Equip AI agents with verifiable identity and tamper-proof operation logs. Every action is accountable.",
+      "features": ["Agent Identity Verification", "Operation Audit Trail", "Secure Delegation"]
+    }
+  },
+  "solutions": {
+    "heading": "Solutions",
+    "subheading": "Whether you need compliance, security, or verifiable data exchange — Aqua has a solution for your challenge.",
+    "tabs": {
+      "use_case": "By Use Case",
+      "industry": "By Industry",
+      "ecosystem": "Ecosystem"
+    },
+    "use_cases": {
+      "esignature": { "title": "eSignature", "description": "Legally binding electronic signatures with built-in cryptographic verification and tamper-proof audit trails." },
+      "document_signing": { "title": "Document Signing", "description": "Sign, notarize, and share documents with portable proof of authenticity that follows the document everywhere." },
+      "supply_chain": { "title": "Supply Chain Tracking", "description": "Track goods, certifications, and handoffs across your supply chain with independently verifiable records." },
+      "ai_security": { "title": "AI Operational Security", "description": "Ensure every AI decision, data access, and model output is logged with immutable, verifiable records." },
+      "data_provenance": { "title": "Data Provenance", "description": "Meet regulatory requirements (EU AI Act, GDPR) with continuous, built-in data origin and processing history." },
+      "compliance": { "title": "Compliance", "description": "Automate compliance with verifiable audit trails that satisfy regulators without manual documentation." }
+    }
+  },
+  "company": {
+    "heading": "Independent Trust Infrastructure",
+    "description_1": "inblock.io assets GmbH is a 100% founder-held company that has received approximately €1 million in grants and investments to build an independent trust infrastructure called Aqua Protocol.",
+    "description_2": "Our vision is to be the trust and protocol company that enables other businesses to thrive — more secure, more effective, and fully sovereign over their data.",
+    "equity_heading": "Our Equity Model",
+    "equity_description": "We do not sell equity in the holding company. The protocol and intellectual property must remain independent to guarantee trust infrastructure sovereignty. Industry verticals, however, operate as separate entities with shared equity — open to investors and partners who want to scale impact in specific sectors.",
+    "description_3": "We are actively seeking partners to scale our impact across industries, and investors to enter industry verticals through dedicated sub-companies.",
+    "cta": "Let's Talk — Book a Meeting",
+    "stats": {
+      "founder_held": "100%",
+      "founder_held_label": "Founder Held",
+      "investment": "~€1M",
+      "investment_label": "Grants & Investment",
+      "founded": "2021",
+      "founded_label": "Founded",
+      "location": "Weimar",
+      "location_label": "Germany"
+    }
+  },
+  "team": {
+    "heading": "Our Team"
+  },
+  "news": {
+    "heading": "Latest News"
+  },
+  "footer": {
+    "tagline": "Building trust infrastructure for digital sovereignty, one solution at a time."
+  }
+}

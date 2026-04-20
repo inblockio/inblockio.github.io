@@ -1,0 +1,356 @@
+/* ── Site Navigation ────────────────────────────────── */
+
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--nav-height);
+    border-bottom: 1px solid #3a3a3a;
+    transition: background var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
+}
+
+/* Scrolled state — solid background */
+.site-nav.nav--scrolled {
+    background: rgba(250, 248, 246, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ── Nav Inner Container ───────────────────────────── */
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 var(--space-xl);
+}
+
+/* ── Logo ──────────────────────────────────────────── */
+
+.nav-logo img {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+/* ── Nav Links (center) ────────────────────────────── */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* ── Trigger Buttons ───────────────────────────────── */
+
+.nav-trigger {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: var(--space-sm) var(--space-md);
+    padding-right: calc(var(--space-md) + 12px);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    transition: color var(--duration-fast) var(--ease-out);
+    position: relative;
+}
+
+/* Dropdown triangle indicator */
+.nav-trigger::after {
+    content: '';
+    position: absolute;
+    right: var(--space-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    opacity: 0.6;
+    transition: transform var(--duration-fast) var(--ease-out),
+                opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav-trigger:hover::after {
+    opacity: 1;
+}
+
+.nav-trigger[aria-expanded="true"]::after {
+    transform: translateY(-50%) rotate(180deg);
+    opacity: 1;
+}
+
+.nav-trigger:hover {
+    color: var(--primary);
+}
+
+/* Scrolled state */
+.nav--scrolled .nav-trigger {
+    color: var(--text);
+}
+
+.nav--scrolled .nav-trigger:hover {
+    color: var(--primary);
+}
+
+/* ── Nav Actions (right) ───────────────────────────── */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.nav-actions .btn--primary {
+    color: var(--text);
+}
+
+/* ── Language Switch ───────────────────────────────── */
+
+.lang-switch {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: var(--space-xs) var(--space-sm);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    transition: color var(--duration-fast) var(--ease-out);
+}
+
+.lang-switch:hover {
+    color: var(--primary);
+}
+
+.nav--scrolled .lang-switch {
+    color: var(--text);
+}
+
+.nav--scrolled .lang-switch:hover {
+    color: var(--primary);
+}
+
+/* ── Mega Menu ─────────────────────────────────────── */
+
+.mega-menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.mega-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Invisible bridge above the panel to prevent hover gap */
+.mega-menu::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+}
+
+.mega-menu__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+    padding: var(--space-2xl) var(--space-xl);
+}
+
+/* Mega menu headings */
+.mega-menu__heading {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text);
+}
+
+.mega-menu__heading a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-fast);
+}
+
+.mega-menu__heading a:hover {
+    color: var(--primary);
+}
+
+/* Mega menu description */
+.mega-menu__desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+/* Mega menu link list */
+.mega-menu__list {
+    list-style: none;
+}
+
+.mega-menu__list li a {
+    display: block;
+    padding: var(--space-xs) 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color var(--duration-fast),
+                padding-left var(--duration-fast);
+}
+
+.mega-menu__list li a:hover {
+    color: var(--primary);
+    padding-left: 4px;
+}
+
+/* ── Hamburger Icon ────────────────────────────────── */
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+}
+
+.nav-hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 1px;
+    transition: all var(--duration-normal) var(--ease-out);
+    transform-origin: center;
+}
+
+/* X transformation */
+.nav-hamburger.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-hamburger.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Nav Overlay ───────────────────────────────────── */
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    transition: opacity var(--duration-normal) var(--ease-out),
+                visibility var(--duration-normal);
+}
+
+.nav-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ── Mobile Styles ─────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .nav-hamburger {
+        display: flex;
+        color: var(--text);
+    }
+
+    .nav--scrolled .nav-hamburger {
+        color: var(--text);
+    }
+
+    /* Mobile slide-out drawer */
+    .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: var(--space-xl);
+        transform: translateX(100%);
+        transition: transform var(--duration-slow) var(--ease-out);
+        overflow-y: auto;
+        z-index: 1001;
+    }
+
+    .nav-links.is-open {
+        transform: translateX(0);
+    }
+
+    /* Mobile triggers — always dark text in drawer */
+    .nav-links .nav-trigger {
+        color: var(--text);
+        text-align: left;
+        width: 100%;
+        padding: var(--space-md) 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    /* Mobile mega menu — inline accordion style */
+    .nav-links .mega-menu {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        box-shadow: none;
+        border-bottom: none;
+        border-top: none;
+        background: transparent;
+    }
+
+    .nav-links .mega-menu__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        padding: var(--space-md) 0;
+    }
+
+    /* Hide desktop actions in drawer */
+    .nav-actions {
+        gap: var(--space-sm);
+    }
+}
