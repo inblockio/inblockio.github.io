@@ -1,10 +1,40 @@
-/* ── Aqua Protocol Section ─────────────────────────── */
+/* ── Section Heading Pattern ───────────────────────── */
+/* Optional mono kicker above H2, then H2, then sub paragraph */
+
+.section-kicker {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+}
+
+.section-header h2 {
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.section-header p {
+    color: var(--dim);
+}
+
+/* ── Aqua Protocol Section (deep blue) ─────────────── */
 
 .section--aqua {
     position: relative;
     background: linear-gradient(175deg, #0a1628 0%, #0d2847 40%, #0f3060 70%, #0a1628 100%);
     color: var(--text-on-dark);
     overflow: hidden;
+}
+
+.section--aqua .section-inner {
+    position: relative;
+    z-index: 1;
 }
 
 .section--aqua .section-header h2 {
@@ -14,35 +44,48 @@
 .section--aqua .section-header h2 a {
     color: var(--text-on-dark);
     text-decoration: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     transition: border-color var(--duration-normal);
 }
 
 .section--aqua .section-header h2 a:hover {
-    border-color: var(--text-on-dark);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .section--aqua .section-header p {
-    color: var(--text-muted-on-dark);
+    color: rgba(255, 255, 255, 0.7);
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .section--aqua .aqua-feature {
-    text-align: center;
+    text-align: left;
+    padding: var(--space-lg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color var(--duration-normal) var(--ease-out),
+                background var(--duration-normal) var(--ease-out);
+}
+
+.section--aqua .aqua-feature:hover {
+    border-color: rgba(232, 97, 26, 0.35);
+    background: rgba(232, 97, 26, 0.04);
 }
 
 .section--aqua .aqua-feature h4 {
     color: var(--text-on-dark);
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
     margin-bottom: var(--space-sm);
 }
 
 .section--aqua .aqua-feature p {
-    color: var(--text-muted-on-dark);
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.92rem;
     line-height: 1.7;
 }
 
@@ -57,16 +100,14 @@
     pointer-events: none;
 }
 
-/* ── Products Section ──────────────────────────────── */
-/* Products uses .grid-3 from layout.css for card layout */
-
-/* ── Solutions Section ─────────────────────────────── */
+/* ── Solutions Tabs ────────────────────────────────── */
 
 .solutions-tabs {
     display: flex;
-    gap: var(--space-xs);
+    gap: 4px;
     margin-bottom: var(--space-2xl);
-    background: var(--section-2);
+    background: var(--surface2);
+    border: 1px solid var(--border);
     border-radius: var(--radius-full);
     padding: 4px;
     overflow-x: auto;
@@ -77,11 +118,13 @@
 }
 
 .solutions-tab {
-    font-family: var(--font-body);
+    font-family: var(--font-mono);
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: var(--space-sm) var(--space-lg);
-    color: var(--text-light);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    color: var(--dim);
     background: none;
     border: none;
     border-radius: var(--radius-full);
@@ -91,54 +134,73 @@
 }
 
 .solutions-tab.is-active {
-    color: var(--text);
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: var(--ink);
+    background: var(--surface);
+    box-shadow: 0 1px 3px rgba(12, 10, 9, 0.08);
 }
 
 .solutions-tab:hover:not(.is-active) {
-    color: var(--text);
+    color: var(--ink);
 }
 
 /* ── Company Section ───────────────────────────────── */
 
 .company-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
     gap: var(--space-3xl);
-    align-items: center;
+    align-items: start;
 }
 
 .company-stats {
     display: flex;
     gap: var(--space-2xl);
-    margin: var(--space-2xl) 0;
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
 }
 
 .stat {
-    text-align: center;
+    flex: 1;
+    text-align: left;
 }
 
 .stat-value {
     font-family: var(--font-display);
     font-size: 2rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--accent);
     line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 .stat-label {
-    font-size: 0.85rem;
-    color: var(--text-light);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dim);
     margin-top: var(--space-xs);
 }
 
 .company-highlight {
-    background: var(--primary-light);
-    border-left: 3px solid var(--primary);
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
     padding: var(--space-lg) var(--space-xl);
-    border-radius: var(--radius-md);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     margin: var(--space-xl) 0;
+}
+
+.company-highlight h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
 }
 
 .company-highlight p {
@@ -147,20 +209,29 @@
     line-height: 1.7;
 }
 
-/* ── Team Section ──────────────────────────────────── */
-/* Team uses .grid-3 from layout.css for card layout */
-
 /* ── CTA Banner Section ───────────────────────────── */
 
 .section--cta {
-    background: linear-gradient(135deg, var(--hero-dark) 0%, #1a2332 100%);
+    background: var(--surface-dark);
     color: var(--text-on-dark);
     text-align: center;
     padding: var(--space-4xl) var(--space-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.section--cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(232, 97, 26, 0.10) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .section--cta .section-inner {
     max-width: 700px;
+    position: relative;
+    z-index: 1;
 }
 
 .section--cta h2 {
@@ -169,8 +240,8 @@
 }
 
 .section--cta p {
-    color: var(--text-muted-on-dark);
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.05rem;
     margin-bottom: var(--space-2xl);
 }
 
@@ -188,10 +259,11 @@
 }
 
 .post-date {
-    font-size: 0.75rem;
-    color: var(--primary);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     font-weight: 500;
     margin-bottom: var(--space-sm);
 }
@@ -202,33 +274,20 @@
     position: relative;
     overflow: hidden;
     padding: var(--space-4xl) var(--space-xl) var(--space-2xl);
-    background: var(--hero-dark);
+    background: var(--surface-dark);
     color: var(--text-on-dark);
-    text-align: center;
+    text-align: left;
     z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Horizontal divider at top of footer */
-.site-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: #3a3a3a;
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* Footer background canvas */
 #footer-canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
-    opacity: 0.3;
+    opacity: 0.18;
     pointer-events: none;
 }
 
@@ -239,81 +298,222 @@
     margin: 0 auto;
 }
 
-/* Footer link grid */
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr 1fr 1fr;
     gap: var(--space-2xl);
     text-align: left;
     margin-bottom: var(--space-2xl);
 }
 
 .footer-col h4 {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.16em;
     margin-bottom: var(--space-md);
-    color: var(--text-on-dark);
+    color: rgba(255, 255, 255, 0.55);
 }
 
-.footer-col ul {
-    list-style: none;
-}
+.footer-col ul { list-style: none; padding: 0; }
 
 .footer-col a {
     display: block;
-    padding: var(--space-xs) 0;
-    color: var(--text-muted-on-dark);
+    padding: 4px 0;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.9rem;
     text-decoration: none;
-    transition: opacity var(--duration-fast) var(--ease-out);
+    transition: color var(--duration-fast) var(--ease-out),
+                padding-left var(--duration-fast) var(--ease-out);
 }
 
 .footer-col a:hover {
-    color: var(--text-on-dark);
+    color: #fff;
+    padding-left: 3px;
 }
 
-/* Footer bottom bar */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: var(--space-xl);
-    font-size: 0.85rem;
-    color: var(--text-on-dark);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
 }
 
-.footer-bottom p {
-    color: var(--text-on-dark);
-}
+.footer-bottom p { color: inherit; }
 
 .footer-bottom a {
-    color: var(--text-on-dark);
-    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out);
 }
 
 .footer-bottom a:hover {
-    opacity: 0.8;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ── Legal / Static Page Layout ────────────────────── */
+/* Used for impressum, privacy, terms, and similar text-heavy sub-pages. */
+
+.section--legal {
+    padding-top: calc(var(--nav-height) + var(--space-3xl));
+    padding-bottom: var(--space-4xl);
+    background: var(--bg);
+}
+
+.legal-page {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.legal-page__header {
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-page__kicker {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+}
+
+.legal-page__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.legal-page__subtitle {
+    margin-top: var(--space-md);
+    color: var(--dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.legal-page__body h2 {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-sm);
+}
+
+.legal-page__body h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.legal-page__body p {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: var(--space-md);
+}
+
+.legal-page__body strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.legal-page__body a {
+    color: #1d62d8;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(29, 98, 216, 0.25);
+    transition: color var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out);
+}
+
+.legal-page__body a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Two-column key/value rows for register data, VAT, etc. */
+.legal-rows {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-sm) var(--space-xl);
+    margin: var(--space-md) 0 var(--space-lg);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.legal-rows dt {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--dim);
+    align-self: center;
+}
+
+.legal-rows dd {
+    margin: 0;
+    color: var(--ink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.legal-page__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+}
+
+.legal-page__back:hover { color: var(--accent); }
+.legal-page__back::before { content: '\2190'; font-size: 14px; }
+
+@media (max-width: 600px) {
+    .legal-rows {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+        padding: var(--space-md) var(--space-lg);
+    }
+    .legal-rows dt { margin-top: var(--space-sm); }
+    .legal-rows dt:first-child { margin-top: 0; }
 }
 
 /* ── Responsive ────────────────────────────────────── */
 
 @media (max-width: 768px) {
-    .company-content {
-        grid-template-columns: 1fr;
-    }
-
-    .company-stats {
-        justify-content: center;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .solutions-tabs {
-        width: 100%;
-        justify-content: center;
-    }
+    .company-content { grid-template-columns: 1fr; }
+    .company-stats { justify-content: center; flex-wrap: wrap; }
+    .footer-grid { grid-template-columns: 1fr; text-align: left; }
+    .solutions-tabs { width: 100%; justify-content: flex-start; }
 }

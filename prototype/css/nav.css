@@ -1,4 +1,5 @@
-/* ── Site Navigation ────────────────────────────────── */
+/* ── Site Navigation (light) ────────────────────────── */
+/* Aligned with index-v2 typography but keeping the original light look. */
 
 .site-nav {
     position: fixed;
@@ -7,16 +8,21 @@
     right: 0;
     z-index: 1000;
     height: var(--nav-height);
-    border-bottom: 1px solid #3a3a3a;
+    background: transparent;
+    border-bottom: 1px solid transparent;
     transition: background var(--duration-normal) var(--ease-out),
-                box-shadow var(--duration-normal) var(--ease-out);
+                border-color var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out),
+                height var(--duration-normal) var(--ease-out);
 }
 
-/* Scrolled state — solid background */
+/* Scrolled state — solid translucent white */
 .site-nav.nav--scrolled {
-    background: rgba(250, 248, 246, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    height: 48px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
 }
 
@@ -29,13 +35,21 @@
     max-width: var(--max-width);
     margin: 0 auto;
     height: 100%;
-    padding: 0 var(--space-xl);
+    padding: 0 clamp(16px, 4vw, 40px);
 }
 
 /* ── Logo ──────────────────────────────────────────── */
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav-logo:hover { opacity: 0.8; }
+
 .nav-logo img {
-    height: 32px;
+    height: 28px;
     width: auto;
     display: block;
 }
@@ -45,7 +59,7 @@
 .nav-links {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 4px;
 }
 
 /* ── Trigger Buttons ───────────────────────────────── */
@@ -53,36 +67,46 @@
 .nav-trigger {
     font-family: var(--font-body);
     font-weight: 500;
-    font-size: 0.95rem;
-    padding: var(--space-sm) var(--space-md);
-    padding-right: calc(var(--space-md) + 12px);
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    padding: 8px 26px 8px 14px;
     background: none;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
     color: var(--text);
-    transition: color var(--duration-fast) var(--ease-out);
+    transition: color var(--duration-fast) var(--ease-out),
+                background var(--duration-fast) var(--ease-out);
     position: relative;
 }
 
-/* Dropdown triangle indicator */
+/* Dropdown chevron */
 .nav-trigger::after {
     content: '';
     position: absolute;
-    right: var(--space-sm);
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     width: 0;
     height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 5px solid currentColor;
-    opacity: 0.6;
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-top: 4px solid currentColor;
+    opacity: 0.55;
     transition: transform var(--duration-fast) var(--ease-out),
                 opacity var(--duration-fast) var(--ease-out);
 }
 
-.nav-trigger:hover::after {
-    opacity: 1;
+.nav-trigger:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.nav-trigger:hover::after { opacity: 1; }
+
+.nav-trigger[aria-expanded="true"] {
+    color: var(--accent);
+    background: var(--accent-soft);
 }
 
 .nav-trigger[aria-expanded="true"]::after {
@@ -90,74 +114,82 @@
     opacity: 1;
 }
 
-.nav-trigger:hover {
-    color: var(--primary);
-}
-
-/* Scrolled state */
-.nav--scrolled .nav-trigger {
-    color: var(--text);
-}
-
-.nav--scrolled .nav-trigger:hover {
-    color: var(--primary);
-}
-
 /* ── Nav Actions (right) ───────────────────────────── */
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: 12px;
 }
 
 .nav-actions .btn--primary {
-    color: var(--text);
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    transition: background var(--duration-fast) var(--ease-out),
+                box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.nav-actions .btn--primary:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.nav-actions .btn--sm {
+    padding: 8px 18px;
+    font-size: 12.5px;
 }
 
 /* ── Language Switch ───────────────────────────────── */
 
 .lang-switch {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: var(--space-xs) var(--space-sm);
+    letter-spacing: 0.12em;
+    padding: 6px 10px;
     background: none;
-    border: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
     cursor: pointer;
-    color: var(--text);
-    transition: color var(--duration-fast) var(--ease-out);
+    color: var(--dim);
+    transition: color var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out),
+                background var(--duration-fast) var(--ease-out);
 }
 
 .lang-switch:hover {
-    color: var(--primary);
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
 }
 
-.nav--scrolled .lang-switch {
-    color: var(--text);
-}
-
-.nav--scrolled .lang-switch:hover {
-    color: var(--primary);
-}
-
-/* ── Mega Menu ─────────────────────────────────────── */
+/* ── Mega Menu (light surface) ─────────────────────── */
 
 .mega-menu {
     position: absolute;
-    top: var(--nav-height);
+    top: 100%;
     left: 0;
     right: 0;
-    background: var(--bg);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-lg);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
     pointer-events: none;
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: opacity var(--duration-normal) var(--ease-out),
+                transform var(--duration-normal) var(--ease-out),
+                visibility var(--duration-normal) var(--ease-out);
 }
 
 .mega-menu.is-open {
@@ -167,7 +199,7 @@
     pointer-events: auto;
 }
 
-/* Invisible bridge above the panel to prevent hover gap */
+/* Hover bridge */
 .mega-menu::before {
     content: '';
     position: absolute;
@@ -183,16 +215,16 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-2xl);
-    padding: var(--space-2xl) var(--space-xl);
+    padding: var(--space-2xl) clamp(16px, 4vw, 40px);
 }
 
-/* Mega menu headings */
 .mega-menu__heading {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: var(--space-sm);
-    color: var(--text);
+    color: var(--ink);
+    letter-spacing: -0.01em;
 }
 
 .mega-menu__heading a {
@@ -201,37 +233,43 @@
     transition: color var(--duration-fast);
 }
 
-.mega-menu__heading a:hover {
-    color: var(--primary);
-}
+.mega-menu__heading a:hover { color: var(--accent); }
 
-/* Mega menu description */
 .mega-menu__desc {
-    font-size: 0.85rem;
-    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dim);
+    letter-spacing: 0.01em;
     margin-bottom: var(--space-md);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-/* Mega menu link list */
 .mega-menu__list {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .mega-menu__list li a {
     display: block;
-    padding: var(--space-xs) 0;
+    padding: 6px 0;
+    font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: #1d62d8; /* link blue — signals "clickable" */
     text-decoration: none;
-    transition: color var(--duration-fast),
-                padding-left var(--duration-fast);
+    transition: color var(--duration-fast) var(--ease-out),
+                padding-left var(--duration-fast) var(--ease-out);
 }
 
 .mega-menu__list li a:hover {
-    color: var(--primary);
+    color: var(--accent);
     padding-left: 4px;
 }
+
+/* Dead links (href="#") inside the mega menu remain red via the
+   global a[href="#"] !important rule in layout.css — that's intentional
+   so missing destinations stay obvious during development. */
 
 /* ── Hamburger Icon ────────────────────────────────── */
 
@@ -244,6 +282,7 @@
     border: none;
     cursor: pointer;
     padding: var(--space-xs);
+    color: var(--text);
 }
 
 .nav-hamburger span {
@@ -256,26 +295,16 @@
     transform-origin: center;
 }
 
-/* X transformation */
-.nav-hamburger.is-active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.nav-hamburger.is-active span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.nav-hamburger.is-active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
+.nav-hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.is-active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── Nav Overlay ───────────────────────────────────── */
 
 .nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(12, 10, 9, 0.3);
     opacity: 0;
     visibility: hidden;
     z-index: 999;
@@ -288,16 +317,37 @@
     visibility: visible;
 }
 
+/* ── About-Us Backlink Pill (used on satellite sites) ─ */
+
+.nav-backlink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out),
+                background var(--duration-fast) var(--ease-out);
+}
+
+.nav-backlink:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
 /* ── Mobile Styles ─────────────────────────────────── */
 
 @media (max-width: 768px) {
     .nav-hamburger {
         display: flex;
-        color: var(--text);
-    }
-
-    .nav--scrolled .nav-hamburger {
-        color: var(--text);
     }
 
     /* Mobile slide-out drawer */
@@ -306,8 +356,8 @@
         top: var(--nav-height);
         right: 0;
         bottom: 0;
-        width: 300px;
-        background: var(--bg);
+        width: 320px;
+        background: var(--surface);
         flex-direction: column;
         align-items: stretch;
         gap: 0;
@@ -316,31 +366,39 @@
         transition: transform var(--duration-slow) var(--ease-out);
         overflow-y: auto;
         z-index: 1001;
+        border-left: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
     }
 
     .nav-links.is-open {
         transform: translateX(0);
     }
 
-    /* Mobile triggers — always dark text in drawer */
     .nav-links .nav-trigger {
         color: var(--text);
         text-align: left;
         width: 100%;
         padding: var(--space-md) 0;
-        border-bottom: 1px solid var(--border-light);
+        border-bottom: 1px solid var(--border);
+        border-radius: 0;
     }
 
-    /* Mobile mega menu — inline accordion style */
+    .nav-links .nav-trigger:hover {
+        background: transparent;
+        color: var(--accent);
+    }
+
+    /* Mobile mega menu — inline accordion */
     .nav-links .mega-menu {
         position: relative;
         top: auto;
         left: auto;
         right: auto;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         box-shadow: none;
         border-bottom: none;
-        border-top: none;
-        background: transparent;
     }
 
     .nav-links .mega-menu__inner {
@@ -349,7 +407,6 @@
         padding: var(--space-md) 0;
     }
 
-    /* Hide desktop actions in drawer */
     .nav-actions {
         gap: var(--space-sm);
     }
