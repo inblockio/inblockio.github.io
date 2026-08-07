@@ -1,0 +1,587 @@
+<!DOCTYPE html><html lang="en" class="motion-safe:scroll-smooth"> <head><meta charset="utf-8"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v6.3.1"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_astro/dm-sans-latin-400-normal.CW0RaeGs.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_astro/plus-jakarta-sans-latin-700-normal.CfpNZvy6.woff2"><title>AquaAgents — Verifiable AI Operations · inblock.io</title><meta name="description" content="Your AI agent says it's done — that's a claim, not a receipt. AquaAgents checks every agent action before it runs and signs it after, so your team can verify what the agent did without taking its word for it."><meta name="robots" content="noindex"><meta property="og:type" content="website"><meta property="og:site_name" content="inblock.io"><meta property="og:locale" content="en_US"><meta property="og:title" content="AquaAgents — Verifiable AI Operations · inblock.io"><meta property="og:description" content="Your AI agent says it's done — that's a claim, not a receipt. AquaAgents checks every agent action before it runs and signs it after, so your team can verify what the agent did without taking its word for it."><meta property="og:url" content="https://inblock.io/aqua-agents/"><meta property="og:image" content="https://inblock.io/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AquaAgents — Verifiable AI Operations · inblock.io"><meta name="twitter:description" content="Your AI agent says it's done — that's a claim, not a receipt. AquaAgents checks every agent action before it runs and signs it after, so your team can verify what the agent did without taking its word for it."><meta name="twitter:image" content="https://inblock.io/og-image.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://inblock.io/#organization","name":"inblock.io","legalName":"inblock.io assets GmbH","url":"https://inblock.io","logo":"https://inblock.io/logo.png","email":"info@inblock.io","description":"inblock.io builds trust that travels with your data: every signature, AI action and file carries its own proof, so anyone can verify what happened, anywhere.","address":{"@type":"PostalAddress","streetAddress":"Humboldtstraße 13","postalCode":"99423","addressLocality":"Weimar","addressCountry":"DE"},"vatID":"DE319663515","identifier":{"@type":"PropertyValue","name":"Handelsregister (Amtsgericht Jena)","value":"HRB 514776"},"founder":{"@id":"https://inblock.io/about/team/#tim"},"sameAs":["https://github.com/inblockio","https://www.linkedin.com/company/inblock-io"],"knowsAbout":["Data accounting","Verifiable AI operations","Document provenance","Tamper-evident audit trails","Digital sovereignty","EU AI Act compliance","Aqua Protocol"]},{"@type":"WebSite","@id":"https://inblock.io/#website","url":"https://inblock.io","name":"inblock.io","publisher":{"@id":"https://inblock.io/#organization"},"inLanguage":"en"},{"@type":"Person","@id":"https://inblock.io/about/team/#tim","name":"Tim Bansemer","jobTitle":"Founder of inblock.io · Creator of Aqua Protocol","worksFor":{"@id":"https://inblock.io/#organization"},"url":"https://inblock.io/about/team/","sameAs":["https://www.linkedin.com/in/tim-bansemer-51a12699/","https://github.com/FantasticoFox"]}]}</script><link rel="stylesheet" href="/_astro/Layout.BNGhnzWi.css"></head> <body class="min-h-screen bg-white text-neutral-900 antialiased"> <header class="absolute inset-x-0 top-0 z-50">  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:items-end lg:px-8">  <a href="/" class="flex flex-col items-start gap-1.5" aria-label="inblock.io home">  <img src="/logo-emblem-dark.png" alt="" width="903" height="948" class="w-[72px] max-sm:w-[44px]"> <img src="/logo-word-dark.png" alt="inblock.io" width="2895" height="616" class="h-[18px] w-auto max-sm:h-[13px]">  </a> <ul class="hidden items-center gap-1 lg:flex"> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+Products
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-80 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="https://agentic.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaAgents</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </div> <div class="mt-0.5 text-xs text-neutral-500">Verifiable AI Operations</div> </a><a href="https://aquafire.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaFire</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </div> <div class="mt-0.5 text-xs text-neutral-500">Provable Documents</div> </a><a href="/aqua-node" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaNode</span>  </div> <div class="mt-0.5 text-xs text-neutral-500">Provable Data Governance</div> </a> </div> </div> </li> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+About
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-56 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="/about/how-aqua-was-born" class="block rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900"> How Aqua was born </a><a href="/about/team" class="block rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900"> Team </a> </div> </div> </li> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+Developers
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-56 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="https://aqua-protocol.org" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Aqua Protocol</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aqua-protocol.org/docs/v4.0.0/welcome" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>SDK</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aqua-protocol.org/docs/" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Documentation</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://github.com/inblockio" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>GitHub</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aquaprotocol.zulipchat.com/login/" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Community (Zulip)</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a> </div> </div> </li> </ul>  <div class="flex items-center gap-2 max-sm:self-start max-sm:mt-[5px]"> <a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400">
+Book a meeting
+</a> <button type="button" data-mobile-toggle aria-label="Open menu" aria-expanded="false" class="inline-flex items-center justify-center rounded-md p-2 lg:hidden text-white/90 hover:text-white"> <svg data-menu-open class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg> <svg data-menu-close class="hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> </button> </div> </nav>  <div data-mobile-panel class="hidden px-4 pb-4 lg:hidden"> <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[var(--chrome)] shadow-2xl ring-1 ring-black/5"> <div class="max-h-[72vh] overflow-y-auto p-2"> <details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> Products <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="https://agentic.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaAgents</span><span class="text-neutral-500"> — Verifiable AI Operations</span> </a><a href="https://aquafire.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaFire</span><span class="text-neutral-500"> — Provable Documents</span> </a><a href="/aqua-node" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaNode</span><span class="text-neutral-500"> — Provable Data Governance</span> </a> </div> </details><details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> About <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="/about/how-aqua-was-born" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">How Aqua was born</span> </a><a href="/about/team" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Team</span> </a> </div> </details><details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> Developers <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="https://aqua-protocol.org" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Aqua Protocol</span> </a><a href="https://aqua-protocol.org/docs/v4.0.0/welcome" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">SDK</span> </a><a href="https://aqua-protocol.org/docs/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Documentation</span> </a><a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">GitHub</span> </a><a href="https://aquaprotocol.zulipchat.com/login/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Community (Zulip)</span> </a> </div> </details> </div> </div> </div> <script>
+		(function () {
+			var t = document.querySelector('[data-mobile-toggle]');
+			var p = document.querySelector('[data-mobile-panel]');
+			if (!t || !p) return;
+			var iOpen = t.querySelector('[data-menu-open]');
+			var iClose = t.querySelector('[data-menu-close]');
+			t.addEventListener('click', function () {
+				var hidden = p.classList.toggle('hidden');
+				t.setAttribute('aria-expanded', String(!hidden));
+				if (iOpen && iClose) { iOpen.classList.toggle('hidden', !hidden); iClose.classList.toggle('hidden', hidden); }
+			});
+		})();
+	</script> </header>  <div class="v2-fonts">  <section class="relative isolate overflow-hidden bg-neutral-950 text-white"> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(65% 60% at 72% 18%, rgba(232,97,26,0.16), transparent 70%);"></div> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(50% 45% at 12% 88%, rgba(232,97,26,0.07), transparent 70%);"></div> <canvas data-product-hero-echo data-accent="249,115,22" class="pointer-events-none absolute inset-0 h-full w-full" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.48) 25%, rgba(0,0,0,0.9) 50%, #000 70%); mask-image: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.48) 25%, rgba(0,0,0,0.9) 50%, #000 70%);" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true" style="background:radial-gradient(ellipse 36% 44% at 26% 48%, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.42) 55%, rgba(10,10,10,0.1) 82%, transparent 100%)"></div> <div class="pointer-events-none absolute inset-0 md:hidden" aria-hidden="true" style="background:radial-gradient(ellipse 58% 46% at 50% 44%, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.42) 55%, rgba(10,10,10,0.1) 82%, transparent 100%)"></div> <script>
+	(function () {
+		if (window.__productHeroEchoInit) return;
+		window.__productHeroEchoInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d', { alpha: true });
+			if (!ctx) return;
+
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			const isMobile = window.matchMedia('(max-width: 768px)').matches;
+			const ACCENT = canvas.getAttribute('data-accent') || '249,115,22';
+
+			const CFG = {
+				// background net (layer 1) — the biggest complexity lever (batched, cheap)
+				webAnchors: isMobile ? 70 : 230,
+				webLines: isMobile ? 200 : 760,
+				webLineAlpha: 0.05,
+				webDotAlpha: 0.36,
+				// strands (layer 4)
+				filPerStrand: isMobile ? 55 : 130,
+				laneSigma: 9,
+				wobbleAmp: [2, 5],   // static woven SHAPE of the fibers (not animated)
+				wobbleFreq: [2.5, 6],
+				swayAmp: 0,          // positional motion OFF — the architecture stands still
+				swayFreq: 0.18,
+				// motion = LIGHT, not position: a luminance wave sweeps along each
+				// strand (fibers brighten in sequence, like light down fiber optics)
+				sheenAmp: 0.45,
+				sheenSpeed: 0.55,
+				filAlpha: [0.03, 0.08],
+				accentShare: 0.06,
+				segs: 20,
+				junctionJitter: 14,
+				// branches (layer 3) — weave the strands into the net
+				branchPerStrand: 3,
+				branchFil: isMobile ? 8 : 14,
+				branchSigma: 3,
+				branchLen: [150, 320],
+				branchAlpha: [0.02, 0.05],
+				// depth bands (layer 2)
+				distantFil: isMobile ? 16 : 34,
+				distantSigma: 24,
+				distantAlpha: 0.013,
+				// pulses (layer 6)
+				pulseCount: isMobile ? 9 : 22,
+				pulseSpeed: [0.035, 0.075], // strand-lengths per second
+				pulseCore: 1.2,
+				pulseHalo: 4,
+				// confirmation streaks: when a dot reaches a junction, the node
+				// glints and sends a soft orange streak out along another strand
+				cometSpeed: [0.16, 0.24],
+				cometMax: 8,
+				// hover (desktop only) — threads lean gently toward the cursor,
+				// like touching a real web; they relax when the mouse leaves
+				hoverRadius: 150,
+				hoverPull: 0.16,
+			};
+
+			let W = 0, H = 0;
+			let web = null, strands = [], branches = [], distant = [], nodes = [], pulses = [];
+			let comets = [], strandNode = [], nodeStrands = [];
+			let elapsed = 0, lastTime = performance.now(), isVisible = true;
+			// hover state: raw target + smoothed position + eased strength (0..1)
+			let mx = null, my = null, smx = 0, smy = 0, hoverS = 0;
+
+			function gaussian() {
+				let u = 0, v = 0;
+				while (u === 0) u = Math.random();
+				while (v === 0) v = Math.random();
+				return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+			}
+			const rand = (a, b) => a + Math.random() * (b - a);
+
+			function mkFilaments(count, sigma, aLo, aHi, accentShare) {
+				const arr = [];
+				for (let i = 0; i < count; i++) {
+					// most fibers run the whole strand; some are partial, a few stray
+					const partial = Math.random() < 0.3;
+					const tStart = partial ? rand(0, 0.45) : 0;
+					const tEnd = partial ? Math.min(1, tStart + rand(0.35, 0.6)) : 1;
+					const stray = Math.random() < 0.08;
+					arr.push({
+						lane: gaussian() * sigma * (stray ? rand(1.8, 2.6) : 1),
+						amp: rand(CFG.wobbleAmp[0], CFG.wobbleAmp[1]),
+						freq: rand(CFG.wobbleFreq[0], CFG.wobbleFreq[1]),
+						phase: Math.random() * Math.PI * 2,
+						phase2: Math.random() * Math.PI * 2,
+						alpha: rand(aLo, aHi) * (stray ? 0.6 : 1),
+						accent: Math.random() < accentShare,
+						tStart, tEnd,
+					});
+				}
+				return arr;
+			}
+
+			// quadratic bezier passing through point n at t=0.5
+			function strandThrough(p0, n, p2, count, sigma, aLo, aHi, accentShare, pinch) {
+				return {
+					p0,
+					p1: { x: 2 * n.x - (p0.x + p2.x) / 2, y: 2 * n.y - (p0.y + p2.y) / 2 },
+					p2,
+					pinch: pinch !== false, // fibers gather tight at the junction (t=0.5)
+					swayPhase: Math.random() * Math.PI * 2,
+					fil: mkFilaments(count, sigma, aLo, aHi, accentShare),
+				};
+			}
+
+			function bezPoint(s, t) {
+				const u = 1 - t;
+				return {
+					x: u * u * s.p0.x + 2 * u * t * s.p1.x + t * t * s.p2.x,
+					y: u * u * s.p0.y + 2 * u * t * s.p1.y + t * t * s.p2.y,
+				};
+			}
+
+			function buildScene() {
+				// 1 · background net
+				web = { anchors: [], lines: [] };
+				// real webs cluster — mix gaussian clusters with uniform scatter
+				const clusters = [
+					{ x: rand(0.15, 0.4) * W, y: rand(0.2, 0.8) * H },
+					{ x: rand(0.5, 0.75) * W, y: rand(0.1, 0.6) * H },
+					{ x: rand(0.75, 0.98) * W, y: rand(0.4, 0.95) * H },
+				];
+				for (let i = 0; i < CFG.webAnchors; i++) {
+					const fTier = Math.random();
+					const fLo = fTier < 0.7 ? 0.08 : 0.18;
+					const fHi = fTier < 0.7 ? 0.16 : 0.32;
+					let bx, by;
+					if (Math.random() < 0.55) {
+						const c = clusters[(Math.random() * clusters.length) | 0];
+						bx = c.x + gaussian() * W * 0.11;
+						by = c.y + gaussian() * H * 0.16;
+						bx = Math.max(0, Math.min(W, bx));
+						by = Math.max(0, Math.min(H, by));
+					} else {
+						bx = Math.random() * W;
+						by = Math.random() * H;
+					}
+					web.anchors.push({
+						baseX: bx,
+						baseY: by,
+						x: 0, y: 0,
+						ampX: 8 + Math.random() * 12,
+						ampY: 8 + Math.random() * 12,
+						freqX: fLo + Math.random() * (fHi - fLo),
+						freqY: fLo + Math.random() * (fHi - fLo),
+						phaseX: Math.random() * Math.PI * 2,
+						phaseY: Math.random() * Math.PI * 2,
+						size: 0.4 + Math.random() * 0.9,
+					});
+				}
+				const maxDist = Math.min(W * 0.4, 460);
+				const maxDist2 = maxDist * maxDist;
+				let placed = 0, attempts = 0;
+				while (placed < CFG.webLines && attempts < CFG.webLines * 6) {
+					attempts++;
+					const aIdx = Math.floor(Math.random() * CFG.webAnchors);
+					let bIdx = Math.floor(Math.random() * CFG.webAnchors);
+					if (aIdx === bIdx) bIdx = (bIdx + 1) % CFG.webAnchors;
+					const a = web.anchors[aIdx], b = web.anchors[bIdx];
+					const dx = a.baseX - b.baseX, dy = a.baseY - b.baseY;
+					if (dx * dx + dy * dy > maxDist2) continue;
+					web.lines.push({ a: aIdx, b: bIdx });
+					placed++;
+				}
+
+				// 5 · junction nodes — glow only; the gathered fibers ARE the node
+				// (free-floating speckles removed 2026-07-08: they sat on no line
+				// and read as confetti against the fiber realism)
+				function mkNode(fx, fy, core) {
+					return { x: W * fx, y: H * fy, core, flare: 0 };
+				}
+				const N1 = mkNode(0.70, 0.40, 30); // main junction
+				const N2 = mkNode(0.42, 0.76, 17); // lower-left satellite
+				const N3 = mkNode(0.90, 0.70, 17); // lower-right satellite
+				const N4 = mkNode(0.15, 0.13, 14); // upper-left, above the copy
+				const N5 = mkNode(0.56, 0.20, 13); // upper-mid
+				const N6 = mkNode(0.80, 0.92, 13); // lower-mid-right
+				nodes = [N1, N2, N3, N4, N5, N6];
+
+				// 4 · seven streets across the whole hero
+				const J = CFG.junctionJitter;
+				const jit = (n) => ({ x: n.x + rand(-J, J), y: n.y + rand(-J, J) });
+				const F = CFG.filPerStrand, S = CFG.laneSigma, A0 = CFG.filAlpha[0], A1 = CFG.filAlpha[1];
+				strands = [
+					// main junction N1
+					strandThrough({ x: W * 0.42, y: -H * 0.12 }, jit(N1), { x: W * 1.08, y: H * 0.92 }, F, S, A0, A1, CFG.accentShare),
+					strandThrough({ x: W * 1.08, y: H * 0.10 }, jit(N1), { x: W * 0.34, y: H * 1.10 }, F, S, A0, A1, CFG.accentShare),
+					strandThrough({ x: W * 0.98, y: -H * 0.10 }, jit(N1), { x: W * 0.52, y: H * 0.78 },
+						(F * 0.55) | 0, S * 0.6, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// lower-left junction N2 — incl. the street starting behind the copy
+					strandThrough({ x: -W * 0.06, y: H * 0.60 }, jit(N2), { x: W * 1.05, y: H * 0.95 },
+						(F * 0.9) | 0, S * 0.85, A0, A1, CFG.accentShare),
+					strandThrough({ x: W * 0.16, y: H * 1.10 }, jit(N2), { x: W * 0.70, y: -H * 0.06 },
+						(F * 0.6) | 0, S * 0.55, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// lower-right junction N3
+					strandThrough({ x: -W * 0.05, y: H * 0.98 }, jit(N3), { x: W * 1.08, y: H * 0.44 },
+						(F * 0.5) | 0, S * 0.55, A0 * 0.75, A1 * 0.75, CFG.accentShare),
+					strandThrough({ x: W * 0.66, y: -H * 0.10 }, jit(N3), { x: W * 1.02, y: H * 1.08 },
+						(F * 0.6) | 0, S * 0.6, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// upper-left junction N4 — pulls the web across the left half
+					strandThrough({ x: -W * 0.06, y: H * 0.42 }, jit(N4), { x: W * 0.55, y: -H * 0.12 },
+						(F * 0.55) | 0, S * 0.55, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// upper-mid junction N5 — adds crossings in the top band
+					strandThrough({ x: W * 0.10, y: -H * 0.08 }, jit(N5), { x: W * 1.06, y: H * 0.66 },
+						(F * 0.6) | 0, S * 0.55, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					strandThrough({ x: W * 0.30, y: H * 1.08 }, jit(N5), { x: W * 0.9, y: -H * 0.10 },
+						(F * 0.45) | 0, S * 0.5, A0 * 0.7, A1 * 0.7, CFG.accentShare),
+					// lower-mid-right junction N6
+					strandThrough({ x: W * 0.28, y: H * 1.10 }, jit(N6), { x: W * 1.08, y: H * 0.22 },
+						(F * 0.5) | 0, S * 0.55, A0 * 0.75, A1 * 0.75, CFG.accentShare),
+					// long connector weaving N4 -> N1 -> N3 diagonal band
+					strandThrough({ x: -W * 0.06, y: H * 0.22 }, jit(N1), { x: W * 1.08, y: H * 0.78 },
+						(F * 0.7) | 0, S * 0.7, A0, A1, CFG.accentShare),
+				];
+
+				// which junction each street passes through (index into nodes[]) —
+				// used for the confirmation events: dot arrives → node glints →
+				// a streak leaves along a sibling street of the same junction
+				strandNode = [0, 0, 0, 1, 1, 2, 2, 3, 4, 4, 5, 0];
+				nodeStrands = nodes.map(() => []);
+				strandNode.forEach((nIdx, sIdx) => { if (nodeStrands[nIdx]) nodeStrands[nIdx].push(sIdx); });
+				comets = [];
+
+				// 3 · branches
+				branches = [];
+				for (const s of strands) {
+					for (let i = 0; i < CFG.branchPerStrand; i++) {
+						const t = rand(0.18, 0.42) + (Math.random() < 0.5 ? 0.4 : 0);
+						const start = bezPoint(s, Math.min(t, 0.9));
+						const ang = Math.random() * Math.PI * 2;
+						const len = rand(CFG.branchLen[0], CFG.branchLen[1]);
+						const end = { x: start.x + Math.cos(ang) * len, y: start.y + Math.sin(ang) * len };
+						const mid = { x: (start.x + end.x) / 2 + rand(-40, 40), y: (start.y + end.y) / 2 + rand(-40, 40) };
+						branches.push({
+							p0: start, p1: mid, p2: end,
+							swayPhase: Math.random() * Math.PI * 2,
+							fil: mkFilaments(CFG.branchFil, CFG.branchSigma, CFG.branchAlpha[0], CFG.branchAlpha[1], 0),
+						});
+					}
+				}
+
+				// 2 · depth bands
+				distant = [
+					strandThrough({ x: W * 0.50, y: -H * 0.05 }, { x: W * 0.85, y: H * 0.30 }, { x: W * 1.10, y: H * 0.55 },
+						CFG.distantFil, CFG.distantSigma, CFG.distantAlpha * 0.7, CFG.distantAlpha * 1.3, 0, false),
+					strandThrough({ x: W * 0.55, y: H * 1.08 }, { x: W * 0.88, y: H * 0.70 }, { x: W * 1.10, y: H * 0.18 },
+						CFG.distantFil, CFG.distantSigma, CFG.distantAlpha * 0.7, CFG.distantAlpha * 1.3, 0, false),
+				];
+
+				// 6 · traveling pulses, spread across the streets
+				pulses = [];
+				for (let i = 0; i < CFG.pulseCount; i++) {
+					pulses.push({
+						strand: i % strands.length,
+						t: Math.random(),
+						speed: rand(CFG.pulseSpeed[0], CFG.pulseSpeed[1]) * (Math.random() < 0.5 ? 1 : -1),
+						accent: false, // turns true (orange) at the first junction it crosses
+						flash: 0,
+					});
+				}
+			}
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				W = rect.width; H = rect.height;
+				if (W === 0 || H === 0) return;
+				canvas.width = Math.floor(W * dpr);
+				canvas.height = Math.floor(H * dpr);
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+				buildScene();
+			}
+
+			function drawStrand(s, time) {
+				const { p0, p1, p2 } = s;
+				// (positional sway kept as a knob, default 0 — architecture is still)
+				const sway = CFG.swayAmp * Math.sin(time * CFG.swayFreq + (s.swayPhase || 0));
+				const sheenPhase = s.swayPhase || 0;
+				for (const f of s.fil) {
+					// the motion is LIGHT: a luminance wave sweeps along the bundle,
+					// fibers brightening in sequence like light down fiber optics
+					const tMid = ((f.tStart || 0) + (f.tEnd || 1)) / 2;
+					const sheen = 1 + CFG.sheenAmp * Math.sin(tMid * 5.2 - time * CFG.sheenSpeed + sheenPhase);
+					const aEff = Math.max(0.008, f.alpha * sheen);
+					ctx.strokeStyle = f.accent
+						? 'rgba(' + ACCENT + ',' + (aEff * 1.6).toFixed(3) + ')'
+						: 'rgba(235,238,245,' + aEff.toFixed(3) + ')';
+					ctx.beginPath();
+					const span = f.tEnd - f.tStart;
+					for (let i = 0; i <= CFG.segs; i++) {
+						const t = f.tStart + (i / CFG.segs) * span;
+						const u = 1 - t;
+						const cx = u * u * p0.x + 2 * u * t * p1.x + t * t * p2.x;
+						const cy = u * u * p0.y + 2 * u * t * p1.y + t * t * p2.y;
+						let tx = 2 * u * (p1.x - p0.x) + 2 * t * (p2.x - p1.x);
+						let ty = 2 * u * (p1.y - p0.y) + 2 * t * (p2.y - p1.y);
+						const len = Math.hypot(tx, ty) || 1;
+						const nx = -ty / len, ny = tx / len;
+						// fibers gather tight at the junction, fan out toward the ends
+						let taper = 1;
+						if (s.pinch) {
+							taper = 0.32 + 0.68 * Math.pow(Math.min(1, Math.abs(t - 0.5) * 2), 0.75);
+						}
+						// fibers merge into the bundle at their own ends (feathered edges)
+						const local = (t - f.tStart) / (span || 1);
+						const endMerge = Math.min(1, Math.min(local, 1 - local) / 0.15);
+						const gather = taper * (0.35 + 0.65 * endMerge);
+						// two-term wobble — organic, not metronome
+						// static woven shape (no per-fiber time animation — no wobble)
+						const A = t * f.freq * Math.PI * 2 + f.phase;
+						const wob = 0.7 * Math.sin(A) + 0.3 * Math.sin(A * 0.37 + f.phase2);
+						const off = (f.lane + f.amp * wob) * gather + sway * Math.sin(t * Math.PI);
+						let x = cx + nx * off, y = cy + ny * off;
+						// hover: threads lean toward the cursor, eased falloff
+						if (hoverS > 0.01) {
+							const hdx = smx - x, hdy = smy - y;
+							const d2 = hdx * hdx + hdy * hdy;
+							const R = CFG.hoverRadius;
+							if (d2 < R * R) {
+								const fall = 1 - Math.sqrt(d2) / R;
+								const k = CFG.hoverPull * fall * fall * hoverS;
+								x += hdx * k;
+								y += hdy * k;
+							}
+						}
+						if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+					}
+					ctx.stroke();
+				}
+			}
+
+			function frame(now) {
+				const dt = Math.min(0.05, (now - lastTime) / 1000);
+				lastTime = now;
+				elapsed += dt;
+
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(frame), 250);
+					return;
+				}
+
+				const time = reducedMotion ? 0 : elapsed;
+
+				// ease hover strength + smooth the cursor position
+				const hTarget = mx !== null && !reducedMotion ? 1 : 0;
+				hoverS += (hTarget - hoverS) * Math.min(1, dt * 4);
+				if (mx !== null) {
+					smx += (mx - smx) * Math.min(1, dt * 8);
+					smy += (my - smy) * Math.min(1, dt * 8);
+				}
+
+				ctx.clearRect(0, 0, W, H);
+				ctx.globalCompositeOperation = 'lighter';
+				ctx.lineWidth = 0.55;
+
+				// 1 · background net
+				for (const a of web.anchors) {
+					a.x = a.baseX + (reducedMotion ? 0 : Math.sin(time * a.freqX + a.phaseX) * a.ampX);
+					a.y = a.baseY + (reducedMotion ? 0 : Math.cos(time * a.freqY + a.phaseY) * a.ampY);
+					if (hoverS > 0.01) {
+						const hdx = smx - a.x, hdy = smy - a.y;
+						const d2 = hdx * hdx + hdy * hdy;
+						const R = CFG.hoverRadius;
+						if (d2 < R * R) {
+							const fall = 1 - Math.sqrt(d2) / R;
+							const k = 0.12 * fall * fall * hoverS;
+							a.x += hdx * k;
+							a.y += hdy * k;
+						}
+					}
+				}
+				ctx.strokeStyle = 'rgba(255,255,255,' + CFG.webLineAlpha + ')';
+				ctx.beginPath();
+				for (const l of web.lines) {
+					const a = web.anchors[l.a], b = web.anchors[l.b];
+					ctx.moveTo(a.x, a.y);
+					ctx.lineTo(b.x, b.y);
+				}
+				ctx.stroke();
+				ctx.fillStyle = 'rgba(255,255,255,' + CFG.webDotAlpha + ')';
+				for (const a of web.anchors) {
+					const half = a.size * 0.5;
+					ctx.fillRect(a.x - half, a.y - half, a.size, a.size);
+				}
+
+				// 2 · depth bands · 3 · branches · 4 · streets
+				for (const s of distant) drawStrand(s, time * 0.5);
+				for (const b of branches) drawStrand(b, time * 0.8);
+				for (const s of strands) drawStrand(s, time);
+
+				// 5 · junction nodes
+				for (const n of nodes) {
+					// glint on confirmation, then decay back to the calm breath
+					if (n.flare > 0) n.flare = Math.max(0, n.flare - 2.2 * dt);
+					const boost = 1 + n.flare * 0.8;
+					const breathe = 1 + (reducedMotion ? 0 : 0.08 * Math.sin(time * 0.5 + n.x));
+					const r = n.core * breathe * (1 + n.flare * 0.15);
+					const isMain = n.core >= 25;
+					const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 2.6);
+					g.addColorStop(0, 'rgba(255,252,246,' + Math.min(0.5, (isMain ? 0.28 : 0.16) * boost).toFixed(3) + ')');
+					g.addColorStop(0.35, 'rgba(' + ACCENT + ',' + Math.min(0.3, (isMain ? 0.10 : 0.06) * boost).toFixed(3) + ')');
+					g.addColorStop(1, 'rgba(' + ACCENT + ',0)');
+					ctx.fillStyle = g;
+					ctx.beginPath();
+					ctx.arc(n.x, n.y, r * 2.6, 0, Math.PI * 2);
+					ctx.fill();
+				}
+
+				// 6 · traveling pulses — quiet white dots, constant size
+				for (const p of pulses) {
+					if (!reducedMotion) {
+						const before = p.t;
+						p.t += p.speed * dt;
+						if (p.t > 1.02) p.t = -0.02;
+						if (p.t < -0.02) p.t = 1.02;
+						// arrival at the junction (t=0.5 by construction): the node
+						// glints, and a confirmation streak leaves on a sibling street
+						if ((before - 0.5) * (p.t - 0.5) < 0) {
+							const nIdx = strandNode[p.strand] || 0;
+							if (nodes[nIdx]) nodes[nIdx].flare = 1;
+							const siblings = nodeStrands[nIdx];
+							if (siblings && siblings.length > 1 && comets.length < CFG.cometMax) {
+								let other = siblings[(Math.random() * siblings.length) | 0];
+								if (other === p.strand) other = siblings[(siblings.indexOf(other) + 1) % siblings.length];
+								comets.push({
+									strand: other,
+									t: 0.5,
+									dir: Math.random() < 0.5 ? 1 : -1,
+									speed: rand(CFG.cometSpeed[0], CFG.cometSpeed[1]),
+								});
+							}
+						}
+					}
+					const pos = bezPoint(strands[p.strand], Math.min(1, Math.max(0, p.t)));
+					ctx.fillStyle = 'rgba(255,250,240,0.14)';
+					ctx.beginPath();
+					ctx.arc(pos.x, pos.y, CFG.pulseHalo, 0, Math.PI * 2);
+					ctx.fill();
+					ctx.fillStyle = 'rgba(255,250,240,0.85)';
+					ctx.beginPath();
+					ctx.arc(pos.x, pos.y, CFG.pulseCore, 0, Math.PI * 2);
+					ctx.fill();
+				}
+
+				// 6b · confirmation streaks — soft orange comets leaving the junctions
+				for (let i = comets.length - 1; i >= 0; i--) {
+					const c = comets[i];
+					if (!reducedMotion) c.t += c.dir * c.speed * dt;
+					if (c.t < -0.02 || c.t > 1.02) { comets.splice(i, 1); continue; }
+					const cs = strands[c.strand];
+					for (let k = 0; k < 8; k++) {
+						const tt = c.t - c.dir * k * 0.014;
+						if (tt < 0 || tt > 1) continue;
+						const pos = bezPoint(cs, tt);
+						const a = 0.45 * (1 - k / 8);
+						ctx.fillStyle = 'rgba(' + ACCENT + ',' + a.toFixed(3) + ')';
+						ctx.beginPath();
+						ctx.arc(pos.x, pos.y, Math.max(0.8, 3.2 - k * 0.3), 0, Math.PI * 2);
+						ctx.fill();
+					}
+				}
+
+				ctx.globalCompositeOperation = 'source-over';
+
+				if (!reducedMotion) requestAnimationFrame(frame);
+			}
+
+			resize();
+			const ro = new ResizeObserver(() => resize());
+			ro.observe(canvas);
+
+			const io = new IntersectionObserver(
+				([entry]) => { isVisible = entry.isIntersecting; },
+				{ rootMargin: '200px' }
+			);
+			io.observe(canvas);
+
+			// hover tracking on the hero section (the canvas is pointer-events-none,
+			// so links and buttons above it keep working untouched)
+			const host = canvas.parentElement;
+			if (host && !reducedMotion) {
+				host.addEventListener('mousemove', (e) => {
+					const r = canvas.getBoundingClientRect();
+					const cx = e.clientX - r.left, cy = e.clientY - r.top;
+					if (mx === null) { smx = cx; smy = cy; }
+					mx = cx; my = cy;
+				});
+				host.addEventListener('mouseleave', () => { mx = null; });
+			}
+
+			if (reducedMotion) {
+				frame(performance.now());
+			} else {
+				requestAnimationFrame(frame);
+			}
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-product-hero-echo]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="relative z-10 mx-auto max-w-7xl px-6 pb-24 pt-40 lg:px-8"> <div class="v2-hero-stagger max-w-[860px]">  <p class="text-lg font-semibold uppercase tracking-[0.25em] sm:text-xl"> <span class="text-white">AquaAgents · Verifiable AI </span><span class="text-orange-500">Operations.</span> </p> <h1 class="mt-6 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+Define what AI agents may do.<br class="hidden sm:block"> <span class="text-orange-500">Verify what they actually did.</span> </h1> <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">
+AquaAgents checks governed actions against your rules before execution, then
+					signs the resulting record to create an independently verifiable audit trail.
+</p> <div class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"> <a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-base font-semibold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-600 hover:shadow-lg"> <span>Discuss your use case with Tim</span> <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span> </a> <a href="/#go-deeper" class="group inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-medium text-white transition hover:border-white/40 hover:bg-white/10"> <span>Watch the 5-minute film</span> <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span> </a> </div> </div> </div> </section> <footer class="relative overflow-hidden border-t border-[#3f2305]/10 bg-[var(--chrome)] pb-12 pt-20 max-sm:pt-12">  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div> <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">  <div class="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4 lg:gap-12">  <div class="col-span-2 lg:col-span-2"> <a href="/" class="inline-flex items-center gap-2"> <img src="/logo.png" alt="inblock.io" width="3837" height="992" class="h-6 w-auto"> </a> <p class="mt-5 max-w-sm text-sm leading-relaxed text-[#776b5d]">
+Trust that travels with your data.
+</p> <div class="mt-6 flex items-center gap-3"> <a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#3f2305]/15 text-[#3f2305] transition hover:border-orange-500/40 hover:bg-orange-500/5 hover:text-orange-600"> <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path> </svg> </a> <a href="https://www.linkedin.com/company/inblock-io" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#3f2305]/15 text-[#3f2305] transition hover:border-orange-500/40 hover:bg-orange-500/5 hover:text-orange-600"> <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path> </svg> </a> </div> </div>  <div> <p class="text-xs font-semibold uppercase tracking-[0.15em] text-orange-600">Products</p> <ul class="mt-5 space-y-3 text-sm">  <li><a href="https://agentic.inblock.io/" target="_blank" rel="noopener noreferrer" class="text-[#3f2305] transition hover:text-orange-600">AquaAgents</a></li> <li><a href="https://aquafire.inblock.io/" target="_blank" rel="noopener noreferrer" class="text-[#3f2305] transition hover:text-orange-600">AquaFire</a></li> <li><a href="/aqua-node/" class="text-[#3f2305] transition hover:text-orange-600">AquaNode</a></li> </ul> </div>  <div> <p class="text-xs font-semibold uppercase tracking-[0.15em] text-orange-600">Company</p> <ul class="mt-5 space-y-3 text-sm"> <li><a href="/about/how-aqua-was-born/" class="text-[#3f2305] transition hover:text-orange-600">How Aqua was born</a></li> <li><a href="/about/team/" class="text-[#3f2305] transition hover:text-orange-600">Team</a></li> <li><a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener noreferrer" class="text-[#3f2305] transition hover:text-orange-600">Contact</a></li> </ul> </div> </div>  <div class="mt-16 flex flex-col gap-4 border-t border-[#3f2305]/10 pt-8 sm:flex-row sm:items-center sm:justify-between"> <p class="text-sm text-[#776b5d]">
+© 2026 inblock.io · <a href="https://aqua-protocol.org/" target="_blank" rel="noopener noreferrer" class="font-medium text-[#3f2305] transition hover:text-orange-600">Aqua Protocol</a> and tooling will be open source under Apache 2.0
+</p>  <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"> <li><a href="/imprint/" class="font-medium text-[#3f2305] transition hover:text-orange-600">Imprint</a></li> <li><a href="/privacy/" class="font-medium text-[#3f2305] transition hover:text-orange-600">Privacy</a></li> <li><button type="button" data-cookie-settings class="font-medium text-[#3f2305] transition hover:text-orange-600">Cookie settings</button></li> </ul> </div> </div> </footer> </div>  <div id="cookie-consent" data-cookie-banner hidden class="fixed inset-x-0 bottom-0 z-[100] px-4 pb-4 sm:px-6 sm:pb-6"> <div role="dialog" aria-modal="false" aria-label="Cookie consent" class="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-[#3f2305]/12 bg-[var(--chrome)] p-5 shadow-2xl sm:flex-row sm:items-center sm:gap-6 sm:p-6"> <p class="text-sm leading-relaxed text-[#3f2305]">
+We use essential storage to remember this choice. Optional cookies load only if you accept;
+			today that is YouTube, when you play the video.
+<a href="/privacy" class="font-medium text-orange-600 underline underline-offset-2 transition hover:text-orange-700">Privacy policy</a>.
+</p> <div class="flex shrink-0 items-center gap-3"> <button type="button" data-cookie-decline class="rounded-full border border-[#3f2305]/20 px-4 py-2 text-sm font-medium text-[#3f2305] transition hover:border-[#3f2305]/40">
+Decline
+</button> <button type="button" data-cookie-accept class="rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400">
+Accept
+</button> </div> </div> </div> <script>
+	(function () {
+		var KEY = 'aqua-cookie-consent';
+		var banner = document.getElementById('cookie-consent');
+		if (!banner) return;
+
+		var show = function () { banner.hidden = false; };
+		var hide = function () { banner.hidden = true; };
+
+		var read = function () {
+			try { return localStorage.getItem(KEY); } catch (e) { return null; }
+		};
+
+		var save = function (v) {
+			try { localStorage.setItem(KEY, v); } catch (e) {}
+			hide();
+			try {
+				window.dispatchEvent(new CustomEvent('cookie-consent-change', { detail: { value: v } }));
+			} catch (e) {}
+		};
+
+		// Public API for embeds / future scripts
+		window.getCookieConsent = function () { return read(); };
+		window.openCookieSettings = show;
+
+		var stored = read();
+		if (!stored) show();
+
+		var accept = banner.querySelector('[data-cookie-accept]');
+		var decline = banner.querySelector('[data-cookie-decline]');
+		if (accept) accept.addEventListener('click', function () { save('accepted'); });
+		if (decline) decline.addEventListener('click', function () { save('declined'); });
+
+		document.addEventListener('click', function (e) {
+			var trigger = e.target && e.target.closest && e.target.closest('[data-cookie-settings]');
+			if (trigger) { e.preventDefault(); show(); }
+		});
+	})();
+</script>  </body></html>

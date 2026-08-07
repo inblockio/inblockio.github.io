@@ -1,0 +1,550 @@
+<!DOCTYPE html><html lang="en" class="motion-safe:scroll-smooth"> <head><meta charset="utf-8"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v6.3.1"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_astro/dm-sans-latin-400-normal.CW0RaeGs.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_astro/plus-jakarta-sans-latin-700-normal.CfpNZvy6.woff2"><title>inblock.io · How Aqua was born</title><meta name="description" content="How Aqua began: a larger question about sovereign digital infrastructure, the idea of data accounting, and the path from a question to working software."><link rel="canonical" href="https://inblock.io/about/how-aqua-was-born/"><meta property="og:type" content="website"><meta property="og:site_name" content="inblock.io"><meta property="og:locale" content="en_US"><meta property="og:title" content="inblock.io · How Aqua was born"><meta property="og:description" content="How Aqua began: a larger question about sovereign digital infrastructure, the idea of data accounting, and the path from a question to working software."><meta property="og:url" content="https://inblock.io/about/how-aqua-was-born/"><meta property="og:image" content="https://inblock.io/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="inblock.io · How Aqua was born"><meta name="twitter:description" content="How Aqua began: a larger question about sovereign digital infrastructure, the idea of data accounting, and the path from a question to working software."><meta name="twitter:image" content="https://inblock.io/og-image.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://inblock.io/#organization","name":"inblock.io","legalName":"inblock.io assets GmbH","url":"https://inblock.io","logo":"https://inblock.io/logo.png","email":"info@inblock.io","description":"inblock.io builds trust that travels with your data: every signature, AI action and file carries its own proof, so anyone can verify what happened, anywhere.","address":{"@type":"PostalAddress","streetAddress":"Humboldtstraße 13","postalCode":"99423","addressLocality":"Weimar","addressCountry":"DE"},"vatID":"DE319663515","identifier":{"@type":"PropertyValue","name":"Handelsregister (Amtsgericht Jena)","value":"HRB 514776"},"founder":{"@id":"https://inblock.io/about/team/#tim"},"sameAs":["https://github.com/inblockio","https://www.linkedin.com/company/inblock-io"],"knowsAbout":["Data accounting","Verifiable AI operations","Document provenance","Tamper-evident audit trails","Digital sovereignty","EU AI Act compliance","Aqua Protocol"]},{"@type":"WebSite","@id":"https://inblock.io/#website","url":"https://inblock.io","name":"inblock.io","publisher":{"@id":"https://inblock.io/#organization"},"inLanguage":"en"},{"@type":"Person","@id":"https://inblock.io/about/team/#tim","name":"Tim Bansemer","jobTitle":"Founder of inblock.io · Creator of Aqua Protocol","worksFor":{"@id":"https://inblock.io/#organization"},"url":"https://inblock.io/about/team/","sameAs":["https://www.linkedin.com/in/tim-bansemer-51a12699/","https://github.com/FantasticoFox"]},{"@type":"BreadcrumbList","@id":"https://inblock.io/about/how-aqua-was-born/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://inblock.io/"},{"@type":"ListItem","position":2,"name":"How Aqua was born"}]}]}</script><link rel="stylesheet" href="/_astro/Layout.BNGhnzWi.css">
+<style>.aqua-timeline[data-astro-cid-4uert23l]{position:relative;list-style:none;margin:3rem 0 0;padding:0}.aqua-timeline[data-astro-cid-4uert23l]:before{content:"";position:absolute;left:7px;top:.5rem;bottom:3.75rem;width:2px;border-radius:2px;background:linear-gradient(180deg,#e8590c38,#e8590cb3 55%,#e8590cf2);background-size:100% 220%}.aqua-beat[data-astro-cid-4uert23l]{position:relative;padding-left:2.75rem;padding-bottom:3.5rem}.aqua-beat[data-astro-cid-4uert23l]:last-child{padding-bottom:0}.aqua-node[data-astro-cid-4uert23l]{position:absolute;left:0;top:.2rem;width:16px;height:16px;border-radius:9999px;background:#e9edf0;border:2px solid #e8611a}.aqua-date[data-astro-cid-4uert23l]{font-size:.875rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#e8590c}.aqua-title[data-astro-cid-4uert23l]{margin-top:.4rem;font-family:Plus Jakarta Sans,ui-sans-serif,system-ui,sans-serif;font-size:1.25rem;font-weight:700;line-height:1.35;letter-spacing:-.01em;color:#3f2305}.aqua-quote[data-astro-cid-4uert23l]{margin:1rem 0 0;border-left:2px solid rgba(232,89,12,.55);padding-left:1.15rem;font-family:Plus Jakarta Sans,ui-sans-serif,system-ui,sans-serif;font-size:1.25rem;font-style:italic;line-height:1.5;color:#3f2305}.aqua-body[data-astro-cid-4uert23l]{margin-top:.9rem;max-width:40rem;font-size:1rem;line-height:1.65;color:#4a3d2c}.aqua-proof[data-astro-cid-4uert23l]{margin-top:.85rem;max-width:36rem;font-size:.875rem;line-height:1.6;color:#776b5d}.aqua-open[data-astro-cid-4uert23l]{margin-top:2.25rem;padding-left:2.75rem;font-size:1rem;color:#776b5d}.aqua-open[data-astro-cid-4uert23l] a[data-astro-cid-4uert23l]{font-weight:600;color:#ea580c;text-decoration:underline;text-decoration-color:#fdba74;text-underline-offset:2px;transition:color .2s ease}.aqua-open[data-astro-cid-4uert23l] a[data-astro-cid-4uert23l]:hover{color:#e8590c}.aqua-node--now[data-astro-cid-4uert23l]{background:#e8611a;border-color:#e8611a;box-shadow:0 0 0 5px #e8590c24}.aqua-node--now[data-astro-cid-4uert23l]:after{content:"";position:absolute;inset:-5px;border-radius:9999px;border:2px solid rgba(232,97,26,.5)}.aqua-beat--now[data-astro-cid-4uert23l] .aqua-date[data-astro-cid-4uert23l]{display:inline-block;background:#e8590c;color:#fff;padding:.16rem .6rem;border-radius:999px;letter-spacing:.14em}.aqua-beat--now[data-astro-cid-4uert23l] .aqua-title[data-astro-cid-4uert23l]{color:#b4430a}@media(min-width:640px){.aqua-title[data-astro-cid-4uert23l],.aqua-quote[data-astro-cid-4uert23l]{font-size:1.5rem}.aqua-body[data-astro-cid-4uert23l]{font-size:1.125rem}}.js-reveal[data-astro-cid-4uert23l] .aqua-beat[data-astro-cid-4uert23l]{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.js-reveal[data-astro-cid-4uert23l] .aqua-beat[data-astro-cid-4uert23l].is-in{opacity:1;transform:none}@media(prefers-reduced-motion:no-preference){.aqua-timeline[data-astro-cid-4uert23l]:before{animation:aqua-flow 8s linear infinite}.aqua-node--now[data-astro-cid-4uert23l]:after{animation:aqua-ripple 2.6s ease-out infinite}.aqua-node--now[data-astro-cid-4uert23l]{animation:now-glint 5.6s ease-in-out infinite}}@media(prefers-reduced-motion:reduce){.js-reveal[data-astro-cid-4uert23l] .aqua-beat[data-astro-cid-4uert23l]{opacity:1;transform:none}}@keyframes aqua-flow{0%{background-position:0 0%}to{background-position:0 -220%}}@keyframes aqua-ripple{0%{transform:scale(.6);opacity:.85}to{transform:scale(1.9);opacity:0}}@keyframes now-glint{0%,88%,to{box-shadow:0 0 0 5px #e8590c24}92%{box-shadow:0 0 0 5px #e8590c38,0 0 20px 5px #ffaf5fcc}}
+</style></head> <body class="min-h-screen bg-white text-neutral-900 antialiased"> <header class="absolute inset-x-0 top-0 z-50">  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:items-end lg:px-8">  <a href="/" class="flex flex-col items-start gap-1.5" aria-label="inblock.io home">  <img src="/logo-emblem-dark.png" alt="" width="903" height="948" class="w-[72px] max-sm:w-[44px]"> <img src="/logo-word-dark.png" alt="inblock.io" width="2895" height="616" class="h-[18px] w-auto max-sm:h-[13px]">  </a> <ul class="hidden items-center gap-1 lg:flex"> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+Products
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-80 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="https://agentic.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaAgents</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </div> <div class="mt-0.5 text-xs text-neutral-500">Verifiable AI Operations</div> </a><a href="https://aquafire.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaFire</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </div> <div class="mt-0.5 text-xs text-neutral-500">Provable Documents</div> </a><a href="/aqua-node" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaNode</span>  </div> <div class="mt-0.5 text-xs text-neutral-500">Provable Data Governance</div> </a> </div> </div> </li> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+About
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-56 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="/about/how-aqua-was-born" class="block rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900"> How Aqua was born </a><a href="/about/team" class="block rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900"> Team </a> </div> </div> </li> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+Developers
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-56 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="https://aqua-protocol.org" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Aqua Protocol</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aqua-protocol.org/docs/v4.0.0/welcome" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>SDK</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aqua-protocol.org/docs/" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Documentation</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://github.com/inblockio" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>GitHub</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aquaprotocol.zulipchat.com/login/" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Community (Zulip)</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a> </div> </div> </li> </ul>  <div class="flex items-center gap-2 max-sm:self-start max-sm:mt-[5px]"> <a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400">
+Book a meeting
+</a> <button type="button" data-mobile-toggle aria-label="Open menu" aria-expanded="false" class="inline-flex items-center justify-center rounded-md p-2 lg:hidden text-white/90 hover:text-white"> <svg data-menu-open class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg> <svg data-menu-close class="hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> </button> </div> </nav>  <div data-mobile-panel class="hidden px-4 pb-4 lg:hidden"> <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[var(--chrome)] shadow-2xl ring-1 ring-black/5"> <div class="max-h-[72vh] overflow-y-auto p-2"> <details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> Products <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="https://agentic.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaAgents</span><span class="text-neutral-500"> — Verifiable AI Operations</span> </a><a href="https://aquafire.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaFire</span><span class="text-neutral-500"> — Provable Documents</span> </a><a href="/aqua-node" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaNode</span><span class="text-neutral-500"> — Provable Data Governance</span> </a> </div> </details><details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> About <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="/about/how-aqua-was-born" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">How Aqua was born</span> </a><a href="/about/team" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Team</span> </a> </div> </details><details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> Developers <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="https://aqua-protocol.org" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Aqua Protocol</span> </a><a href="https://aqua-protocol.org/docs/v4.0.0/welcome" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">SDK</span> </a><a href="https://aqua-protocol.org/docs/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Documentation</span> </a><a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">GitHub</span> </a><a href="https://aquaprotocol.zulipchat.com/login/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Community (Zulip)</span> </a> </div> </details> </div> </div> </div> <script>
+		(function () {
+			var t = document.querySelector('[data-mobile-toggle]');
+			var p = document.querySelector('[data-mobile-panel]');
+			if (!t || !p) return;
+			var iOpen = t.querySelector('[data-menu-open]');
+			var iClose = t.querySelector('[data-menu-close]');
+			t.addEventListener('click', function () {
+				var hidden = p.classList.toggle('hidden');
+				t.setAttribute('aria-expanded', String(!hidden));
+				if (iOpen && iClose) { iOpen.classList.toggle('hidden', !hidden); iClose.classList.toggle('hidden', hidden); }
+			});
+		})();
+	</script> </header>  <main class="v2-fonts relative overflow-hidden bg-[#E9EDF0]" data-astro-cid-4uert23l> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="relative z-10" data-astro-cid-4uert23l>  <section class="relative isolate overflow-hidden text-white" style="background: #181310;" data-astro-cid-4uert23l> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(60% 55% at 50% 0%, rgba(232,97,26,0.14), transparent 70%);" data-astro-cid-4uert23l></div> <canvas class="absolute inset-0 h-full w-full" data-roots-canvas aria-hidden="true" data-astro-cid-4uert23l></canvas>  <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(ellipse 58% 78% at 16% 34%, rgba(24,19,16,0.88) 0%, rgba(24,19,16,0.4) 55%, transparent 78%);" data-astro-cid-4uert23l></div> <div class="relative z-10 mx-auto min-h-[68vh] max-w-7xl px-6 pb-24 pt-44 lg:px-8" data-astro-cid-4uert23l> <div class="v2-hero-stagger max-w-[860px]" data-astro-cid-4uert23l> <h1 class="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl" data-astro-cid-4uert23l>
+How Aqua was born.
+</h1> <p class="mt-12 text-lg leading-relaxed text-white/60 sm:text-xl" data-astro-cid-4uert23l>
+Before Aqua had a name, there was the question:
+</p> <p class="mt-4 max-w-4xl font-display text-2xl font-bold leading-tight tracking-tight text-white sm:text-4xl" data-astro-cid-4uert23l>
+What kind of infrastructure<br class="hidden sm:block" data-astro-cid-4uert23l>lets independent parties work together<br class="hidden sm:block" data-astro-cid-4uert23l>without giving up <span class="text-orange-500" data-astro-cid-4uert23l>ownership or control?</span> </p> </div>  <div class="mt-14" data-astro-cid-4uert23l> <a href="#missing-model" class="mx-auto block w-fit text-white hover:text-orange-400 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] transition" aria-label="Scroll to next section"> <svg class="hero-bounce h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </a> </div> </div> </section>  <section id="missing-model" class="mx-auto max-w-7xl px-6 py-20 sm:py-24 max-sm:py-14 lg:px-8" data-astro-cid-4uert23l> <div class="v2-reveal" data-astro-cid-4uert23l> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true" data-astro-cid-4uert23l></div> <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-[#3f2305] sm:text-4xl" data-astro-cid-4uert23l>
+The pieces existed.<br data-astro-cid-4uert23l>The answer did not.
+</h2> <div class="mt-10 grid max-w-5xl gap-5 sm:grid-cols-3" data-astro-cid-4uert23l> <div class="rounded-2xl p-7 border border-[#3f2305]/12 bg-[#F5F8FA] shadow-sm" data-astro-cid-4uert23l> <div class="text-sm font-semibold uppercase tracking-[0.2em] text-[#776b5d]" data-astro-cid-4uert23l>Centralised platforms</div> <p class="mt-3 text-base leading-relaxed text-[#4a3d2c] sm:text-lg" data-astro-cid-4uert23l>Easy to manage, but governance stays inside the provider&#39;s system.</p> </div><div class="rounded-2xl p-7 border border-[#3f2305]/12 bg-[#F5F8FA] shadow-sm" data-astro-cid-4uert23l> <div class="text-sm font-semibold uppercase tracking-[0.2em] text-[#776b5d]" data-astro-cid-4uert23l>Public blockchains</div> <p class="mt-3 text-base leading-relaxed text-[#4a3d2c] sm:text-lg" data-astro-cid-4uert23l>Records could be independently verified, but privacy and everyday use remained difficult.</p> </div><div class="rounded-2xl p-7 border-2 border-orange-400/70 bg-[#F5F8FA] shadow-sm" data-astro-cid-4uert23l> <div class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-600" data-astro-cid-4uert23l>What was missing</div> <p class="mt-3 text-base leading-relaxed text-[#4a3d2c] sm:text-lg" data-astro-cid-4uert23l>A way to govern data privately while keeping its history accountable.</p> </div> </div> </div> </section>  <div class="relative isolate overflow-hidden text-white" style="background: #181310;" data-astro-cid-4uert23l> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(44% 26% at 20% 15%, rgba(232,97,26,0.11), transparent 72%), radial-gradient(44% 26% at 52% 63%, rgba(232,97,26,0.12), transparent 72%);" data-astro-cid-4uert23l></div>  <section class="relative" data-astro-cid-4uert23l> <div class="v2-reveal relative mx-auto max-w-7xl px-6 pb-12 pt-20 sm:pb-14 sm:pt-24 lg:px-8" data-astro-cid-4uert23l> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true" data-astro-cid-4uert23l></div> <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl" data-astro-cid-4uert23l>
+The focus shifted to the record itself.
+</h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-white/70 sm:text-xl" data-astro-cid-4uert23l>
+In 2021, during an extended stay in Bali following the lockdown, Tim Bansemer met
+						Professor Ben Koo, who had worked and taught at MIT and was exploring how information could
+						be published from a locally hosted environment under its owner's control.
+</p> <div class="mt-10 grid max-w-5xl gap-5 sm:grid-cols-2" data-astro-cid-4uert23l> <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7" data-astro-cid-4uert23l> <div class="font-display text-lg font-bold tracking-tight text-orange-400" data-astro-cid-4uert23l>Professor Ben Koo</div> <p class="mt-3 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Ben highlighted trusted publishing and the logic of double-entry bookkeeping: corresponding entries that allow a system to check itself.</p> </div> <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7" data-astro-cid-4uert23l> <div class="font-display text-lg font-bold tracking-tight text-orange-400" data-astro-cid-4uert23l>Tim Bansemer</div> <p class="mt-3 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Tim’s perspective was grounded in years of work across governance, security, and distributed infrastructure.</p> </div> </div> <p class="mt-10 max-w-4xl text-lg leading-relaxed text-white sm:text-xl" data-astro-cid-4uert23l>
+With the record now at the centre, the question changed:
+</p> <div class="mt-8 max-w-xl border-l-2 border-orange-500/60 pl-6" data-astro-cid-4uert23l> <div class="text-sm font-semibold uppercase tracking-[0.2em] text-white/40" data-astro-cid-4uert23l>Not</div> <p class="mt-1 text-lg text-white/50 sm:text-xl" data-astro-cid-4uert23l>Which system should we trust to maintain the record?</p> <div class="mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-orange-400" data-astro-cid-4uert23l>But</div> <p class="mt-1 font-display text-xl font-bold text-white sm:text-2xl" data-astro-cid-4uert23l>How can the record make its own history verifiable?</p> </div> </div> </section>  <section class="relative" data-astro-cid-4uert23l> <div class="v2-reveal relative mx-auto max-w-7xl px-6 pb-20 pt-12 sm:pb-24 sm:pt-14 lg:px-8" data-astro-cid-4uert23l> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true" data-astro-cid-4uert23l></div> <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl" data-astro-cid-4uert23l>
+That principle became the foundation of data accounting.
+</h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-white/70 sm:text-xl" data-astro-cid-4uert23l>
+A governance framework connecting <span class="text-orange-400" data-astro-cid-4uert23l>three dimensions</span>:
+</p> <div class="mt-10 grid max-w-5xl gap-5 sm:grid-cols-3" data-astro-cid-4uert23l> <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7" data-astro-cid-4uert23l> <div class="flex items-center gap-3" data-astro-cid-4uert23l> <span class="block h-2.5 w-2.5 rounded-full bg-orange-500 shadow-[0_0_14px_rgba(232,97,26,0.85)]" data-astro-cid-4uert23l></span> <span class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400" data-astro-cid-4uert23l>Data</span> </div> <p class="mt-4 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Every piece of data gets its own unique identifier.</p> </div><div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7" data-astro-cid-4uert23l> <div class="flex items-center gap-3" data-astro-cid-4uert23l> <span class="block h-2.5 w-2.5 rounded-full bg-orange-500 shadow-[0_0_14px_rgba(232,97,26,0.85)]" data-astro-cid-4uert23l></span> <span class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400" data-astro-cid-4uert23l>Account</span> </div> <p class="mt-4 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Every entity that touches the data is identified with it.</p> </div><div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7" data-astro-cid-4uert23l> <div class="flex items-center gap-3" data-astro-cid-4uert23l> <span class="block h-2.5 w-2.5 rounded-full bg-orange-500 shadow-[0_0_14px_rgba(232,97,26,0.85)]" data-astro-cid-4uert23l></span> <span class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400" data-astro-cid-4uert23l>Time</span> </div> <p class="mt-4 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Proof of when the data existed, and in which order.</p> </div> </div>  <p class="mt-12 max-w-4xl text-xl font-medium leading-relaxed text-white" data-astro-cid-4uert23l>
+Tim translated that framework into something that could be built and tested: <a href="https://aqua-protocol.org" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap text-orange-400 underline decoration-orange-400/40 underline-offset-2 transition hover:text-orange-300" data-astro-cid-4uert23l>Aqua Protocol</a>.
+</p> </div> </section> </div>  <section class="mx-auto max-w-7xl px-6 py-20 sm:py-24 max-sm:py-14 lg:px-8" data-astro-cid-4uert23l> <div class="v2-reveal" data-astro-cid-4uert23l> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true" data-astro-cid-4uert23l></div> <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-[#3f2305] sm:text-4xl" data-astro-cid-4uert23l>
+From the first prototype toward real-world implementation.
+</h2> <ol class="aqua-timeline" data-aqua-timeline data-astro-cid-4uert23l> <li class="aqua-beat " data-astro-cid-4uert23l> <span class="aqua-node " data-astro-cid-4uert23l></span> <div class="aqua-date" data-astro-cid-4uert23l>2021</div> <h3 class="aqua-title" data-astro-cid-4uert23l>The first working prototype</h3> <blockquote class="aqua-quote" data-astro-cid-4uert23l>“It doesn’t matter if I fail or if I succeed. This has to exist.”</blockquote> <p class="aqua-body" data-astro-cid-4uert23l>The first prototype was a locally hosted system that could link, sign, timestamp, import, and export records without placing private data on a public blockchain.</p>  </li><li class="aqua-beat " data-astro-cid-4uert23l> <span class="aqua-node " data-astro-cid-4uert23l></span> <div class="aqua-date" data-astro-cid-4uert23l>2021–2022</div> <h3 class="aqua-title" data-astro-cid-4uert23l>Aqua Protocol v1.1 · Kolibri</h3>  <p class="aqua-body" data-astro-cid-4uert23l>The first public-sector research project used Aqua Protocol to secure education credentials.</p>  </li><li class="aqua-beat " data-astro-cid-4uert23l> <span class="aqua-node " data-astro-cid-4uert23l></span> <div class="aqua-date" data-astro-cid-4uert23l>2024</div> <h3 class="aqua-title" data-astro-cid-4uert23l>Aqua Protocol v1.2 · Guardian</h3>  <p class="aqua-body" data-astro-cid-4uert23l>An end-to-end prototype connected independent environments, allowing them to exchange accounted data without relying on a central intermediary.</p> <p class="aqua-proof" data-astro-cid-4uert23l>Developed with a German university to support a public-sector research project on sovereign data markets within Gaia-X.</p> </li><li class="aqua-beat " data-astro-cid-4uert23l> <span class="aqua-node " data-astro-cid-4uert23l></span> <div class="aqua-date" data-astro-cid-4uert23l>2024</div> <h3 class="aqua-title" data-astro-cid-4uert23l>Aqua Protocol v1.3 · Developer SDK</h3>  <p class="aqua-body" data-astro-cid-4uert23l>A development kit opened the protocol to outside developers, marking the first step from a research prototype toward a broader ecosystem.</p>  </li><li class="aqua-beat aqua-beat--now" data-astro-cid-4uert23l> <span class="aqua-node aqua-node--now" data-astro-cid-4uert23l></span> <div class="aqua-date" data-astro-cid-4uert23l>Since September 2025</div> <h3 class="aqua-title" data-astro-cid-4uert23l>Aqua Protocol v4 · Toward real-world implementation</h3>  <p class="aqua-body" data-astro-cid-4uert23l>Aqua is now in its fourth protocol iteration, with pilot projects moving it toward production-ready use.</p>  </li> </ol> <p class="aqua-open" data-astro-cid-4uert23l> <a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" data-astro-cid-4uert23l>Developed in the open since 2021.</a> </p> </div> </section>  <section class="relative isolate overflow-hidden text-white" style="background: #181310;" data-astro-cid-4uert23l> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(60% 55% at 50% 52%, rgba(232,97,26,0.12), transparent 72%);" data-astro-cid-4uert23l></div> <div class="v2-reveal relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8" data-astro-cid-4uert23l> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true" data-astro-cid-4uert23l></div> <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl" data-astro-cid-4uert23l>
+Why Aqua is called Aqua.
+</h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-white/70 sm:text-xl" data-astro-cid-4uert23l>
+Water is the infrastructure life depends on. Aqua brings that idea into the digital world.
+</p> <p class="mt-4 max-w-4xl text-lg leading-relaxed text-white sm:text-xl" data-astro-cid-4uert23l>
+The name captures two states:
+</p>  <svg viewBox="0 0 600 150" class="mt-14 block w-full max-w-4xl" fill="none" aria-hidden="true" data-water data-astro-cid-4uert23l> <defs data-astro-cid-4uert23l> <linearGradient id="bornWaterGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse" data-astro-cid-4uert23l> <stop offset="0" stop-color="#e8611a" data-astro-cid-4uert23l></stop> <stop offset="0.4" stop-color="#e8611a" data-astro-cid-4uert23l></stop> <stop offset="0.52" stop-color="#aecdd2" data-astro-cid-4uert23l></stop> <stop offset="0.64" stop-color="#cfe9f0" data-astro-cid-4uert23l></stop> <stop offset="1" stop-color="#cfe9f0" data-astro-cid-4uert23l></stop> </linearGradient> </defs> <path data-wave data-y="45" data-i="0" d="M0,45.00 L6,49.56 L12,53.43 L18,56.13 L24,57.34 L30,56.93 L36,54.99 L42,51.82 L48,47.84 L54,43.59 L60,39.62 L66,36.45 L72,34.45 L78,33.86 L84,34.72 L90,36.87 L96,40.02 L102,43.73 L108,47.50 L114,50.84 L120,53.35 L126,54.71 L132,54.78 L138,53.60 L144,51.34 L150,48.34 L156,45.00 L162,41.76 L168,39.03 L174,37.16 L180,36.35 L186,36.68 L192,38.07 L198,40.30 L204,43.06 L210,45.95 L216,48.55 L222,50.47 L228,51.50 L234,51.56 L240,50.74 L246,49.27 L252,47.44 L258,45.58 L264,43.96 L270,42.79 L276,42.16 L282,42.07 L288,42.41 L294,43.04 L300,43.77 L306,44.39 L312,44.88 L318,45.17 L324,45.26 L330,45.18 L336,44.99 L342,44.78 L348,44.60 L354,44.47 L360,44.40 L366,44.34 L372,44.28 L378,44.22 L384,44.16 L390,44.10 L396,44.04 L402,43.98 L408,43.92 L414,43.86 L420,43.80 L426,43.74 L432,43.68 L438,43.62 L444,43.56 L450,43.50 L456,43.44 L462,43.38 L468,43.32 L474,43.26 L480,43.20 L486,43.14 L492,43.08 L498,43.02 L504,42.96 L510,42.90 L516,42.84 L522,42.78 L528,42.72 L534,42.66 L540,42.60 L546,42.54 L552,42.48 L558,42.42 L564,42.36 L570,42.30 L576,42.24 L582,42.18 L588,42.12 L594,42.06 L600,42.00" stroke="url(#bornWaterGrad)" stroke-opacity="0.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path><path data-wave data-y="80" data-i="1" d="M0,90.18 L6,92.25 L12,92.70 L18,91.50 L24,88.84 L30,85.11 L36,80.81 L42,76.50 L48,72.75 L54,70.01 L60,68.63 L66,68.75 L72,70.31 L78,73.07 L84,76.66 L90,80.59 L96,84.34 L102,87.43 L108,89.48 L114,90.26 L120,89.70 L126,87.91 L132,85.15 L138,81.81 L144,78.33 L150,75.17 L156,72.73 L162,71.29 L168,71.02 L174,71.90 L180,73.80 L186,76.44 L192,79.44 L198,82.41 L204,84.97 L210,86.74 L216,87.50 L222,87.20 L228,85.97 L234,84.08 L240,81.86 L246,79.69 L252,77.87 L258,76.63 L264,76.05 L270,76.11 L276,76.70 L282,77.61 L288,78.64 L294,79.59 L300,80.32 L306,80.75 L312,80.91 L318,80.83 L324,80.59 L330,80.29 L336,80.01 L342,79.81 L348,79.69 L354,79.63 L360,79.60 L366,79.56 L372,79.52 L378,79.48 L384,79.44 L390,79.40 L396,79.36 L402,79.32 L408,79.28 L414,79.24 L420,79.20 L426,79.16 L432,79.12 L438,79.08 L444,79.04 L450,79.00 L456,78.96 L462,78.92 L468,78.88 L474,78.84 L480,78.80 L486,78.76 L492,78.72 L498,78.68 L504,78.64 L510,78.60 L516,78.56 L522,78.52 L528,78.48 L534,78.44 L540,78.40 L546,78.36 L552,78.32 L558,78.28 L564,78.24 L570,78.20 L576,78.16 L582,78.12 L588,78.08 L594,78.04 L600,78.00" stroke="url(#bornWaterGrad)" stroke-opacity="0.6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path><path data-wave data-y="115" data-i="2" d="M0,127.66 L6,125.67 L12,122.35 L18,118.16 L24,113.66 L30,109.43 L36,106.01 L42,103.83 L48,103.14 L54,104.00 L60,106.24 L66,109.56 L72,113.50 L78,117.53 L84,121.13 L90,123.86 L96,125.37 L102,125.51 L108,124.29 L114,121.91 L120,118.71 L126,115.12 L132,111.62 L138,108.65 L144,106.58 L150,105.66 L156,105.96 L162,107.41 L168,109.80 L174,112.77 L180,115.94 L186,118.89 L192,121.24 L198,122.71 L204,123.12 L210,122.43 L216,120.78 L222,118.48 L228,115.92 L234,113.51 L240,111.57 L246,110.34 L252,109.91 L258,110.23 L264,111.13 L270,112.38 L276,113.74 L282,114.96 L288,115.89 L294,116.45 L300,116.63 L306,116.58 L312,116.31 L318,115.95 L324,115.60 L330,115.34 L336,115.20 L342,115.19 L348,115.25 L354,115.34 L360,115.40 L366,115.44 L372,115.48 L378,115.52 L384,115.56 L390,115.60 L396,115.64 L402,115.68 L408,115.72 L414,115.76 L420,115.80 L426,115.84 L432,115.88 L438,115.92 L444,115.96 L450,116.00 L456,116.04 L462,116.08 L468,116.12 L474,116.16 L480,116.20 L486,116.24 L492,116.28 L498,116.32 L504,116.36 L510,116.40 L516,116.44 L522,116.48 L528,116.52 L534,116.56 L540,116.60 L546,116.64 L552,116.68 L558,116.72 L564,116.76 L570,116.80 L576,116.84 L582,116.88 L588,116.92 L594,116.96 L600,117.00" stroke="url(#bornWaterGrad)" stroke-opacity="0.78" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path> <g data-astro-cid-4uert23l> <path d="M452,120 L455,50 L463,30 L464,120 Z" fill="#cfe9f0" fill-opacity="0.16" data-astro-cid-4uert23l></path><path d="M463,30 L470,52 L472,120 L464,120 Z" fill="#cfe9f0" fill-opacity="0.07" data-astro-cid-4uert23l></path> <path d="M452,120 L455,50 L463,30 L470,52 L472,120" stroke="#d9eef5" stroke-opacity="0.8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path> <path d="M463,30 L464,120" stroke="#d9eef5" stroke-opacity="0.35" stroke-width="0.8" stroke-linecap="round" data-astro-cid-4uert23l></path> </g><g data-astro-cid-4uert23l> <path d="M424,121 L416,64 L420,50 L430,121 Z" fill="#cfe9f0" fill-opacity="0.14" data-astro-cid-4uert23l></path><path d="M420,50 L432,68 L444,121 L430,121 Z" fill="#cfe9f0" fill-opacity="0.06" data-astro-cid-4uert23l></path> <path d="M424,121 L416,64 L420,50 L432,68 L444,121" stroke="#d9eef5" stroke-opacity="0.8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path> <path d="M420,50 L430,121" stroke="#d9eef5" stroke-opacity="0.35" stroke-width="0.8" stroke-linecap="round" data-astro-cid-4uert23l></path> </g><g data-astro-cid-4uert23l> <path d="M484,119 L486,72 L492,62 L493,119 Z" fill="#cfe9f0" fill-opacity="0.12" data-astro-cid-4uert23l></path><path d="M492,62 L498,76 L500,119 L493,119 Z" fill="#cfe9f0" fill-opacity="0.05" data-astro-cid-4uert23l></path> <path d="M484,119 L486,72 L492,62 L498,76 L500,119" stroke="#d9eef5" stroke-opacity="0.8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path> <path d="M492,62 L493,119" stroke="#d9eef5" stroke-opacity="0.35" stroke-width="0.8" stroke-linecap="round" data-astro-cid-4uert23l></path> </g><g data-astro-cid-4uert23l> <path d="M436,120 L435,92 L441,84 L442,120 Z" fill="#cfe9f0" fill-opacity="0.13" data-astro-cid-4uert23l></path><path d="M441,84 L446,94 L448,120 L442,120 Z" fill="#cfe9f0" fill-opacity="0.06" data-astro-cid-4uert23l></path> <path d="M436,120 L435,92 L441,84 L446,94 L448,120" stroke="#d9eef5" stroke-opacity="0.8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4uert23l></path> <path d="M441,84 L442,120" stroke="#d9eef5" stroke-opacity="0.35" stroke-width="0.8" stroke-linecap="round" data-astro-cid-4uert23l></path> </g> <path d="M455,74 L462,64" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.2" stroke-linecap="round" data-astro-cid-4uert23l></path><path d="M457,86 L466,74" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.2" stroke-linecap="round" data-astro-cid-4uert23l></path><path d="M488,90 L493,82" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.2" stroke-linecap="round" data-astro-cid-4uert23l></path> </svg> <div class="mt-8 grid max-w-4xl gap-8 sm:grid-cols-2" data-astro-cid-4uert23l> <div data-astro-cid-4uert23l> <div class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400" data-astro-cid-4uert23l>Aqua</div> <p class="mt-2 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Water is fluid, versatile, and essential.<br data-astro-cid-4uert23l>Aqua applies those qualities to data.</p> </div> <div data-astro-cid-4uert23l> <div class="text-sm font-semibold uppercase tracking-[0.2em] text-[#d2ebf2]" data-astro-cid-4uert23l>Ice</div> <p class="mt-2 text-base leading-relaxed text-white/70 sm:text-lg" data-astro-cid-4uert23l>Ice holds water in a fixed state.<br data-astro-cid-4uert23l>Aqua preserves an exact reference to every version, so the data can keep changing without its past being lost or rewritten.</p> </div> </div> </div> </section>  <section class="mx-auto max-w-7xl px-6 pb-24 pt-20 sm:pt-24 max-sm:pb-20 max-sm:pt-14 lg:px-8" data-astro-cid-4uert23l> <div class="v2-reveal" data-astro-cid-4uert23l> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true" data-astro-cid-4uert23l></div> <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-[#3f2305] sm:text-4xl" data-astro-cid-4uert23l>
+The next phase is implementation.
+</h2> <p class="mt-6 max-w-5xl text-lg font-medium leading-relaxed text-[#3f2305] sm:text-xl" data-astro-cid-4uert23l>
+AquaFire, AquaAgents, and AquaNode apply the protocol to documents, AI actions, and governed data access.
+</p> <p class="mt-4 max-w-5xl text-lg leading-relaxed text-[#776b5d] sm:text-xl" data-astro-cid-4uert23l>
+These are the first three applications. Aqua Protocol provides the infrastructure for new products and industry-specific solutions wherever records must remain verifiable across systems.
+</p> <p class="mt-4 max-w-5xl text-lg font-medium leading-relaxed text-[#3f2305] sm:text-xl" data-astro-cid-4uert23l>
+The focus now is on pilot projects with organisations ready to put it into practice.
+</p> <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-astro-cid-4uert23l> <a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-base font-semibold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-600 hover:shadow-lg" data-astro-cid-4uert23l> <span data-astro-cid-4uert23l>Discuss an implementation</span> <span aria-hidden="true" class="transition group-hover:translate-x-0.5" data-astro-cid-4uert23l>→</span> </a> <a href="/#products" class="group inline-flex items-center justify-center gap-2 rounded-full border border-[#3f2305]/25 px-7 py-3.5 text-base font-medium text-[#3f2305] transition hover:border-orange-500/50 hover:text-orange-700" data-astro-cid-4uert23l> <span data-astro-cid-4uert23l>Explore the products</span> <span aria-hidden="true" class="transition group-hover:translate-x-0.5" data-astro-cid-4uert23l>→</span> </a> </div> </div> </section> </div> </main> <footer class="relative overflow-hidden border-t border-[#3f2305]/10 bg-[var(--chrome)] pb-12 pt-20 max-sm:pt-12">  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div> <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">  <div class="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4 lg:gap-12">  <div class="col-span-2 lg:col-span-2"> <a href="/" class="inline-flex items-center gap-2"> <img src="/logo.png" alt="inblock.io" width="3837" height="992" class="h-6 w-auto"> </a> <p class="mt-5 max-w-sm text-sm leading-relaxed text-[#776b5d]">
+Trust that travels with your data.
+</p> <div class="mt-6 flex items-center gap-3"> <a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#3f2305]/15 text-[#3f2305] transition hover:border-orange-500/40 hover:bg-orange-500/5 hover:text-orange-600"> <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path> </svg> </a> <a href="https://www.linkedin.com/company/inblock-io" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#3f2305]/15 text-[#3f2305] transition hover:border-orange-500/40 hover:bg-orange-500/5 hover:text-orange-600"> <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path> </svg> </a> </div> </div>  <div> <p class="text-xs font-semibold uppercase tracking-[0.15em] text-orange-600">Products</p> <ul class="mt-5 space-y-3 text-sm">  <li><a href="https://agentic.inblock.io/" target="_blank" rel="noopener noreferrer" class="text-[#3f2305] transition hover:text-orange-600">AquaAgents</a></li> <li><a href="https://aquafire.inblock.io/" target="_blank" rel="noopener noreferrer" class="text-[#3f2305] transition hover:text-orange-600">AquaFire</a></li> <li><a href="/aqua-node/" class="text-[#3f2305] transition hover:text-orange-600">AquaNode</a></li> </ul> </div>  <div> <p class="text-xs font-semibold uppercase tracking-[0.15em] text-orange-600">Company</p> <ul class="mt-5 space-y-3 text-sm"> <li><a href="/about/how-aqua-was-born/" class="text-[#3f2305] transition hover:text-orange-600">How Aqua was born</a></li> <li><a href="/about/team/" class="text-[#3f2305] transition hover:text-orange-600">Team</a></li> <li><a href="https://calendly.com/tim-bansemer/30min" target="_blank" rel="noopener noreferrer" class="text-[#3f2305] transition hover:text-orange-600">Contact</a></li> </ul> </div> </div>  <div class="mt-16 flex flex-col gap-4 border-t border-[#3f2305]/10 pt-8 sm:flex-row sm:items-center sm:justify-between"> <p class="text-sm text-[#776b5d]">
+© 2026 inblock.io · <a href="https://aqua-protocol.org/" target="_blank" rel="noopener noreferrer" class="font-medium text-[#3f2305] transition hover:text-orange-600">Aqua Protocol</a> and tooling will be open source under Apache 2.0
+</p>  <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"> <li><a href="/imprint/" class="font-medium text-[#3f2305] transition hover:text-orange-600">Imprint</a></li> <li><a href="/privacy/" class="font-medium text-[#3f2305] transition hover:text-orange-600">Privacy</a></li> <li><button type="button" data-cookie-settings class="font-medium text-[#3f2305] transition hover:text-orange-600">Cookie settings</button></li> </ul> </div> </div> </footer>  <div id="cookie-consent" data-cookie-banner hidden class="fixed inset-x-0 bottom-0 z-[100] px-4 pb-4 sm:px-6 sm:pb-6"> <div role="dialog" aria-modal="false" aria-label="Cookie consent" class="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-[#3f2305]/12 bg-[var(--chrome)] p-5 shadow-2xl sm:flex-row sm:items-center sm:gap-6 sm:p-6"> <p class="text-sm leading-relaxed text-[#3f2305]">
+We use essential storage to remember this choice. Optional cookies load only if you accept;
+			today that is YouTube, when you play the video.
+<a href="/privacy" class="font-medium text-orange-600 underline underline-offset-2 transition hover:text-orange-700">Privacy policy</a>.
+</p> <div class="flex shrink-0 items-center gap-3"> <button type="button" data-cookie-decline class="rounded-full border border-[#3f2305]/20 px-4 py-2 text-sm font-medium text-[#3f2305] transition hover:border-[#3f2305]/40">
+Decline
+</button> <button type="button" data-cookie-accept class="rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400">
+Accept
+</button> </div> </div> </div> <script>
+	(function () {
+		var KEY = 'aqua-cookie-consent';
+		var banner = document.getElementById('cookie-consent');
+		if (!banner) return;
+
+		var show = function () { banner.hidden = false; };
+		var hide = function () { banner.hidden = true; };
+
+		var read = function () {
+			try { return localStorage.getItem(KEY); } catch (e) { return null; }
+		};
+
+		var save = function (v) {
+			try { localStorage.setItem(KEY, v); } catch (e) {}
+			hide();
+			try {
+				window.dispatchEvent(new CustomEvent('cookie-consent-change', { detail: { value: v } }));
+			} catch (e) {}
+		};
+
+		// Public API for embeds / future scripts
+		window.getCookieConsent = function () { return read(); };
+		window.openCookieSettings = show;
+
+		var stored = read();
+		if (!stored) show();
+
+		var accept = banner.querySelector('[data-cookie-accept]');
+		var decline = banner.querySelector('[data-cookie-decline]');
+		if (accept) accept.addEventListener('click', function () { save('accepted'); });
+		if (decline) decline.addEventListener('click', function () { save('declined'); });
+
+		document.addEventListener('click', function (e) {
+			var trigger = e.target && e.target.closest && e.target.closest('[data-cookie-settings]');
+			if (trigger) { e.preventDefault(); show(); }
+		});
+	})();
+</script>  </body></html>  <script>
+	// Scroll-reveal (same mechanism + classes as the homepage; guarded against double init).
+	(function () {
+		if (window.__v2RevealInit) return;
+		window.__v2RevealInit = true;
+		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const targets = document.querySelectorAll('.v2-reveal');
+		if (reduced) { targets.forEach(function (el) { el.classList.add('v2-reveal-in'); }); return; }
+		const observer = new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) { entry.target.classList.add('v2-reveal-in'); observer.unobserve(entry.target); }
+				});
+			},
+			{ threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+		);
+		targets.forEach(function (el) { observer.observe(el); });
+	})();
+</script> <script>
+	// HERO EARTH + ROOTS — Carlotta's reference: soil surface with a small seedling above it,
+	// and beneath it a compressed, illuminated root system filling the hero's dark right side.
+	// A faint lateral root reaches under the text. Grows once (roots down, seedling up), then
+	// motion = light only: pulses travelling down the roots, specks breathing in the soil.
+	// Deterministic seed; DPR cap 1.5; lighter density on small screens; reduced-motion = grown, static.
+	(function () {
+		if (window.__bornRootsInit) return; window.__bornRootsInit = true;
+		const cv = document.querySelector('[data-roots-canvas]');
+		if (!cv) return;
+		const ctx = cv.getContext('2d');
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function mulberry32(a) { return function () { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+		let W = 0, H = 0, DPR = 1, visible = true, t0 = null, raf = null;
+		let soil = [], grain = [], roots = [], specks = [], stem = [], leaves = [], CX = 0, SOILY = 0;
+
+		function buildDown(rng, x0, y0, w0, depth, drift, lenF, delay, aMul) {
+			// Compressed cluster (Carlotta's preferred shape): gentle drift, mostly downward,
+			// staying visibly rooted around the taproot.
+			const pts = [[x0, y0]];
+			let x = x0, y = y0;
+			const yMax = y0 + (H - y0) * lenF;
+			while (y < yMax && y < H - 6) {
+				y += 8 + rng() * 5;
+				x += drift * (0.8 + rng() * 0.5) + Math.sin(y * 0.012 + x0) * 1.4 + (rng() - 0.5) * 4.5;
+				x = Math.max(CX - W * 0.3, Math.min(CX + W * 0.28, x));
+				pts.push([x, y]);
+			}
+			return { pts, w0, depth, delay, aMul: aMul || 1 };
+		}
+
+		function gen() {
+			const rng = mulberry32(11);
+			roots = []; specks = []; soil = []; grain = []; stem = []; leaves = [];
+			const mobile = W < 768;
+			CX = W * (mobile ? 0.6 : 0.7);
+			SOILY = H * 0.47;
+
+			// soil surface: irregular line, feathered at both ends
+			const xs = W * (mobile ? 0.08 : 0.13);
+			for (let x = xs; x <= W; x += 12) {
+				soil.push([x, SOILY + Math.sin(x * 0.045) * 1.8 + (rng() - 0.5) * 2.4]);
+			}
+			// soil grain: earth particles below the surface — denser near the top, a few pebbles
+			const nG = mobile ? 40 : 80;
+			for (let i = 0; i < nG; i++) {
+				grain.push([xs + rng() * (W - xs), SOILY + 5 + 95 * Math.pow(rng(), 1.8), 0.05 + rng() * 0.09, 0.7 + rng() * 1.2]);
+			}
+			for (let i = 0; i < (mobile ? 3 : 7); i++) {
+				grain.push([xs + rng() * (W - xs), SOILY + 8 + 40 * rng(), 0.1, 2 + rng() * 0.8]);
+			}
+
+			// taproot straight down from the seedling
+			const tap = buildDown(rng, CX, SOILY - 2, 3.2, 0, 0, 0.97, 0, 1);
+			roots.push(tap);
+			// primary branches fanning out of the taproot (fuller downward cone — Carlotta 24.07:
+			// "more roots, none horizontal". Wider drift spreads the fan; buildDown keeps every
+			// stroke descending, so nothing reads as a horizontal line.)
+			const fracs = mobile ? [0.05, 0.12, 0.2, 0.3, 0.42] : [0.03, 0.07, 0.12, 0.18, 0.26, 0.36, 0.48, 0.6];
+			const dirs = [-4.2, 3.8, -3.0, 2.6, -2.0, 1.8, -1.2, 1.0];
+			fracs.forEach(function (f, i) {
+				const at = tap.pts[Math.max(1, Math.floor(tap.pts.length * f))];
+				const b = buildDown(rng, at[0], at[1], 1.7, 1, dirs[i % dirs.length], 0.45 + rng() * 0.35, 0.5 + i * 0.12, 1);
+				roots.push(b);
+				if (rng() > 0.15) {
+					const at2 = b.pts[Math.max(1, Math.floor(b.pts.length * (0.35 + rng() * 0.3)))];
+					roots.push(buildDown(rng, at2[0], at2[1], 0.9, 2, dirs[(i + 1) % dirs.length] * 0.7, 0.35 + rng() * 0.3, 0.9 + i * 0.12, 1));
+				}
+			});
+			// hair roots
+			const nHair = mobile ? 16 : 36;
+			for (let i = 0; i < nHair; i++) {
+				const r = roots[Math.floor(rng() * roots.length)];
+				const p = r.pts[Math.max(1, Math.floor(rng() * r.pts.length))];
+				roots.push({ pts: [[p[0], p[1]], [p[0] + (rng() - 0.5) * 14, p[1] + 8 + rng() * 14]], w0: 0.5, depth: 3, delay: 1.1 + rng() * 0.8, aMul: 1 });
+			}
+			// (Lateral shallow roots REMOVED 24.07.2026, Carlotta: they ran nearly flat just under
+			// the soil surface and read as a second horizontal line under the earth line, and she
+			// wants no horizontal roots at all. The feathered veil over the text zone stays.)
+
+			// glow specks in the soil (fireflies of the reference image)
+			const nS = mobile ? 9 : 20;
+			for (let i = 0; i < nS; i++) {
+				specks.push([CX + (rng() - 0.5) * W * 0.52, SOILY + 22 + rng() * (H - SOILY - 44), rng() * 6.28]);
+			}
+
+			// seedling: short stem with two leaves
+			let sx = CX, sy = SOILY;
+			stem = [[sx, sy]];
+			for (let i = 1; i <= 6; i++) { sy -= 7.4; sx += Math.sin(i * 0.85) * 1.5; stem.push([sx, sy]); }
+			leaves = [
+				{ at: 2, dir: -1, size: 15 },
+				{ at: 4, dir: 1, size: 12 },
+			];
+		}
+
+		function drawRoot(r, frac) {
+			if (frac <= 0) return;
+			const n = r.pts.length;
+			const upto = Math.max(2, Math.ceil(n * Math.min(1, frac)));
+			// Body colours are quiet earthy sienna (the AquaTree two-role split: quiet body,
+			// brand orange reserved for the LIGHT — pulses, specks, collar glow).
+			const base = r.depth === 0 ? 0.72 : r.depth === 1 ? 0.58 : r.depth === 2 ? 0.4 : 0.24;
+			const alpha = base * r.aMul;
+			const col = r.depth === 0 ? '204,120,48' : '212,134,64';
+			for (let i = 1; i < upto; i++) {
+				const fade = r.fadeLeft ? Math.max(0.1, 1 - (i / n) * 0.9) : 1;
+				const a = alpha * fade;
+				const w = Math.max(0.35, r.w0 * (1 - 0.8 * (i / n)));
+				ctx.strokeStyle = 'rgba(240,160,80,' + (0.08 * a).toFixed(3) + ')';
+				ctx.lineWidth = w * 3;
+				ctx.beginPath(); ctx.moveTo(r.pts[i - 1][0], r.pts[i - 1][1]); ctx.lineTo(r.pts[i][0], r.pts[i][1]); ctx.stroke();
+				ctx.strokeStyle = 'rgba(' + col + ',' + a.toFixed(3) + ')';
+				ctx.lineWidth = w;
+				ctx.beginPath(); ctx.moveTo(r.pts[i - 1][0], r.pts[i - 1][1]); ctx.lineTo(r.pts[i][0], r.pts[i][1]); ctx.stroke();
+			}
+		}
+
+		function drawLeaf(x, y, dir, size, s) {
+			if (s <= 0) return;
+			ctx.fillStyle = 'rgba(126,160,92,' + (0.88 * s).toFixed(2) + ')';
+			ctx.beginPath();
+			ctx.moveTo(x, y);
+			ctx.quadraticCurveTo(x + dir * size * 0.9 * s, y - size * 0.35 * s, x + dir * size * 1.25 * s, y - size * 0.9 * s);
+			ctx.quadraticCurveTo(x + dir * size * 0.35 * s, y - size * 0.72 * s, x, y);
+			ctx.fill();
+		}
+
+		function draw(tms) {
+			ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+			ctx.clearRect(0, 0, W, H);
+			ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+			const time = tms / 1000;
+			if (t0 === null) t0 = time;
+			const g = reduce ? 99 : time - t0;
+
+			// earth mass: a soft dark band under the surface so the ground reads as GROUND
+			if (soil.length > 1 && g > 0) {
+				const bandA = 0.22 * Math.min(1, g / 1.4);
+				const grad = ctx.createLinearGradient(0, SOILY, 0, SOILY + 115);
+				grad.addColorStop(0, 'rgba(86,58,34,' + bandA.toFixed(3) + ')');
+				grad.addColorStop(1, 'rgba(86,58,34,0)');
+				ctx.fillStyle = grad;
+				ctx.beginPath();
+				ctx.moveTo(soil[0][0], soil[0][1]);
+				for (let i = 1; i < soil.length; i++) ctx.lineTo(soil[i][0], soil[i][1]);
+				ctx.lineTo(soil[soil.length - 1][0], SOILY + 115);
+				ctx.lineTo(soil[0][0], SOILY + 115);
+				ctx.closePath(); ctx.fill();
+			}
+			// soil surface: ONE main line (feathered ends) + grain
+			const sN = soil.length;
+			for (let i = 1; i < sN; i++) {
+				const feather = Math.min(1, i / (sN * 0.34), (sN - i) / (sN * 0.16));
+				const a = 0.34 * Math.max(0, feather) * Math.min(1, g / 1.2);
+				if (a <= 0) continue;
+				ctx.strokeStyle = 'rgba(158,110,62,' + a.toFixed(3) + ')';
+				ctx.lineWidth = 1.4;
+				ctx.beginPath(); ctx.moveTo(soil[i - 1][0], soil[i - 1][1]); ctx.lineTo(soil[i][0], soil[i][1]); ctx.stroke();
+			}
+			grain.forEach(function (gr) {
+				const a = gr[2] * Math.min(1, g / 1.6);
+				if (a <= 0) return;
+				ctx.fillStyle = 'rgba(190,140,85,' + a.toFixed(3) + ')';
+				ctx.beginPath(); ctx.arc(gr[0], gr[1], gr[3] || 1.1, 0, 6.2832); ctx.fill();
+			});
+
+			// collar glow where the seedling meets the earth
+			const cg = ctx.createRadialGradient(CX, SOILY, 0, CX, SOILY, 30);
+			cg.addColorStop(0, 'rgba(255,190,110,' + (0.15 * Math.min(1, g / 1.5)).toFixed(3) + ')');
+			cg.addColorStop(1, 'rgba(255,190,110,0)');
+			ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(CX, SOILY, 30, 0, 6.2832); ctx.fill();
+
+			// roots grow downward
+			roots.forEach(function (r) {
+				const gr = (g - r.delay) / 1.35;
+				drawRoot(r, 1 - Math.pow(1 - Math.min(1, Math.max(0, gr)), 3));
+			});
+
+			// seedling grows upward
+			const sg = Math.min(1, Math.max(0, (g - 1.15) / 1.2));
+			const se = 1 - Math.pow(1 - sg, 3);
+			if (se > 0) {
+				const upto = Math.max(2, Math.ceil(stem.length * se));
+				for (let i = 1; i < upto; i++) {
+					ctx.strokeStyle = 'rgba(134,166,98,0.95)';
+					ctx.lineWidth = Math.max(0.8, 2.3 * (1 - 0.6 * (i / stem.length)));
+					ctx.beginPath(); ctx.moveTo(stem[i - 1][0], stem[i - 1][1]); ctx.lineTo(stem[i][0], stem[i][1]); ctx.stroke();
+				}
+				leaves.forEach(function (l, li) {
+					const ls = Math.min(1, Math.max(0, (se - (0.5 + li * 0.22)) / 0.4));
+					const p = stem[l.at];
+					drawLeaf(p[0], p[1], l.dir, l.size, ls);
+				});
+			}
+
+			// specks breathing in the soil
+			specks.forEach(function (s) {
+				const a = reduce ? 0.16 : 0.09 + 0.15 * Math.pow(Math.sin(time * 0.7 + s[2]), 2);
+				const sp = ctx.createRadialGradient(s[0], s[1], 0, s[0], s[1], 4);
+				sp.addColorStop(0, 'rgba(255,190,110,' + a.toFixed(3) + ')');
+				sp.addColorStop(1, 'rgba(255,190,110,0)');
+				ctx.fillStyle = sp;
+				ctx.beginPath(); ctx.arc(s[0], s[1], 4, 0, 6.2832); ctx.fill();
+			});
+
+			// after growth: light pulses travelling down the main roots
+			if (!reduce && g > 2.9) {
+				const mains = roots.filter(function (r) { return r.depth <= 1 && r.aMul === 1; });
+				const cycle = 2.8, tt = (g - 2.9) % (cycle * mains.length);
+				const idx = Math.floor(tt / cycle), p = (tt % cycle) / 1.8;
+				if (p <= 1 && mains[idx]) {
+					// the light RISES: from deep in the roots up toward the seedling
+					const r = mains[idx], n = r.pts.length;
+					const hi = Math.min(n - 1, Math.max(1, Math.floor(n * (1 - p))));
+					for (let k = 0; k < 7; k++) {
+						const i = hi + k; if (i >= n) break;
+						const a = (1 - k / 7) * 0.5;
+						ctx.strokeStyle = 'rgba(255,180,95,' + a.toFixed(3) + ')';
+						ctx.lineWidth = 1.5;
+						ctx.beginPath(); ctx.moveTo(r.pts[i - 1][0], r.pts[i - 1][1]); ctx.lineTo(r.pts[i][0], r.pts[i][1]); ctx.stroke();
+					}
+					const hx = r.pts[hi][0], hy = r.pts[hi][1];
+					const pg = ctx.createRadialGradient(hx, hy, 0, hx, hy, 8);
+					pg.addColorStop(0, 'rgba(255,205,140,0.7)');
+					pg.addColorStop(1, 'rgba(255,205,140,0)');
+					ctx.fillStyle = pg; ctx.beginPath(); ctx.arc(hx, hy, 8, 0, 6.2832); ctx.fill();
+				}
+			}
+		}
+
+		function size() {
+			const r = cv.getBoundingClientRect();
+			if (!r.width) return;
+			DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+			W = r.width; H = r.height;
+			cv.width = W * DPR; cv.height = H * DPR;
+			gen();
+			if (reduce) draw(0);
+		}
+
+		function loop(t) { if (visible) draw(t); raf = requestAnimationFrame(loop); }
+		window.addEventListener('resize', size);
+		const io = new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { rootMargin: '120px' });
+		io.observe(cv);
+		size();
+		if (reduce) { draw(0); } else { raf = requestAnimationFrame(loop); }
+	})();
+</script> <script>
+	// Timeline beat reveal.
+	(function () {
+		const list = document.querySelector('[data-aqua-timeline]');
+		if (!list) return;
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reduce || !('IntersectionObserver' in window)) return;
+		list.classList.add('js-reveal');
+		const io = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((e) => {
+					if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+				});
+			},
+			{ threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+		);
+		list.querySelectorAll('.aqua-beat').forEach((el) => io.observe(el));
+	})();
+</script> <script>
+	// WHY-AQUA water: each strand is ONE unbroken path 0..600. The wave flows right and its
+	// amplitude fades to zero across the transition, so it flattens INTO its own frozen
+	// straight continuation — no seam, no separate ice line. Only the wavy region moves.
+	(function () {
+		const svg = document.querySelector('[data-water]');
+		if (!svg) return;
+		const waves = Array.from(svg.querySelectorAll('[data-wave]'));
+		if (!waves.length) return;
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		const ICE_END = { 45: 42, 80: 78, 115: 117 };
+		function ampAt(x) {
+			const base = 13 * (1 - 0.55 * Math.min(1, x / 300));
+			const k = x <= 200 ? 1 : x >= 360 ? 0 : 1 - (x - 200) / 160;
+			const sm = k * k * (3 - 2 * k);
+			return base * sm;
+		}
+		function buildPath(y0, phase) {
+			let d = '';
+			for (let x = 0; x <= 600; x += 6) {
+				const baseline = y0 + (x > 300 ? ((x - 300) / 300) * (ICE_END[y0] - y0) : 0);
+				const y = baseline + ampAt(x) * Math.sin((x / 52) * Math.PI - phase);
+				d += (x === 0 ? 'M' : ' L') + x + ',' + y.toFixed(2);
+			}
+			return d;
+		}
+
+		let visible = true;
+		if ('IntersectionObserver' in window) {
+			new IntersectionObserver((es) => { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(svg);
+		}
+		function frame(t) {
+			if (visible) {
+				for (let i = 0; i < waves.length; i++) {
+					const y0 = parseFloat(waves[i].dataset.y);
+					waves[i].setAttribute('d', buildPath(y0, t / 850 - i * 0.9));
+				}
+			}
+			requestAnimationFrame(frame);
+		}
+		requestAnimationFrame(frame);
+	})();
+</script>
