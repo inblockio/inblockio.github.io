@@ -1,0 +1,3839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Trust for AI Agents | inblock.io</title>
+    <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16x16.png">
+    <link rel="ai-discovery" type="application/json" href="/.well-known/ai">
+    <meta name="description" content="Aqua Protocol provides operational trust for autonomous AI agents: machine-enforceable operation definitions, runtime structural enforcement, and cryptographic proof chains that any party can independently verify.">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Operational Trust for AI Agents | inblock.io">
+    <meta property="og:description" content="Identity proves who. Authorization defines what may. Aqua ensures agents cannot exceed their boundaries and provides verifiable proof of what actually occurred.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agentic.inblock.io/">
+    <meta property="og:image" content="https://inblock.io/public/logo/inblockio_birdstyle_writing_on_dark.png">
+    <meta property="og:site_name" content="inblock.io">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Operational Trust for AI Agents | inblock.io">
+    <meta name="twitter:description" content="Identity proves who. Authorization defines what may. Aqua ensures agents cannot exceed their boundaries and provides verifiable proof of what actually occurred.">
+    <meta name="twitter:image" content="https://inblock.io/public/logo/inblockio_birdstyle_writing_on_dark.png">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "inblock.io assets GmbH",
+      "url": "https://inblock.io",
+      "logo": "https://inblock.io/public/logo/inblockio_birdstyle_writing_on_dark.png",
+      "description": "Operational trust infrastructure for autonomous AI agents. Define, enforce, and prove agent operations with cryptographic certainty.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Humboldtstrasse 13",
+        "addressLocality": "Weimar",
+        "postalCode": "99423",
+        "addressCountry": "DE"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Tim Bansemer",
+        "jobTitle": "CEO & Aqua Project Lead",
+        "url": "https://linktr.ee/tim.bansemer"
+      },
+      "sameAs": [
+        "https://github.com/inblockio",
+        "https://x.com/tim_bansemer",
+        "https://digitalfreedom.substack.com"
+      ],
+      "knowsAbout": ["Operational Trust", "AI Agent Governance", "Aqua Protocol", "Cryptographic Verification", "EU AI Act Compliance", "Data Provenance"]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --surface2: #f5f5f4;
+            --border: #e7e5e4;
+            --text: #1c1917;
+            --dim: #78716c;
+            --ink: #0c0a09;
+            --ink-soft: #1c1917;
+            --ink-mid: #292524;
+            --accent: #E8611A;
+            --accent-glow: rgba(232, 97, 26, 0.15);
+            --accent-soft: rgba(232, 97, 26, 0.10);
+            --accent-hover: #D4570F;
+            --proof-green: #2a8a5a;
+            --proof-green-soft: rgba(42, 138, 90, 0.12);
+            --enforce-amber: #d97706;
+            --define-blue: #4895ef;
+            --sans: 'Sora', -apple-system, sans-serif;
+            --mono: 'JetBrains Mono', 'Menlo', monospace;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-cross: cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: 56px;
+            padding: 0 clamp(16px, 4vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(12, 10, 9, 0.92);
+            backdrop-filter: blur(16px) saturate(1.2);
+            -webkit-backdrop-filter: blur(16px) saturate(1.2);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: height 0.3s, box-shadow 0.3s;
+        }
+
+        nav.scrolled { height: 48px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+
+        .nav-logo {
+            height: 24px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .nav-logo:hover { opacity: 1; }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 7px 14px;
+            border-radius: 6px;
+            letter-spacing: -0.2px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+        .nav-links .nav-cta {
+            color: #fff;
+            background: var(--accent);
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: none;
+            margin-left: 8px;
+            font-weight: 500;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-links .nav-cta:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            background: var(--ink);
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(232,97,26,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232,97,26,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridPulse 8s ease-in-out infinite;
+            mask-image: radial-gradient(ellipse at 50% 40%, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 0%, transparent 70%);
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(232,97,26,0.12) 0%, transparent 70%);
+            pointer-events: none;
+            filter: blur(60px);
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.03; }
+            50% { opacity: 0.07; }
+        }
+
+        .hero-gradient {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent, var(--ink));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        .hero-kicker {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            line-height: 1.2;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .hero-sub {
+            font-size: clamp(15px, 1.8vw, 18px);
+            line-height: 1.7;
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .hero-sub strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+            margin: 2rem auto;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .hero-thesis {
+            font-size: clamp(15px, 1.6vw, 17px);
+            color: rgba(255,255,255,0.45);
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .hero-thesis em {
+            font-style: normal;
+            color: rgba(255,255,255,0.9);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeUp 1s 1.2s both;
+        }
+
+        .hero-scroll span {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: scrollBounce 2.5s ease infinite;
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 32px;
+            background: linear-gradient(to bottom, rgba(232,97,26,0.4), transparent);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(8px); opacity: 0.6; }
+        }
+
+        /* ---- SECTION FOUNDATIONS ---- */
+        .section {
+            padding: 100px 28px;
+            position: relative;
+        }
+
+        .section-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-size: clamp(26px, 3.5vw, 40px);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.8px;
+            margin-bottom: 18px;
+        }
+
+        .section-lead {
+            font-size: 16px;
+            color: var(--dim);
+            line-height: 1.8;
+            max-width: 600px;
+            margin-bottom: 52px;
+        }
+
+        /* ---- LIGHT SECTIONS ---- */
+        .light { background: var(--bg); color: var(--text); }
+        .light .section-title { color: var(--text); }
+        .light .section-lead { color: var(--dim); }
+
+        .light-alt { background: var(--surface2); color: var(--text); }
+        .light-alt .section-title { color: var(--text); }
+
+        /* ---- DARK SECTIONS ---- */
+        .dark { background: var(--ink); color: #fff; }
+        .dark .section-title { color: #fff; }
+        .dark .section-label::before { background: var(--accent); }
+        .dark .section-lead { color: rgba(255,255,255,0.45); }
+
+        .dark-alt { background: var(--ink-soft); color: #fff; }
+        .dark-alt .section-title { color: #fff; }
+        .dark-alt .section-lead { color: rgba(255,255,255,0.45); }
+
+        /* ---- THE GAP ---- */
+        .gap-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 13px;
+        }
+
+        .gap-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--dim);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gap-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            vertical-align: top;
+        }
+
+        .gap-table .capability-name {
+            font-weight: 600;
+            color: var(--text);
+            white-space: nowrap;
+        }
+
+        .check { color: var(--proof-green); font-weight: 600; }
+        .partial { color: var(--enforce-amber); }
+        .miss { color: #c4c0b8; }
+
+        /* ---- DEFINE / ENFORCE / PROVE ---- */
+        .dep-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 2rem;
+        }
+
+        .dep-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
+            background: var(--surface);
+            position: relative;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        .dep-card:hover {
+            border-color: rgba(232,97,26,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+
+        .dep-number {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .dep-card:nth-child(1) .dep-number { color: var(--define-blue); }
+        .dep-card:nth-child(2) .dep-number { color: var(--enforce-amber); }
+        .dep-card:nth-child(3) .dep-number { color: var(--proof-green); }
+
+        .dep-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .dep-card p {
+            font-size: 14px;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        .dep-card .dep-detail {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--dim);
+            line-height: 1.8;
+        }
+
+        .dep-detail summary {
+            cursor: pointer;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .dep-detail summary::-webkit-details-marker { display: none; }
+
+        .dep-detail summary::after {
+            content: '+';
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .dep-detail[open] summary::after {
+            content: '\2212';
+        }
+
+        .dep-detail summary:hover { color: var(--accent-hover); }
+
+        .dep-detail p {
+            margin-top: 12px;
+        }
+
+        /* ---- TRUST STACK ---- */
+        .stack-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 2rem 0;
+        }
+
+        .stack-layer {
+            display: grid;
+            grid-template-columns: 3rem 1fr 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+
+        .stack-layer:hover {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stack-layer:last-child { border-bottom: none; }
+
+        .stack-num {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--dim);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .stack-question {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .stack-answer {
+            font-size: 13px;
+            color: var(--dim);
+            font-family: var(--mono);
+        }
+
+        .stack-layer.aqua-layer {
+            background: rgba(232, 97, 26, 0.04);
+            border-left: 3px solid var(--accent);
+        }
+
+        .stack-layer.aqua-layer .stack-num { color: var(--accent); }
+
+        .stack-divider {
+            padding: 8px 20px;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--dim);
+            opacity: 0.6;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ---- DYNAMIC CAPABILITIES ---- */
+        .capability-visual {
+            display: flex;
+            gap: 1px;
+            margin: 2rem 0;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .cap-segment {
+            flex: 1;
+            transition: all 0.6s ease;
+        }
+
+        .cap-segment.active { background: var(--accent); }
+        .cap-segment.available { background: rgba(232, 97, 26, 0.3); }
+        .cap-segment.locked { background: var(--border); }
+
+        /* ---- REGULATORY ---- */
+        .reg-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 2rem;
+        }
+
+        .reg-card {
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: 14px;
+            padding: 28px;
+            background: var(--surface);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .reg-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+        }
+
+        .reg-card .reg-tag {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .reg-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .reg-card p {
+            font-size: 13px;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        /* ---- QUOTE BLOCK ---- */
+        .distinction {
+            border-left: 3px solid var(--accent);
+            padding: 24px 28px;
+            margin: 40px 0;
+            background: linear-gradient(135deg, rgba(232,97,26,0.04), rgba(232,97,26,0.01));
+            border-radius: 0 14px 14px 0;
+        }
+
+        .distinction p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .distinction em {
+            font-style: normal;
+            color: var(--text);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+
+        .distinction .contrast {
+            display: block;
+            margin-top: 10px;
+            color: var(--dim);
+            font-size: 14px;
+        }
+
+        /* ---- PRODUCTS ---- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            background: var(--surface);
+            transition: border-color 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: rgba(232,97,26,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .product-card h3 a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .product-card h3 a:hover { color: var(--accent); }
+
+        .product-card .product-type {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            font-size: 13px;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        /* ---- SHOWCASE ---- */
+        .showcase-box {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 44px;
+            background: var(--surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-box::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 40px;
+            right: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.4;
+        }
+
+        .showcase-title {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .showcase-desc {
+            font-size: 14px;
+            color: var(--dim);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        /* ---- INDUSTRIES ---- */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 2rem;
+        }
+
+        .industry-card {
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 14px;
+            padding: 28px;
+            background: var(--surface);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+        }
+
+        .industry-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .industry-card p {
+            font-size: 13px;
+            color: var(--dim);
+            line-height: 1.65;
+        }
+
+        /* ---- PORTAL CTA ---- */
+        .portal-cta {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portal-cta .section-label {
+            justify-content: center;
+        }
+
+        .portal-cta .section-title {
+            text-align: center;
+        }
+
+        .portal-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .portal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .portal-btn-primary {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            padding: 15px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+
+        .portal-btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(232, 97, 26, 0.25);
+        }
+
+        .portal-btn-secondary {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 15px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .portal-btn-secondary:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        .portal-note {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: rgba(255,255,255,0.35);
+        }
+
+        /* ---- CONTACT ---- */
+        /* ---- CONTACT FORM ---- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-desc {
+            font-size: 16px;
+            color: var(--dim);
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+
+        .contact-email-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .contact-email-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(232,97,26,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .contact-email-row a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .contact-email-row a:hover { color: var(--accent-hover); }
+
+        .contact-form-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+
+        .contact-field {
+            margin-bottom: 20px;
+        }
+
+        .contact-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dim);
+            margin-bottom: 6px;
+        }
+
+        .contact-field input,
+        .contact-field textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 14px;
+            font-family: var(--sans);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            resize: none;
+        }
+
+        .contact-field input:focus,
+        .contact-field textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .contact-submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: var(--sans);
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+        }
+
+        .contact-submit-btn:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 4px 16px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .contact-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .contact-success-msg {
+            text-align: center;
+            padding: 32px 16px;
+        }
+
+        .contact-success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(42,138,90,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            color: var(--proof-green);
+        }
+
+        .contact-success-msg h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .contact-success-msg p {
+            font-size: 14px;
+            color: var(--dim);
+        }
+
+        .contact-error-msg {
+            margin-bottom: 16px;
+            padding: 10px 14px;
+            background: rgba(239,68,68,0.06);
+            border: 1px solid rgba(239,68,68,0.15);
+            border-radius: 10px;
+            color: #dc2626;
+            font-size: 13px;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            padding: 48px 28px;
+            text-align: center;
+            background: var(--ink);
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+
+        footer p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+            line-height: 1.7;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: #fff; }
+
+        /* ---- MOBILE ---- */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            line-height: 1;
+        }
+
+        @media (max-width: 720px) {
+            .mobile-toggle { display: block; }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 56px;
+                left: 0; right: 0;
+                flex-direction: column;
+                background: rgba(12,10,9,0.97);
+                backdrop-filter: blur(16px);
+                padding: 12px 20px 20px;
+                gap: 4px;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .nav-links a { width: 100%; padding: 12px 14px; font-size: 14px; }
+            .nav-links .nav-cta { width: 100%; text-align: center; padding: 12px; margin-left: 0; margin-top: 4px; }
+
+            .hero { min-height: auto; padding: 7rem 1.5rem 4rem; }
+
+            .section { padding: 60px 20px; }
+
+            .gap-table { font-size: 11px; }
+            .gap-table th, .gap-table td { padding: 8px; }
+
+            .stack-layer {
+                grid-template-columns: 2rem 1fr;
+                gap: 0.75rem;
+            }
+
+            .stack-answer { grid-column: 1 / -1; margin-left: 2.75rem; }
+
+            .dep-card { padding: 20px; }
+
+            .showcase-box { padding: 28px; }
+
+            .industry-grid { grid-template-columns: 1fr; }
+
+            .portal-actions { flex-direction: column; align-items: center; }
+            .portal-btn-primary, .portal-btn-secondary { width: 100%; text-align: center; }
+
+            .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+            .contact-form-card { padding: 24px; }
+        }
+
+        /* ============================================================
+           CAPABILITY ARENA: payment-template -> enforcement -> unlock
+           ============================================================ */
+        .cap-arena {
+            margin: 2.5rem 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        /* Template card */
+        .cap-template {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--surface);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            position: relative;
+        }
+        .cap-template-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 22px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, #fdfcfb 0%, var(--surface) 100%);
+        }
+        .cap-template-name {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+        .cap-template-tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--dim);
+            letter-spacing: 0.6px;
+        }
+        .cap-template-state {
+            margin-left: auto;
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--dim);
+            background: var(--surface);
+            transition: color 360ms var(--ease-out),
+                        border-color 360ms var(--ease-out),
+                        background 360ms var(--ease-out);
+            white-space: nowrap;
+        }
+        .cap-template-state.is-draft {
+            color: var(--enforce-amber);
+            border-color: rgba(217, 119, 6, 0.35);
+            background: rgba(217, 119, 6, 0.06);
+        }
+        .cap-template-state.is-agent {
+            color: var(--accent);
+            border-color: rgba(232, 97, 26, 0.35);
+            background: var(--accent-soft);
+        }
+        .cap-template-state.is-ready {
+            color: var(--proof-green);
+            border-color: rgba(42, 138, 90, 0.4);
+            background: var(--proof-green-soft);
+        }
+        .cap-template-state.is-executed {
+            color: #fff;
+            background: var(--proof-green);
+            border-color: var(--proof-green);
+        }
+
+        .cap-template-fields {
+            padding: 14px 22px 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .cap-field {
+            display: grid;
+            grid-template-columns: 110px 1fr 18px;
+            gap: 14px;
+            align-items: baseline;
+            font-size: 13px;
+            color: var(--text);
+            opacity: 0.35;
+            transition: opacity 380ms var(--ease-out);
+        }
+        .cap-field.is-filled { opacity: 1; }
+        .cap-field-key {
+            font-family: var(--mono);
+            font-size: 10.5px;
+            color: var(--dim);
+            letter-spacing: 0.6px;
+        }
+        .cap-field-val {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text);
+            font-weight: 500;
+            min-height: 1.4em;
+        }
+        .cap-field-val::after {
+            content: attr(data-typed);
+        }
+        .cap-field-val.is-typing::after {
+            border-right: 1.5px solid var(--accent);
+            animation: cap-caret 0.8s steps(1) infinite;
+        }
+        @keyframes cap-caret {
+            50% { border-color: transparent; }
+        }
+        .cap-field-check {
+            font-family: var(--mono);
+            color: var(--proof-green);
+            font-size: 13px;
+            opacity: 0;
+            transform: scale(0.6);
+            transition: opacity 320ms var(--ease-out), transform 320ms var(--ease-out);
+        }
+        .cap-field.is-filled .cap-field-check {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .cap-template-sigs {
+            padding: 12px 22px 16px;
+            border-top: 1px dashed var(--border);
+            margin-top: 6px;
+        }
+        .cap-sigs-label {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            color: var(--dim);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .cap-sig-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cap-sig {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border: 1px dashed var(--border);
+            border-radius: 999px;
+            background: var(--surface);
+            transition: border-color 380ms var(--ease-out),
+                        background 380ms var(--ease-out);
+        }
+        .cap-sig-role {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--dim);
+            text-transform: uppercase;
+            transition: color 380ms var(--ease-out);
+        }
+        .cap-sig-actor {
+            font-size: 12px;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .cap-sig-mark {
+            display: inline-flex;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--surface2);
+            color: var(--dim);
+            font-size: 10px;
+            font-weight: 700;
+            align-items: center;
+            justify-content: center;
+            transition: background 380ms var(--ease-out), color 380ms var(--ease-out);
+        }
+        .cap-sig.is-pending .cap-sig-mark::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border: 1.5px solid var(--enforce-amber);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: cap-spin 0.9s linear infinite;
+        }
+        @keyframes cap-spin {
+            to { transform: rotate(360deg); }
+        }
+        .cap-sig.is-signed {
+            border-style: solid;
+            border-color: var(--proof-green);
+            background: var(--proof-green-soft);
+        }
+        .cap-sig.is-signed .cap-sig-role { color: var(--proof-green); }
+        .cap-sig.is-signed .cap-sig-mark {
+            background: var(--proof-green);
+            color: #fff;
+        }
+        .cap-sig.is-signed .cap-sig-mark::after {
+            content: '\2713';
+        }
+
+        /* Connector + enforcement gate */
+        .cap-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 8px 0 4px;
+        }
+        .cap-connector-line {
+            width: 1px;
+            background: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .cap-connector-line.top { height: 28px; }
+        .cap-connector-line.bot { height: 32px; }
+        .cap-connector-line::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, transparent, var(--accent), transparent);
+            opacity: 0;
+        }
+        .cap-connector-line.is-pulsing::before {
+            animation: cap-pulse-down 700ms var(--ease-cross) forwards;
+        }
+        @keyframes cap-pulse-down {
+            0% { top: -100%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        .cap-gate {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 18px;
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            background: var(--surface);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+            position: relative;
+            transition:
+                border-color 480ms var(--ease-out),
+                box-shadow 480ms var(--ease-out),
+                transform 480ms var(--ease-out);
+        }
+        .cap-gate.is-open {
+            border-color: var(--proof-green);
+            box-shadow: 0 6px 28px rgba(42, 138, 90, 0.18);
+        }
+        .cap-gate.is-firing {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft), 0 8px 32px rgba(232, 97, 26, 0.22);
+            transform: scale(1.025);
+        }
+        .cap-gate-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--surface2);
+            color: var(--dim);
+            transition: background 380ms var(--ease-out), color 380ms var(--ease-out);
+            position: relative;
+        }
+        .cap-gate.is-firing .cap-gate-icon,
+        .cap-gate.is-open .cap-gate-icon {
+            background: var(--proof-green);
+            color: #fff;
+        }
+        .cap-gate-icon svg {
+            width: 18px;
+            height: 18px;
+            overflow: visible;
+            transition: transform 480ms var(--ease-cross);
+        }
+        .cap-gate-icon .lock-shackle {
+            transition: transform 540ms var(--ease-cross);
+            transform-origin: 17px 11px;
+        }
+        .cap-gate.is-firing .lock-shackle,
+        .cap-gate.is-open .lock-shackle {
+            transform: rotate(-58deg);
+        }
+        .cap-gate-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .cap-gate-tag {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            color: var(--dim);
+            text-transform: uppercase;
+            transition: color 380ms var(--ease-out);
+        }
+        .cap-gate.is-firing .cap-gate-tag { color: var(--accent); }
+        .cap-gate.is-open .cap-gate-tag { color: var(--proof-green); }
+        .cap-gate-msg {
+            font-size: 12.5px;
+            color: var(--dim);
+            line-height: 1.4;
+            transition: color 380ms var(--ease-out);
+            min-height: 1.4em;
+        }
+        .cap-gate.is-firing .cap-gate-msg,
+        .cap-gate.is-open .cap-gate-msg {
+            color: var(--text);
+        }
+        .cap-gate-spark {
+            position: absolute;
+            inset: -1px;
+            border-radius: 14px;
+            border: 1.5px solid var(--accent);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .cap-gate.is-firing .cap-gate-spark {
+            animation: cap-gate-spark 760ms var(--ease-out) forwards;
+        }
+        @keyframes cap-gate-spark {
+            0% { opacity: 0.9; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.06); }
+        }
+
+        /* Capability rail + API */
+        .cap-rail-row {
+            display: grid;
+            grid-template-columns: 1fr 92px;
+            gap: 18px;
+            align-items: stretch;
+            position: relative;
+        }
+        .cap-rail {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+            background: var(--surface);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+        .cap-tile {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 10px 12px;
+            background: var(--surface);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            min-height: 84px;
+            position: relative;
+            transition:
+                border-color 380ms var(--ease-out),
+                background 380ms var(--ease-out),
+                box-shadow 380ms var(--ease-out),
+                transform 380ms var(--ease-out);
+        }
+        .cap-tile-name {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+        .cap-tile-icon {
+            width: 14px;
+            height: 14px;
+            color: var(--dim);
+            transition: color 380ms var(--ease-out);
+        }
+        /* state: active (capability is granted, but not the focal one) */
+        .cap-tile[data-state="active"] {
+            border-color: rgba(42, 138, 90, 0.3);
+            background: rgba(42, 138, 90, 0.04);
+        }
+        .cap-tile[data-state="active"] .cap-tile-icon { color: var(--proof-green); }
+        /* state: locked (capability not currently available) */
+        .cap-tile[data-state="locked"] {
+            opacity: 0.55;
+            background: var(--surface2);
+        }
+        .cap-tile[data-state="locked"] .cap-tile-name { color: var(--dim); }
+        .cap-tile[data-state="locked"] .cap-tile-icon { color: var(--dim); }
+
+        /* HERO tile: this is the one being unlocked */
+        .cap-tile-hero {
+            grid-column: span 2;
+            min-height: 84px;
+        }
+        .cap-tile-hero[data-state="locked"] {
+            border: 1.5px dashed var(--border);
+            background: var(--surface2);
+            opacity: 1;
+        }
+        .cap-tile-hero[data-state="locked"] .cap-tile-name { color: var(--dim); }
+        .cap-tile-hero[data-state="unlocking"] {
+            border: 1.5px solid var(--accent);
+            background: var(--accent-soft);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+            transform: translateY(-2px);
+        }
+        .cap-tile-hero[data-state="unlocking"] .cap-tile-name { color: var(--accent); }
+        .cap-tile-hero[data-state="unlocked"] {
+            border: 1.5px solid var(--proof-green);
+            background: rgba(42, 138, 90, 0.08);
+            box-shadow: 0 6px 22px rgba(42, 138, 90, 0.18);
+        }
+        .cap-tile-hero[data-state="unlocked"] .cap-tile-name { color: var(--proof-green); }
+        .cap-tile-hero[data-state="firing"] {
+            border: 1.5px solid var(--accent);
+            background: var(--accent-soft);
+            box-shadow: 0 8px 28px rgba(232, 97, 26, 0.28);
+        }
+        .cap-tile-hero[data-state="firing"] .cap-tile-name { color: var(--accent); }
+        .cap-tile-hero .cap-tile-icon { width: 22px; height: 22px; overflow: visible; }
+        /* Lock icon: closed and open shackles crossfade; open shackle also lifts slightly */
+        .cap-tile-hero .lock-shackle {
+            transition: opacity 360ms var(--ease-cross), transform 540ms var(--ease-cross);
+        }
+        .cap-tile-hero .lock-shackle-closed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cap-tile-hero .lock-shackle-open {
+            opacity: 0;
+            transform: translateY(2px);
+        }
+        .cap-tile-hero[data-state="unlocking"] .lock-shackle-closed,
+        .cap-tile-hero[data-state="unlocked"] .lock-shackle-closed,
+        .cap-tile-hero[data-state="firing"] .lock-shackle-closed {
+            opacity: 0;
+            transform: translateY(-2px);
+        }
+        .cap-tile-hero[data-state="unlocking"] .lock-shackle-open,
+        .cap-tile-hero[data-state="unlocked"] .lock-shackle-open,
+        .cap-tile-hero[data-state="firing"] .lock-shackle-open {
+            opacity: 1;
+            transform: translateY(-1.5px);
+        }
+
+        /* "UNLOCKED" flash on hero tile */
+        .cap-tile-flash {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.6);
+            font-family: var(--mono);
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--proof-green);
+            padding: 6px 14px;
+            border-radius: 999px;
+            box-shadow: 0 0 0 4px rgba(42, 138, 90, 0.25), 0 8px 24px rgba(42, 138, 90, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 5;
+        }
+        .cap-tile-flash.is-flashing {
+            animation: cap-flash 1100ms var(--ease-out) forwards;
+        }
+        @keyframes cap-flash {
+            0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+            22%  { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+            38%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+            72%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.94); }
+        }
+
+        .cap-api {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 14px 8px;
+            transition:
+                border-color 380ms var(--ease-out),
+                box-shadow 380ms var(--ease-out);
+            position: relative;
+        }
+        .cap-api.is-active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .cap-api-glyph {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        .cap-api-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* Ping that travels from hero tile to API */
+        .cap-ping {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+            opacity: 0;
+            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4;
+        }
+        .cap-ping.go {
+            animation: cap-ping-go 800ms var(--ease-cross) forwards;
+        }
+        .cap-ping.return {
+            animation: cap-ping-return 800ms var(--ease-cross) forwards;
+        }
+        @keyframes cap-ping-go {
+            0% { opacity: 0; left: 48%; }
+            12% { opacity: 1; }
+            88% { opacity: 1; }
+            100% { opacity: 0; left: calc(100% - 14px); }
+        }
+        @keyframes cap-ping-return {
+            0% { opacity: 0; left: calc(100% - 14px); }
+            12% { opacity: 1; }
+            88% { opacity: 1; }
+            100% { opacity: 0; left: 48%; }
+        }
+
+        /* Receipt stamp on template */
+        .cap-receipt {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--proof-green);
+            border: 1.5px solid var(--proof-green);
+            border-radius: 6px;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.85);
+            transform: rotate(-6deg) scale(0.9);
+            opacity: 0;
+            transition: opacity 360ms var(--ease-out), transform 480ms var(--ease-cross);
+            pointer-events: none;
+        }
+        .cap-receipt.is-shown {
+            opacity: 1;
+            transform: rotate(-6deg) scale(1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cap-arena * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+        }
+        @media (max-width: 720px) {
+            .cap-rail-row { grid-template-columns: 1fr; }
+            .cap-rail { grid-template-columns: repeat(2, 1fr); }
+            .cap-tile-hero { grid-column: span 2; }
+            .cap-api { flex-direction: row; padding: 10px 14px; gap: 10px; }
+            .cap-field { grid-template-columns: 80px 1fr 18px; gap: 8px; }
+        }
+
+        /* ============================================================
+           PROOF ARENA: multi-agent transaction animation (#protocol)
+           ============================================================ */
+        .proof-arena-wrap { margin-top: 56px; }
+
+        .proof-arena-kicker {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .proof-arena-kicker::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+        .proof-arena-heading {
+            font-size: clamp(20px, 2.4vw, 26px);
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .proof-arena-sub {
+            font-size: 14.5px;
+            color: var(--dim);
+            line-height: 1.75;
+            max-width: 620px;
+            margin-bottom: 28px;
+        }
+
+        .proof-arena {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Master verification bar at the very top */
+        .proof-arena .master-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 22px 12px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, #fdfcfb 0%, var(--surface) 100%);
+        }
+        .proof-arena .master-track {
+            flex: 1;
+            display: flex;
+            gap: 3px;
+            height: 3px;
+            border-radius: 2px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.04);
+        }
+        .proof-arena .master-seg {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.05);
+            transition: background 600ms var(--ease-out);
+            position: relative;
+        }
+        .proof-arena .master-seg.lit { background: var(--proof-green); }
+        .proof-arena .master-seg.lit::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--proof-green);
+            box-shadow: 0 0 8px var(--proof-green);
+            opacity: 0.6;
+        }
+        .proof-arena .master-track.complete::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -20%;
+            width: 25%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(232, 97, 26, 0.6), transparent);
+            animation: pa-shimmerSweep 1.4s var(--ease-out) forwards;
+            pointer-events: none;
+        }
+        @keyframes pa-shimmerSweep {
+            from { left: -20%; }
+            to { left: 110%; }
+        }
+        .proof-arena .master-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--dim);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .proof-arena .info-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 5px 11px;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--dim);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .proof-arena .info-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* Actors + Stage */
+        .proof-arena .arena-body {
+            display: grid;
+            grid-template-columns: 192px 1fr;
+        }
+        .proof-arena .actors-col {
+            border-right: 1px solid var(--border);
+            background: linear-gradient(180deg, #fafaf9 0%, var(--surface) 100%);
+        }
+        .proof-arena .actor {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 16px;
+            border-bottom: 1px dashed var(--border);
+            position: relative;
+        }
+        .proof-arena .actor:last-child { border-bottom: none; }
+        .proof-arena .actor-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--mono);
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--ink);
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            transition: transform 500ms var(--ease-out), box-shadow 500ms var(--ease-out);
+            position: relative;
+            flex-shrink: 0;
+        }
+        .proof-arena .actor[data-actor="symphonie"] .actor-avatar {
+            border-style: dashed; border-color: var(--accent);
+        }
+        .proof-arena .actor[data-actor="brandon"] .actor-avatar {
+            border-style: dashed; border-color: var(--dim);
+        }
+        .proof-arena .actor-avatar::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        .proof-arena .actor.pulse .actor-avatar {
+            transform: scale(1.06);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        .proof-arena .actor.pulse .actor-avatar::after {
+            animation: pa-pulseRing 700ms var(--ease-out) forwards;
+        }
+        .proof-arena .actor.pulse-verify .actor-avatar {
+            box-shadow: 0 0 0 4px var(--proof-green-soft);
+        }
+        @keyframes pa-pulseRing {
+            0% { opacity: 0.7; transform: scale(0.85); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+        .proof-arena .actor-meta { min-width: 0; }
+        .proof-arena .actor-name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            color: var(--text);
+        }
+        .proof-arena .actor-role {
+            font-size: 10.5px;
+            color: var(--dim);
+            margin-top: 1px;
+        }
+        .proof-arena .actor-key {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            color: var(--dim);
+            opacity: 0.7;
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Stage */
+        .proof-arena .stage {
+            position: relative;
+            height: 330px;
+            overflow: hidden;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0,
+                    transparent 109px,
+                    var(--border) 109px,
+                    var(--border) 110px,
+                    transparent 110px,
+                    transparent 219px,
+                    var(--border) 219px,
+                    var(--border) 220px
+                );
+        }
+        .proof-arena .api-node {
+            position: absolute;
+            right: 24px;
+            top: 248px;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface2);
+            transition: border-color 400ms var(--ease-out), box-shadow 400ms var(--ease-out);
+        }
+        .proof-arena .api-node.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .proof-arena .api-node-glyph {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        .proof-arena .api-node-label {
+            font-family: var(--mono);
+            font-size: 8.5px;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.1;
+            text-align: center;
+        }
+        .proof-arena .lane-tag {
+            position: absolute;
+            right: 12px;
+            font-family: var(--mono);
+            font-size: 9px;
+            color: var(--dim);
+            opacity: 0.4;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+        .proof-arena .lane-tag.t1 { top: 8px; }
+        .proof-arena .lane-tag.t2 { top: 118px; }
+
+        /* Artifact */
+        .proof-arena .artifact {
+            position: absolute;
+            width: 142px;
+            height: 88px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(8px) scale(0.96);
+            transition:
+                opacity 380ms var(--ease-out),
+                transform 600ms var(--ease-cross),
+                box-shadow 380ms var(--ease-out),
+                top 900ms var(--ease-cross);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            cursor: default;
+            z-index: 2;
+        }
+        .proof-arena .artifact.spawned { opacity: 1; transform: translateY(0) scale(1); }
+        .proof-arena .artifact.delivering { box-shadow: 0 6px 18px rgba(232, 97, 26, 0.18); }
+        .proof-arena .artifact.fading { opacity: 0; transform: translateY(-4px) scale(0.94); }
+        .proof-arena .artifact-bar {
+            height: 3px;
+            background: rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+        .proof-arena .artifact-bar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 0;
+            background: var(--proof-green);
+            transition: width 600ms var(--ease-out);
+        }
+        .proof-arena .artifact.verified .artifact-bar::after { width: 100%; }
+        .proof-arena .artifact-body {
+            padding: 7px 12px 9px;
+            height: calc(100% - 3px);
+            display: flex;
+            flex-direction: column;
+        }
+        .proof-arena .artifact-name {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+        .proof-arena .artifact-signer {
+            font-size: 10.5px;
+            color: var(--dim);
+            margin-top: 2px;
+            line-height: 1.25;
+        }
+        .proof-arena .artifact-signer strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+        .proof-arena .artifact-sigs,
+        .proof-arena .stub-sigs {
+            display: flex;
+            gap: 3px;
+            align-items: center;
+            margin-top: 3px;
+            min-height: 14px;
+        }
+        .proof-arena .stub-sigs { margin-top: 5px; }
+        .proof-arena .sig-chip {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--mono);
+            font-size: 7.5px;
+            font-weight: 700;
+            border: 1.2px solid var(--accent);
+            background: var(--surface);
+            color: var(--accent);
+            transform: scale(0);
+            opacity: 0;
+            transition: transform 380ms var(--ease-out), opacity 300ms var(--ease-out);
+            flex-shrink: 0;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+        .proof-arena .sig-chip.added { transform: scale(1); opacity: 1; }
+        .proof-arena .sig-chip.role-issuer {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .proof-arena .sig-chip.role-co-issuer {
+            background: var(--proof-green);
+            color: #fff;
+            border-color: var(--proof-green);
+            box-shadow: 0 0 0 2px rgba(42, 138, 90, 0.18);
+        }
+        .proof-arena .sig-chip.role-forwarder {
+            background: var(--surface);
+            color: var(--accent);
+            border-color: var(--accent);
+            border-style: dashed;
+        }
+        .proof-arena .sig-chip.is-api {
+            width: auto;
+            padding: 0 5px;
+            border-radius: 7px;
+            font-size: 7px;
+            letter-spacing: 0.4px;
+        }
+        .proof-arena .artifact-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-family: var(--mono);
+            font-size: 9px;
+            color: var(--dim);
+            letter-spacing: 0.3px;
+        }
+        .proof-arena .artifact-check {
+            color: var(--proof-green);
+            opacity: 0;
+            transition: opacity 300ms var(--ease-out) 400ms;
+            font-weight: 600;
+        }
+        .proof-arena .artifact.verified .artifact-check { opacity: 1; }
+
+        .proof-arena .trail {
+            position: absolute;
+            width: 142px;
+            height: 88px;
+            border-radius: 10px;
+            background: var(--accent-soft);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            animation: pa-trailFade 900ms var(--ease-out) forwards;
+        }
+        @keyframes pa-trailFade {
+            from { opacity: 0.5; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.9); }
+        }
+
+        .proof-arena .signal-svg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .proof-arena .signal-line {
+            stroke: var(--accent);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-dasharray: 4 4;
+            opacity: 0;
+        }
+
+        .proof-arena .api-ping {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .proof-arena .api-ping.go { animation: pa-pingOut 760ms var(--ease-cross) forwards; }
+        .proof-arena .api-ping.return { animation: pa-pingBack 760ms var(--ease-cross) forwards; }
+        @keyframes pa-pingOut {
+            0% { opacity: 0; left: 60px; top: 282px; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; left: calc(100% - 64px); top: 282px; }
+        }
+        @keyframes pa-pingBack {
+            0% { opacity: 0; left: calc(100% - 64px); top: 282px; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; left: 60px; top: 282px; }
+        }
+
+        /* Chain strip */
+        .proof-arena .chain-strip {
+            position: relative;
+            padding: 22px 24px 24px;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(180deg, var(--surface) 0%, #fafaf9 100%);
+        }
+        .proof-arena .chain-strip-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+        .proof-arena .chain-strip-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--dim);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            line-height: 1.5;
+            max-width: 70%;
+        }
+        .proof-arena .chain-status {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--proof-green);
+            letter-spacing: 0.6px;
+            opacity: 0;
+            transition: opacity 600ms var(--ease-out);
+        }
+        .proof-arena .chain-status.show { opacity: 1; }
+        .proof-arena .chain-rail {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+            gap: 6px;
+            align-items: center;
+        }
+        .proof-arena .chain-glyph {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--dim);
+            opacity: 0.45;
+            transform: scale(0.82);
+            z-index: 3;
+            transition:
+                opacity 480ms var(--ease-out),
+                transform 480ms var(--ease-out),
+                color 380ms var(--ease-out),
+                border-color 380ms var(--ease-out),
+                box-shadow 380ms var(--ease-out);
+        }
+        .proof-arena .chain-glyph.linked {
+            opacity: 1;
+            transform: scale(1);
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .proof-arena .chain-glyph::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -7px;
+            width: 7px;
+            height: 1px;
+            background: var(--border);
+            transition: background 380ms var(--ease-out);
+        }
+        .proof-arena .chain-glyph::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -7px;
+            width: 7px;
+            height: 1px;
+            background: var(--border);
+            transition: background 380ms var(--ease-out);
+        }
+        .proof-arena .chain-glyph.linked::before,
+        .proof-arena .chain-glyph.linked.linked-back::before { background: var(--accent); }
+        .proof-arena .chain-glyph.linked.linked-fwd::after { background: var(--accent); }
+
+        .proof-arena .chain-stub {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 10px 8px;
+            opacity: 0;
+            transform: translateY(6px);
+            transition:
+                opacity 460ms var(--ease-out),
+                transform 460ms var(--ease-out),
+                border-color 380ms var(--ease-out);
+        }
+        .proof-arena .chain-stub.locked {
+            opacity: 1;
+            transform: translateY(0);
+            border-color: rgba(42, 138, 90, 0.35);
+        }
+        .proof-arena .chain-stub-name {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .proof-arena .chain-stub-hash {
+            font-family: var(--mono);
+            font-size: 9px;
+            color: var(--dim);
+            margin-top: 2px;
+        }
+        .proof-arena .chain-links {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: visible;
+        }
+        .proof-arena .hash-link {
+            stroke: var(--accent);
+            stroke-width: 1.4;
+            fill: none;
+            stroke-dasharray: 60;
+            stroke-dashoffset: 60;
+            opacity: 0;
+            transition: stroke-dashoffset 600ms var(--ease-out), opacity 400ms;
+        }
+        .proof-arena .hash-link.drawn { opacity: 0.7; stroke-dashoffset: 0; }
+
+        /* Artifact tooltip */
+        .proof-arena .artifact[data-tip]:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            background: var(--ink);
+            color: #fafaf9;
+            font-family: var(--mono);
+            font-size: 10px;
+            line-height: 1.5;
+            letter-spacing: 0.3px;
+            padding: 8px 11px;
+            border-radius: 7px;
+            white-space: pre;
+            z-index: 10;
+            pointer-events: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        }
+
+        /* Modal overlay (transaction flow) */
+        .proof-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(12, 10, 9, 0.55);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 280ms var(--ease-out);
+        }
+        .proof-modal-backdrop.open { opacity: 1; pointer-events: auto; }
+        .proof-modal {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 32px 32px 28px;
+            max-width: 540px;
+            width: 100%;
+            position: relative;
+            transform: translateY(8px) scale(0.98);
+            transition: transform 320ms var(--ease-out);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+        }
+        .proof-modal-backdrop.open .proof-modal { transform: translateY(0) scale(1); }
+        .proof-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 28px;
+            height: 28px;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            line-height: 1;
+            color: var(--dim);
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .proof-modal-close:hover { color: var(--accent); border-color: var(--accent); }
+        .proof-modal-kicker {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--accent);
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .proof-modal h2 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            margin-bottom: 18px;
+        }
+        .proof-modal .flow-steps { list-style: none; counter-reset: step; }
+        .proof-modal .flow-steps li {
+            counter-increment: step;
+            position: relative;
+            padding: 14px 0 14px 38px;
+            border-bottom: 1px solid var(--border);
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: var(--text);
+        }
+        .proof-modal .flow-steps li:last-child { border-bottom: none; }
+        .proof-modal .flow-steps li::before {
+            content: counter(step, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 16px;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .proof-modal .flow-steps strong {
+            display: block;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+            font-size: 13.5px;
+        }
+        .proof-modal .actor-tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--dim);
+            letter-spacing: 0.4px;
+            margin-top: 4px;
+            display: block;
+        }
+        .proof-modal .actor-tag em { font-style: normal; color: var(--accent); }
+        .proof-modal-foot {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 12.5px;
+            color: var(--dim);
+            line-height: 1.65;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .proof-arena * {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+        @media (max-width: 760px) {
+            .proof-arena .arena-body { grid-template-columns: 1fr; }
+            .proof-arena .actors-col {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .proof-arena .actor {
+                height: 80px;
+                border-bottom: none;
+                border-right: 1px dashed var(--border);
+            }
+            .proof-arena .actor:last-child { border-right: none; }
+            .proof-arena .actor-key { display: none; }
+            .proof-arena .stage { display: none; }
+            .proof-arena .chain-rail { grid-template-columns: 1fr; }
+            .proof-arena .chain-rail .chain-stub { width: 100%; }
+            .proof-arena .chain-rail .chain-glyph { display: none; }
+        }
+
+        /* ---- SCROLL REVEAL ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="/"><img src="./public/logo/inblockio_birdstyle_writing_on_dark.png" alt="inblock.io" class="nav-logo"></a>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#gap">The Gap</a></li>
+            <li><a href="#protocol">Protocol</a></li>
+            <li><a href="#stack">Trust Stack</a></li>
+            <li><a href="#regulatory">Regulatory</a></li>
+            <li><a href="#showcase">Live Demo</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://agentic.inblock.io/portal/" target="_blank" class="nav-cta">Log in</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <p class="hero-kicker">Aqua Protocol by inblock.io</p>
+            <h1>Operational Trust<br>for High-Risk AI Agents</h1>
+            <p class="hero-sub">
+                AI agents are executing high-stakes operations across organizational boundaries.
+                <strong>Identity proves who. Authorization defines what may.</strong>
+                Neither enforces operational limits nor produces independently verifiable proof of what actually happened.
+            </p>
+            <div class="hero-divider"></div>
+            <p class="hero-thesis">
+                Aqua Protocol closes this gap. <em>Define</em> what valid operations look like.
+                <em>Enforce</em> that agents stay within those definitions.
+                <em>Prove</em> what actually occurred.
+            </p>
+        </div>
+        <div class="hero-scroll">
+            <span>scroll</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- THE GAP -->
+    <section class="section light" id="gap">
+        <div class="section-inner">
+            <p class="section-label reveal">The Problem</p>
+            <h2 class="section-title reveal">The Trust Gap in Autonomous Agent Operations</h2>
+            <p class="section-lead reveal">
+                Identity and authorization infrastructure is rapidly maturing. But defining a limit is not the same as enforcing it.
+                A Power of Attorney that says "execute trades up to $100,000" does not prevent a $150,000 trade,
+                does not record which trades were executed, and does not provide evidence that limits were respected.
+            </p>
+
+            <div class="distinction reveal">
+                <p>A credential defines what the agent <em>should not</em> exceed.<br>It does not define what it <em>cannot</em> exceed.</p>
+                <span class="contrast">The gap is structural: identity proves who, authorization defines what may. But neither constrains what actually happens, nor produces proof.</span>
+            </div>
+
+            <table class="gap-table reveal">
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>App Logs</th>
+                        <th>Identity Infra</th>
+                        <th>Policy Engines</th>
+                        <th>Aqua</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="capability-name">Defines allowed actions</td>
+                        <td class="miss">No</td>
+                        <td class="partial">Credentials</td>
+                        <td class="check">YAML / Rego</td>
+                        <td class="check">Templates</td>
+                    </tr>
+                    <tr>
+                        <td class="capability-name">Enforces at runtime</td>
+                        <td class="miss">No</td>
+                        <td class="miss">No</td>
+                        <td class="check">Allow/deny</td>
+                        <td class="check">Structural</td>
+                    </tr>
+                    <tr>
+                        <td class="capability-name">Records actions</td>
+                        <td class="partial">Self-reported</td>
+                        <td class="miss">No</td>
+                        <td class="partial">Operator logs</td>
+                        <td class="check">Hash-chained</td>
+                    </tr>
+                    <tr>
+                        <td class="capability-name">Independently verifiable</td>
+                        <td class="miss">No</td>
+                        <td class="partial">Identity only</td>
+                        <td class="partial">Signed msgs</td>
+                        <td class="check">Any party</td>
+                    </tr>
+                    <tr>
+                        <td class="capability-name">Tamper-evident</td>
+                        <td class="miss">No</td>
+                        <td class="partial">Credentials</td>
+                        <td class="partial">Signed msgs</td>
+                        <td class="check">Hash-chained</td>
+                    </tr>
+                    <tr>
+                        <td class="capability-name">Cross-organizational</td>
+                        <td class="miss">No</td>
+                        <td class="check">Yes</td>
+                        <td class="partial">Operator-bound</td>
+                        <td class="check">Bilateral</td>
+                    </tr>
+                    <tr>
+                        <td class="capability-name">Proof of human authorization</td>
+                        <td class="miss">No</td>
+                        <td class="partial">Delegation</td>
+                        <td class="partial">DIDs</td>
+                        <td class="check">DID-signed trail</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- DEFINE / ENFORCE / PROVE -->
+    <section class="section light-alt" id="protocol">
+        <div class="section-inner">
+            <p class="section-label reveal">Aqua Protocol</p>
+            <h2 class="section-title reveal">Define. Enforce. Prove.</h2>
+            <p class="section-lead reveal">
+                Three capabilities that work together. A template without enforcement is documentation.
+                Enforcement without proof is a policy engine. Proof without defined operations is an audit log.
+                Combined, they create independently verifiable operational trust.
+            </p>
+
+            <div class="dep-grid">
+                <div class="dep-card reveal">
+                    <p class="dep-number">01 / Define</p>
+                    <h3>Templates as Machine-Enforceable Operation Specifications</h3>
+                    <p>
+                        Aqua templates define what "doing something" means in precise, machine-enforceable terms.
+                        Each template specifies the structure of a business operation: which fields must be present,
+                        which value ranges are permitted, and which related business objects are required.
+                        By default, operations are not allowed unless explicitly defined.
+                    </p>
+                    <details class="dep-detail">
+                        <summary>Technical details</summary>
+                        <p>Every template is identified by its SHA3-256 content hash. Change a single field and the hash changes.
+                        No central registry to corrupt. Templates are hierarchical: child definitions can tighten constraints but never relax them.</p>
+                    </details>
+                </div>
+
+                <div class="dep-card reveal">
+                    <p class="dep-number">02 / Enforce</p>
+                    <h3>Runtime Structural Enforcement</h3>
+                    <p>
+                        The Policy Engine validates every agent action against the relevant template before execution.
+                        Non-conforming operations are rejected with actionable feedback. This is not allow/deny rule evaluation;
+                        it is state-gated enforcement. An agent whose prerequisite chain is incomplete
+                        is structurally unable to advance.
+                    </p>
+                    <details class="dep-detail">
+                        <summary>Technical details</summary>
+                        <p>WASM state machines model multi-state lifecycles. What an agent can do depends on verified business objects
+                        in the current session. Capabilities expand as valid objects accumulate. They contract as objects expire.
+                        They are not statically assigned but continuously derived from verified state.</p>
+                    </details>
+                </div>
+
+                <div class="dep-card reveal">
+                    <p class="dep-number">03 / Prove</p>
+                    <h3>Cryptographic Evidence That Survives Audit</h3>
+                    <p>
+                        Operations are hash-chained into directed acyclic graphs using SHA3-256.
+                        If any entry is removed or modified, the chain breaks. If a fabricated entry is inserted, the hashes no longer resolve.
+                        Multiple parties sign at different points in the workflow.
+                        Verification is offline-capable and requires no trust in any third party.
+                    </p>
+                    <details class="dep-detail">
+                        <summary>Technical details</summary>
+                        <p>Three-layer verification: L1 (revision integrity), L2 (chain integrity and temporal ordering),
+                        L3 (cross-object links, schema validation, WASM execution). Supports EIP-191, Ed25519, and P-256 signatures.
+                        Optional anchoring via Ethereum or RFC 3161 timestamps.</p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Multi-agent transaction proof-chain animation -->
+            <div class="proof-arena-wrap reveal">
+                <p class="proof-arena-kicker">A live proof chain</p>
+                <h3 class="proof-arena-heading">Three actors. Five artifacts. One verifiable record.</h3>
+                <p class="proof-arena-sub">
+                    Theodora authorizes a purchase. Her agent Symphonie negotiates with Brandon, the supplier's agent.
+                    Every artifact is signed by its issuer and counter-signed at every organizational boundary it crosses.
+                    The chain is independently verifiable, by either party, without shared infrastructure.
+                </p>
+
+                <div class="proof-arena" id="arena">
+                    <!-- master verification bar -->
+                    <div class="master-bar">
+                        <div class="master-track" id="masterTrack">
+                            <div class="master-seg" data-seg="1"></div>
+                            <div class="master-seg" data-seg="2"></div>
+                            <div class="master-seg" data-seg="3"></div>
+                            <div class="master-seg" data-seg="4"></div>
+                            <div class="master-seg" data-seg="5"></div>
+                        </div>
+                        <span class="master-label">L1 . L2 . L3 Verification Pipeline</span>
+                        <button class="info-btn" id="flowBtn" aria-label="Show transaction flow">
+                            <span aria-hidden="true">&#9432;</span>&nbsp; Transaction flow
+                        </button>
+                    </div>
+
+                    <!-- actors + stage -->
+                    <div class="arena-body">
+                        <div class="actors-col">
+                            <div class="actor" data-actor="theodora" id="actorTheodora">
+                                <div class="actor-avatar">T</div>
+                                <div class="actor-meta">
+                                    <p class="actor-name">Theodora</p>
+                                    <p class="actor-role">Principal . human</p>
+                                    <p class="actor-key">did:pkh / P-256</p>
+                                </div>
+                            </div>
+                            <div class="actor" data-actor="symphonie" id="actorSymphonie">
+                                <div class="actor-avatar">S</div>
+                                <div class="actor-meta">
+                                    <p class="actor-name">Symphonie</p>
+                                    <p class="actor-role">Theodora's agent</p>
+                                    <p class="actor-key">did:pkh / Ed25519</p>
+                                </div>
+                            </div>
+                            <div class="actor" data-actor="brandon" id="actorBrandon">
+                                <div class="actor-avatar">B</div>
+                                <div class="actor-meta">
+                                    <p class="actor-name">Brandon</p>
+                                    <p class="actor-role">Best-Cookies' agent</p>
+                                    <p class="actor-key">did:pkh / Ed25519</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stage" id="stage">
+                            <span class="lane-tag t1">handoff</span>
+                            <span class="lane-tag t2">handoff</span>
+
+                            <div class="api-node" id="apiNode">
+                                <span class="api-node-glyph">API</span>
+                                <span class="api-node-label">Best-<br>Cookies</span>
+                            </div>
+
+                            <svg class="signal-svg" id="signalSvg" preserveAspectRatio="none">
+                                <path id="signalLine" class="signal-line" d=""></path>
+                            </svg>
+
+                            <div class="api-ping" id="apiPing"></div>
+                        </div>
+                    </div>
+
+                    <!-- assembled chain strip -->
+                    <div class="chain-strip">
+                        <div class="chain-strip-head">
+                            <span class="chain-strip-label">Hash-chain secured templates. All records are held by both parties at end of session.</span>
+                            <span class="chain-status" id="chainStatus">independently end-to-end verification</span>
+                        </div>
+                        <div class="chain-rail" id="chainRail">
+                            <div class="chain-stub" data-i="1">
+                                <p class="chain-stub-name">Intent</p>
+                                <p class="chain-stub-hash">0x4f2a1b</p>
+                                <div class="stub-sigs"></div>
+                            </div>
+                            <div class="chain-glyph" data-link="1-2" title="hash-link">#</div>
+                            <div class="chain-stub" data-i="2">
+                                <p class="chain-stub-name">Offer</p>
+                                <p class="chain-stub-hash">0x9d31c4</p>
+                                <div class="stub-sigs"></div>
+                            </div>
+                            <div class="chain-glyph" data-link="2-3" title="hash-link">#</div>
+                            <div class="chain-stub" data-i="3">
+                                <p class="chain-stub-name">Order</p>
+                                <p class="chain-stub-hash">0x21c8ee</p>
+                                <div class="stub-sigs"></div>
+                            </div>
+                            <div class="chain-glyph" data-link="3-4" title="hash-link">#</div>
+                            <div class="chain-stub" data-i="4">
+                                <p class="chain-stub-name">Confirm</p>
+                                <p class="chain-stub-hash">0xab5e07</p>
+                                <div class="stub-sigs"></div>
+                            </div>
+                            <div class="chain-glyph" data-link="4-5" title="hash-link">#</div>
+                            <div class="chain-stub" data-i="5">
+                                <p class="chain-stub-name">Invoice</p>
+                                <p class="chain-stub-hash">0xfc402d</p>
+                                <div class="stub-sigs"></div>
+                            </div>
+                            <svg class="chain-links" id="chainLinks" preserveAspectRatio="none"></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC CAPABILITIES -->
+    <section class="section light">
+        <div class="section-inner">
+            <p class="section-label reveal">Runtime Behavior</p>
+            <h2 class="section-title reveal">Dynamic Capability Spaces</h2>
+            <p class="section-lead reveal">
+                An agent's capabilities are not statically assigned. They are continuously derived from the verified
+                business objects available in the current session. As valid, signed objects accumulate, new capabilities
+                become available. When prerequisites are missing or expired, actions remain structurally unavailable.
+            </p>
+
+            <div class="cap-arena reveal" id="capArena">
+                <!-- Payment template -->
+                <div class="cap-template" id="capTemplate">
+                    <div class="cap-template-head">
+                        <span class="cap-template-name">PAYMENT.v2</span>
+                        <span class="cap-template-tag">. high-value template</span>
+                        <span class="cap-template-state" id="capState">Empty</span>
+                    </div>
+                    <div class="cap-template-fields">
+                        <div class="cap-field" data-field="recipient">
+                            <span class="cap-field-key">recipient</span>
+                            <span class="cap-field-val" data-target="ACME Corp Ltd"></span>
+                            <span class="cap-field-check">&check;</span>
+                        </div>
+                        <div class="cap-field" data-field="amount">
+                            <span class="cap-field-key">amount</span>
+                            <span class="cap-field-val" data-target="12,450.00 USD"></span>
+                            <span class="cap-field-check">&check;</span>
+                        </div>
+                        <div class="cap-field" data-field="memo">
+                            <span class="cap-field-key">memo</span>
+                            <span class="cap-field-val" data-target="Q3 vendor invoice"></span>
+                            <span class="cap-field-check">&check;</span>
+                        </div>
+                    </div>
+                    <div class="cap-template-sigs">
+                        <span class="cap-sigs-label">required signatures</span>
+                        <div class="cap-sig-row">
+                            <div class="cap-sig" data-sig="agent">
+                                <span class="cap-sig-role">Agent</span>
+                                <span class="cap-sig-actor">Symphonie</span>
+                                <span class="cap-sig-mark"></span>
+                            </div>
+                            <div class="cap-sig" data-sig="human">
+                                <span class="cap-sig-role">Human</span>
+                                <span class="cap-sig-actor">Theodora</span>
+                                <span class="cap-sig-mark"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="cap-receipt" id="capReceipt">Executed &check;</span>
+                </div>
+
+                <!-- Connector + enforcement gate -->
+                <div class="cap-connector">
+                    <div class="cap-connector-line top" id="capLineTop"></div>
+                    <div class="cap-gate" id="capGate" aria-live="polite">
+                        <div class="cap-gate-icon">
+                            <!-- lock icon: shackle is the curved bow that lifts on unlock -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path class="lock-shackle" d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                <rect x="4" y="11" width="16" height="9" rx="2"/>
+                            </svg>
+                        </div>
+                        <div class="cap-gate-meta">
+                            <span class="cap-gate-tag" id="capGateTag">Enforcement Point</span>
+                            <span class="cap-gate-msg" id="capGateMsg">Aqua policy engine . waiting for prerequisites</span>
+                        </div>
+                        <span class="cap-gate-spark" aria-hidden="true"></span>
+                    </div>
+                    <div class="cap-connector-line bot" id="capLineBot"></div>
+                </div>
+
+                <!-- Capability rail + Payment API -->
+                <div class="cap-rail-row">
+                    <div class="cap-rail" id="capRail">
+                        <div class="cap-tile" data-state="active">
+                            <span class="cap-tile-name">View<br>Balance</span>
+                            <svg class="cap-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="cap-tile" data-state="active">
+                            <span class="cap-tile-name">Draft<br>Payment</span>
+                            <svg class="cap-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <div class="cap-tile cap-tile-hero" data-state="locked" id="capHero">
+                            <span class="cap-tile-name">Send<br>Payment</span>
+                            <svg class="cap-tile-icon lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path class="lock-shackle lock-shackle-closed" d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                <path class="lock-shackle lock-shackle-open" d="M7 11V7a5 5 0 0 1 9.9-1"/>
+                                <rect class="lock-body" x="4" y="11" width="16" height="9" rx="2"/>
+                            </svg>
+                            <span class="cap-tile-flash" id="capHeroFlash" aria-hidden="true">Unlocked</span>
+                        </div>
+                    </div>
+                    <div class="cap-api" id="capApi">
+                        <span class="cap-api-glyph">API</span>
+                        <span class="cap-api-label">Payment<br>Provider</span>
+                    </div>
+                    <div class="cap-ping" id="capPing"></div>
+                </div>
+            </div>
+
+            <div class="distinction reveal">
+                <p>
+                    An auditor can ask not only "what is this agent configured to do?" but
+                    "what can this agent do <em>right now</em>, and why?"
+                </p>
+                <span class="contrast">
+                    The answer is computable from the verified objects in the current session.
+                    Revoking a signed business object immediately and structurally removes all downstream capabilities that depended on it.
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STACK -->
+    <section class="section light-alt" id="stack">
+        <div class="section-inner">
+            <p class="section-label reveal">Architecture</p>
+            <h2 class="section-title reveal">The Complete Trust Stack</h2>
+            <p class="section-lead reveal">
+                A complete system for autonomous AI agent governance must answer six distinct questions.
+                The first two address pre-interaction trust. The remaining four govern execution and verification.
+            </p>
+
+            <div class="stack-layers reveal">
+                <div class="stack-divider">Pre-interaction</div>
+                <div class="stack-layer">
+                    <span class="stack-num">01</span>
+                    <span class="stack-question">Who is this agent?</span>
+                    <span class="stack-answer">DIDs, wallets, eIDAS 2.0</span>
+                </div>
+                <div class="stack-layer">
+                    <span class="stack-num">02</span>
+                    <span class="stack-question">What is it allowed to do?</span>
+                    <span class="stack-answer">PoA credentials, delegation chains</span>
+                </div>
+                <div class="stack-divider">Operational trust (Aqua Protocol)</div>
+                <div class="stack-layer aqua-layer">
+                    <span class="stack-num">03</span>
+                    <span class="stack-question">What does that mean, precisely?</span>
+                    <span class="stack-answer">Aqua templates</span>
+                </div>
+                <div class="stack-layer aqua-layer">
+                    <span class="stack-num">04</span>
+                    <span class="stack-question">Is it staying within defined bounds?</span>
+                    <span class="stack-answer">WASM validation, policy engine</span>
+                </div>
+                <div class="stack-layer aqua-layer">
+                    <span class="stack-num">05</span>
+                    <span class="stack-question">What actually happened?</span>
+                    <span class="stack-answer">Verification pipeline, hash chains</span>
+                </div>
+                <div class="stack-layer aqua-layer">
+                    <span class="stack-num">06</span>
+                    <span class="stack-question">Was the process followed correctly?</span>
+                    <span class="stack-answer">Policy engine, workflow definitions</span>
+                </div>
+            </div>
+
+            <p class="reveal" style="font-size: 15px; color: var(--dim); line-height: 1.75; margin-top: 2rem;">
+                Aqua does not replace identity or authorization infrastructure. It integrates with existing layers
+                and adds the operational components that neither can provide.
+                When agents from different organizations interact, all layers must be present.
+            </p>
+        </div>
+    </section>
+
+    <!-- REGULATORY -->
+    <section class="section light" id="regulatory">
+        <!-- keep light -->
+        <div class="section-inner">
+            <p class="section-label reveal">Regulatory Alignment</p>
+            <h2 class="section-title reveal">EU AI Act: Four Roles for Aqua Protocol</h2>
+            <p class="section-lead reveal">
+                The EU AI Act (Regulation 2024/1689) mandates risk management, record-keeping, transparency,
+                human oversight, and robustness for high-risk AI systems. Obligations apply from 2 August 2026,
+                with penalties up to 7% of global annual turnover.
+                Aqua Protocol maps to four distinct compliance roles.
+            </p>
+
+            <div class="reg-cards">
+                <div class="reg-card reveal">
+                    <p class="reg-tag">Role A / Compliance Infrastructure</p>
+                    <h3>Meet Specific Obligations</h3>
+                    <p>
+                        Tamper-evident record-keeping (Art. 12). Machine-readable capability transparency (Art. 13).
+                        Cryptographic proof of human oversight (Art. 14).
+                        Quality management documentation with verifiable provenance (Art. 17).
+                        10-year retention with integrity guarantees (Art. 18).
+                    </p>
+                </div>
+                <div class="reg-card reveal">
+                    <p class="reg-tag">Role B / Operational Enforcement</p>
+                    <h3>Structural Risk Elimination</h3>
+                    <p>
+                        Art. 9 requires risk elimination through design. The policy engine structurally prevents
+                        non-conforming agent operations from executing.
+                        Art. 14 human oversight becomes a cryptographic workflow requirement, not a dashboard.
+                        Art. 15 robustness: template constraints cannot be widened; terminal states cannot be overridden.
+                    </p>
+                </div>
+                <div class="reg-card reveal">
+                    <p class="reg-tag">Role C / Data Provenance</p>
+                    <h3>End-to-End Audit Trails</h3>
+                    <p>
+                        Art. 10 data governance: verifiable provenance from data procurement through training datasets.
+                        Ricardian contract templates for data licensing. Hash-chained data inventories proving
+                        what data was included, when, under what terms.
+                        Cryptographic consent lifecycle for personal data.
+                    </p>
+                </div>
+                <div class="reg-card reveal">
+                    <p class="reg-tag">Role D / Conformity Assessment</p>
+                    <h3>Evidence Backbone for Certification</h3>
+                    <p>
+                        End-to-end artefact chains from binary to certificate. Any hashable digital artefact:
+                        model weights, Docker images, configs, test data.
+                        Continuous conformity via subscription flows.
+                        Digital CE marking linked to verifiable proof chains.
+                        Standards-body template suites for harmonised standards (Art. 40).
+                    </p>
+                </div>
+            </div>
+
+            <div class="distinction reveal" style="margin-top: 2.5rem;">
+                <p>
+                    <strong>Product Liability Directive (2024/2853):</strong>
+                    The burden of proof shifts to providers. In disputes, organizations must demonstrate their records are accurate and complete.
+                    Self-reported logs may not survive adversarial legal scrutiny.
+                    Aqua-generated records are independently verifiable by construction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section light-alt" id="products">
+        <div class="section-inner">
+            <p class="section-label reveal">Products</p>
+            <h2 class="section-title reveal">Ship With Aqua</h2>
+
+            <div class="product-grid">
+                <div class="product-card reveal">
+                    <p class="product-type">Core Protocol</p>
+                    <h3>Aqua SDK (Rust)</h3>
+                    <p>
+                        Verification pipeline, policy engine, template system, WASM execution, signing, hash chains.
+                        Native and WASM targets. The foundation for building operational trust into any application.
+                    </p>
+                    <p style="margin-top: 12px; font-family: var(--mono); font-size: 11px; color: var(--dim); opacity: 0.7;">
+                        Repositories are currently closed while we finalize v4 licensing.
+                        The SDK is available to partners under agreement.
+                    </p>
+                </div>
+                <div class="product-card reveal">
+                    <p class="product-type">Application</p>
+                    <h3><a href="https://aquafire.inblock.io" target="_blank">AquaFire</a></h3>
+                    <p>
+                        Document management, identity verification, and eSigning built on Aqua Protocol v4.
+                        Human oversight interfaces for compliance workflows.
+                    </p>
+                </div>
+                <div class="product-card reveal">
+                    <p class="product-type">Application</p>
+                    <h3>Aqua-Secured Agents</h3>
+                    <p>
+                        AI agents that can prove who they are and what they did. Every decision gets a cryptographic receipt.
+                    </p>
+                    <ul style="margin: 14px 0 0; padding-left: 18px; font-size: 13px; color: var(--dim); line-height: 1.8;">
+                        <li>Agent Identity Verification</li>
+                        <li>Operation Audit Trail</li>
+                        <li>Secure Delegation</li>
+                    </ul>
+                    <p style="margin-top: 14px; font-family: var(--mono); font-size: 11px; color: var(--dim); opacity: 0.75; letter-spacing: 0.4px;">
+                        Visit Aqua-Secured Agents
+                    </p>
+                </div>
+                <!-- Aqua Node: hidden for now -->
+                <div class="product-card reveal" style="display:none;">
+                    <p class="product-type">Infrastructure</p>
+                    <h3><a href="https://github.com/inblockio/aqua-node" target="_blank">Aqua Node</a></h3>
+                    <p>
+                        File server for Aqua-verified artefacts. Storage and retrieval of hash-chained objects
+                        with full verification on read.
+                    </p>
+                </div>
+                <!-- CAIP-122 Auth: hidden for now -->
+                <div class="product-card reveal" style="display:none;">
+                    <p class="product-type">Integration</p>
+                    <h3>CAIP-122 Auth</h3>
+                    <p>
+                        Authentication piping connecting applications to Aqua-enabled identity.
+                        Bridges eIDAS 2.0 wallets and DID-based signing to application workflows.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE: Alfred Demo -->
+    <section class="section light" id="showcase">
+        <div class="section-inner">
+            <p class="section-label reveal">See It In Action</p>
+            <h2 class="section-title reveal">A Real Agent. A Real API. Real Governance.</h2>
+            <p class="section-lead reveal">
+                Not a concept. A production-grade payroll agent operating against a major US payroll provider's API,
+                with full cryptographic signing and independently verifiable trust chains.
+            </p>
+
+            <div class="showcase-box reveal">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">Alfred, Payroll Agent</h3>
+                    <p class="showcase-desc">
+                        Alfred handles employee onboarding, contractor setup, payroll runs, tax filings, and benefits management.
+                        All through natural language. All cryptographically signed and independently verifiable.
+                    </p>
+                    <p class="showcase-desc">
+                        Every action flows through a trust chain: user authorization, agent execution,
+                        independent notarization. The result is a complete, tamper-evident record of everything
+                        the agent did and why. You can verify it yourself.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="section light-alt" id="industries">
+        <div class="section-inner">
+            <p class="section-label reveal">Where It Matters</p>
+            <h2 class="section-title reveal">High-Stakes Environments Need Verifiable Trust</h2>
+            <p class="section-lead reveal">
+                The technology works. The trust doesn't. When an AI agent runs payroll,
+                processes a claim, or approves a transaction, who verifies it actually did what it claimed?
+            </p>
+
+            <div class="industry-grid">
+                <div class="industry-card reveal">
+                    <h3>Payroll &amp; HR</h3>
+                    <p>Processing compensation, tax filings, and benefits for thousands of employees. A single unauthorized change creates legal liability and erodes employee trust.</p>
+                </div>
+                <div class="industry-card reveal">
+                    <h3>Financial Services</h3>
+                    <p>Executing transactions, managing portfolios, processing applications. Regulatory implications and fiduciary responsibility on every decision.</p>
+                </div>
+                <div class="industry-card reveal">
+                    <h3>Insurance</h3>
+                    <p>Adjudicating claims, calculating premiums, underwriting policies. Errors trigger regulatory action, litigation, and reputational damage.</p>
+                </div>
+                <div class="industry-card reveal">
+                    <h3>Defense &amp; Government</h3>
+                    <p>Managing logistics, processing clearances, coordinating operations. Accountability isn't optional. It's mandated by law.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAL CTA -->
+    <section class="section dark" id="portal">
+        <div class="section-inner">
+            <div class="portal-cta reveal">
+                <p class="section-label">Trusted Agent Portal</p>
+                <h2 class="section-title">See Governance in Action</h2>
+                <p class="portal-desc">
+                    Interact with Alfred, our payroll agent, and see the trust infrastructure working in real time.
+                    45 minutes free, sandbox data only, full trust chain visible for every operation.
+                </p>
+                <div class="portal-actions">
+                    <a href="https://agentic.inblock.io/portal/" class="portal-btn-primary" target="_blank">Log in to Agent Portal</a>
+                    <a href="https://agentic.inblock.io/portal/" class="portal-btn-secondary" target="_blank">Create Account</a>
+                </div>
+                <p class="portal-note">
+                    Sandbox data only. No real payroll operations are performed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section light-alt" id="contact">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <p class="section-label">Contact</p>
+                    <h2 class="section-title">Ready to Build with Aqua?</h2>
+                    <p class="contact-desc">
+                        Get in touch to learn more about the Aqua Protocol, discuss integration options,
+                        or explore how operational trust infrastructure fits your use case.
+                    </p>
+                    <div class="contact-email-row">
+                        <div class="contact-email-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <a href="mailto:contact@inblock.io">contact@inblock.io</a>
+                    </div>
+                    <p style="color: var(--dim); font-size: 13px; margin-top: 8px;">Weimar, Germany</p>
+                </div>
+
+                <div class="contact-form-card reveal">
+                    <div id="contact-success" style="display:none;" class="contact-success-msg">
+                        <div class="contact-success-icon">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. We'll get back to you soon.</p>
+                    </div>
+                    <div id="contact-error" style="display:none;" class="contact-error-msg"></div>
+                    <form id="contact-form" onsubmit="submitContactForm(event)">
+                        <div class="contact-field">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" required placeholder="you@company.com" />
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" required placeholder="What's this about?" />
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-message">Message</label>
+                            <textarea rows="5" id="contact-message" required placeholder="Tell us about your use case..."></textarea>
+                        </div>
+                        <button type="submit" id="contact-submit" class="contact-submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROOF ARENA: transaction-flow modal -->
+    <div class="proof-modal-backdrop" id="proofModal" aria-hidden="true">
+        <div class="proof-modal" role="dialog" aria-labelledby="proofModalTitle">
+            <button class="proof-modal-close" id="proofModalClose" aria-label="Close">&times;</button>
+            <p class="proof-modal-kicker">From the Aqua Protocol whitepaper</p>
+            <h2 id="proofModalTitle">Transaction Flow</h2>
+            <ol class="flow-steps">
+                <li>
+                    <strong>User Intent</strong>
+                    Theodora signs her purchase intent with her DID. Symphonie verifies the signature
+                    and proceeds on her behalf, forwarding the signed intent to Brandon.
+                    <span class="actor-tag">signed by <em>Theodora</em> . P-256 &nbsp;.&nbsp; forwarded by Symphonie</span>
+                </li>
+                <li>
+                    <strong>Offer</strong>
+                    Brandon validates the intent and queries the Best-Cookies API. The API returns a signed offer,
+                    hash-linked to the intent. Brandon forwards the signed artifact to Symphonie.
+                    <span class="actor-tag">signed by <em>Best-Cookies API</em> . Ed25519 &nbsp;.&nbsp; forwarded by Brandon</span>
+                </li>
+                <li>
+                    <strong>Order</strong>
+                    Symphonie drafts the order, hash-linked to the offer. The order is sent up to Theodora,
+                    who co-signs with her own key &mdash; a recorded human-oversight step (EU AI Act, Art. 14).
+                    Symphonie then forwards the dual-signed order to Brandon.
+                    <span class="actor-tag">co-signed by <em>Symphonie</em> + <em>Theodora</em> . Ed25519 + P-256</span>
+                </li>
+                <li>
+                    <strong>Confirmation</strong>
+                    Brandon submits the order to the Best-Cookies API. The API processes it and signs the confirmation,
+                    hash-linked to the order. Brandon forwards the signed artifact onward.
+                    <span class="actor-tag">signed by <em>Best-Cookies API</em> . Ed25519 &nbsp;.&nbsp; forwarded by Brandon</span>
+                </li>
+                <li>
+                    <strong>Invoice</strong>
+                    The Best-Cookies API issues the signed invoice, hash-chained to the confirmation. Brandon
+                    counter-signs and forwards to Symphonie, who counter-signs and delivers it to Theodora.
+                    The chain is now complete &mdash; and the buyer holds the final, fully-attested artifact.
+                    <span class="actor-tag">issued by <em>Best-Cookies API</em> . forwarded by <em>Brandon</em> + <em>Symphonie</em> . delivered to <em>Theodora</em></span>
+                </li>
+            </ol>
+            <p class="proof-modal-foot">
+                Every cross-actor handoff is itself a signed envelope: the issuer signs the artifact, and each
+                forwarder counter-signs as it crosses an organizational boundary. The badges on each artifact
+                record the full chain of attestation &mdash; who issued it, who co-signed, and who passed it on.
+                Either party can present the chain to a third party for verification, without cooperation from
+                the other side and without shared infrastructure.
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <script>document.write(new Date().getFullYear())</script> inblock.io assets GmbH &middot; Aqua Protocol v4
+        </p>
+        <p style="margin-top: 8px;">
+            <a href="https://github.com/inblockio" target="_blank">GitHub</a> &nbsp;|&nbsp;
+            <a href="./impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Nav scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ============================================================
+        // CAPABILITY ARENA: agent fills template -> human co-signs ->
+        // enforcement point flashes -> Send Payment unlocks -> ping to API
+        // ============================================================
+        (function () {
+            'use strict';
+            const arena = document.getElementById('capArena');
+            if (!arena) return;
+
+            const stateEl   = document.getElementById('capState');
+            const fields    = Array.from(arena.querySelectorAll('.cap-field'));
+            const sigAgent  = arena.querySelector('.cap-sig[data-sig="agent"]');
+            const sigHuman  = arena.querySelector('.cap-sig[data-sig="human"]');
+            const lineTop   = document.getElementById('capLineTop');
+            const lineBot   = document.getElementById('capLineBot');
+            const gate      = document.getElementById('capGate');
+            const gateMsg   = document.getElementById('capGateMsg');
+            const hero      = document.getElementById('capHero');
+            const heroFlash = document.getElementById('capHeroFlash');
+            const ping      = document.getElementById('capPing');
+            const api       = document.getElementById('capApi');
+            const receipt   = document.getElementById('capReceipt');
+
+            let timers = [];
+            let isRunning = false;
+
+            function setState(label, cls) {
+                stateEl.textContent = label;
+                stateEl.className = 'cap-template-state' + (cls ? ' ' + cls : '');
+            }
+
+            function typeField(field, ms) {
+                const valEl = field.querySelector('.cap-field-val');
+                const target = valEl.dataset.target || '';
+                valEl.dataset.typed = '';
+                valEl.classList.add('is-typing');
+                field.classList.add('is-filled');
+                const stepMs = Math.max(20, Math.round(ms / Math.max(target.length, 1)));
+                let i = 0;
+                const tick = () => {
+                    i++;
+                    valEl.dataset.typed = target.slice(0, i);
+                    if (i < target.length) {
+                        timers.push(setTimeout(tick, stepMs));
+                    } else {
+                        valEl.classList.remove('is-typing');
+                    }
+                };
+                timers.push(setTimeout(tick, stepMs));
+            }
+
+            function signSig(sigEl, mode) {
+                sigEl.classList.remove('is-pending', 'is-signed');
+                if (mode === 'pending') sigEl.classList.add('is-pending');
+                if (mode === 'signed')  sigEl.classList.add('is-signed');
+            }
+
+            function pulseLine(line) {
+                line.classList.remove('is-pulsing');
+                void line.getBoundingClientRect();
+                line.classList.add('is-pulsing');
+            }
+
+            function fireGate() {
+                gate.classList.remove('is-open');
+                gate.classList.add('is-firing');
+                timers.push(setTimeout(() => {
+                    gate.classList.remove('is-firing');
+                    gate.classList.add('is-open');
+                }, 760));
+            }
+
+            function setHero(s) {
+                hero.dataset.state = s;
+            }
+
+            function flashHero() {
+                heroFlash.classList.remove('is-flashing');
+                void heroFlash.getBoundingClientRect();
+                heroFlash.classList.add('is-flashing');
+            }
+
+            function firePing() {
+                ping.classList.remove('go', 'return');
+                void ping.getBoundingClientRect();
+                ping.classList.add('go');
+                timers.push(setTimeout(() => api.classList.add('is-active'), 720));
+                timers.push(setTimeout(() => {
+                    ping.classList.remove('go');
+                    void ping.getBoundingClientRect();
+                    ping.classList.add('return');
+                }, 900));
+                timers.push(setTimeout(() => {
+                    api.classList.remove('is-active');
+                    ping.classList.remove('return');
+                }, 1800));
+            }
+
+            function showReceipt() { receipt.classList.add('is-shown'); }
+
+            function resetAll() {
+                fields.forEach(f => {
+                    f.classList.remove('is-filled');
+                    const v = f.querySelector('.cap-field-val');
+                    v.dataset.typed = '';
+                    v.classList.remove('is-typing');
+                });
+                signSig(sigAgent, null);
+                signSig(sigHuman, null);
+                gate.classList.remove('is-firing', 'is-open');
+                gateMsg.textContent = 'Aqua policy engine . waiting for prerequisites';
+                setHero('locked');
+                heroFlash.classList.remove('is-flashing');
+                api.classList.remove('is-active');
+                ping.classList.remove('go', 'return');
+                receipt.classList.remove('is-shown');
+                setState('Empty', '');
+            }
+
+            const TIMELINE = [
+                [0.30, () => setState('Drafting', 'is-draft')],
+                [0.50, () => typeField(fields[0], 700)],   // recipient
+                [1.50, () => typeField(fields[1], 700)],   // amount
+                [2.50, () => typeField(fields[2], 700)],   // memo
+                [3.40, () => signSig(sigAgent, 'pending')],
+                [4.00, () => { signSig(sigAgent, 'signed'); setState('Agent-signed', 'is-agent'); }],
+                [4.50, () => { signSig(sigHuman, 'pending'); gateMsg.textContent = 'Aqua policy engine . awaiting human countersignature'; }],
+                [6.00, () => signSig(sigHuman, 'signed')],
+                [6.40, () => pulseLine(lineTop)],
+                [6.80, () => { fireGate(); gateMsg.textContent = 'Prerequisites satisfied . capability granted'; }],
+                [7.50, () => pulseLine(lineBot)],
+                [7.90, () => { setHero('unlocking'); flashHero(); setState('Ready', 'is-ready'); }],
+                [8.80, () => setHero('unlocked')],
+                [9.50, () => { setHero('firing'); firePing(); }],
+                [11.40, () => { setHero('unlocked'); showReceipt(); setState('Executed', 'is-executed'); }],
+                [13.80, () => { resetAll(); start(); }]
+            ];
+
+            function clearTimers() {
+                timers.forEach(t => clearTimeout(t));
+                timers = [];
+            }
+            function start() {
+                clearTimers();
+                isRunning = true;
+                TIMELINE.forEach(([t, fn]) => { timers.push(setTimeout(fn, t * 1000)); });
+            }
+            function stop() {
+                clearTimers();
+                isRunning = false;
+            }
+
+            const visObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isRunning) {
+                        start();
+                    } else if (!entry.isIntersecting && isRunning) {
+                        stop();
+                        resetAll();
+                    }
+                });
+            }, { threshold: 0.2 });
+            visObserver.observe(arena);
+        })();
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+
+        // ============================================================
+        // PROOF ARENA: multi-agent transaction animation
+        // ============================================================
+        (function () {
+            'use strict';
+            const arenaEl = document.getElementById('arena');
+            if (!arenaEl) return;
+
+            const ARTIFACTS = {
+                intent:       { name: 'Intent',  signer: 'Theodora',         key: 'P-256',   hash: '0x4f2a1b', slotX: 22,  forwarded: false },
+                offer:        { name: 'Offer',   signer: 'Best-Cookies API', key: 'Ed25519', hash: '0x9d31c4', slotX: 178, forwarded: 'Brandon' },
+                order:        { name: 'Order',   signer: 'Symphonie',        key: 'Ed25519', hash: '0x21c8ee', slotX: 322, forwarded: false },
+                confirmation: { name: 'Confirm', signer: 'Best-Cookies API', key: 'Ed25519', hash: '0xab5e07', slotX: 470, forwarded: 'Brandon' },
+                invoice:      { name: 'Invoice', signer: 'Best-Cookies API', key: 'Ed25519', hash: '0xfc402d', slotX: 612, forwarded: 'Brandon' }
+            };
+            const LANE_Y = { theodora: 11, symphonie: 121, brandon: 231 };
+            const IDX_TO_ID = { 1: 'intent', 2: 'offer', 3: 'order', 4: 'confirmation', 5: 'invoice' };
+
+            const stage      = arenaEl.querySelector('#stage');
+            const segs       = Array.from(arenaEl.querySelectorAll('.master-seg'));
+            const masterTrk  = arenaEl.querySelector('#masterTrack');
+            const apiNode    = arenaEl.querySelector('#apiNode');
+            const apiPing    = arenaEl.querySelector('#apiPing');
+            const stubsByIdx = {};
+            arenaEl.querySelectorAll('.chain-stub').forEach(s => { stubsByIdx[s.dataset.i] = s; });
+            const glyphs = Array.from(arenaEl.querySelectorAll('.chain-glyph'));
+            const chainLinks  = arenaEl.querySelector('#chainLinks');
+            const chainStatus = arenaEl.querySelector('#chainStatus');
+            const actors = {
+                theodora:  arenaEl.querySelector('#actorTheodora'),
+                symphonie: arenaEl.querySelector('#actorSymphonie'),
+                brandon:   arenaEl.querySelector('#actorBrandon')
+            };
+
+            let cards = {};
+            let cardSigs = {};
+            let timers = [];
+            let isRunning = false;
+
+            function spawnCard(id, lane) {
+                const def = ARTIFACTS[id];
+                if (!def) return;
+                if (cards[id]) cards[id].remove();
+                const inlineSigner = def.signer === 'Best-Cookies API' ? 'BC API' : def.signer;
+                const tipLines = [
+                    def.name.toUpperCase(),
+                    'issued by ' + def.signer,
+                    'key: ' + def.key,
+                    'hash: ' + def.hash
+                ];
+                const el = document.createElement('div');
+                el.className = 'artifact';
+                el.dataset.key = id;
+                el.dataset.tip = tipLines.join('\n');
+                el.style.left = def.slotX + 'px';
+                el.style.top  = LANE_Y[lane] + 'px';
+                el.innerHTML =
+                    '<div class="artifact-bar"></div>' +
+                    '<div class="artifact-body">' +
+                        '<p class="artifact-name">' + def.name + '</p>' +
+                        '<p class="artifact-signer">issued by <strong>' + inlineSigner + '</strong></p>' +
+                        '<div class="artifact-sigs"></div>' +
+                        '<div class="artifact-meta">' +
+                            '<span>' + def.hash + '</span>' +
+                            '<span class="artifact-check">&check; L1.L2.L3</span>' +
+                        '</div>' +
+                    '</div>';
+                stage.appendChild(el);
+                cards[id] = el;
+                cardSigs[id] = [];
+                requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('spawned')));
+            }
+
+            function makeChip(actor, role) {
+                const isApi = actor === 'BC';
+                const chip = document.createElement('span');
+                chip.className = 'sig-chip role-' + role + (isApi ? ' is-api' : '');
+                chip.textContent = isApi ? 'BC' : actor;
+                const labels = { T: 'Theodora', S: 'Symphonie', B: 'Brandon', BC: 'Best-Cookies API' };
+                chip.title = labels[actor] + ' . ' + role;
+                return chip;
+            }
+
+            function addSignature(id, actor, role) {
+                const el = cards[id];
+                if (!el) return;
+                const sigsEl = el.querySelector('.artifact-sigs');
+                if (!sigsEl) return;
+                const chip = makeChip(actor, role);
+                sigsEl.appendChild(chip);
+                (cardSigs[id] = cardSigs[id] || []).push({ actor: actor, role: role });
+                requestAnimationFrame(() => requestAnimationFrame(() => chip.classList.add('added')));
+            }
+
+            function verifyCard(id) {
+                const el = cards[id];
+                if (el) el.classList.add('verified');
+            }
+
+            function moveCardToLane(id, lane) {
+                const el = cards[id];
+                if (!el) return;
+                const trail = document.createElement('div');
+                trail.className = 'trail';
+                trail.style.left = el.style.left;
+                trail.style.top  = el.style.top;
+                stage.appendChild(trail);
+                setTimeout(() => trail.remove(), 700);
+                el.style.top = LANE_Y[lane] + 'px';
+                el.classList.add('delivering');
+                setTimeout(() => el.classList.remove('delivering'), 700);
+            }
+
+            function fadeOutCard(id) {
+                const el = cards[id];
+                if (!el) return;
+                el.classList.add('fading');
+                setTimeout(() => {
+                    if (el.parentNode) el.remove();
+                    if (cards[id] === el) delete cards[id];
+                }, 500);
+            }
+
+            function pulseActor(name, mode) {
+                const a = actors[name];
+                if (!a) return;
+                const cls = mode === 'verify' ? 'pulse-verify' : 'pulse';
+                a.classList.add(cls, 'pulse');
+                setTimeout(() => a.classList.remove('pulse', 'pulse-verify'), 720);
+            }
+
+            function apiQuery() {
+                apiNode.classList.add('active');
+                apiPing.classList.remove('go', 'return');
+                void apiPing.getBoundingClientRect();
+                apiPing.classList.add('go');
+                setTimeout(() => {
+                    apiPing.classList.remove('go');
+                    void apiPing.getBoundingClientRect();
+                    apiPing.classList.add('return');
+                }, 760);
+                setTimeout(() => {
+                    apiPing.classList.remove('return');
+                    apiNode.classList.remove('active');
+                }, 1560);
+            }
+
+            function deliverToChain(idx) {
+                const stub = stubsByIdx[idx];
+                if (!stub) return;
+                stub.classList.add('locked');
+                const seg = segs[idx - 1];
+                if (seg) seg.classList.add('lit');
+                if (idx > 1) {
+                    drawChainLink(idx - 1, idx);
+                    const glyph = glyphs[idx - 2];
+                    if (glyph) glyph.classList.add('linked', 'linked-back', 'linked-fwd');
+                }
+                const id = IDX_TO_ID[idx];
+                const sigs = (id && cardSigs[id]) || [];
+                const stubSigsEl = stub.querySelector('.stub-sigs');
+                if (stubSigsEl) {
+                    stubSigsEl.innerHTML = '';
+                    sigs.forEach((s, i) => {
+                        const chip = makeChip(s.actor, s.role);
+                        stubSigsEl.appendChild(chip);
+                        setTimeout(() => chip.classList.add('added'), 80 + i * 140);
+                    });
+                }
+            }
+
+            function drawChainLink(fromIdx, toIdx) {
+                const a = stubsByIdx[fromIdx].getBoundingClientRect();
+                const b = stubsByIdx[toIdx].getBoundingClientRect();
+                const railRect = chainLinks.getBoundingClientRect();
+                const x1 = a.right - railRect.left;
+                const y1 = a.top + a.height / 2 - railRect.top;
+                const x2 = b.left  - railRect.left;
+                const y2 = b.top  + b.height / 2 - railRect.top;
+                const cx = (x1 + x2) / 2;
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('class', 'hash-link');
+                path.setAttribute('d', 'M ' + x1 + ' ' + y1 + ' C ' + cx + ' ' + (y1 - 12) + ', ' + cx + ' ' + (y2 - 12) + ', ' + x2 + ' ' + y2);
+                chainLinks.appendChild(path);
+                const len = path.getTotalLength ? path.getTotalLength() : 60;
+                path.style.strokeDasharray = len;
+                path.style.strokeDashoffset = len;
+                requestAnimationFrame(() => requestAnimationFrame(() => path.classList.add('drawn')));
+            }
+
+            function chainCompletePulse() {
+                masterTrk.classList.add('complete');
+                setTimeout(() => masterTrk.classList.remove('complete'), 1500);
+            }
+
+            function showStatus() { chainStatus.classList.add('show'); }
+
+            function resetAll() {
+                Object.values(cards).forEach(c => c.remove());
+                cards = {};
+                cardSigs = {};
+                segs.forEach(s => s.classList.remove('lit'));
+                masterTrk.classList.remove('complete');
+                Object.values(stubsByIdx).forEach(s => {
+                    s.classList.remove('locked');
+                    const sigsEl = s.querySelector('.stub-sigs');
+                    if (sigsEl) sigsEl.innerHTML = '';
+                });
+                glyphs.forEach(g => g.classList.remove('linked', 'linked-back', 'linked-fwd'));
+                chainLinks.innerHTML = '';
+                chainStatus.classList.remove('show');
+                Object.values(actors).forEach(a => a.classList.remove('pulse', 'pulse-verify'));
+                apiNode.classList.remove('active');
+            }
+
+            const TIMELINE = [
+                [0.80,  () => { pulseActor('theodora'); spawnCard('intent', 'theodora'); addSignature('intent', 'T', 'issuer'); }],
+                [2.00,  () => verifyCard('intent')],
+                [3.20,  () => moveCardToLane('intent', 'symphonie')],
+                [4.10,  () => pulseActor('symphonie', 'verify')],
+                [4.90,  () => addSignature('intent', 'S', 'forwarder')],
+                [5.40,  () => moveCardToLane('intent', 'brandon')],
+                [6.30,  () => pulseActor('brandon', 'verify')],
+                [6.90,  () => deliverToChain(1)],
+                [7.80,  () => fadeOutCard('intent')],
+
+                [8.00,  () => apiQuery()],
+                [9.30,  () => { spawnCard('offer', 'brandon'); addSignature('offer', 'BC', 'issuer'); }],
+                [10.30, () => verifyCard('offer')],
+                [10.90, () => addSignature('offer', 'B', 'forwarder')],
+                [11.40, () => moveCardToLane('offer', 'symphonie')],
+                [12.20, () => { pulseActor('symphonie', 'verify'); deliverToChain(2); }],
+                [13.10, () => fadeOutCard('offer')],
+
+                [13.20, () => pulseActor('theodora')],
+                [13.80, () => { spawnCard('order', 'symphonie'); addSignature('order', 'S', 'issuer'); }],
+                [14.80, () => verifyCard('order')],
+                [15.40, () => moveCardToLane('order', 'theodora')],
+                [16.30, () => pulseActor('theodora', 'verify')],
+                [16.80, () => addSignature('order', 'T', 'co-issuer')],
+                [17.50, () => moveCardToLane('order', 'symphonie')],
+                [18.30, () => pulseActor('symphonie', 'verify')],
+                [18.80, () => moveCardToLane('order', 'brandon')],
+                [19.60, () => { pulseActor('brandon', 'verify'); deliverToChain(3); }],
+                [20.50, () => fadeOutCard('order')],
+
+                [20.70, () => apiQuery()],
+                [21.80, () => { pulseActor('brandon'); spawnCard('confirmation', 'brandon'); addSignature('confirmation', 'BC', 'issuer'); }],
+                [22.90, () => verifyCard('confirmation')],
+                [23.50, () => addSignature('confirmation', 'B', 'forwarder')],
+                [24.20, () => moveCardToLane('confirmation', 'symphonie')],
+                [25.00, () => { pulseActor('symphonie', 'verify'); deliverToChain(4); }],
+                [25.90, () => fadeOutCard('confirmation')],
+
+                [26.20, () => apiQuery()],
+                [27.30, () => { pulseActor('brandon'); spawnCard('invoice', 'brandon'); addSignature('invoice', 'BC', 'issuer'); }],
+                [28.40, () => verifyCard('invoice')],
+                [29.00, () => addSignature('invoice', 'B', 'forwarder')],
+                [29.70, () => moveCardToLane('invoice', 'symphonie')],
+                [30.60, () => pulseActor('symphonie', 'verify')],
+                [31.10, () => addSignature('invoice', 'S', 'forwarder')],
+                [31.80, () => moveCardToLane('invoice', 'theodora')],
+                [32.70, () => pulseActor('theodora', 'verify')],
+                [33.30, () => deliverToChain(5)],
+
+                [33.60, () => chainCompletePulse()],
+                [34.80, () => showStatus()],
+
+                [39.50, () => { resetAll(); start(); }]
+            ];
+
+            function clearTimers() {
+                timers.forEach(t => clearTimeout(t));
+                timers = [];
+            }
+            function start() {
+                clearTimers();
+                isRunning = true;
+                TIMELINE.forEach(([t, fn]) => { timers.push(setTimeout(fn, t * 1000)); });
+            }
+            function stop() {
+                clearTimers();
+                isRunning = false;
+            }
+
+            // Modal
+            const modal = document.getElementById('proofModal');
+            arenaEl.querySelector('#flowBtn').addEventListener('click', () => {
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+            });
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+            document.getElementById('proofModalClose').addEventListener('click', closeModal);
+            modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+            // Viewport-driven start/stop: only animate when arena is on screen.
+            const visObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isRunning) {
+                        start();
+                    } else if (!entry.isIntersecting && isRunning) {
+                        stop();
+                        resetAll();
+                    }
+                });
+            }, { threshold: 0.15 });
+            visObserver.observe(arenaEl);
+        })();
+
+        // Contact form
+        async function submitContactForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contact-submit');
+            const errEl = document.getElementById('contact-error');
+            const successEl = document.getElementById('contact-success');
+            const form = document.getElementById('contact-form');
+            errEl.style.display = 'none';
+
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            if (!email || !subject || !message) {
+                errEl.textContent = 'Please fill in all fields.';
+                errEl.style.display = 'block';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            try {
+                const resp = await fetch('https://aquafire.inblock.io/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, subject, message })
+                });
+                const data = await resp.json();
+                if (resp.ok && data.success) {
+                    form.style.display = 'none';
+                    errEl.style.display = 'none';
+                    successEl.style.display = 'block';
+                } else {
+                    errEl.textContent = data.error || data.message || 'Something went wrong. Please try again or email us directly.';
+                    errEl.style.display = 'block';
+                }
+            } catch (err) {
+                errEl.textContent = 'Network error. Please try again or email us at contact@inblock.io.';
+                errEl.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            }
+        }
+    </script>
+</body>
+</html>
