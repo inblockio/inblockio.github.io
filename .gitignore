@@ -1,3 +1,9 @@
 .sass-cache
 .grok
 vendor
+
+# Windows download-marker files (alternate data stream markers)
+*:Zone.Identifier
+
+# Brainstorming-skill scratch state
+.superpowers/
