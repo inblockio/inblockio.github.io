@@ -1,0 +1,1512 @@
+<!DOCTYPE html><html lang="en" class="motion-safe:scroll-smooth"> <head><meta charset="utf-8"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v6.3.1"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_astro/dm-sans-latin-400-normal.CW0RaeGs.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_astro/plus-jakarta-sans-latin-700-normal.CfpNZvy6.woff2"><title>AquaGit · Code with context · inblock.io</title><meta name="description" content="AquaGit is git, empowered by Aqua Protocol. Every change is signed by the agent or person who made it, every agent has an owner who answers for it, and the prompts behind each change travel with it."><meta name="robots" content="noindex"><meta property="og:type" content="website"><meta property="og:site_name" content="inblock.io"><meta property="og:locale" content="en_US"><meta property="og:title" content="AquaGit · Code with context · inblock.io"><meta property="og:description" content="AquaGit is git, empowered by Aqua Protocol. Every change is signed by the agent or person who made it, every agent has an owner who answers for it, and the prompts behind each change travel with it."><meta property="og:url" content="https://inblock.io/aqua-git/"><meta property="og:image" content="https://inblock.io/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AquaGit · Code with context · inblock.io"><meta name="twitter:description" content="AquaGit is git, empowered by Aqua Protocol. Every change is signed by the agent or person who made it, every agent has an owner who answers for it, and the prompts behind each change travel with it."><meta name="twitter:image" content="https://inblock.io/og-image.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://inblock.io/#organization","name":"inblock.io","legalName":"inblock.io assets GmbH","url":"https://inblock.io","logo":"https://inblock.io/logo.png","email":"info@inblock.io","description":"inblock.io builds trust that travels with your data: every signature, AI action and file carries its own proof, built so anyone can verify what happened, anywhere.","address":{"@type":"PostalAddress","streetAddress":"Humboldtstraße 13","postalCode":"99423","addressLocality":"Weimar","addressCountry":"DE"},"vatID":"DE319663515","identifier":{"@type":"PropertyValue","name":"Handelsregister (Amtsgericht Jena)","value":"HRB 514776"},"founder":{"@id":"https://inblock.io/about/team/#tim"},"sameAs":["https://github.com/inblockio","https://www.linkedin.com/company/inblock-io","https://x.com/inblockio"],"knowsAbout":["Data accounting","Verifiable AI operations","Document provenance","Tamper-evident audit trails","Digital sovereignty","EU AI Act compliance","Aqua Protocol"]},{"@type":"WebSite","@id":"https://inblock.io/#website","url":"https://inblock.io","name":"inblock.io","publisher":{"@id":"https://inblock.io/#organization"},"inLanguage":"en"},{"@type":"Person","@id":"https://inblock.io/about/team/#tim","name":"Tim Bansemer","jobTitle":"CEO & CTO","worksFor":{"@id":"https://inblock.io/#organization"},"url":"https://inblock.io/about/team/","sameAs":["https://www.linkedin.com/in/tim-bansemer-51a12699/","https://github.com/FantasticoFox"]}]}</script><link rel="stylesheet" href="/_astro/800.D_H3g7nI.css">
+<link rel="stylesheet" href="/_astro/Footer.D3anMdTU.css"></head> <body class="min-h-screen bg-white text-neutral-900 antialiased"> <header class="absolute inset-x-0 top-0 z-50">  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:items-end lg:px-8">   <a href="/" class="relative flex flex-col items-start gap-1.5" aria-label="inblock.io home. Now I know.">  <img src="/logo-emblem-dark.png" alt="" width="903" height="948" class="w-[64px] max-sm:w-[44px]"> <img src="/logo-word-dark.png" alt="inblock.io" width="2895" height="616" class="h-[16px] w-auto max-sm:h-[13px]">  <span aria-hidden="true" class="absolute left-full hidden items-center sm:flex lg:hidden bottom-0 ml-[11px] h-[16px] xl:flex"> <span class="whitespace-nowrap border-l py-0.5 pl-[11px] text-[15px] font-normal leading-none border-white/30 text-white/80" style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">Now I know.</span> </span> </a> <ul class="hidden items-center gap-1 lg:flex"> <li> <a href="/about/team" class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white">Team</a> </li> <li> <a href="/about/how-aqua-was-born" class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white">The Story of Aqua</a> </li> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+Products
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-80 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="/aqua-git" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaGit</span>  </div> <div class="mt-0.5 text-xs text-neutral-500">Coding Agent Governance</div> </a><a href="https://agentic.inblock.io" data-track="to_aquaagents" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaAgents</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </div> <div class="mt-0.5 text-xs text-neutral-500">Verifiable AI Operations</div> </a><a href="https://aquafire.inblock.io" data-track="to_aquafire" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaFire</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </div> <div class="mt-0.5 text-xs text-neutral-500">Provable Documents</div> </a><a href="/aqua-node" class="block rounded-lg px-4 py-3 transition hover:bg-neutral-50"> <div class="flex items-center justify-between text-sm font-semibold text-neutral-900"> <span>AquaNode</span>  </div> <div class="mt-0.5 text-xs text-neutral-500">Provable Data Governance</div> </a> </div> </div> </li>  <li> <a href="/about/partners" class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white">
+Partners
+</a> </li> <li> <a href="/eu-ai-act/" class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white">EU AI Act</a> </li> <li class="group relative"> <button class="flex items-center gap-1 rounded-md px-3.5 py-2 text-[17px] font-medium transition text-white/80 hover:text-white" aria-haspopup="true">
+Developers
+<svg class="h-3 w-3 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </button> <div class="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"> <div class="w-56 rounded-xl bg-[var(--chrome)] p-2 shadow-2xl ring-1 ring-black/5"> <a href="https://aqua-protocol.org" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Aqua Protocol</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aqua-protocol.org/docs/v4.0.0/welcome" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>SDK</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://aqua-protocol.org/docs/" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Documentation</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://github.com/inblockio" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>GitHub</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a><a href="https://element.inblock.io/#/room/#aqua-protocol-community-channel:matrix.inblock.io" class="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900" target="_blank" rel="noopener noreferrer"> <span>Community Chat (Matrix)</span> <svg class="h-3 w-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> </a> </div> </div> </li> </ul>  <div class="flex items-center gap-2 max-sm:self-start max-sm:mt-[5px]"> <a href="https://calendly.com/tim-bansemer/30min" data-track="book_meeting" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400">
+Book a meeting
+</a> <button type="button" data-mobile-toggle aria-label="Open menu" aria-expanded="false" class="inline-flex items-center justify-center rounded-md p-2 lg:hidden text-white/90 hover:text-white"> <svg data-menu-open class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg> <svg data-menu-close class="hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> </button> </div> </nav>  <div data-mobile-panel class="hidden px-4 pb-4 lg:hidden"> <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[var(--chrome)] shadow-2xl ring-1 ring-black/5"> <div class="max-h-[72vh] overflow-y-auto p-2"> <div class="border-b border-black/5 last:border-b-0"> <a href="/about/team" class="block px-3 py-3.5 text-base font-semibold text-neutral-900"> Team </a> </div><div class="border-b border-black/5 last:border-b-0"> <a href="/about/how-aqua-was-born" class="block px-3 py-3.5 text-base font-semibold text-neutral-900"> The Story of Aqua </a> </div><details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> Products <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="/aqua-git" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaGit</span><span class="text-neutral-500"> — Coding Agent Governance</span> </a><a href="https://agentic.inblock.io" data-track="to_aquaagents" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaAgents</span><span class="text-neutral-500"> — Verifiable AI Operations</span> </a><a href="https://aquafire.inblock.io" data-track="to_aquafire" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaFire</span><span class="text-neutral-500"> — Provable Documents</span> </a><a href="/aqua-node" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">AquaNode</span><span class="text-neutral-500"> — Provable Data Governance</span> </a> </div> </details><div class="border-b border-black/5 last:border-b-0"> <a href="/about/partners" class="block px-3 py-3.5 text-base font-semibold text-neutral-900"> Partners </a> </div><div class="border-b border-black/5 last:border-b-0"> <a href="/eu-ai-act/" class="block px-3 py-3.5 text-base font-semibold text-neutral-900"> EU AI Act </a> </div><details class="group border-b border-black/5 last:border-b-0"> <summary class="flex cursor-pointer list-none items-center justify-between px-3 py-3.5 text-base font-semibold text-neutral-900"> Developers <svg class="h-4 w-4 text-neutral-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> </summary> <div class="pb-2"> <a href="https://aqua-protocol.org" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Aqua Protocol</span> </a><a href="https://aqua-protocol.org/docs/v4.0.0/welcome" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">SDK</span> </a><a href="https://aqua-protocol.org/docs/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Documentation</span> </a><a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">GitHub</span> </a><a href="https://element.inblock.io/#/room/#aqua-protocol-community-channel:matrix.inblock.io" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-4 py-2 text-sm text-neutral-700 transition hover:bg-neutral-50"> <span class="font-medium text-neutral-900">Community Chat (Matrix)</span> </a> </div> </details> </div> </div> </div> <script>
+		(function () {
+			var t = document.querySelector('[data-mobile-toggle]');
+			var p = document.querySelector('[data-mobile-panel]');
+			if (!t || !p) return;
+			var iOpen = t.querySelector('[data-menu-open]');
+			var iClose = t.querySelector('[data-menu-close]');
+			t.addEventListener('click', function () {
+				var hidden = p.classList.toggle('hidden');
+				t.setAttribute('aria-expanded', String(!hidden));
+				if (iOpen && iClose) { iOpen.classList.toggle('hidden', !hidden); iClose.classList.toggle('hidden', hidden); }
+			});
+		})();
+	</script> </header>  <div class="v2-fonts">  <div class="relative overflow-hidden bg-neutral-950 text-white"> <canvas data-product-hero-echo data-accent="249,115,22" class="pointer-events-none absolute inset-0 h-full w-full" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.48) 25%, rgba(0,0,0,0.9) 50%, #000 70%); mask-image: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.48) 25%, rgba(0,0,0,0.9) 50%, #000 70%);" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true" style="background:radial-gradient(ellipse 36% 44% at 26% 48%, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.42) 55%, rgba(10,10,10,0.1) 82%, transparent 100%)"></div> <div class="pointer-events-none absolute inset-0 md:hidden" aria-hidden="true" style="background:radial-gradient(ellipse 58% 46% at 50% 44%, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.42) 55%, rgba(10,10,10,0.1) 82%, transparent 100%)"></div> <script>
+	(function () {
+		if (window.__productHeroEchoInit) return;
+		window.__productHeroEchoInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d', { alpha: true });
+			if (!ctx) return;
+
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			const isMobile = window.matchMedia('(max-width: 768px)').matches;
+			const ACCENT = canvas.getAttribute('data-accent') || '249,115,22';
+
+			const CFG = {
+				// background net (layer 1) — the biggest complexity lever (batched, cheap)
+				webAnchors: isMobile ? 70 : 230,
+				webLines: isMobile ? 200 : 760,
+				webLineAlpha: 0.05,
+				webDotAlpha: 0.36,
+				// strands (layer 4)
+				filPerStrand: isMobile ? 55 : 130,
+				laneSigma: 9,
+				wobbleAmp: [2, 5],   // static woven SHAPE of the fibers (not animated)
+				wobbleFreq: [2.5, 6],
+				swayAmp: 0,          // positional motion OFF — the architecture stands still
+				swayFreq: 0.18,
+				// motion = LIGHT, not position: a luminance wave sweeps along each
+				// strand (fibers brighten in sequence, like light down fiber optics)
+				sheenAmp: 0.45,
+				sheenSpeed: 0.55,
+				filAlpha: [0.03, 0.08],
+				accentShare: 0.06,
+				segs: 20,
+				junctionJitter: 14,
+				// branches (layer 3) — weave the strands into the net
+				branchPerStrand: 3,
+				branchFil: isMobile ? 8 : 14,
+				branchSigma: 3,
+				branchLen: [150, 320],
+				branchAlpha: [0.02, 0.05],
+				// depth bands (layer 2)
+				distantFil: isMobile ? 16 : 34,
+				distantSigma: 24,
+				distantAlpha: 0.013,
+				// pulses (layer 6)
+				pulseCount: isMobile ? 9 : 22,
+				pulseSpeed: [0.035, 0.075], // strand-lengths per second
+				pulseCore: 1.2,
+				pulseHalo: 4,
+				// confirmation streaks: when a dot reaches a junction, the node
+				// glints and sends a soft orange streak out along another strand
+				cometSpeed: [0.16, 0.24],
+				cometMax: 8,
+				// hover (desktop only) — threads lean gently toward the cursor,
+				// like touching a real web; they relax when the mouse leaves
+				hoverRadius: 150,
+				hoverPull: 0.16,
+			};
+
+			let W = 0, H = 0;
+			let web = null, strands = [], branches = [], distant = [], nodes = [], pulses = [];
+			let comets = [], strandNode = [], nodeStrands = [];
+			let elapsed = 0, lastTime = performance.now(), isVisible = true;
+			// hover state: raw target + smoothed position + eased strength (0..1)
+			let mx = null, my = null, smx = 0, smy = 0, hoverS = 0;
+
+			function gaussian() {
+				let u = 0, v = 0;
+				while (u === 0) u = Math.random();
+				while (v === 0) v = Math.random();
+				return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+			}
+			const rand = (a, b) => a + Math.random() * (b - a);
+
+			function mkFilaments(count, sigma, aLo, aHi, accentShare) {
+				const arr = [];
+				for (let i = 0; i < count; i++) {
+					// most fibers run the whole strand; some are partial, a few stray
+					const partial = Math.random() < 0.3;
+					const tStart = partial ? rand(0, 0.45) : 0;
+					const tEnd = partial ? Math.min(1, tStart + rand(0.35, 0.6)) : 1;
+					const stray = Math.random() < 0.08;
+					arr.push({
+						lane: gaussian() * sigma * (stray ? rand(1.8, 2.6) : 1),
+						amp: rand(CFG.wobbleAmp[0], CFG.wobbleAmp[1]),
+						freq: rand(CFG.wobbleFreq[0], CFG.wobbleFreq[1]),
+						phase: Math.random() * Math.PI * 2,
+						phase2: Math.random() * Math.PI * 2,
+						alpha: rand(aLo, aHi) * (stray ? 0.6 : 1),
+						accent: Math.random() < accentShare,
+						tStart, tEnd,
+					});
+				}
+				return arr;
+			}
+
+			// quadratic bezier passing through point n at t=0.5
+			function strandThrough(p0, n, p2, count, sigma, aLo, aHi, accentShare, pinch) {
+				return {
+					p0,
+					p1: { x: 2 * n.x - (p0.x + p2.x) / 2, y: 2 * n.y - (p0.y + p2.y) / 2 },
+					p2,
+					pinch: pinch !== false, // fibers gather tight at the junction (t=0.5)
+					swayPhase: Math.random() * Math.PI * 2,
+					fil: mkFilaments(count, sigma, aLo, aHi, accentShare),
+				};
+			}
+
+			function bezPoint(s, t) {
+				const u = 1 - t;
+				return {
+					x: u * u * s.p0.x + 2 * u * t * s.p1.x + t * t * s.p2.x,
+					y: u * u * s.p0.y + 2 * u * t * s.p1.y + t * t * s.p2.y,
+				};
+			}
+
+			function buildScene() {
+				// 1 · background net
+				web = { anchors: [], lines: [] };
+				// real webs cluster — mix gaussian clusters with uniform scatter
+				const clusters = [
+					{ x: rand(0.15, 0.4) * W, y: rand(0.2, 0.8) * H },
+					{ x: rand(0.5, 0.75) * W, y: rand(0.1, 0.6) * H },
+					{ x: rand(0.75, 0.98) * W, y: rand(0.4, 0.95) * H },
+				];
+				for (let i = 0; i < CFG.webAnchors; i++) {
+					const fTier = Math.random();
+					const fLo = fTier < 0.7 ? 0.08 : 0.18;
+					const fHi = fTier < 0.7 ? 0.16 : 0.32;
+					let bx, by;
+					if (Math.random() < 0.55) {
+						const c = clusters[(Math.random() * clusters.length) | 0];
+						bx = c.x + gaussian() * W * 0.11;
+						by = c.y + gaussian() * H * 0.16;
+						bx = Math.max(0, Math.min(W, bx));
+						by = Math.max(0, Math.min(H, by));
+					} else {
+						bx = Math.random() * W;
+						by = Math.random() * H;
+					}
+					web.anchors.push({
+						baseX: bx,
+						baseY: by,
+						x: 0, y: 0,
+						ampX: 8 + Math.random() * 12,
+						ampY: 8 + Math.random() * 12,
+						freqX: fLo + Math.random() * (fHi - fLo),
+						freqY: fLo + Math.random() * (fHi - fLo),
+						phaseX: Math.random() * Math.PI * 2,
+						phaseY: Math.random() * Math.PI * 2,
+						size: 0.4 + Math.random() * 0.9,
+					});
+				}
+				const maxDist = Math.min(W * 0.4, 460);
+				const maxDist2 = maxDist * maxDist;
+				let placed = 0, attempts = 0;
+				while (placed < CFG.webLines && attempts < CFG.webLines * 6) {
+					attempts++;
+					const aIdx = Math.floor(Math.random() * CFG.webAnchors);
+					let bIdx = Math.floor(Math.random() * CFG.webAnchors);
+					if (aIdx === bIdx) bIdx = (bIdx + 1) % CFG.webAnchors;
+					const a = web.anchors[aIdx], b = web.anchors[bIdx];
+					const dx = a.baseX - b.baseX, dy = a.baseY - b.baseY;
+					if (dx * dx + dy * dy > maxDist2) continue;
+					web.lines.push({ a: aIdx, b: bIdx });
+					placed++;
+				}
+
+				// 5 · junction nodes — glow only; the gathered fibers ARE the node
+				// (free-floating speckles removed 2026-07-08: they sat on no line
+				// and read as confetti against the fiber realism)
+				function mkNode(fx, fy, core) {
+					return { x: W * fx, y: H * fy, core, flare: 0 };
+				}
+				const N1 = mkNode(0.70, 0.40, 30); // main junction
+				const N2 = mkNode(0.42, 0.76, 17); // lower-left satellite
+				const N3 = mkNode(0.90, 0.70, 17); // lower-right satellite
+				const N4 = mkNode(0.15, 0.13, 14); // upper-left, above the copy
+				const N5 = mkNode(0.56, 0.20, 13); // upper-mid
+				const N6 = mkNode(0.80, 0.92, 13); // lower-mid-right
+				nodes = [N1, N2, N3, N4, N5, N6];
+
+				// 4 · seven streets across the whole hero
+				const J = CFG.junctionJitter;
+				const jit = (n) => ({ x: n.x + rand(-J, J), y: n.y + rand(-J, J) });
+				const F = CFG.filPerStrand, S = CFG.laneSigma, A0 = CFG.filAlpha[0], A1 = CFG.filAlpha[1];
+				strands = [
+					// main junction N1
+					strandThrough({ x: W * 0.42, y: -H * 0.12 }, jit(N1), { x: W * 1.08, y: H * 0.92 }, F, S, A0, A1, CFG.accentShare),
+					strandThrough({ x: W * 1.08, y: H * 0.10 }, jit(N1), { x: W * 0.34, y: H * 1.10 }, F, S, A0, A1, CFG.accentShare),
+					strandThrough({ x: W * 0.98, y: -H * 0.10 }, jit(N1), { x: W * 0.52, y: H * 0.78 },
+						(F * 0.55) | 0, S * 0.6, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// lower-left junction N2 — incl. the street starting behind the copy
+					strandThrough({ x: -W * 0.06, y: H * 0.60 }, jit(N2), { x: W * 1.05, y: H * 0.95 },
+						(F * 0.9) | 0, S * 0.85, A0, A1, CFG.accentShare),
+					strandThrough({ x: W * 0.16, y: H * 1.10 }, jit(N2), { x: W * 0.70, y: -H * 0.06 },
+						(F * 0.6) | 0, S * 0.55, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// lower-right junction N3
+					strandThrough({ x: -W * 0.05, y: H * 0.98 }, jit(N3), { x: W * 1.08, y: H * 0.44 },
+						(F * 0.5) | 0, S * 0.55, A0 * 0.75, A1 * 0.75, CFG.accentShare),
+					strandThrough({ x: W * 0.66, y: -H * 0.10 }, jit(N3), { x: W * 1.02, y: H * 1.08 },
+						(F * 0.6) | 0, S * 0.6, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// upper-left junction N4 — pulls the web across the left half
+					strandThrough({ x: -W * 0.06, y: H * 0.42 }, jit(N4), { x: W * 0.55, y: -H * 0.12 },
+						(F * 0.55) | 0, S * 0.55, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					// upper-mid junction N5 — adds crossings in the top band
+					strandThrough({ x: W * 0.10, y: -H * 0.08 }, jit(N5), { x: W * 1.06, y: H * 0.66 },
+						(F * 0.6) | 0, S * 0.55, A0 * 0.8, A1 * 0.8, CFG.accentShare),
+					strandThrough({ x: W * 0.30, y: H * 1.08 }, jit(N5), { x: W * 0.9, y: -H * 0.10 },
+						(F * 0.45) | 0, S * 0.5, A0 * 0.7, A1 * 0.7, CFG.accentShare),
+					// lower-mid-right junction N6
+					strandThrough({ x: W * 0.28, y: H * 1.10 }, jit(N6), { x: W * 1.08, y: H * 0.22 },
+						(F * 0.5) | 0, S * 0.55, A0 * 0.75, A1 * 0.75, CFG.accentShare),
+					// long connector weaving N4 -> N1 -> N3 diagonal band
+					strandThrough({ x: -W * 0.06, y: H * 0.22 }, jit(N1), { x: W * 1.08, y: H * 0.78 },
+						(F * 0.7) | 0, S * 0.7, A0, A1, CFG.accentShare),
+				];
+
+				// which junction each street passes through (index into nodes[]) —
+				// used for the confirmation events: dot arrives → node glints →
+				// a streak leaves along a sibling street of the same junction
+				strandNode = [0, 0, 0, 1, 1, 2, 2, 3, 4, 4, 5, 0];
+				nodeStrands = nodes.map(() => []);
+				strandNode.forEach((nIdx, sIdx) => { if (nodeStrands[nIdx]) nodeStrands[nIdx].push(sIdx); });
+				comets = [];
+
+				// 3 · branches
+				branches = [];
+				for (const s of strands) {
+					for (let i = 0; i < CFG.branchPerStrand; i++) {
+						const t = rand(0.18, 0.42) + (Math.random() < 0.5 ? 0.4 : 0);
+						const start = bezPoint(s, Math.min(t, 0.9));
+						const ang = Math.random() * Math.PI * 2;
+						const len = rand(CFG.branchLen[0], CFG.branchLen[1]);
+						const end = { x: start.x + Math.cos(ang) * len, y: start.y + Math.sin(ang) * len };
+						const mid = { x: (start.x + end.x) / 2 + rand(-40, 40), y: (start.y + end.y) / 2 + rand(-40, 40) };
+						branches.push({
+							p0: start, p1: mid, p2: end,
+							swayPhase: Math.random() * Math.PI * 2,
+							fil: mkFilaments(CFG.branchFil, CFG.branchSigma, CFG.branchAlpha[0], CFG.branchAlpha[1], 0),
+						});
+					}
+				}
+
+				// 2 · depth bands
+				distant = [
+					strandThrough({ x: W * 0.50, y: -H * 0.05 }, { x: W * 0.85, y: H * 0.30 }, { x: W * 1.10, y: H * 0.55 },
+						CFG.distantFil, CFG.distantSigma, CFG.distantAlpha * 0.7, CFG.distantAlpha * 1.3, 0, false),
+					strandThrough({ x: W * 0.55, y: H * 1.08 }, { x: W * 0.88, y: H * 0.70 }, { x: W * 1.10, y: H * 0.18 },
+						CFG.distantFil, CFG.distantSigma, CFG.distantAlpha * 0.7, CFG.distantAlpha * 1.3, 0, false),
+				];
+
+				// 6 · traveling pulses, spread across the streets
+				pulses = [];
+				for (let i = 0; i < CFG.pulseCount; i++) {
+					pulses.push({
+						strand: i % strands.length,
+						t: Math.random(),
+						speed: rand(CFG.pulseSpeed[0], CFG.pulseSpeed[1]) * (Math.random() < 0.5 ? 1 : -1),
+						accent: false, // turns true (orange) at the first junction it crosses
+						flash: 0,
+					});
+				}
+			}
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				W = rect.width; H = rect.height;
+				if (W === 0 || H === 0) return;
+				canvas.width = Math.floor(W * dpr);
+				canvas.height = Math.floor(H * dpr);
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+				buildScene();
+			}
+
+			function drawStrand(s, time) {
+				const { p0, p1, p2 } = s;
+				// (positional sway kept as a knob, default 0 — architecture is still)
+				const sway = CFG.swayAmp * Math.sin(time * CFG.swayFreq + (s.swayPhase || 0));
+				const sheenPhase = s.swayPhase || 0;
+				for (const f of s.fil) {
+					// the motion is LIGHT: a luminance wave sweeps along the bundle,
+					// fibers brightening in sequence like light down fiber optics
+					const tMid = ((f.tStart || 0) + (f.tEnd || 1)) / 2;
+					const sheen = 1 + CFG.sheenAmp * Math.sin(tMid * 5.2 - time * CFG.sheenSpeed + sheenPhase);
+					const aEff = Math.max(0.008, f.alpha * sheen);
+					ctx.strokeStyle = f.accent
+						? 'rgba(' + ACCENT + ',' + (aEff * 1.6).toFixed(3) + ')'
+						: 'rgba(235,238,245,' + aEff.toFixed(3) + ')';
+					ctx.beginPath();
+					const span = f.tEnd - f.tStart;
+					for (let i = 0; i <= CFG.segs; i++) {
+						const t = f.tStart + (i / CFG.segs) * span;
+						const u = 1 - t;
+						const cx = u * u * p0.x + 2 * u * t * p1.x + t * t * p2.x;
+						const cy = u * u * p0.y + 2 * u * t * p1.y + t * t * p2.y;
+						let tx = 2 * u * (p1.x - p0.x) + 2 * t * (p2.x - p1.x);
+						let ty = 2 * u * (p1.y - p0.y) + 2 * t * (p2.y - p1.y);
+						const len = Math.hypot(tx, ty) || 1;
+						const nx = -ty / len, ny = tx / len;
+						// fibers gather tight at the junction, fan out toward the ends
+						let taper = 1;
+						if (s.pinch) {
+							taper = 0.32 + 0.68 * Math.pow(Math.min(1, Math.abs(t - 0.5) * 2), 0.75);
+						}
+						// fibers merge into the bundle at their own ends (feathered edges)
+						const local = (t - f.tStart) / (span || 1);
+						const endMerge = Math.min(1, Math.min(local, 1 - local) / 0.15);
+						const gather = taper * (0.35 + 0.65 * endMerge);
+						// two-term wobble — organic, not metronome
+						// static woven shape (no per-fiber time animation — no wobble)
+						const A = t * f.freq * Math.PI * 2 + f.phase;
+						const wob = 0.7 * Math.sin(A) + 0.3 * Math.sin(A * 0.37 + f.phase2);
+						const off = (f.lane + f.amp * wob) * gather + sway * Math.sin(t * Math.PI);
+						let x = cx + nx * off, y = cy + ny * off;
+						// hover: threads lean toward the cursor, eased falloff
+						if (hoverS > 0.01) {
+							const hdx = smx - x, hdy = smy - y;
+							const d2 = hdx * hdx + hdy * hdy;
+							const R = CFG.hoverRadius;
+							if (d2 < R * R) {
+								const fall = 1 - Math.sqrt(d2) / R;
+								const k = CFG.hoverPull * fall * fall * hoverS;
+								x += hdx * k;
+								y += hdy * k;
+							}
+						}
+						if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+					}
+					ctx.stroke();
+				}
+			}
+
+			function frame(now) {
+				const dt = Math.min(0.05, (now - lastTime) / 1000);
+				lastTime = now;
+				elapsed += dt;
+
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(frame), 250);
+					return;
+				}
+
+				const time = reducedMotion ? 0 : elapsed;
+
+				// ease hover strength + smooth the cursor position
+				const hTarget = mx !== null && !reducedMotion ? 1 : 0;
+				hoverS += (hTarget - hoverS) * Math.min(1, dt * 4);
+				if (mx !== null) {
+					smx += (mx - smx) * Math.min(1, dt * 8);
+					smy += (my - smy) * Math.min(1, dt * 8);
+				}
+
+				ctx.clearRect(0, 0, W, H);
+				ctx.globalCompositeOperation = 'lighter';
+				ctx.lineWidth = 0.55;
+
+				// 1 · background net
+				for (const a of web.anchors) {
+					a.x = a.baseX + (reducedMotion ? 0 : Math.sin(time * a.freqX + a.phaseX) * a.ampX);
+					a.y = a.baseY + (reducedMotion ? 0 : Math.cos(time * a.freqY + a.phaseY) * a.ampY);
+					if (hoverS > 0.01) {
+						const hdx = smx - a.x, hdy = smy - a.y;
+						const d2 = hdx * hdx + hdy * hdy;
+						const R = CFG.hoverRadius;
+						if (d2 < R * R) {
+							const fall = 1 - Math.sqrt(d2) / R;
+							const k = 0.12 * fall * fall * hoverS;
+							a.x += hdx * k;
+							a.y += hdy * k;
+						}
+					}
+				}
+				ctx.strokeStyle = 'rgba(255,255,255,' + CFG.webLineAlpha + ')';
+				ctx.beginPath();
+				for (const l of web.lines) {
+					const a = web.anchors[l.a], b = web.anchors[l.b];
+					ctx.moveTo(a.x, a.y);
+					ctx.lineTo(b.x, b.y);
+				}
+				ctx.stroke();
+				ctx.fillStyle = 'rgba(255,255,255,' + CFG.webDotAlpha + ')';
+				for (const a of web.anchors) {
+					const half = a.size * 0.5;
+					ctx.fillRect(a.x - half, a.y - half, a.size, a.size);
+				}
+
+				// 2 · depth bands · 3 · branches · 4 · streets
+				for (const s of distant) drawStrand(s, time * 0.5);
+				for (const b of branches) drawStrand(b, time * 0.8);
+				for (const s of strands) drawStrand(s, time);
+
+				// 5 · junction nodes
+				for (const n of nodes) {
+					// glint on confirmation, then decay back to the calm breath
+					if (n.flare > 0) n.flare = Math.max(0, n.flare - 2.2 * dt);
+					const boost = 1 + n.flare * 0.8;
+					const breathe = 1 + (reducedMotion ? 0 : 0.08 * Math.sin(time * 0.5 + n.x));
+					const r = n.core * breathe * (1 + n.flare * 0.15);
+					const isMain = n.core >= 25;
+					const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 2.6);
+					g.addColorStop(0, 'rgba(255,252,246,' + Math.min(0.5, (isMain ? 0.28 : 0.16) * boost).toFixed(3) + ')');
+					g.addColorStop(0.35, 'rgba(' + ACCENT + ',' + Math.min(0.3, (isMain ? 0.10 : 0.06) * boost).toFixed(3) + ')');
+					g.addColorStop(1, 'rgba(' + ACCENT + ',0)');
+					ctx.fillStyle = g;
+					ctx.beginPath();
+					ctx.arc(n.x, n.y, r * 2.6, 0, Math.PI * 2);
+					ctx.fill();
+				}
+
+				// 6 · traveling pulses — quiet white dots, constant size
+				for (const p of pulses) {
+					if (!reducedMotion) {
+						const before = p.t;
+						p.t += p.speed * dt;
+						if (p.t > 1.02) p.t = -0.02;
+						if (p.t < -0.02) p.t = 1.02;
+						// arrival at the junction (t=0.5 by construction): the node
+						// glints, and a confirmation streak leaves on a sibling street
+						if ((before - 0.5) * (p.t - 0.5) < 0) {
+							const nIdx = strandNode[p.strand] || 0;
+							if (nodes[nIdx]) nodes[nIdx].flare = 1;
+							const siblings = nodeStrands[nIdx];
+							if (siblings && siblings.length > 1 && comets.length < CFG.cometMax) {
+								let other = siblings[(Math.random() * siblings.length) | 0];
+								if (other === p.strand) other = siblings[(siblings.indexOf(other) + 1) % siblings.length];
+								comets.push({
+									strand: other,
+									t: 0.5,
+									dir: Math.random() < 0.5 ? 1 : -1,
+									speed: rand(CFG.cometSpeed[0], CFG.cometSpeed[1]),
+								});
+							}
+						}
+					}
+					const pos = bezPoint(strands[p.strand], Math.min(1, Math.max(0, p.t)));
+					ctx.fillStyle = 'rgba(255,250,240,0.14)';
+					ctx.beginPath();
+					ctx.arc(pos.x, pos.y, CFG.pulseHalo, 0, Math.PI * 2);
+					ctx.fill();
+					ctx.fillStyle = 'rgba(255,250,240,0.85)';
+					ctx.beginPath();
+					ctx.arc(pos.x, pos.y, CFG.pulseCore, 0, Math.PI * 2);
+					ctx.fill();
+				}
+
+				// 6b · confirmation streaks — soft orange comets leaving the junctions
+				for (let i = comets.length - 1; i >= 0; i--) {
+					const c = comets[i];
+					if (!reducedMotion) c.t += c.dir * c.speed * dt;
+					if (c.t < -0.02 || c.t > 1.02) { comets.splice(i, 1); continue; }
+					const cs = strands[c.strand];
+					for (let k = 0; k < 8; k++) {
+						const tt = c.t - c.dir * k * 0.014;
+						if (tt < 0 || tt > 1) continue;
+						const pos = bezPoint(cs, tt);
+						const a = 0.45 * (1 - k / 8);
+						ctx.fillStyle = 'rgba(' + ACCENT + ',' + a.toFixed(3) + ')';
+						ctx.beginPath();
+						ctx.arc(pos.x, pos.y, Math.max(0.8, 3.2 - k * 0.3), 0, Math.PI * 2);
+						ctx.fill();
+					}
+				}
+
+				ctx.globalCompositeOperation = 'source-over';
+
+				if (!reducedMotion) requestAnimationFrame(frame);
+			}
+
+			resize();
+			const ro = new ResizeObserver(() => resize());
+			ro.observe(canvas);
+
+			const io = new IntersectionObserver(
+				([entry]) => { isVisible = entry.isIntersecting; },
+				{ rootMargin: '200px' }
+			);
+			io.observe(canvas);
+
+			// hover tracking on the hero section (the canvas is pointer-events-none,
+			// so links and buttons above it keep working untouched)
+			const host = canvas.parentElement;
+			if (host && !reducedMotion) {
+				host.addEventListener('mousemove', (e) => {
+					const r = canvas.getBoundingClientRect();
+					const cx = e.clientX - r.left, cy = e.clientY - r.top;
+					if (mx === null) { smx = cx; smy = cy; }
+					mx = cx; my = cy;
+				});
+				host.addEventListener('mouseleave', () => { mx = null; });
+			}
+
+			if (reducedMotion) {
+				frame(performance.now());
+			} else {
+				requestAnimationFrame(frame);
+			}
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-product-hero-echo]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script>  <section class="relative isolate"> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(60% 55% at 50% 0%, rgba(232,97,26,0.17), transparent 70%);"></div> <div class="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true" style="background:radial-gradient(ellipse 36% 44% at 26% 48%, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.42) 55%, rgba(10,10,10,0.1) 82%, transparent 100%)"></div> <div class="pointer-events-none absolute inset-0 md:hidden" aria-hidden="true" style="background:radial-gradient(ellipse 58% 46% at 50% 44%, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.42) 55%, rgba(10,10,10,0.1) 82%, transparent 100%)"></div> <div class="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pb-20 pt-[clamp(10rem,22vh,17rem)] max-sm:pb-10 max-sm:pt-28 lg:px-8"> <div class="v2-hero-stagger max-w-[860px]"> <p class="text-lg font-semibold uppercase tracking-[0.25em] sm:text-xl"> <span class="text-white/90">AquaGit · </span><span class="text-orange-500">Code with context.</span> </p> <h1 class="mt-6 text-4xl font-display font-bold leading-tight tracking-tight sm:text-5xl"> <span class="block">Every change with clear provenance.</span> <span class="block text-orange-500">Who made it, and why.</span> </h1> <p class="mt-6 text-lg leading-relaxed text-white/70 sm:text-xl">
+AquaGit is git, empowered by Aqua Protocol.
+						Every action is signed by whoever took it.
+						Every agent has an owner who answers for it.
+</p> <div class="mt-9"> <a href="https://calendly.com/tim-bansemer/30min" data-track="book_meeting" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-base font-semibold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-600 hover:shadow-lg"> <span>Book a meeting</span> <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span> </a> </div> </div> </div> <a href="#the-gap" class="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 text-white hover:text-orange-400 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] transition" aria-label="Scroll to the problem"> <svg class="hero-bounce h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </a> </section>  <section id="the-gap" class="relative isolate scroll-mt-24"> <div class="pointer-events-none absolute inset-0" aria-hidden="true" style="background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.5) 10%, rgba(10,10,10,0.68) 26%, rgba(10,10,10,0.68) 100%);"></div> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(55% 60% at 18% 30%, rgba(232,97,26,0.10), transparent 70%);"></div> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 pb-24 pt-16 lg:px-8"> <h2 class="max-w-4xl text-3xl font-display font-bold leading-snug tracking-tight text-white sm:text-4xl">
+Your agents ship code faster than anyone can read it.<br class="hidden lg:block"> <span class="text-orange-500">The context is lost.</span> </h2> <div class="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-white/70 sm:text-xl"> <p>
+A coding agent commits under a bot account or a developer’s name. The request sits in a chat
+						window, the transcript on someone’s laptop, the approval in a team thread.
+</p> <p>
+Today’s signing proves which account pushed a change.
+<span class="text-white">Not which agent wrote it, for whom, or why.</span> </p> </div> <div class="mx-auto mt-20 max-w-5xl"> <p class="flex items-start gap-3.5 text-sm leading-relaxed text-white/60 sm:text-base"> <span class="mt-2 h-0.5 w-8 flex-none rounded-full bg-orange-500" aria-hidden="true"></span>
+One example: a payment fix written by an agent.
+</p> <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"> <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-5"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">The commit</p> <p class="mt-3 text-base leading-relaxed text-white/80">signed by a shared bot account, or not at all</p> </div><div class="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-5"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">The request</p> <p class="mt-3 text-base leading-relaxed text-white/80">in a chat window that has since closed</p> </div><div class="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-5"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">The transcript</p> <p class="mt-3 text-base leading-relaxed text-white/80">on one developer’s laptop, secrets and all</p> </div><div class="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-5"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">The approval</p> <p class="mt-3 text-base leading-relaxed text-white/80">a thumbs-up in a team thread</p> </div> </div> <p class="mt-10 max-w-3xl text-base leading-relaxed text-white/60 sm:text-lg">
+In a 2026 study of 180 million repositories, looking up bot accounts found only 3.3% of the commits a leading
+						coding agent had made.
+<a href="https://arxiv.org/abs/2606.24429" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap underline underline-offset-4 decoration-orange-500/50 hover:text-white">Khosravani and Mockus, arXiv</a> </p> </div> </div> </section> </div>   <section id="how-it-works" class="v2-vignette anv relative overflow-hidden bg-[#E9EDF0] pb-16 pt-16 scroll-mt-16 sm:pb-20 sm:pt-20"> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 lg:px-8"> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true"></div> <h2 class="text-3xl font-display font-bold leading-snug tracking-tight text-[#3f2305] sm:text-4xl">
+Proof is made with the change,<br> <span class="text-orange-600">not added afterwards.</span> </h2> <div class="mt-8 max-w-4xl space-y-4 text-lg leading-relaxed text-[#3f2305] sm:text-xl"> <p>
+Your developers and their agents keep using git. After a one-time setup, AquaGit signs every
+					commit the moment git creates it, with the key of whoever made it.
+</p> <p>
+When the change is pushed, AquaGit checks it at the door of your shared repository. A change that
+					passes gets a signed receipt. A change that fails is refused with its reason and never reaches your branch.
+</p> </div> <div class="mt-12 max-w-2xl"> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-5 text-center shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#776b5d]">Agents and people</p> <p class="mt-2 text-base font-medium text-[#3f2305] sm:text-lg">git commit · git push</p> </div> <div class="my-3 flex justify-center" aria-hidden="true"> <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M8 17l4 4 4-4"></path></svg> </div> <div class="rounded-2xl border-2 border-orange-500/50 bg-orange-500/[0.06] px-6 py-5 text-center"> <p class="text-base font-display font-bold tracking-tight text-orange-600 sm:text-lg">AquaGit</p> <p class="mt-1.5 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">
+checks who signed · checks their grant · checks the session is attached<br class="hidden sm:block">
+asks a person when the risk calls for it · receipt or refusal with a reason
+</p> </div> <div class="my-3 flex justify-center" aria-hidden="true"> <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M8 17l4 4 4-4"></path></svg> </div> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-5 text-center shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#776b5d]">Your shared repository</p> <p class="mt-2 text-base font-medium text-[#3f2305] sm:text-lg">only signed, granted and approved changes</p> </div> </div> <p class="mt-8 max-w-4xl font-medium text-lg leading-relaxed text-[#3f2305] sm:text-xl"> <span class="text-orange-600">AquaGit decides what reaches your shared code.</span>
+Signing adds no noticeable delay.
+</p> </div> </section>  <section class="v2-vignette anv relative overflow-hidden bg-[#E9EDF0] pb-16 pt-8 sm:pb-20 sm:pt-12"> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 lg:px-8"> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true"></div> <h2 class="text-3xl font-display font-bold leading-snug tracking-tight text-[#3f2305] sm:text-4xl">
+Every agent has its own key.<br> <span class="text-orange-600">Every key has a person behind it.</span> </h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-[#3f2305] sm:text-xl">
+Each agent acts under a signed grant from its owner. Withdraw the grant and the agent is out.
+</p> <div class="mt-10 grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-3"> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-600"><span class="h-2 w-2 rounded-full bg-orange-500" aria-hidden="true"></span>People</p> <p class="mt-3 text-base font-display font-bold text-[#3f2305] sm:text-lg">Sign with a passkey</p> <p class="mt-2 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">A passkey or a wallet, not a password. Every approval carries a named person’s signature.</p> </div> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-600"><span class="h-2 w-2 rounded-full bg-orange-500" aria-hidden="true"></span>Agents</p> <p class="mt-3 text-base font-display font-bold text-[#3f2305] sm:text-lg">Exactly the rights you grant</p> <p class="mt-2 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">Every git operation is a defined, signed record. You grant each agent the operations it may do, on the branches it may touch.</p> </div> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-600"><span class="h-2 w-2 rounded-full bg-orange-500" aria-hidden="true"></span>Approvals</p> <p class="mt-3 text-base font-display font-bold text-[#3f2305] sm:text-lg">A person signs off by risk</p> <p class="mt-2 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">You set which actions need a human. A merge into main waits for a passkey-signed approval, and the record names who approved.</p> </div> </div> </div> </section>  <section class="v2-vignette anv relative overflow-hidden bg-[#E9EDF0] pb-16 pt-8 sm:pb-20 sm:pt-12"> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 lg:px-8"> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true"></div> <h2 class="text-3xl font-display font-bold leading-snug tracking-tight text-[#3f2305] sm:text-4xl">The why travels with the code.</h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-[#3f2305] sm:text-xl">
+Each commit names the agent session that produced it. When the change is pushed, the session’s prompts
+				and transcripts are stored on <a href="/aqua-node/" class="underline underline-offset-4 decoration-orange-500/40 hover:text-orange-600">AquaNode</a>
+as signed records, helper agents included.
+</p> <div class="mt-10 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2"> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-600"><span class="h-2 w-2 rounded-full bg-orange-500" aria-hidden="true"></span>The owner sees</p> <p class="mt-3 text-base font-display font-bold text-[#3f2305] sm:text-lg">The full conversation</p> <p class="mt-2 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">Every prompt and every transcript. Keys and tokens are blacked out before anything is stored.</p> </div> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#776b5d]"> <span class="h-2 w-2 rounded-full bg-[#9C8F7A]" aria-hidden="true"></span>Everyone else sees
+</p> <p class="mt-3 text-base font-display font-bold text-[#3f2305] sm:text-lg">Fingerprints only</p> <p class="mt-2 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">Proof that the conversation exists and has not changed, without its content. The owner decides who may read more.</p> </div> </div> </div> </section>  <section class="v2-vignette anv relative overflow-hidden bg-[#E9EDF0] pb-16 pt-8 sm:pb-20 sm:pt-12"> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 lg:px-8"> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true"></div> <h2 class="text-3xl font-display font-bold leading-snug tracking-tight text-[#3f2305] sm:text-4xl">
+Hand an auditor the evidence.<br> <span class="text-orange-600">Not access to your systems.</span> </h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-[#3f2305] sm:text-xl">
+Export a period as one evidence bundle, sealed with a qualified timestamp whose date and integrity EU law presumes accurate.
+</p> <div class="mt-10 grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-3"> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-600">1 · Choose</p> <p class="mt-3 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">A range of commits or a time window: last quarter, last release, one incident.</p> </div> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-600">2 · Export</p> <p class="mt-3 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">Signed commit records, the receipt of every push, every approval, and the conversations you choose to share.</p> </div> <div class="rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-6 py-6 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)]"> <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-600">3 · Check</p> <p class="mt-3 text-base leading-relaxed text-[#4a3d2c] sm:text-lg">Built so anyone can check it with the Aqua SDK, without trusting us. Ask us to walk you through one.</p> </div> </div> </div> </section>  <section class="v2-vignette anv relative overflow-hidden bg-[#E9EDF0] pb-16 pt-8 sm:pb-20 sm:pt-12"> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 lg:px-8"> <div class="mb-5 h-0.5 w-[140px] rounded-full bg-orange-500" aria-hidden="true"></div> <h2 class="text-3xl font-display font-bold leading-snug tracking-tight text-[#3f2305] sm:text-4xl">
+What AquaGit guarantees.<br> <span class="text-orange-600">The evidence your rules ask for.</span> </h2> <p class="mt-6 max-w-4xl text-lg leading-relaxed text-[#3f2305] sm:text-xl">
+AquaGit produces the evidence these frameworks ask for. The EU AI Act applies when what you ship is part of a high-risk AI system.
+</p> <ul class="mt-10 max-w-5xl space-y-3"> <li class="flex flex-col gap-3 rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-5 py-4 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)] sm:flex-row sm:items-center sm:justify-between sm:gap-6"> <p class="flex items-start gap-3 text-base leading-relaxed text-[#3f2305] sm:text-lg"> <svg class="mt-1 h-5 w-5 flex-none text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"></path></svg> <span>Every change is signed, when it is made, by the agent or person who made it.</span> </p> <p class="flex flex-wrap gap-2 pl-8 sm:flex-none sm:justify-end sm:pl-0"> <span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">EU AI Act Art. 11</span><span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">CRA Art. 31</span><span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">SOC 2 CC8.1</span> </p> </li><li class="flex flex-col gap-3 rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-5 py-4 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)] sm:flex-row sm:items-center sm:justify-between sm:gap-6"> <p class="flex items-start gap-3 text-base leading-relaxed text-[#3f2305] sm:text-lg"> <svg class="mt-1 h-5 w-5 flex-none text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"></path></svg> <span>Every agent change names the session behind it, with its prompts and transcripts.</span> </p> <p class="flex flex-wrap gap-2 pl-8 sm:flex-none sm:justify-end sm:pl-0"> <span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">EU AI Act Art. 17</span><span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">ISO/IEC 42001</span> </p> </li><li class="flex flex-col gap-3 rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-5 py-4 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)] sm:flex-row sm:items-center sm:justify-between sm:gap-6"> <p class="flex items-start gap-3 text-base leading-relaxed text-[#3f2305] sm:text-lg"> <svg class="mt-1 h-5 w-5 flex-none text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"></path></svg> <span>Actions above the risk level you set wait for a named person’s passkey-signed approval.</span> </p> <p class="flex flex-wrap gap-2 pl-8 sm:flex-none sm:justify-end sm:pl-0"> <span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">EU AI Act Art. 17</span><span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">SOC 2 CC8.1</span> </p> </li><li class="flex flex-col gap-3 rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-5 py-4 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)] sm:flex-row sm:items-center sm:justify-between sm:gap-6"> <p class="flex items-start gap-3 text-base leading-relaxed text-[#3f2305] sm:text-lg"> <svg class="mt-1 h-5 w-5 flex-none text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"></path></svg> <span>A refused change never reaches your branch, and the refusal names its reason.</span> </p> <p class="flex flex-wrap gap-2 pl-8 sm:flex-none sm:justify-end sm:pl-0"> <span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">SOC 2 CC8.1</span> </p> </li><li class="flex flex-col gap-3 rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-5 py-4 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)] sm:flex-row sm:items-center sm:justify-between sm:gap-6"> <p class="flex items-start gap-3 text-base leading-relaxed text-[#3f2305] sm:text-lg"> <svg class="mt-1 h-5 w-5 flex-none text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"></path></svg> <span>Protected history cannot be force-pushed or deleted, not even by an administrator.</span> </p> <p class="flex flex-wrap gap-2 pl-8 sm:flex-none sm:justify-end sm:pl-0"> <span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">EU AI Act Art. 18</span><span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">CRA Art. 13</span> </p> </li><li class="flex flex-col gap-3 rounded-2xl border border-[#3f2305]/12 bg-[#F5F8FA] px-5 py-4 shadow-[0_8px_24px_-12px_rgba(63,35,5,0.16)] sm:flex-row sm:items-center sm:justify-between sm:gap-6"> <p class="flex items-start gap-3 text-base leading-relaxed text-[#3f2305] sm:text-lg"> <svg class="mt-1 h-5 w-5 flex-none text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"></path></svg> <span>Every evidence bundle carries a qualified timestamp, whose date and integrity EU law presumes accurate.</span> </p> <p class="flex flex-wrap gap-2 pl-8 sm:flex-none sm:justify-end sm:pl-0"> <span class="whitespace-nowrap rounded-md border border-[#3f2305]/15 bg-white px-2.5 py-1 text-xs font-semibold tracking-wide text-[#776b5d] sm:text-sm">eIDAS Art. 41</span> </p> </li> </ul> </div> </section>  <section class="v2-vignette anv relative overflow-hidden bg-[#E9EDF0] pb-16 pt-8 sm:pb-20 sm:pt-12"> <canvas data-beige-particles class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>  <div class="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-multiply" style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>&quot;);" aria-hidden="true"></div> <script>
+	(function () {
+		// Multi-instance safe: only initialize once per page load.
+		if (window.__beigeParticlesInit) return;
+		window.__beigeParticlesInit = true;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function setup(canvas) {
+			const ctx = canvas.getContext('2d');
+			const PARTICLE_COUNT = 50;
+			// Cap DPR at 1.5 (same as VisionCanvas) — full retina resolution is
+			// invisible for 3–10% opacity dots but doubles the pixel work.
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			let particles = [];
+			let width = 0;
+			let height = 0;
+			let isVisible = true;
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				width = rect.width;
+				height = rect.height;
+				if (width === 0 || height === 0) return;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function init() {
+				particles = [];
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						vx: (Math.random() - 0.5) * 0.06,
+						vy: (Math.random() - 0.5) * 0.06,
+						r: Math.random() * 1.2 + 0.4,
+						opacity: Math.random() * 0.07 + 0.03,
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				for (const p of particles) {
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(60, 42, 24, ' + p.opacity + ')';
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				// Visibility gate (same as VisionCanvas): while the section is
+				// off-screen, idle on a slow poll instead of burning rAF frames.
+				if (!isVisible) {
+					setTimeout(() => requestAnimationFrame(animate), 250);
+					return;
+				}
+
+				for (const p of particles) {
+					p.x += p.vx;
+					p.y += p.vy;
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			resize();
+			init();
+			if (reducedMotion) {
+				// Draw once, don't animate
+				draw();
+			} else {
+				animate();
+			}
+
+			// Re-init on resize so particle distribution matches new dimensions
+			const ro = new ResizeObserver(() => {
+				resize();
+				init();
+				if (reducedMotion) draw();
+			});
+			ro.observe(canvas);
+
+			// Pause the rAF loop while the section is off-screen (mirrors VisionCanvas)
+			const io = new IntersectionObserver(
+				([entry]) => {
+					isVisible = entry.isIntersecting;
+				},
+				{ rootMargin: '300px' }
+			);
+			io.observe(canvas);
+		}
+
+		function initAll() {
+			document.querySelectorAll('[data-beige-particles]').forEach(setup);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAll);
+		} else {
+			initAll();
+		}
+	})();
+</script> <div class="v2-reveal relative z-10 mx-auto max-w-7xl px-6 lg:px-8"> <div class="max-w-4xl"> <h2 class="text-3xl font-display font-bold leading-snug tracking-tight text-[#3f2305] sm:text-4xl">Now I know.</h2> <p class="mt-4 text-lg leading-relaxed text-[#3f2305] sm:text-xl"> <span class="text-orange-600">Who changed it, why, and who signed it off.</span> </p> <div class="mt-8"> <a href="https://calendly.com/tim-bansemer/30min" data-track="book_meeting" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-base font-semibold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-600 hover:shadow-lg"> <span>Book a meeting</span> <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span> </a> </div> </div> </div> </section> <script>
+		(function () {
+			if (window.__v2RevealInit) return;
+			window.__v2RevealInit = true;
+			const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const targets = document.querySelectorAll('.v2-reveal');
+			if (reduced) {
+				targets.forEach(function (el) { el.classList.add('v2-reveal-in'); });
+				return;
+			}
+			const observer = new IntersectionObserver(
+				function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('v2-reveal-in');
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+			);
+			targets.forEach(function (el) { observer.observe(el); });
+		})();
+	</script> <footer class="relative overflow-hidden border-t border-white/10 bg-[#181310] pb-12 pt-20 text-white max-sm:pt-12">  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent"></div> <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(55% 90% at 85% 0%, rgba(232,97,26,0.10), transparent 70%);"></div> <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">  <div class="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4 lg:gap-12">  <div class="col-span-2 lg:col-span-2"> <a href="/" class="inline-flex items-center gap-2"> <img src="/logo-dark.png" alt="inblock.io" width="3837" height="992" class="h-6 w-auto"> </a>  <p class="mt-3 text-base font-semibold text-white" style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">Now I know.</p> <p class="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
+Trust that travels with your data.
+</p> <div class="mt-6 flex items-center gap-3"> <a href="https://github.com/inblockio" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-orange-500/60 hover:bg-orange-500/10 hover:text-orange-400"> <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path> </svg> </a> <a href="https://www.linkedin.com/company/inblock-io" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-orange-500/60 hover:bg-orange-500/10 hover:text-orange-400"> <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path> </svg> </a> <a href="https://x.com/inblockio" target="_blank" rel="noopener noreferrer" aria-label="X" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-orange-500/60 hover:bg-orange-500/10 hover:text-orange-400"> <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path> </svg> </a> </div> </div>  <div> <p class="text-xs font-semibold uppercase tracking-[0.15em] text-orange-400">Products</p> <ul class="mt-5 space-y-3 text-sm">  <li><a href="https://agentic.inblock.io/" data-track="to_aquaagents" target="_blank" rel="noopener noreferrer" class="text-white/80 transition hover:text-orange-400">AquaAgents</a></li> <li><a href="https://aquafire.inblock.io/" data-track="to_aquafire" target="_blank" rel="noopener noreferrer" class="text-white/80 transition hover:text-orange-400">AquaFire</a></li> <li><a href="/aqua-node/" class="text-white/80 transition hover:text-orange-400">AquaNode</a></li> </ul> </div>  <div> <p class="text-xs font-semibold uppercase tracking-[0.15em] text-orange-400">Company</p> <ul class="mt-5 space-y-3 text-sm"> <li><a href="/about/how-aqua-was-born/" class="text-white/80 transition hover:text-orange-400">The Story of Aqua</a></li> <li><a href="/about/team/" class="text-white/80 transition hover:text-orange-400">Team</a></li> <li><a href="/about/partners/" class="text-white/80 transition hover:text-orange-400">Partners</a></li> <li><a href="mailto:info@inblock.io" data-track="contact_email" class="text-white/80 transition hover:text-orange-400">Contact</a></li> </ul> </div> </div>  <div class="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"> <p class="text-sm text-white/55">
+© 2026 inblock.io · <a href="https://aqua-protocol.org/" target="_blank" rel="noopener noreferrer" class="font-medium text-white/80 transition hover:text-orange-400">Aqua Protocol</a> and tooling will be open source under Apache 2.0
+</p>  <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"> <li><a href="/imprint/" class="font-medium text-white/80 transition hover:text-orange-400">Imprint</a></li> <li><a href="/privacy/" class="font-medium text-white/80 transition hover:text-orange-400">Privacy</a></li> <li><button type="button" data-privacy-settings class="font-medium text-white/80 transition hover:text-orange-400">Privacy settings</button></li> <li><a href="/privacy/my-data/" class="font-medium text-white/80 transition hover:text-orange-400">My data</a></li> <li><div class="flex items-center gap-2.5" data-animation-pref> <span class="text-sm text-white/55">Background animation</span> <div class="inline-flex items-center rounded-full border border-white/15 bg-white/5 p-0.5" role="group" aria-label="Background animation"> <button type="button" data-animation-pref-on class="rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.12em] text-white/55 transition hover:text-orange-400" aria-pressed="true">
+On
+</button> <button type="button" data-animation-pref-off class="rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.12em] text-white/55 transition hover:text-orange-400" aria-pressed="false">
+Off
+</button> </div> </div> <script type="module" src="/_astro/AnimationPref.astro_astro_type_script_index_0_lang.BK9XO71l.js"></script></li> </ul> </div> </div> </footer> </div>  <div id="privacy-banner" data-privacy-banner hidden class="fixed inset-x-0 bottom-0 z-[100] px-3 pb-3 sm:px-6 sm:pb-6"> <div id="privacy-dialog" role="dialog" aria-modal="false" aria-label="Your privacy choice" tabindex="-1" class="mx-auto max-h-[88vh] max-w-4xl overflow-y-auto overscroll-contain rounded-2xl border border-[#3f2305]/15 bg-[var(--chrome)] p-4 text-[#3f2305] shadow-2xl sm:p-6"> <div data-cc-layer="first">  <div data-cc-text class="text-sm leading-relaxed"> <p data-cc-short><strong>Your privacy choice.</strong> We count visits anonymously, without cookies; &quot;Reject all&quot; stops that too. With your consent we also recognise your browser (a random ID and a device fingerprint), keep a visit profile for our marketing and load YouTube videos. You can change this anytime. <button type="button" data-cc-more aria-expanded="false" aria-controls="privacy-full" class="font-medium text-orange-700 underline underline-offset-2 transition hover:text-orange-800">Read more</button></p> <p id="privacy-full" data-cc-full hidden><strong>Your privacy choice.</strong> By default we count page visits anonymously, without cookies and without a profile; &quot;Reject all&quot; stops that as well. With your consent we also recognise your browser on later visits, by a random ID in your browser and a device fingerprint, and keep a visit profile (pages read, time spent, interests, how you found us) on our own server in Frankfurt for our marketing. Authorised staff can view it; it is deleted 13 months after your last visit. External media (YouTube) load only with your consent. Change your choice anytime under &quot;Privacy settings&quot; in the footer; see or delete your profile under &quot;My data&quot;. Details: <a href="/privacy/#statistics" class="font-medium text-orange-700 underline underline-offset-2 transition hover:text-orange-800">privacy policy, § 7</a>.</p> </div> <div class="mt-4 grid max-w-xl grid-cols-3 gap-2 sm:gap-3"> <button type="button" data-cc-reject class="w-full rounded-full border-2 border-[#3f2305] bg-white px-1 py-2.5 text-center text-[13px] font-semibold leading-tight sm:text-sm text-[#3f2305] transition hover:bg-[#3f2305] hover:text-white disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3f2305] sm:px-4">Reject all</button> <button type="button" data-cc-settings class="w-full rounded-full border-2 border-[#3f2305] bg-white px-1 py-2.5 text-center text-[13px] font-semibold leading-tight sm:text-sm text-[#3f2305] transition hover:bg-[#3f2305] hover:text-white disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3f2305] sm:px-4">Settings</button> <button type="button" data-cc-accept class="w-full rounded-full border-2 border-[#3f2305] bg-white px-1 py-2.5 text-center text-[13px] font-semibold leading-tight sm:text-sm text-[#3f2305] transition hover:bg-[#3f2305] hover:text-white disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3f2305] sm:px-4">Accept all</button> </div> </div> <div data-cc-layer="settings" hidden> <ul data-cc-settings-text class="space-y-4 text-sm leading-relaxed"> <li> <label class="flex items-start gap-3"> <input type="checkbox" data-cc-analytics class="mt-0.5 h-5 w-5 flex-none accent-orange-600"> <span><strong>Analytics and visit profile.</strong> Recognise this browser on later visits by a random ID stored in your browser. A device fingerprint (a hash of browser and device characteristics such as screen, fonts, graphics and time zone) lets us count returning and unique visitors even if your browser storage was cleared; it never merges your profile with anyone else&#39;s. We keep a profile of your visits on our server: pages and time spent, clicks on links such as booking a meeting, how you found us, device type, country, network operator and interests. Authorised staff can view it. Kept until 13 months after your last visit or until you withdraw.</span> </label> </li> <li> <label class="flex items-start gap-3"> <input type="checkbox" data-cc-count class="mt-0.5 h-5 w-5 flex-none accent-orange-600"> <span><strong>Anonymous visit counting.</strong> Count page views without cookies, without a profile and without storing anything on your device: page, source, campaign, device type and country. Untick to object (Art. 21 GDPR).</span> </label> </li> <li> <label class="flex items-start gap-3"> <input type="checkbox" data-cc-media class="mt-0.5 h-5 w-5 flex-none accent-orange-600"> <span><strong>External media.</strong> Load the YouTube player when you press play (Google may set cookies; see <a href="/privacy/#youtube" class="font-medium text-orange-700 underline underline-offset-2 transition hover:text-orange-800">§ 3</a>).</span> </label> </li> <li class="flex items-start gap-3"> <span class="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded border border-[#3f2305]/30 bg-white/60 text-[10px] font-bold" aria-hidden="true">✓</span> <span><strong>Necessary.</strong> Remember this choice. Proof of your choice (date, text version and, if you consented, your random ID) is kept for 3 years. <em class="whitespace-nowrap text-xs not-italic text-[#776b5d]">(always on)</em></span> </li> </ul> <div class="mt-5 flex flex-wrap items-center gap-4"> <div class="w-full max-w-xs"><button type="button" data-cc-save class="w-full rounded-full border-2 border-[#3f2305] bg-white px-1 py-2.5 text-center text-[13px] font-semibold leading-tight sm:text-sm text-[#3f2305] transition hover:bg-[#3f2305] hover:text-white disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3f2305] sm:px-4">Save choice</button></div> <button type="button" data-cc-back class="font-medium text-orange-700 underline underline-offset-2 transition hover:text-orange-800">Back</button> </div> </div> <p data-cc-error role="alert" hidden class="mt-3 text-sm font-medium text-red-800">Could not reach the server; please try again.</p> <p class="mt-4 text-xs text-[#776b5d]"><a href="/imprint/" class="underline underline-offset-2 hover:text-orange-700">Imprint</a></p> </div> </div> <script>(function(){const COLLECTOR_URL = "https://aquafire.inblock.io/wi";
+const CONSENT_KEY = "aqua-consent-v2";
+const CONSENT_MAX_AGE_DAYS = 365;
+const CONSENT_VERSION = "2026-10-29.2";
+const LEGACY_CONSENT_KEY = "aqua-cookie-consent";
+const VISITOR_KEY = "aqua-vid";
+const LANG = "en";
+
+	(function () {
+		var banner = document.getElementById('privacy-banner');
+		var dialog = document.getElementById('privacy-dialog');
+		if (!banner || !dialog) return;
+		var first = banner.querySelector('[data-cc-layer="first"]');
+		var settings = banner.querySelector('[data-cc-layer="settings"]');
+		var cbAnalytics = banner.querySelector('[data-cc-analytics]');
+		var cbCount = banner.querySelector('[data-cc-count]');
+		var cbMedia = banner.querySelector('[data-cc-media]');
+		var errorEl = banner.querySelector('[data-cc-error]');
+		var controls = banner.querySelectorAll('button, input');
+
+		var store = function () { try { return window.localStorage; } catch (e) { return null; } };
+		var rawRecord = function () {
+			var s = store();
+			if (!s) return null;
+			try { var r = JSON.parse(s.getItem(CONSENT_KEY)); return r && typeof r === 'object' ? r : null; } catch (e) { return null; }
+		};
+		var isValid = function (r) {
+			return !!r && r.version === CONSENT_VERSION && typeof r.ts === 'number' && Date.now() - r.ts <= CONSENT_MAX_AGE_DAYS * 864e5;
+		};
+		var record = function () { var r = rawRecord(); return isValid(r) ? r : null; };
+		var readVid = function () {
+			var s = store();
+			try { var v = s && s.getItem(VISITOR_KEY); return /^[0-9a-f]{32}$/.test(v || '') ? v : null; } catch (e) { return null; }
+		};
+		var gpc = function () { return navigator.globalPrivacyControl === true; };
+		var hex = function (n) {
+			var a = new Uint8Array(n);
+			crypto.getRandomValues(a);
+			return Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+		};
+		var sha256 = function (text) {
+			if (!(window.crypto && crypto.subtle && window.TextEncoder)) return Promise.resolve(null);
+			return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+				return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+			});
+		};
+		// No cookies go along (credentials omitted) and no referrer: the collector learns the origin only.
+		var request = function (path, obj, keepalive) {
+			return fetch(COLLECTOR_URL + path, { method: 'POST', body: JSON.stringify(obj), keepalive: keepalive, credentials: 'omit', referrerPolicy: 'no-referrer', headers: { 'Content-Type': 'text/plain' } });
+		};
+		// Fail-open: a collector that is down, blocked or slow never touches the page.
+		var send = function (path, obj) {
+			try { request(path, obj, true).catch(function () {}); } catch (e) {}
+		};
+		// Resolves true only when the collector confirmed (any 2xx); used where the browser must not forget before the server did.
+		var ask = function (path, obj) {
+			try { return request(path, obj, false).then(function (r) { return r.ok; }, function () { return false; }); } catch (e) { return Promise.resolve(false); }
+		};
+
+		// The words shown to the visitor, whitespace collapsed: first layer plus settings layer.
+		// text_sha256 in the consent log is the SHA-256 of exactly this string.
+		var bannerText = function () {
+			var parts = [banner.querySelector('[data-cc-text]'), banner.querySelector('[data-cc-settings-text]')];
+			return parts.map(function (n) { return (n.textContent || '').replace(/\s+/g, ' ').trim(); }).join(' ');
+		};
+
+		// A v1 choice never covered the new purposes.
+		try { var s0 = store(); if (s0) s0.removeItem(LEGACY_CONSENT_KEY); } catch (e) {}
+
+		var announce = function () {
+			try { window.dispatchEvent(new CustomEvent('privacy-consent-change', { detail: record() })); } catch (e) {}
+		};
+		var busy = function (on) {
+			banner.setAttribute('aria-busy', on ? 'true' : 'false');
+			Array.prototype.forEach.call(controls, function (c) { c.disabled = on; });
+		};
+		var showError = function (on) { errorEl.hidden = !on; };
+
+		var layer = function (name) {
+			first.hidden = name !== 'first';
+			settings.hidden = name !== 'settings';
+			dialog.scrollTop = 0;
+			showError(false);
+		};
+		var syncSettings = function () {
+			var rec = record();
+			var raw = rawRecord();
+			cbAnalytics.checked = !!(rec && rec.analytics);
+			cbMedia.checked = !!(rec && rec.media);
+			// The anonymous count is on unless the visitor objected; an objection stands also across a text version.
+			cbCount.checked = !(raw && raw.objectT0);
+		};
+		// The profile includes the count, and an objection to the count ends the profile: the two never contradict.
+		cbAnalytics.addEventListener('change', function () { if (cbAnalytics.checked) cbCount.checked = true; });
+		cbCount.addEventListener('change', function () { if (!cbCount.checked) cbAnalytics.checked = false; });
+
+		var shownSent = false;
+		var lastTrigger = null;
+		var open = function (name, byUser) {
+			var raw = rawRecord();
+			if (name === 'settings') syncSettings();
+			layer(name);
+			banner.hidden = false;
+			// "shown" is the denominator of the consent rate. Not sent under an objection or
+			// Global Privacy Control: those visitors are counted not at all.
+			if (!shownSent) {
+				shownSent = true;
+				if (!gpc() && !(raw && raw.objectT0)) send('/consent', { action: 'shown', c: CONSENT_VERSION, lang: LANG });
+			}
+			if (byUser) {
+				try { (name === 'settings' ? cbAnalytics : dialog).focus({ preventScroll: true }); } catch (e) {}
+			}
+		};
+		var close = function () {
+			banner.hidden = true;
+			if (lastTrigger && document.contains(lastTrigger)) { try { lastTrigger.focus(); } catch (e) {} }
+			lastTrigger = null;
+		};
+
+		var choose = function (analytics, media, objectT0) {
+			var s = store();
+			var vid = readVid();
+			var withdrawing = !analytics && !!vid;
+			var rec = { version: CONSENT_VERSION, ts: Date.now(), analytics: analytics, media: media, objectT0: objectT0 };
+			var body = function () {
+				return sha256(bannerText()).then(function (h) {
+					return { action: 'choice', v: vid, c: CONSENT_VERSION, analytics: analytics, media: media, text_sha256: h, lang: LANG };
+				});
+			};
+			var apply = function () {
+				if (analytics && !vid && s) {
+					vid = hex(16);
+					try { s.setItem(VISITOR_KEY, vid); } catch (e) { vid = null; }
+				}
+				if (s) { try { s.setItem(CONSENT_KEY, JSON.stringify(rec)); } catch (e) {} }
+				if (withdrawing && s) { try { s.removeItem(VISITOR_KEY); } catch (e) {} }
+				close();
+				announce();
+			};
+			if (withdrawing) {
+				// Server first (Art. 7(3)): the id and the old choice stay in this browser until the collector confirmed.
+				showError(false);
+				busy(true);
+				body().then(function (b) { return ask('/consent', b); }).then(function (ok) {
+					busy(false);
+					if (ok) apply(); else showError(true);
+				});
+				return;
+			}
+			apply();
+			// Proof of every choice, a refusal and an objection included (policy § 7.3).
+			body().then(function (b) { send('/consent', b); });
+		};
+
+		// Reject all: analytics off, media off, objection to the anonymous count on.
+		banner.querySelector('[data-cc-reject]').addEventListener('click', function () { choose(false, false, true); });
+		banner.querySelector('[data-cc-accept]').addEventListener('click', function () { choose(true, true, false); });
+		banner.querySelector('[data-cc-settings]').addEventListener('click', function () { open('settings', true); });
+		banner.querySelector('[data-cc-more]').addEventListener('click', function () {
+			var full = banner.querySelector('[data-cc-full]');
+			banner.querySelector('[data-cc-short]').hidden = true;
+			full.hidden = false;
+			full.setAttribute('tabindex', '-1');
+			full.focus();
+		});
+		banner.querySelector('[data-cc-save]').addEventListener('click', function () {
+			var analytics = cbAnalytics.checked;
+			choose(analytics, cbMedia.checked, analytics ? false : !cbCount.checked);
+		});
+		banner.querySelector('[data-cc-back]').addEventListener('click', function () { layer('first'); });
+
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && !banner.hidden && record()) close();
+		});
+		document.addEventListener('click', function (e) {
+			var t = e.target && e.target.closest && e.target.closest('[data-privacy-settings]');
+			if (t) { e.preventDefault(); lastTrigger = t; open('settings', true); }
+		});
+
+		window.getConsent = record;
+		window.openPrivacySettings = function () { open('settings', true); };
+
+		if (!record()) open('first', false);
+	})();
+})();</script> <script>(function(){const COLLECTOR_URL = "https://aquafire.inblock.io/wi";
+const CONSENT_KEY = "aqua-consent-v2";
+const MAX_AGE_MS = 31536000000;
+const CONSENT_VERSION = "2026-10-29.2";
+const TIER0_WITHOUT_CONSENT = true;
+const VISITOR_KEY = "aqua-vid";
+
+(function () {
+	var ls = { getItem: function () {} }, P = location.pathname, live = false;
+	try { ls = localStorage; } catch (e) {}
+	var hx = a => Array.from(a, b => b.toString(16).padStart(2, '0')).join('');
+	var sha = t => crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)).then(b => hx(new Uint8Array(b)));
+	var pid = hx(crypto.getRandomValues(new Uint8Array(8)));
+	var state = function () {
+		var r; try { r = JSON.parse(ls.getItem(CONSENT_KEY)); } catch (e) {}
+		r = r || {};
+		if (navigator.globalPrivacyControl === true || r.objectT0 === true) return null;
+		var a = r.analytics === true && r.version === CONSENT_VERSION && Date.now() - r.ts <= MAX_AGE_MS;
+		a = a && /^[0-9a-f]{32}$/.test(ls.getItem(VISITOR_KEY));
+		return a || TIER0_WITHOUT_CONSENT ? { a: a } : null;
+	};
+	var post = function (o) {
+		var s = state();
+		if (!s || (o.e !== 'pv' && !(s.a && live))) return;
+		o.p = P;
+		if (s.a) { o.pid = pid; o.v = ls.getItem(VISITOR_KEY); o.c = CONSENT_VERSION; live = true; } else { delete o.lang; delete o.f; }
+		try { fetch(COLLECTOR_URL + '/t', { method: 'POST', body: JSON.stringify(o), keepalive: true, credentials: 'omit', headers: { 'Content-Type': 'text/plain' } }).catch(() => {}); } catch (e) {}
+	};
+	var mk = t => document.createElement(t);
+	var fp = function () {
+		var n = navigator, s = screen, o = { ua: n.userAgent, pl: n.platform, lg: n.languages, hc: n.hardwareConcurrency, dm: n.deviceMemory, mt: n.maxTouchPoints, sc: [s.width, s.height, s.colorDepth, devicePixelRatio] };
+		o.tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+		try { var g = mk('canvas').getContext('webgl'), x = g.getExtension('WEBGL_debug_renderer_info'); o.gl = [g.getParameter(x.UNMASKED_VENDOR_WEBGL), g.getParameter(x.UNMASKED_RENDERER_WEBGL)]; } catch (e) {}
+		try { var c = mk('canvas'), d = c.getContext('2d'); d.font = '16px Arial'; d.fillText('inblock.io \u00e4\u00f6\u00fc', 2, 14); d.arc(50, 20, 15, 0, 6.28); d.stroke(); o.cv = c.toDataURL(); } catch (e) {}
+		try {
+			var B = 'monospace,sans-serif,serif'.split(','), u = mk('div'), t = mk('span'), w = [];
+			u.style.cssText = 'position:absolute;left:-9999px;contain:strict'; t.style.fontSize = '72px'; t.textContent = 'mmmmmmmmmmlli'; u.appendChild(t); document.body.appendChild(u);
+			B.forEach((b, i) => { t.style.fontFamily = b; w[i] = t.offsetWidth; });
+			o.fo = 'Arial,Verdana,Tahoma,Segoe UI,Calibri,Calibri,Consolas,Menlo,Roboto,Ubuntu,DejaVu Sans,Georgia'.split(',').filter(f => B.some((b, i) => { t.style.fontFamily = '"' + f + '",' + b; return t.offsetWidth !== w[i]; }));
+			u.remove();
+		} catch (e) {}
+		return sha(JSON.stringify(o));
+	};
+
+	var s0 = state(), q = {}, sp = new URLSearchParams(location.search), drop = [];
+	if (!s0) return;
+	sp.forEach((x, k) => { if (k.slice(0, 4) === 'utm_') { drop.push(k); if (x) q[k] = x.slice(0, 100); } });
+	var go = f => post({ e: 'pv', r: document.referrer, q: q, lang: document.documentElement.lang === 'de' ? 'de' : 'en', f: f });
+	var run = () => Promise.race([fp(), new Promise(r => setTimeout(r, 1500))]).then(go, () => go());
+	var idle = () => window.requestIdleCallback ? requestIdleCallback(run, { timeout: 800 }) : setTimeout(run, 300);
+	if (s0.a && crypto.subtle) document.readyState === 'complete' ? idle() : addEventListener('load', idle); else go();
+	if (drop.length) { drop.forEach(k => sp.delete(k)); var r = sp.toString(); try { history.replaceState(null, '', P + (r ? '?' + r : '') + location.hash); } catch (e) {} }
+
+	var last = document.visibilityState === 'visible' ? Date.now() : 0, acc = 0;
+	var flush = function () { if (last) { acc += Date.now() - last; last = Date.now(); } if (acc >= 1) { post({ e: 'engage', t: Math.round(acc) }); acc = 0; } };
+	document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') { flush(); last = 0; } else last = Date.now(); });
+	addEventListener('pagehide', flush);
+	document.addEventListener('click', function (e) {
+		var el = e.target.closest && e.target.closest('[data-track]');
+		if (el) post({ e: 'click', n: el.getAttribute('data-track') });
+	});
+})();
+})();</script>  </body></html>
